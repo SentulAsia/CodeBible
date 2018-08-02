@@ -52,7 +52,8 @@ open class KeyboardHelper: NSObject {
 }
 
 extension UITextField {
-    @IBInspectable var doneButton: Bool {
+    @IBInspectable
+    var doneButton: Bool {
         get {
             return self.doneButton
         }

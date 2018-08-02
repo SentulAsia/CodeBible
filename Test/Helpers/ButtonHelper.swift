@@ -13,13 +13,37 @@ class ButtonHelper: UIButton {
 
     @IBInspectable
     public var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
         set {
             layer.cornerRadius = newValue
             layer.masksToBounds = true
             clipsToBounds = true
         }
+    }
+
+    @IBInspectable
+    public var borderColor: UIColor? {
         get {
-            return layer.cornerRadius
+            if let color = layer.borderColor {
+                return UIColor(cgColor: color)
+            } else {
+                return nil
+            }
+        }
+        set {
+            layer.borderColor = newValue!.cgColor
+        }
+    }
+
+    @IBInspectable
+    public var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
         }
     }
 }
