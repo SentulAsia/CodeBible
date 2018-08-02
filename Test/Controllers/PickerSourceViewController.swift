@@ -12,9 +12,11 @@ class PickerSourceViewController: UIViewController {
 
     @IBOutlet weak var pickerButton: UIButton!
     @IBOutlet weak var anotherPickerButton: UIButton!
+    @IBOutlet weak var keyboardHeightLayoutConstraint: NSLayoutConstraint!
     
     let firstData = ["First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth"]
     let secondData = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    let keyboard = KeyboardHelper()
 
     var selectedIndex: Int?
 
@@ -22,6 +24,7 @@ class PickerSourceViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.keyboard.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,5 +93,11 @@ class PickerSourceViewController: UIViewController {
             blurController.present(controller, animated: true, completion: nil)
         }
         self.present(blurController, animated: false, completion: nil)
+    }
+}
+
+extension PickerSourceViewController: KeyboardHelperDataSource {
+    func keyboardHeightLayoutConstraint(kipleKeyboard: KeyboardHelper) -> NSLayoutConstraint {
+        return self.keyboardHeightLayoutConstraint
     }
 }

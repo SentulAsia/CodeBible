@@ -138,33 +138,44 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YBY-YZ-xvg">
-                                <rect key="frame" x="16" y="104" width="343" height="30"/>
+                                <rect key="frame" x="16" y="621" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneButton" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54T-i3-3Iu">
+                                <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="7cJ-Hh-xN4"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8h4-AT-63y" firstAttribute="centerX" secondItem="A8V-5r-lM7" secondAttribute="centerX" id="0PK-Ah-IuK"/>
-                            <constraint firstItem="YBY-YZ-xvg" firstAttribute="top" secondItem="Nnh-cg-jop" secondAttribute="bottom" constant="8" id="5GP-KL-yeE"/>
+                            <constraint firstAttribute="bottom" secondItem="54T-i3-3Iu" secondAttribute="bottom" id="1Cy-mO-NIi"/>
                             <constraint firstItem="xCT-Y9-2Nz" firstAttribute="top" secondItem="oEp-3v-bV3" secondAttribute="top" id="Axi-11-iZj"/>
+                            <constraint firstItem="54T-i3-3Iu" firstAttribute="leading" secondItem="oEp-3v-bV3" secondAttribute="leading" id="NEk-GB-l3R"/>
                             <constraint firstItem="YBY-YZ-xvg" firstAttribute="leading" secondItem="A8V-5r-lM7" secondAttribute="leading" constant="16" id="e7i-Iy-8DJ"/>
                             <constraint firstItem="Nnh-cg-jop" firstAttribute="centerX" secondItem="A8V-5r-lM7" secondAttribute="centerX" id="eYf-lS-o79"/>
+                            <constraint firstItem="54T-i3-3Iu" firstAttribute="top" secondItem="YBY-YZ-xvg" secondAttribute="bottom" constant="16" id="g1F-oq-yhD"/>
                             <constraint firstItem="A8V-5r-lM7" firstAttribute="trailing" secondItem="YBY-YZ-xvg" secondAttribute="trailing" constant="16" id="gjX-nv-mIH"/>
                             <constraint firstItem="xCT-Y9-2Nz" firstAttribute="leading" secondItem="oEp-3v-bV3" secondAttribute="leading" id="hOr-LM-JwJ"/>
                             <constraint firstAttribute="bottom" secondItem="xCT-Y9-2Nz" secondAttribute="bottom" id="irj-sL-Brx"/>
                             <constraint firstItem="Nnh-cg-jop" firstAttribute="top" secondItem="8h4-AT-63y" secondAttribute="bottom" constant="8" id="pT5-r0-xxO"/>
                             <constraint firstAttribute="trailing" secondItem="xCT-Y9-2Nz" secondAttribute="trailing" id="w5b-QN-wFG"/>
+                            <constraint firstAttribute="trailing" secondItem="54T-i3-3Iu" secondAttribute="trailing" id="xWi-dP-JAe"/>
                             <constraint firstItem="8h4-AT-63y" firstAttribute="top" secondItem="A8V-5r-lM7" secondAttribute="top" constant="8" id="ydf-KC-DC7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A8V-5r-lM7"/>
                     </view>
                     <connections>
                         <outlet property="anotherPickerButton" destination="Nnh-cg-jop" id="TcD-iD-pQX"/>
+                        <outlet property="keyboardHeightLayoutConstraint" destination="7cJ-Hh-xN4" id="6Ih-7d-OYI"/>
                         <outlet property="pickerButton" destination="8h4-AT-63y" id="5r0-Du-R43"/>
                     </connections>
                 </viewController>

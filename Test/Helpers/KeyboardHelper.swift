@@ -8,10 +8,53 @@
 
 import UIKit
 
+public protocol KeyboardHelperDataSource: class {
+    func keyboardHeightLayoutConstraint(kipleKeyboard: KeyboardHelper) -> NSLayoutConstraint
+}
+
+open class KeyboardHelper: NSObject {
+    public final weak var dataSource: KeyboardHelperDataSource?
+
+    public override init() {
+        super.init()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc
+    func keyboardWillChangeFrame(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            let duration: TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseInOut.rawValue
+            let animationCurve: UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
+            if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
+                self.dataSource?.keyboardHeightLayoutConstraint(kipleKeyboard: self).constant = 0.0
+            } else {
+                self.dataSource?.keyboardHeightLayoutConstraint(kipleKeyboard: self).constant = endFrame?.size.height ?? 0.0
+            }
+            if let d = self.dataSource as? UIViewController {
+                UIView.animate(withDuration: duration,
+                               delay: 0,
+                               options: animationCurve,
+                               animations: {
+                                d.view.layoutIfNeeded()
+                },
+                               completion: nil)
+            }
+        }
+    }
+}
+
 extension UITextField {
-    @IBInspectable var doneAccessory: Bool {
+    @IBInspectable var doneButton: Bool {
         get {
-            return self.doneAccessory
+            return self.doneButton
         }
         set {
             if newValue {
