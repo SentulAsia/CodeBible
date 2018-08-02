@@ -40,6 +40,10 @@ class PickerSourceViewController: UIViewController {
     }
     */
 
+    @IBAction func backgroundViewTapped(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+
     @IBAction func pickerButtonTapped(_ sender: Any) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Common", bundle: nil)
         let blurController = storyboard.instantiateViewController(withIdentifier: BlurViewController.identifier) as! BlurViewController

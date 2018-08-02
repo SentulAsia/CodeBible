@@ -115,27 +115,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xCT-Y9-2Nz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="FKO-3R-Hm7" appends="YES" id="qZM-Nb-fRs"/>
+                                </connections>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8h4-AT-63y">
-                                <rect key="frame" x="164" y="52" width="46" height="30"/>
+                                <rect key="frame" x="164" y="28" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="pickerButtonTapped:" destination="5wr-mr-Ea4" eventType="touchUpInside" id="Iqg-eG-i9X"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nnh-cg-jop">
-                                <rect key="frame" x="164.5" y="90" width="46" height="30"/>
+                                <rect key="frame" x="164.5" y="66" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="anotherPickerButtonTapped:" destination="5wr-mr-Ea4" eventType="touchUpInside" id="JjY-hv-N4m"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YBY-YZ-xvg">
+                                <rect key="frame" x="16" y="104" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8h4-AT-63y" firstAttribute="centerX" secondItem="A8V-5r-lM7" secondAttribute="centerX" id="0PK-Ah-IuK"/>
+                            <constraint firstItem="YBY-YZ-xvg" firstAttribute="top" secondItem="Nnh-cg-jop" secondAttribute="bottom" constant="8" id="5GP-KL-yeE"/>
+                            <constraint firstItem="xCT-Y9-2Nz" firstAttribute="top" secondItem="oEp-3v-bV3" secondAttribute="top" id="Axi-11-iZj"/>
+                            <constraint firstItem="YBY-YZ-xvg" firstAttribute="leading" secondItem="A8V-5r-lM7" secondAttribute="leading" constant="16" id="e7i-Iy-8DJ"/>
                             <constraint firstItem="Nnh-cg-jop" firstAttribute="centerX" secondItem="A8V-5r-lM7" secondAttribute="centerX" id="eYf-lS-o79"/>
+                            <constraint firstItem="A8V-5r-lM7" firstAttribute="trailing" secondItem="YBY-YZ-xvg" secondAttribute="trailing" constant="16" id="gjX-nv-mIH"/>
+                            <constraint firstItem="xCT-Y9-2Nz" firstAttribute="leading" secondItem="oEp-3v-bV3" secondAttribute="leading" id="hOr-LM-JwJ"/>
+                            <constraint firstAttribute="bottom" secondItem="xCT-Y9-2Nz" secondAttribute="bottom" id="irj-sL-Brx"/>
                             <constraint firstItem="Nnh-cg-jop" firstAttribute="top" secondItem="8h4-AT-63y" secondAttribute="bottom" constant="8" id="pT5-r0-xxO"/>
-                            <constraint firstItem="8h4-AT-63y" firstAttribute="top" secondItem="A8V-5r-lM7" secondAttribute="top" constant="32" id="ydf-KC-DC7"/>
+                            <constraint firstAttribute="trailing" secondItem="xCT-Y9-2Nz" secondAttribute="trailing" id="w5b-QN-wFG"/>
+                            <constraint firstItem="8h4-AT-63y" firstAttribute="top" secondItem="A8V-5r-lM7" secondAttribute="top" constant="8" id="ydf-KC-DC7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A8V-5r-lM7"/>
                     </view>
@@ -145,8 +165,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jry-Eh-2Fk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="FKO-3R-Hm7">
+                    <connections>
+                        <action selector="backgroundViewTapped:" destination="5wr-mr-Ea4" id="uYg-ki-bUi"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-76" y="1751"/>
+            <point key="canvasLocation" x="-76" y="1750.9745127436283"/>
         </scene>
     </scenes>
 </document>
