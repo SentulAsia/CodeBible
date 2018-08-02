@@ -10,16 +10,22 @@ import UIKit
 
 class PickerViewController: UIViewController {
 
+    @IBOutlet weak var pickerView: UIPickerView!
+
     static let identifier = "PickerViewController"
 
     var pickerList: [String] = []
-    var pickerSelectedIndex: Int = 0
-    var completionHandler: (() -> Void)?
+    var pickerSelectedIndex: Int?
+    var picked = false
+    var dismissCompletionHandler: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if let row = self.pickerSelectedIndex {
+            self.pickerView.selectRow(row, inComponent: 0, animated: false)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,11 +44,13 @@ class PickerViewController: UIViewController {
     }
     */
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.picked = false
+        self.dismiss(animated: true, completion: self.dismissCompletionHandler)
     }
 
     @IBAction func doneButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: self.completionHandler)
+        self.picked = true
+        self.dismiss(animated: true, completion: self.dismissCompletionHandler)
     }
 }
 

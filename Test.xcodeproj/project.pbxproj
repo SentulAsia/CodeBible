@@ -26,6 +26,8 @@
 		2EED9C142100AAE200115A6F /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EED9C132100AAE200115A6F /* APIRequest.swift */; };
 		2EFE46122112BCBB00908B27 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE46112112BCBB00908B27 /* PickerViewController.swift */; };
 		2EFE46142112BFF100908B27 /* PickerSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE46132112BFF100908B27 /* PickerSourceViewController.swift */; };
+		2EFE46162112D3EA00908B27 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EFE46152112D3EA00908B27 /* Common.storyboard */; };
+		2EFE461A2112D51E00908B27 /* BlurViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE46192112D51E00908B27 /* BlurViewController.swift */; };
 		A72574928A0D5651E9B4C68F /* Pods_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDC3885888EF6BC2AF3DDC7 /* Pods_Test.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,8 @@
 		2EED9C132100AAE200115A6F /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		2EFE46112112BCBB00908B27 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		2EFE46132112BFF100908B27 /* PickerSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerSourceViewController.swift; sourceTree = "<group>"; };
+		2EFE46152112D3EA00908B27 /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
+		2EFE46192112D51E00908B27 /* BlurViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurViewController.swift; sourceTree = "<group>"; };
 		DD19E939C74E729CA4FED560 /* Pods-Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Test/Pods-Test.debug.xcconfig"; sourceTree = "<group>"; };
 		ED9A80039984EA28F5A7C790 /* Pods-Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-Test/Pods-Test.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,6 +155,7 @@
 			children = (
 				2E044D7F20FECCFA00EA8B56 /* TableViewCell */,
 				2E1E767620FDD15B008850F8 /* Main.storyboard */,
+				2EFE46152112D3EA00908B27 /* Common.storyboard */,
 				2E1E767B20FDD15D008850F8 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
@@ -162,7 +167,7 @@
 				2E1E767420FDD15B008850F8 /* RestaurantListViewController.swift */,
 				2EED9C0F21008FDD00115A6F /* ChannelListTableViewController.swift */,
 				2EFE46132112BFF100908B27 /* PickerSourceViewController.swift */,
-				2EFE46112112BCBB00908B27 /* PickerViewController.swift */,
+				2EFE46172112D49100908B27 /* Common */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -191,6 +196,15 @@
 				2EED9C0A21008E4B00115A6F /* Channel.swift */,
 			);
 			path = Astro;
+			sourceTree = "<group>";
+		};
+		2EFE46172112D49100908B27 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2EFE46192112D51E00908B27 /* BlurViewController.swift */,
+				2EFE46112112BCBB00908B27 /* PickerViewController.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		9FC83F9F58BA5DDEA7A98CDA /* Frameworks */ = {
@@ -272,6 +286,7 @@
 				2E1E767D20FDD15D008850F8 /* LaunchScreen.storyboard in Resources */,
 				2E1E768520FDD199008850F8 /* iOS_TakeHomeTest2.csv in Resources */,
 				2E1E767A20FDD15D008850F8 /* Assets.xcassets in Resources */,
+				2EFE46162112D3EA00908B27 /* Common.storyboard in Resources */,
 				2E1E767820FDD15B008850F8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,6 +326,7 @@
 				2E1E767520FDD15B008850F8 /* RestaurantListViewController.swift in Sources */,
 				2E7222A72108B76E007161CA /* StringHelper.swift in Sources */,
 				2EFE46142112BFF100908B27 /* PickerSourceViewController.swift in Sources */,
+				2EFE461A2112D51E00908B27 /* BlurViewController.swift in Sources */,
 				2E044DA520FF64CA00EA8B56 /* Constant.swift in Sources */,
 				2EED9C122100A85A00115A6F /* ChannelTableViewCell.swift in Sources */,
 				2EB488CD20FE53C0004A8EC8 /* OpeningTimeTableViewCell.swift in Sources */,

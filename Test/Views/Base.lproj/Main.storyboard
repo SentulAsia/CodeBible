@@ -116,103 +116,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8h4-AT-63y">
-                                <rect key="frame" x="164" y="120" width="46" height="30"/>
+                                <rect key="frame" x="164" y="52" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="pickerButtonTapped:" destination="5wr-mr-Ea4" eventType="touchUpInside" id="Iqg-eG-i9X"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nnh-cg-jop">
+                                <rect key="frame" x="164.5" y="90" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="anotherPickerButtonTapped:" destination="5wr-mr-Ea4" eventType="touchUpInside" id="JjY-hv-N4m"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8h4-AT-63y" firstAttribute="centerX" secondItem="A8V-5r-lM7" secondAttribute="centerX" id="0PK-Ah-IuK"/>
-                            <constraint firstItem="8h4-AT-63y" firstAttribute="top" secondItem="A8V-5r-lM7" secondAttribute="top" constant="100" id="ydf-KC-DC7"/>
+                            <constraint firstItem="Nnh-cg-jop" firstAttribute="centerX" secondItem="A8V-5r-lM7" secondAttribute="centerX" id="eYf-lS-o79"/>
+                            <constraint firstItem="Nnh-cg-jop" firstAttribute="top" secondItem="8h4-AT-63y" secondAttribute="bottom" constant="8" id="pT5-r0-xxO"/>
+                            <constraint firstItem="8h4-AT-63y" firstAttribute="top" secondItem="A8V-5r-lM7" secondAttribute="top" constant="32" id="ydf-KC-DC7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A8V-5r-lM7"/>
                     </view>
+                    <connections>
+                        <outlet property="anotherPickerButton" destination="Nnh-cg-jop" id="TcD-iD-pQX"/>
+                        <outlet property="pickerButton" destination="8h4-AT-63y" id="5r0-Du-R43"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jry-Eh-2Fk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-76" y="1751"/>
-        </scene>
-        <!--Picker View Controller-->
-        <scene sceneID="g7f-am-p40">
-            <objects>
-                <viewController storyboardIdentifier="PickerViewController" id="S4a-2u-lft" customClass="PickerViewController" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="x0p-Jw-CKa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIm-fu-ufb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="419"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Rco-im-sWD" appends="YES" id="Pk9-WH-KH3"/>
-                                </connections>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rEV-rw-qRw">
-                                <rect key="frame" x="0.0" y="419" width="375" height="32"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTx-k0-SeA">
-                                        <rect key="frame" x="322" y="1" width="37" height="30"/>
-                                        <state key="normal" title="Done"/>
-                                        <connections>
-                                            <action selector="doneButtonTapped:" destination="S4a-2u-lft" eventType="touchUpInside" id="Azo-TJ-k56"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="hTx-k0-SeA" firstAttribute="centerY" secondItem="rEV-rw-qRw" secondAttribute="centerY" id="6LS-P3-e2O"/>
-                                    <constraint firstAttribute="height" constant="32" id="7AN-Is-pwr"/>
-                                    <constraint firstAttribute="trailing" secondItem="hTx-k0-SeA" secondAttribute="trailing" constant="16" id="DLh-vd-q4X"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cto-Qj-jV1">
-                                <rect key="frame" x="0.0" y="451" width="375" height="216"/>
-                                <subviews>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcj-OB-gV5">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="S4a-2u-lft" id="shQ-OG-k6O"/>
-                                            <outlet property="delegate" destination="S4a-2u-lft" id="a82-Ok-Idj"/>
-                                        </connections>
-                                    </pickerView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="jcj-OB-gV5" secondAttribute="bottom" id="5f6-Kr-fHx"/>
-                                    <constraint firstItem="jcj-OB-gV5" firstAttribute="leading" secondItem="Cto-Qj-jV1" secondAttribute="leading" id="WmM-l7-Nmu"/>
-                                    <constraint firstItem="jcj-OB-gV5" firstAttribute="top" secondItem="Cto-Qj-jV1" secondAttribute="top" id="cVb-Gg-eq8"/>
-                                    <constraint firstAttribute="trailing" secondItem="jcj-OB-gV5" secondAttribute="trailing" id="yMm-zx-nIc"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Cto-Qj-jV1" firstAttribute="trailing" secondItem="Tpq-9S-31G" secondAttribute="trailing" id="1Ar-9f-lZQ"/>
-                            <constraint firstItem="Cto-Qj-jV1" firstAttribute="leading" secondItem="Tpq-9S-31G" secondAttribute="leading" id="Cfk-kd-txQ"/>
-                            <constraint firstItem="dIm-fu-ufb" firstAttribute="leading" secondItem="Tpq-9S-31G" secondAttribute="leading" id="F7m-r3-HGb"/>
-                            <constraint firstItem="dIm-fu-ufb" firstAttribute="top" secondItem="x0p-Jw-CKa" secondAttribute="top" id="K1B-t3-0x7"/>
-                            <constraint firstItem="rEV-rw-qRw" firstAttribute="trailing" secondItem="Tpq-9S-31G" secondAttribute="trailing" id="Lc2-Ra-xIP"/>
-                            <constraint firstItem="Cto-Qj-jV1" firstAttribute="top" secondItem="rEV-rw-qRw" secondAttribute="bottom" id="TFY-8x-Agf"/>
-                            <constraint firstItem="rEV-rw-qRw" firstAttribute="top" secondItem="dIm-fu-ufb" secondAttribute="bottom" id="YfU-7q-Wve"/>
-                            <constraint firstItem="dIm-fu-ufb" firstAttribute="trailing" secondItem="Tpq-9S-31G" secondAttribute="trailing" id="guo-fr-2LH"/>
-                            <constraint firstItem="Cto-Qj-jV1" firstAttribute="bottom" secondItem="Tpq-9S-31G" secondAttribute="bottom" id="jaR-Wu-MMM"/>
-                            <constraint firstItem="rEV-rw-qRw" firstAttribute="leading" secondItem="Tpq-9S-31G" secondAttribute="leading" id="s9G-QD-aza"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Tpq-9S-31G"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wip-R3-L2F" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Rco-im-sWD">
-                    <connections>
-                        <action selector="cancelButtonTapped:" destination="S4a-2u-lft" id="RBh-er-MYf"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="964" y="1750.9745127436283"/>
         </scene>
     </scenes>
 </document>

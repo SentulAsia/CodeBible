@@ -10,8 +10,13 @@ import UIKit
 
 class PickerSourceViewController: UIViewController {
 
-    let data = ["First", "Second", "Third", "Fourth", "Fifth"]
-    var selectedIndex: Int = 0
+    @IBOutlet weak var pickerButton: UIButton!
+    @IBOutlet weak var anotherPickerButton: UIButton!
+    
+    let firstData = ["First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth"]
+    let secondData = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+    var selectedIndex: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +41,50 @@ class PickerSourceViewController: UIViewController {
     */
 
     @IBAction func pickerButtonTapped(_ sender: Any) {
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: PickerViewController.identifier) as! PickerViewController
-        controller.pickerList = data
-        self.present(controller, animated: true, completion: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: "Common", bundle: nil)
+        let blurController = storyboard.instantiateViewController(withIdentifier: BlurViewController.identifier) as! BlurViewController
+        blurController.modalPresentationStyle = .overFullScreen
+        blurController.appearCompletionHandler = { (completed: Bool) in
+            let controller = storyboard.instantiateViewController(withIdentifier: PickerViewController.identifier) as! PickerViewController
+            controller.modalPresentationStyle = .overFullScreen
+            controller.pickerList = self.firstData
+            controller.pickerSelectedIndex = self.selectedIndex
+            controller.dismissCompletionHandler = {
+                blurController.dismissView(dismissCompletionHandler: {
+                    if controller.picked {
+                        self.selectedIndex = controller.pickerSelectedIndex
+                        if let index = self.selectedIndex {
+                            self.pickerButton.setTitle(self.firstData[index], for: .normal)
+                        }
+                    }
+                })
+            }
+            blurController.present(controller, animated: true, completion: nil)
+        }
+        self.present(blurController, animated: false, completion: nil)
+    }
+
+    @IBAction func anotherPickerButtonTapped(_ sender: Any) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Common", bundle: nil)
+        let blurController = storyboard.instantiateViewController(withIdentifier: BlurViewController.identifier) as! BlurViewController
+        blurController.modalPresentationStyle = .overFullScreen
+        blurController.appearCompletionHandler = { (completed: Bool) in
+            let controller = storyboard.instantiateViewController(withIdentifier: PickerViewController.identifier) as! PickerViewController
+            controller.modalPresentationStyle = .overFullScreen
+            controller.pickerList = self.secondData
+            controller.pickerSelectedIndex = self.selectedIndex
+            controller.dismissCompletionHandler = {
+                blurController.dismissView(dismissCompletionHandler: {
+                    if controller.picked {
+                        self.selectedIndex = controller.pickerSelectedIndex
+                        if let index = self.selectedIndex {
+                            self.anotherPickerButton.setTitle(self.secondData[index], for: .normal)
+                        }
+                    }
+                })
+            }
+            blurController.present(controller, animated: true, completion: nil)
+        }
+        self.present(blurController, animated: false, completion: nil)
     }
 }
