@@ -25,9 +25,12 @@ class BlurViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        UIView.animate(withDuration: 0.3, animations: {
+        if let handler = self.appearCompletionHandler?(true) {
+            handler
+        }
+        UIView.animate(withDuration: 0.3, delay: 0.2, options: .curveLinear, animations: {
             self.blurView.alpha = 1.0
-        }, completion: self.appearCompletionHandler)
+        }, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,11 +52,13 @@ class BlurViewController: UIViewController {
 }
 
 extension BlurViewController {
-    func dismissView(dismissCompletionHandler: (() -> Void)?) {
+    func animateDismiss(completionHandler: ((Bool) -> Void)? = nil) {
         UIView.animate(withDuration: 0.3, animations: {
             self.blurView.alpha = 0.0
-        }) { [unowned self] (completed: Bool) in
-            self.dismiss(animated: false, completion: dismissCompletionHandler)
-        }
+        }, completion: completionHandler)
+    }
+
+    func dismissView(dismissCompletionHandler: (() -> Void)?) {
+        self.dismiss(animated: false, completion: dismissCompletionHandler)
     }
 }

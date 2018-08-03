@@ -8,12 +8,12 @@
 
 import UIKit
 
-public protocol KeyboardHelperDataSource: class {
-    func keyboardHeightLayoutConstraint(kipleKeyboard: KeyboardHelper) -> NSLayoutConstraint
+public protocol KeyboardDataSource: class {
+    func keyboardHeightLayoutConstraint(kipleKeyboard: Keyboard) -> NSLayoutConstraint
 }
 
-open class KeyboardHelper: NSObject {
-    public final weak var dataSource: KeyboardHelperDataSource?
+open class Keyboard: NSObject {
+    public final weak var dataSource: KeyboardDataSource?
 
     public override init() {
         super.init()

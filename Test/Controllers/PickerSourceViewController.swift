@@ -16,9 +16,10 @@ class PickerSourceViewController: UIViewController {
     
     let firstData = ["First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth"]
     let secondData = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    let keyboard = KeyboardHelper()
+    let keyboard = Keyboard()
 
     var selectedIndex: Int?
+    var anotherSelectedIndex: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +57,9 @@ class PickerSourceViewController: UIViewController {
             controller.modalPresentationStyle = .overFullScreen
             controller.pickerList = self.firstData
             controller.pickerSelectedIndex = self.selectedIndex
+            controller.willDismissHandler = {
+                blurController.animateDismiss()
+            }
             controller.dismissCompletionHandler = {
                 blurController.dismissView(dismissCompletionHandler: {
                     if controller.picked {
@@ -79,12 +83,15 @@ class PickerSourceViewController: UIViewController {
             let controller = storyboard.instantiateViewController(withIdentifier: PickerViewController.identifier) as! PickerViewController
             controller.modalPresentationStyle = .overFullScreen
             controller.pickerList = self.secondData
-            controller.pickerSelectedIndex = self.selectedIndex
+            controller.pickerSelectedIndex = self.anotherSelectedIndex
+            controller.willDismissHandler = {
+                blurController.animateDismiss()
+            }
             controller.dismissCompletionHandler = {
                 blurController.dismissView(dismissCompletionHandler: {
                     if controller.picked {
-                        self.selectedIndex = controller.pickerSelectedIndex
-                        if let index = self.selectedIndex {
+                        self.anotherSelectedIndex = controller.pickerSelectedIndex
+                        if let index = self.anotherSelectedIndex {
                             self.anotherPickerButton.setTitle(self.secondData[index], for: .normal)
                         }
                     }
@@ -96,8 +103,8 @@ class PickerSourceViewController: UIViewController {
     }
 }
 
-extension PickerSourceViewController: KeyboardHelperDataSource {
-    func keyboardHeightLayoutConstraint(kipleKeyboard: KeyboardHelper) -> NSLayoutConstraint {
+extension PickerSourceViewController: KeyboardDataSource {
+    func keyboardHeightLayoutConstraint(kipleKeyboard: Keyboard) -> NSLayoutConstraint {
         return self.keyboardHeightLayoutConstraint
     }
 }

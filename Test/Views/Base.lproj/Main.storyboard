@@ -123,10 +123,12 @@
                                     <outletCollection property="gestureRecognizers" destination="FKO-3R-Hm7" appends="YES" id="qZM-Nb-fRs"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8h4-AT-63y" customClass="ButtonHelper" customModule="Test" customModuleProvider="target">
-                                <rect key="frame" x="152" y="28" width="70" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8h4-AT-63y" customClass="Button" customModule="Test" customModuleProvider="target">
+                                <rect key="frame" x="137" y="28" width="100" height="30"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.94901960780000005" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="contentEdgeInsets" minX="12" minY="6" maxX="12" maxY="6"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="MWe-Ba-Mip"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -143,10 +145,12 @@
                                     <action selector="pickerButtonTapped:" destination="5wr-mr-Ea4" eventType="touchUpInside" id="Iqg-eG-i9X"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nnh-cg-jop" customClass="ButtonHelper" customModule="Test" customModuleProvider="target">
-                                <rect key="frame" x="152.5" y="66" width="70" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nnh-cg-jop" customClass="Button" customModule="Test" customModuleProvider="target">
+                                <rect key="frame" x="137.5" y="66" width="100" height="30"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.94901960780000005" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="contentEdgeInsets" minX="12" minY="6" maxX="12" maxY="6"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Ap6-pa-gdq"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -163,7 +167,7 @@
                                     <action selector="anotherPickerButtonTapped:" destination="5wr-mr-Ea4" eventType="touchUpInside" id="JjY-hv-N4m"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YBY-YZ-xvg">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Testing" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YBY-YZ-xvg">
                                 <rect key="frame" x="16" y="621" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>

@@ -17,6 +17,7 @@ class PickerViewController: UIViewController {
     var pickerList: [String] = []
     var pickerSelectedIndex: Int?
     var picked = false
+    var willDismissHandler: (() -> Void)?
     var dismissCompletionHandler: (() -> Void)?
 
     override func viewDidLoad() {
@@ -45,12 +46,20 @@ class PickerViewController: UIViewController {
     */
 
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        self.picked = false
-        self.dismiss(animated: true, completion: self.dismissCompletionHandler)
+        dismissView(pickerPicked: false)
     }
 
     @IBAction func doneButtonTapped(_ sender: Any) {
-        self.picked = true
+        dismissView(pickerPicked: true)
+    }
+}
+
+extension PickerViewController {
+    func dismissView(pickerPicked picked: Bool) {
+        self.picked = picked
+        if let handler = self.willDismissHandler?() {
+            handler
+        }
         self.dismiss(animated: true, completion: self.dismissCompletionHandler)
     }
 }
