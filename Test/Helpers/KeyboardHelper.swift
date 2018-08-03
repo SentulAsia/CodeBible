@@ -12,13 +12,13 @@ public protocol KeyboardDataSource: class {
     func keyboardHeightLayoutConstraint(kipleKeyboard: Keyboard) -> NSLayoutConstraint
 }
 
-open class Keyboard: NSObject {
+public class Keyboard: NSObject {
     public final weak var dataSource: KeyboardDataSource?
 
     public override init() {
         super.init()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillChangeFrame(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
 
     deinit {
@@ -64,7 +64,7 @@ extension UITextField {
         }
     }
 
-    func addDoneButtonOnKeyboard() {
+    fileprivate func addDoneButtonOnKeyboard() {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44))
         doneToolbar.barStyle = .default
 
@@ -79,7 +79,7 @@ extension UITextField {
     }
 
     @objc
-    func doneButtonAction() {
+    fileprivate func doneButtonAction() {
         self.resignFirstResponder()
     }
 }

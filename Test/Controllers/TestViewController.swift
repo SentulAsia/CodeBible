@@ -1,5 +1,5 @@
 //
-//  PickerSourceViewController.swift
+//  TestViewController.swift
 //  Test
 //
 //  Created by Zaid M. Said on 02/08/2018.
@@ -8,10 +8,11 @@
 
 import UIKit
 
-class PickerSourceViewController: UIViewController {
+class TestViewController: UIViewController {
 
     @IBOutlet weak var pickerButton: UIButton!
     @IBOutlet weak var anotherPickerButton: UIButton!
+    @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var keyboardHeightLayoutConstraint: NSLayoutConstraint!
     
     let firstData = ["First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth"]
@@ -52,7 +53,7 @@ class PickerSourceViewController: UIViewController {
         let storyboard: UIStoryboard = UIStoryboard(name: "Common", bundle: nil)
         let blurController = storyboard.instantiateViewController(withIdentifier: BlurViewController.identifier) as! BlurViewController
         blurController.modalPresentationStyle = .overFullScreen
-        blurController.appearCompletionHandler = { (completed: Bool) in
+        blurController.appearCompletionHandler = { (isCompleted: Bool) in
             let controller = storyboard.instantiateViewController(withIdentifier: PickerViewController.identifier) as! PickerViewController
             controller.modalPresentationStyle = .overFullScreen
             controller.pickerList = self.firstData
@@ -79,7 +80,7 @@ class PickerSourceViewController: UIViewController {
         let storyboard: UIStoryboard = UIStoryboard(name: "Common", bundle: nil)
         let blurController = storyboard.instantiateViewController(withIdentifier: BlurViewController.identifier) as! BlurViewController
         blurController.modalPresentationStyle = .overFullScreen
-        blurController.appearCompletionHandler = { (completed: Bool) in
+        blurController.appearCompletionHandler = { (isCompleted: Bool) in
             let controller = storyboard.instantiateViewController(withIdentifier: PickerViewController.identifier) as! PickerViewController
             controller.modalPresentationStyle = .overFullScreen
             controller.pickerList = self.secondData
@@ -101,9 +102,26 @@ class PickerSourceViewController: UIViewController {
         }
         self.present(blurController, animated: false, completion: nil)
     }
+
+    @IBAction func imageButtonTapped(_ sender: Any) {
+        ImagePicker.showMenu(sender: sender as! UIButton, controller: self)
+    }
+
+    @IBAction func showToastButtonTapped(_ sender: Any) {
+        Toast.shared.show(forViewController: self, withMessage: "This is an example for a toast event that is simulating Android native toast")
+    }
+
 }
 
-extension PickerSourceViewController: KeyboardDataSource {
+extension TestViewController: ImagePickerDelegate {
+    func imagePickerFinishCapture(successfully flag: Bool, withImage image: UIImage?) {
+        if let i = image {
+            self.imageButton.setBackgroundImage(i, for: .normal)
+        }
+    }
+}
+
+extension TestViewController: KeyboardDataSource {
     func keyboardHeightLayoutConstraint(kipleKeyboard: Keyboard) -> NSLayoutConstraint {
         return self.keyboardHeightLayoutConstraint
     }

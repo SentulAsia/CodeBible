@@ -9,6 +9,8 @@
 import Foundation
 
 struct Constant {
+    static let appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String ?? "Code Bible"
+
     struct Message {
         static let failureDefault = "We’re sorry, but something went wrong."
     }

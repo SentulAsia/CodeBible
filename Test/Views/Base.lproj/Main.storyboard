@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +14,7 @@
         <!--Restaurant List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="RestaurantListViewController" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RestaurantListViewController" id="BYZ-38-t0r" customClass="RestaurantListViewController" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,7 +67,7 @@
         <!--Channel List Table View Controller-->
         <scene sceneID="JlH-nb-XYU">
             <objects>
-                <tableViewController id="E2i-Lv-bNX" customClass="ChannelListTableViewController" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ChannelListTableViewController" id="E2i-Lv-bNX" customClass="ChannelListTableViewController" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xFA-fO-3Md">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,18 +108,43 @@
             </objects>
             <point key="canvasLocation" x="-76" y="925"/>
         </scene>
-        <!--Picker Source View Controller-->
+        <!--Test View Controller-->
         <scene sceneID="cMt-5c-xsm">
             <objects>
-                <viewController id="5wr-mr-Ea4" customClass="PickerSourceViewController" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TestViewController" id="5wr-mr-Ea4" customClass="TestViewController" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oEp-3v-bV3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xCT-Y9-2Nz">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vqV-CK-HNy">
+                                        <rect key="frame" x="137" y="104" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="gOZ-Us-2a6"/>
+                                            <constraint firstAttribute="width" secondItem="vqV-CK-HNy" secondAttribute="height" multiplier="1:1" id="v6O-K4-erx"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="icons8-name-filled"/>
+                                        <connections>
+                                            <action selector="imageButtonTapped:" destination="5wr-mr-Ea4" eventType="touchUpInside" id="Uiw-6R-xBz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUn-iz-XqA">
+                                        <rect key="frame" x="147.5" y="212" width="79" height="30"/>
+                                        <state key="normal" title="Show Toast"/>
+                                        <connections>
+                                            <action selector="showToastButtonTapped:" destination="5wr-mr-Ea4" eventType="touchUpInside" id="Vzk-fd-fM8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="WUn-iz-XqA" firstAttribute="centerX" secondItem="xCT-Y9-2Nz" secondAttribute="centerX" id="8ro-l1-Ab1"/>
+                                    <constraint firstItem="WUn-iz-XqA" firstAttribute="top" secondItem="vqV-CK-HNy" secondAttribute="bottom" constant="8" id="m8m-zz-zhg"/>
+                                    <constraint firstItem="vqV-CK-HNy" firstAttribute="centerX" secondItem="xCT-Y9-2Nz" secondAttribute="centerX" id="mjq-QZ-RWp"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="FKO-3R-Hm7" appends="YES" id="qZM-Nb-fRs"/>
                                 </connections>
@@ -167,7 +193,7 @@
                                     <action selector="anotherPickerButtonTapped:" destination="5wr-mr-Ea4" eventType="touchUpInside" id="JjY-hv-N4m"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Testing" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YBY-YZ-xvg">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number goes here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YBY-YZ-xvg" customClass="TextField" customModule="Test" customModuleProvider="target">
                                 <rect key="frame" x="16" y="621" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -188,6 +214,7 @@
                         <constraints>
                             <constraint firstItem="8h4-AT-63y" firstAttribute="centerX" secondItem="A8V-5r-lM7" secondAttribute="centerX" id="0PK-Ah-IuK"/>
                             <constraint firstAttribute="bottom" secondItem="54T-i3-3Iu" secondAttribute="bottom" id="1Cy-mO-NIi"/>
+                            <constraint firstItem="vqV-CK-HNy" firstAttribute="top" secondItem="Nnh-cg-jop" secondAttribute="bottom" constant="8" id="Alc-a9-8CY"/>
                             <constraint firstItem="xCT-Y9-2Nz" firstAttribute="top" secondItem="oEp-3v-bV3" secondAttribute="top" id="Axi-11-iZj"/>
                             <constraint firstItem="54T-i3-3Iu" firstAttribute="leading" secondItem="oEp-3v-bV3" secondAttribute="leading" id="NEk-GB-l3R"/>
                             <constraint firstItem="YBY-YZ-xvg" firstAttribute="leading" secondItem="A8V-5r-lM7" secondAttribute="leading" constant="16" id="e7i-Iy-8DJ"/>
@@ -205,6 +232,7 @@
                     </view>
                     <connections>
                         <outlet property="anotherPickerButton" destination="Nnh-cg-jop" id="TcD-iD-pQX"/>
+                        <outlet property="imageButton" destination="vqV-CK-HNy" id="f5d-F1-jZX"/>
                         <outlet property="keyboardHeightLayoutConstraint" destination="7cJ-Hh-xN4" id="6Ih-7d-OYI"/>
                         <outlet property="pickerButton" destination="8h4-AT-63y" id="5r0-Du-R43"/>
                     </connections>
@@ -219,4 +247,7 @@
             <point key="canvasLocation" x="-76" y="1750.9745127436283"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icons8-name-filled" width="50" height="50"/>
+    </resources>
 </document>
