@@ -73,9 +73,11 @@
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJC-6k-A7d">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="dataSource" destination="Atv-4x-zPf" id="tGD-xM-Okz"/>
                                             <outlet property="delegate" destination="Atv-4x-zPf" id="oRj-6n-fFD"/>
+                                            <outletCollection property="gestureRecognizers" destination="4JL-VN-SfA" appends="YES" id="ki8-ie-c6b"/>
                                         </connections>
                                     </pickerView>
                                 </subviews>
@@ -111,6 +113,12 @@
                 <tapGestureRecognizer id="f2P-OS-9SU">
                     <connections>
                         <action selector="cancelButtonTapped:" destination="Atv-4x-zPf" id="n8u-vD-xmL"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="4JL-VN-SfA">
+                    <connections>
+                        <action selector="doneButtonTapped:" destination="Atv-4x-zPf" id="4uS-0v-rz4"/>
+                        <outlet property="delegate" destination="Atv-4x-zPf" id="n5k-Jf-DwS"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

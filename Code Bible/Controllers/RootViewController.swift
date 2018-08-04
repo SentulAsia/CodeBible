@@ -37,7 +37,7 @@ class RootViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        self.navigationButton.badge = "3"
+        self.navigationButton.badge = "13"
         self.anotherNavigationItem.badge = "8"
     }
 

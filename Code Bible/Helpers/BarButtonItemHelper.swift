@@ -33,13 +33,13 @@ class BarButtonItem: UIBarButtonItem {
                 removeBadge()
             } else if self.badge == nil {
                 if let value = Int(newValue!) {
-                    addBadge(number: value)
+                    addBadge(number: value > 9 ? 9 : value)
                 } else {
                     self.badge = nil
                 }
             } else {
                 if let value = Int(newValue!) {
-                    updateBadge(number: value)
+                    updateBadge(number: value > 9 ? 9 : value)
                 } else {
                     self.badge = nil
                 }
@@ -47,7 +47,7 @@ class BarButtonItem: UIBarButtonItem {
         }
     }
 
-    private var badgeLayer: CAShapeLayer? {
+    fileprivate var badgeLayer: CAShapeLayer? {
         if let b: AnyObject = objc_getAssociatedObject(self, &handle) as AnyObject? {
             return b as? CAShapeLayer
         } else {
@@ -55,7 +55,7 @@ class BarButtonItem: UIBarButtonItem {
         }
     }
 
-    func addBadge(number: Int, withOffset offset: CGPoint = CGPoint.zero, andColor color: UIColor = UIColor.red, andFilled filled: Bool = true) {
+    fileprivate func addBadge(number: Int, withOffset offset: CGPoint = CGPoint.zero, andColor color: UIColor = UIColor.red, andFilled filled: Bool = true) {
         guard let view = self.value(forKey: "view") as? UIView else { return }
 
         badgeLayer?.removeFromSuperlayer()
@@ -82,7 +82,7 @@ class BarButtonItem: UIBarButtonItem {
         objc_setAssociatedObject(self, &handle, badge, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
 
-    func updateBadge(number: Int) {
+    fileprivate func updateBadge(number: Int) {
         if let text = self.badgeLayer?.sublayers?.filter({ $0 is CATextLayer }).first as? CATextLayer {
             text.string = "\(number)"
         } else {
@@ -90,7 +90,7 @@ class BarButtonItem: UIBarButtonItem {
         }
     }
 
-    func removeBadge() {
+    fileprivate func removeBadge() {
         self.badgeLayer?.removeFromSuperlayer()
     }
 }

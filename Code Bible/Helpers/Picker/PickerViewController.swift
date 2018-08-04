@@ -39,7 +39,16 @@ class PickerViewController: UIViewController {
     }
 
     @IBAction func doneButtonTapped(_ sender: Any) {
-        dismissView(isPicked: true)
+        if let s = sender as? UITapGestureRecognizer, s.state == .ended {
+            let rowHeight = self.pickerView.rowSize(forComponent: 0).height
+            let selectedRowFrame: CGRect = self.pickerView.bounds.insetBy(dx: 0.0, dy: (self.pickerView.frame.height - rowHeight) / 2.0)
+            let userTappedOnSelectedRow = selectedRowFrame.contains(s.location(in: self.pickerView))
+            if userTappedOnSelectedRow {
+                dismissView(isPicked: true)
+            }
+        } else {
+            dismissView(isPicked: true)
+        }
     }
 }
 
@@ -72,5 +81,11 @@ extension PickerViewController: UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.pickerSelectedIndex = row
+    }
+}
+
+extension PickerViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
