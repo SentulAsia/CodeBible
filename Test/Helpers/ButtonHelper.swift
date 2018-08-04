@@ -24,6 +24,16 @@ class Button: UIButton {
     }
 
     @IBInspectable
+    public var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+
+    @IBInspectable
     public var borderColor: UIColor? {
         get {
             if let color = layer.borderColor {
@@ -34,16 +44,6 @@ class Button: UIButton {
         }
         set {
             layer.borderColor = newValue!.cgColor
-        }
-    }
-
-    @IBInspectable
-    public var borderWidth: CGFloat {
-        get {
-            return layer.borderWidth
-        }
-        set {
-            layer.borderWidth = newValue
         }
     }
 }

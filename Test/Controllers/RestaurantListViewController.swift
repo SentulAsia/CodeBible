@@ -12,6 +12,7 @@ class RestaurantListViewController: UIViewController {
 
     @IBOutlet weak var restaurantTableView: UITableView!
 
+    static let identifier = "RestaurantListViewController"
     let restaurants = Restaurant.list(forFile: "iOS_TakeHomeTest2.csv")
 
     override func viewDidLoad() {
@@ -24,7 +25,9 @@ class RestaurantListViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension RestaurantListViewController: UITableViewDataSource {

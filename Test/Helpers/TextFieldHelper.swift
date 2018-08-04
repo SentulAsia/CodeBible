@@ -15,7 +15,7 @@ public protocol TextFieldDelegate: class {
 @IBDesignable
 public class TextField: UITextField {
 
-    let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    final let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
 
     public weak var textFielddelegate: TextFieldDelegate?
 

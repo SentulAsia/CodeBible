@@ -10,7 +10,7 @@ import Photos
 
 public class CustomPhotoAlbum {
     static let albumName = Constant.appName
-    static let sharedInstance = CustomPhotoAlbum()
+    static let shared = CustomPhotoAlbum()
 
     var assetCollection: PHAssetCollection!
 

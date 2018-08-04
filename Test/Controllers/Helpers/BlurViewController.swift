@@ -28,7 +28,7 @@ class BlurViewController: UIViewController {
         if let handler = self.appearCompletionHandler?(true) {
             handler
         }
-        UIView.animate(withDuration: 0.3, delay: 0.2, options: .curveLinear, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0.2, options: .allowUserInteraction, animations: {
             self.blurView.alpha = 1.0
         }, completion: nil)
     }
@@ -37,28 +37,16 @@ class BlurViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension BlurViewController {
     func animateDismiss(completionHandler: ((Bool) -> Void)? = nil) {
-        UIView.animate(withDuration: 0.3, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .beginFromCurrentState, animations: {
             self.blurView.alpha = 0.0
         }, completion: completionHandler)
     }
 
-    func dismissView(dismissCompletionHandler: (() -> Void)?) {
-        self.dismiss(animated: false, completion: dismissCompletionHandler)
+    func dismissView(completionHandler: (() -> Void)?) {
+        self.dismiss(animated: false, completion: completionHandler)
     }
 }

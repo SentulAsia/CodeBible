@@ -10,15 +10,14 @@ import UIKit
 
 struct Toast {
     static var shared = Toast()
-    var controller: UIViewController?
-    var toastController: ToastViewController?
+    fileprivate var controller: UIViewController?
 
     mutating func show(forViewController controller: UIViewController, withMessage message: String) {
         self.controller = controller
-        let storyboard: UIStoryboard = UIStoryboard(name: "Common", bundle: nil)
-        self.toastController = storyboard.instantiateViewController(withIdentifier: ToastViewController.identifier) as? ToastViewController
-        self.toastController!.modalPresentationStyle = .overFullScreen
-        self.toastController!.message = message
-        controller.present(self.toastController!, animated: false, completion: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: Constant.Storyboard.helper, bundle: nil)
+        let toastController = storyboard.instantiateViewController(withIdentifier: ToastViewController.identifier) as! ToastViewController
+        toastController.modalPresentationStyle = .overFullScreen
+        toastController.message = message
+        controller.present(toastController, animated: false, completion: nil)
     }
 }

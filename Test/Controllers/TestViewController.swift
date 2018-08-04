@@ -26,31 +26,38 @@ class TestViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.keyboard.dataSource = self
+        self.keyboard.controller = self
+        self.keyboard.keyboardHeightLayoutConstraint = self.keyboardHeightLayoutConstraint
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     @IBAction func backgroundViewTapped(_ sender: Any) {
         self.view.endEditing(true)
     }
 
+    @IBAction func fullPickerButtonTapped(_ sender: Any) {
+        let storyboard: UIStoryboard = UIStoryboard(name: Constant.Storyboard.helper, bundle: nil)
+        let navigationController = storyboard.instantiateViewController(withIdentifier: FullPickerViewController.identifier) as! UINavigationController
+        let controller = navigationController.visibleViewController as! FullPickerViewController
+        controller.pickerList = self.firstData
+        controller.pickerSelectedIndex = self.selectedIndex
+        controller.dismissCompletionHandler = {
+            if controller.isPicked {
+                self.selectedIndex = controller.pickerSelectedIndex
+                if let index = self.selectedIndex {
+                    self.pickerButton.setTitle(self.firstData[index], for: .normal)
+                }
+            }
+        }
+        self.present(navigationController, animated: true, completion: nil)
+    }
+
     @IBAction func pickerButtonTapped(_ sender: Any) {
-        let storyboard: UIStoryboard = UIStoryboard(name: "Common", bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: Constant.Storyboard.helper, bundle: nil)
         let blurController = storyboard.instantiateViewController(withIdentifier: BlurViewController.identifier) as! BlurViewController
         blurController.modalPresentationStyle = .overFullScreen
         blurController.appearCompletionHandler = { (isCompleted: Bool) in
@@ -62,8 +69,8 @@ class TestViewController: UIViewController {
                 blurController.animateDismiss()
             }
             controller.dismissCompletionHandler = {
-                blurController.dismissView(dismissCompletionHandler: {
-                    if controller.picked {
+                blurController.dismissView(completionHandler: {
+                    if controller.isPicked {
                         self.selectedIndex = controller.pickerSelectedIndex
                         if let index = self.selectedIndex {
                             self.pickerButton.setTitle(self.firstData[index], for: .normal)
@@ -77,7 +84,7 @@ class TestViewController: UIViewController {
     }
 
     @IBAction func anotherPickerButtonTapped(_ sender: Any) {
-        let storyboard: UIStoryboard = UIStoryboard(name: "Common", bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: Constant.Storyboard.helper, bundle: nil)
         let blurController = storyboard.instantiateViewController(withIdentifier: BlurViewController.identifier) as! BlurViewController
         blurController.modalPresentationStyle = .overFullScreen
         blurController.appearCompletionHandler = { (isCompleted: Bool) in
@@ -89,8 +96,8 @@ class TestViewController: UIViewController {
                 blurController.animateDismiss()
             }
             controller.dismissCompletionHandler = {
-                blurController.dismissView(dismissCompletionHandler: {
-                    if controller.picked {
+                blurController.dismissView(completionHandler: {
+                    if controller.isPicked {
                         self.anotherSelectedIndex = controller.pickerSelectedIndex
                         if let index = self.anotherSelectedIndex {
                             self.anotherPickerButton.setTitle(self.secondData[index], for: .normal)
@@ -104,13 +111,24 @@ class TestViewController: UIViewController {
     }
 
     @IBAction func imageButtonTapped(_ sender: Any) {
-        ImagePicker.showMenu(sender: sender as! UIButton, controller: self)
+        ImagePicker.showMenu(sender: sender as! UIButton, delegate: self)
     }
 
     @IBAction func showToastButtonTapped(_ sender: Any) {
         Toast.shared.show(forViewController: self, withMessage: "This is an example for a toast event that is simulating Android native toast")
     }
 
+    @IBAction func showChannelButtonTapped(_ sender: Any) {
+        let storyboard: UIStoryboard = UIStoryboard(name: Constant.Storyboard.main, bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: ChannelListViewController.identifier) as! UINavigationController
+        self.present(controller, animated: true, completion: nil)
+    }
+
+    @IBAction func showRestaurantButtonTapped(_ sender: Any) {
+        let storyboard: UIStoryboard = UIStoryboard(name: Constant.Storyboard.main, bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: RestaurantListViewController.identifier) as! UINavigationController
+        self.present(controller, animated: true, completion: nil)
+    }
 }
 
 extension TestViewController: ImagePickerDelegate {
@@ -118,11 +136,5 @@ extension TestViewController: ImagePickerDelegate {
         if let i = image {
             self.imageButton.setBackgroundImage(i, for: .normal)
         }
-    }
-}
-
-extension TestViewController: KeyboardDataSource {
-    func keyboardHeightLayoutConstraint(kipleKeyboard: Keyboard) -> NSLayoutConstraint {
-        return self.keyboardHeightLayoutConstraint
     }
 }

@@ -41,31 +41,20 @@ class ToastViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     @IBAction func cancelButtonTapped(_ sender: Any) {
         self.timer?.invalidate()
-        hideToast()
+        dismissView()
     }
 }
 
 extension ToastViewController {
     @objc
     fileprivate func toastTimerDidFinish(_ timer: Timer) {
-        hideToast()
+        dismissView()
     }
 
-    fileprivate func hideToast() {
+    fileprivate func dismissView() {
         UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseIn, .beginFromCurrentState], animations: {
             self.toastView.alpha = 0.0
         }) { (isCompleted: Bool) in

@@ -17,7 +17,6 @@ public class ImagePicker: NSObject {
 
     // MARK: Delegate
     public final weak var delegate: ImagePickerDelegate?
-    public final var controller: UIViewController? // controller to present the image picker
     public final var imageWidth: CGFloat? // resize image to a specific width
 
     fileprivate final var imagePicker: UIImagePickerController!
@@ -29,14 +28,13 @@ public class ImagePicker: NSObject {
 
     public static func showMenu(
         sender: UIView,
-        controller: UIViewController
+        delegate: ImagePickerDelegate
     ) {
         let menu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
         let action1 = UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
             let camera = ImagePicker.shared
-            camera.controller = controller
-            camera.delegate = controller as? ImagePickerDelegate
+            camera.delegate = delegate
             camera.imageWidth = 200
             camera.takePicture()
         })
@@ -44,16 +42,13 @@ public class ImagePicker: NSObject {
 
         let action2 = UIAlertAction(title: "Photo Library", style: .default, handler: { (action: UIAlertAction) in
             let photoLibrary = ImagePicker.shared
-            photoLibrary.controller = controller
-            photoLibrary.delegate = controller as? ImagePickerDelegate
+            photoLibrary.delegate = delegate
             photoLibrary.imageWidth = 200
             photoLibrary.selectPicture()
         })
         menu.addAction(action2)
 
-        let action3 = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction) in
-            print("Alert Cancelled")
-        })
+        let action3 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         menu.addAction(action3)
 
         menu.modalPresentationStyle = UIModalPresentationStyle.popover
@@ -62,7 +57,7 @@ public class ImagePicker: NSObject {
         popPresenter?.sourceRect = sender.bounds
         popPresenter?.permittedArrowDirections = UIPopoverArrowDirection.up
 
-        controller.present(menu, animated: true, completion: nil)
+        (delegate as? UIViewController)?.present(menu, animated: true, completion: nil)
     }
 
     public func selectPicture() {
@@ -71,7 +66,7 @@ public class ImagePicker: NSObject {
         self.imagePicker.sourceType = .photoLibrary
         self.imagePicker.delegate = self
 
-        self.controller?.present(self.imagePicker, animated: true, completion: nil)
+        (self.delegate as? UIViewController)?.present(self.imagePicker, animated: true, completion: nil)
     }
 
     public func takePicture() {
@@ -81,14 +76,14 @@ public class ImagePicker: NSObject {
         if UIImagePickerController.isCameraDeviceAvailable(.front) {
             self.imagePicker.sourceType = .camera
             self.imagePicker.cameraDevice = .front
-            self.controller?.present(self.imagePicker, animated: true, completion: {
-                CustomPhotoAlbum.sharedInstance.requestAuthorization()
+            (self.delegate as? UIViewController)?.present(self.imagePicker, animated: true, completion: {
+                CustomPhotoAlbum.shared.requestAuthorization()
             })
         } else if UIImagePickerController.isCameraDeviceAvailable(.rear) {
             self.imagePicker.sourceType = .camera
             self.imagePicker.cameraDevice = .rear
-            self.controller?.present(self.imagePicker, animated: true, completion: {
-                CustomPhotoAlbum.sharedInstance.requestAuthorization()
+            (self.delegate as? UIViewController)?.present(self.imagePicker, animated: true, completion: {
+                CustomPhotoAlbum.shared.requestAuthorization()
             })
         } else {
             noCamera()
@@ -119,7 +114,7 @@ extension ImagePicker: UINavigationControllerDelegate, UIImagePickerControllerDe
 
         if picker.sourceType == .camera {
             if let possibleImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
-                CustomPhotoAlbum.sharedInstance.saveImage(possibleImage)
+                CustomPhotoAlbum.shared.saveImage(possibleImage)
             }
         }
 
@@ -161,7 +156,8 @@ extension ImagePicker: UINavigationControllerDelegate, UIImagePickerControllerDe
 
         setImage(newImage)
 
-        self.imagePicker.dismiss(animated: true, completion: nil)
-        self.imagePicker = nil
+        self.imagePicker.dismiss(animated: true) {
+            self.imagePicker = nil
+        }
     }
 }

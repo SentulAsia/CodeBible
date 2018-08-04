@@ -8,12 +8,9 @@
 
 import UIKit
 
-public protocol KeyboardDataSource: class {
-    func keyboardHeightLayoutConstraint(kipleKeyboard: Keyboard) -> NSLayoutConstraint
-}
-
 public class Keyboard: NSObject {
-    public final weak var dataSource: KeyboardDataSource?
+    public final weak var controller: UIViewController?
+    public final weak var keyboardHeightLayoutConstraint: NSLayoutConstraint?
 
     public override init() {
         super.init()
@@ -34,11 +31,11 @@ public class Keyboard: NSObject {
             let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseInOut.rawValue
             let animationCurve: UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
             if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
-                self.dataSource?.keyboardHeightLayoutConstraint(kipleKeyboard: self).constant = 0.0
+                self.keyboardHeightLayoutConstraint?.constant = 0.0
             } else {
-                self.dataSource?.keyboardHeightLayoutConstraint(kipleKeyboard: self).constant = endFrame?.size.height ?? 0.0
+                self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
             }
-            if let d = self.dataSource as? UIViewController {
+            if let d = self.controller {
                 UIView.animate(withDuration: duration,
                                delay: 0,
                                options: animationCurve,

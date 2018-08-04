@@ -14,9 +14,9 @@ class PickerViewController: UIViewController {
 
     static let identifier = "PickerViewController"
 
+    var isPicked = false // indicate to sender that user did picked from picker view or cancel picking
     var pickerList: [String] = []
     var pickerSelectedIndex: Int?
-    var picked = false
     var willDismissHandler: (() -> Void)?
     var dismissCompletionHandler: (() -> Void)?
 
@@ -33,30 +33,19 @@ class PickerViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        dismissView(pickerPicked: false)
+        dismissView(isPicked: false)
     }
 
     @IBAction func doneButtonTapped(_ sender: Any) {
-        dismissView(pickerPicked: true)
+        dismissView(isPicked: true)
     }
 }
 
 extension PickerViewController {
-    func dismissView(pickerPicked picked: Bool) {
-        self.picked = picked
+    func dismissView(isPicked: Bool) {
+        self.isPicked = isPicked
         if let handler = self.willDismissHandler?() {
             handler
         }
