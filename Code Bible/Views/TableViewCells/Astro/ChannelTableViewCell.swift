@@ -10,7 +10,7 @@ import UIKit
 
 class ChannelTableViewCell: UITableViewCell {
 
-    public static let identifier = "ChannelTableViewCell"
+    static let identifier = "ChannelTableViewCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()

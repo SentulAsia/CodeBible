@@ -8,7 +8,7 @@
 
 import Photos
 
-public class CustomPhotoAlbum {
+class CustomPhotoAlbum {
     static let albumName = Constant.appName
     static let shared = CustomPhotoAlbum()
 
@@ -42,7 +42,7 @@ public class CustomPhotoAlbum {
         }
     }
 
-    public func saveImage(
+    func saveImage(
         _ image: UIImage
     ) {
         if PHPhotoLibrary.authorizationStatus() == .authorized {
@@ -60,7 +60,7 @@ public class CustomPhotoAlbum {
         }
     }
 
-    public func requestAuthorization() {
+    func requestAuthorization() {
         if PHPhotoLibrary.authorizationStatus() == .notDetermined {
             PHPhotoLibrary.requestAuthorization({ (status: PHAuthorizationStatus) in
                 print("status: \(status)")

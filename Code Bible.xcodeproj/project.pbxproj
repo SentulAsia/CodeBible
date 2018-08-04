@@ -43,6 +43,8 @@
 		2EAA7987211579C400600D46 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA7986211579C400600D46 /* DatePickerViewController.swift */; };
 		2EAA798A21157F5E00600D46 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA798921157F5E00600D46 /* Picker.swift */; };
 		2EAA798C2115A9BF00600D46 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA798B2115A9BF00600D46 /* DatePicker.swift */; };
+		2EAA798E2115B58500600D46 /* BarButtonItemHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA798D2115B58500600D46 /* BarButtonItemHelper.swift */; };
+		2EAA79902115C09F00600D46 /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA798F2115C09F00600D46 /* ViewControllerHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,8 @@
 		2EAA7986211579C400600D46 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		2EAA798921157F5E00600D46 /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
 		2EAA798B2115A9BF00600D46 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		2EAA798D2115B58500600D46 /* BarButtonItemHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonItemHelper.swift; sourceTree = "<group>"; };
+		2EAA798F2115C09F00600D46 /* ViewControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +170,9 @@
 				2EAA79832115760300600D46 /* Spinner */,
 				2EAA79852115763500600D46 /* Keyboard */,
 				2EAA794321156B5F00600D46 /* ViewHelper.swift */,
+				2EAA798F2115C09F00600D46 /* ViewControllerHelper.swift */,
 				2EAA794021156B5F00600D46 /* ButtonHelper.swift */,
+				2EAA798D2115B58500600D46 /* BarButtonItemHelper.swift */,
 				2EAA794621156B5F00600D46 /* StringHelper.swift */,
 				2EAA794121156B5F00600D46 /* TextFieldHelper.swift */,
 				2EAA794421156B5F00600D46 /* APIRequest.swift */,
@@ -418,6 +424,8 @@
 				2EAA796921156D6F00600D46 /* RootViewController.swift in Sources */,
 				2EAA7987211579C400600D46 /* DatePickerViewController.swift in Sources */,
 				2EAA794B21156B5F00600D46 /* TextFieldHelper.swift in Sources */,
+				2EAA798E2115B58500600D46 /* BarButtonItemHelper.swift in Sources */,
+				2EAA79902115C09F00600D46 /* ViewControllerHelper.swift in Sources */,
 				2EAA797621156D9400600D46 /* ChannelTableViewCell.swift in Sources */,
 				2EAA795521156B6A00600D46 /* Constant.swift in Sources */,
 				2EAA794F21156B5F00600D46 /* KeyboardHelper.swift in Sources */,

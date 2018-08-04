@@ -12,7 +12,7 @@ import UIKit
 class View: UIView {
 
     @IBInspectable
-    public var cornerRadius: CGFloat {
+    var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }

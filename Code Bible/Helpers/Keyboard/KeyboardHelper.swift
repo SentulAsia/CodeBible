@@ -8,11 +8,11 @@
 
 import UIKit
 
-public class Keyboard: NSObject {
-    public final weak var controller: UIViewController?
-    public final weak var keyboardHeightLayoutConstraint: NSLayoutConstraint?
+class Keyboard: NSObject {
+    weak var controller: UIViewController?
+    weak var keyboardHeightLayoutConstraint: NSLayoutConstraint?
 
-    public override init() {
+    override init() {
         super.init()
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillChangeFrame(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)

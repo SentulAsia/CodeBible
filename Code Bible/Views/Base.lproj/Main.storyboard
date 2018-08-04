@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,7 +35,7 @@
         <scene sceneID="v5r-Do-aSD">
             <objects>
                 <navigationController id="3lq-Bq-xDH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="Nma-Sy-PzX"/>
+                    <tabBarItem key="tabBarItem" title="First" image="first" badgeValue="1" id="Nma-Sy-PzX"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wc6-eq-MX8">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -186,11 +187,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="w5b-EC-eBA"/>
                     </view>
-                    <navigationItem key="navigationItem" id="IhF-gQ-YRf"/>
+                    <navigationItem key="navigationItem" id="IhF-gQ-YRf">
+                        <rightBarButtonItems>
+                            <barButtonItem image="second" id="vfn-QT-SLv" customClass="BarButtonItem" customModule="Code_Bible" customModuleProvider="target"/>
+                            <barButtonItem image="first" id="O4D-W9-hKw" customClass="BarButtonItem" customModule="Code_Bible" customModuleProvider="target"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
+                        <outlet property="anotherNavigationItem" destination="O4D-W9-hKw" id="qcD-hG-Va1"/>
                         <outlet property="anotherPickerButton" destination="96s-cj-SZw" id="QwI-oE-br0"/>
                         <outlet property="imageButton" destination="wWo-hR-eSh" id="dNu-B2-Gcc"/>
                         <outlet property="keyboardHeightLayoutConstraint" destination="pm1-n2-s81" id="4Gg-7e-avs"/>
+                        <outlet property="navigationButton" destination="vfn-QT-SLv" id="rrE-xB-B6t"/>
                         <outlet property="pickerButton" destination="nVi-di-tGZ" id="HS9-UG-oYU"/>
                     </connections>
                 </viewController>
@@ -268,7 +276,7 @@
         <scene sceneID="Yy6-C0-tdt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a7F-Y2-n5a" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="lHP-Yp-T5f"/>
+                    <tabBarItem key="tabBarItem" title="Second" image="second" badgeValue="2" id="lHP-Yp-T5f"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KNG-Z5-8Tb">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -287,7 +295,7 @@
         <scene sceneID="Jyh-bG-oM4">
             <objects>
                 <navigationController id="u0Z-ac-lsc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Third" image="second" id="DYX-B1-SNR"/>
+                    <tabBarItem key="tabBarItem" title="Third" image="second" badgeValue="3" id="DYX-B1-SNR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b9b-VC-Arv">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

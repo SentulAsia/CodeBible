@@ -10,7 +10,7 @@ import UIKit
 
 class OpeningTimeTableViewCell: UITableViewCell {
 
-    public static let identifier = "OpeningTimeTableViewCell"
+    static let identifier = "OpeningTimeTableViewCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()

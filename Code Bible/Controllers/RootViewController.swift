@@ -10,6 +10,9 @@ import UIKit
 
 class RootViewController: UIViewController {
 
+    @IBOutlet weak var navigationButton: BarButtonItem!
+    @IBOutlet weak var anotherNavigationItem: BarButtonItem!
+
     @IBOutlet weak var pickerButton: UIButton!
     @IBOutlet weak var anotherPickerButton: UIButton!
     @IBOutlet weak var imageButton: UIButton!
@@ -29,6 +32,13 @@ class RootViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.keyboard.controller = self
         self.keyboard.keyboardHeightLayoutConstraint = self.keyboardHeightLayoutConstraint
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        self.navigationButton.badge = "3"
+        self.anotherNavigationItem.badge = "8"
     }
 
     override func didReceiveMemoryWarning() {

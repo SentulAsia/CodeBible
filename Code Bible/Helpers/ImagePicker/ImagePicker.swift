@@ -8,25 +8,25 @@
 
 import UIKit
 
-public protocol ImagePickerDelegate: class {
+protocol ImagePickerDelegate: class {
     func imagePickerFinishCapture(successfully flag: Bool, withImage image: UIImage?)
 }
 
-public class ImagePicker: NSObject {
-    public static let shared = ImagePicker()
+class ImagePicker: NSObject {
+    static let shared = ImagePicker()
 
     // MARK: Delegate
-    public final weak var delegate: ImagePickerDelegate?
-    public final var imageWidth: CGFloat? // resize image to a specific width
+    weak var delegate: ImagePickerDelegate?
+    var imageWidth: CGFloat? // resize image to a specific width
 
-    fileprivate final var imagePicker: UIImagePickerController!
+    fileprivate var imagePicker: UIImagePickerController!
 
     // MARK: Inherited
-    public override init() {
+    override init() {
         super.init()
     }
 
-    public static func showMenu(
+    static func showMenu(
         _ sender: UIView,
         delegate: ImagePickerDelegate
     ) {
@@ -60,7 +60,7 @@ public class ImagePicker: NSObject {
         (delegate as? UIViewController)?.present(menu, animated: true, completion: nil)
     }
 
-    public func selectPicture() {
+    func selectPicture() {
         self.imagePicker = UIImagePickerController()
         self.imagePicker.allowsEditing = true
         self.imagePicker.sourceType = .photoLibrary
@@ -69,7 +69,7 @@ public class ImagePicker: NSObject {
         (self.delegate as? UIViewController)?.present(self.imagePicker, animated: true, completion: nil)
     }
 
-    public func takePicture() {
+    func takePicture() {
         self.imagePicker =  UIImagePickerController()
         self.imagePicker.allowsEditing = true
         self.imagePicker.delegate = self
@@ -106,12 +106,12 @@ public class ImagePicker: NSObject {
 }
 
 extension ImagePicker: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.imagePicker.dismiss(animated: true, completion: nil)
         self.imagePicker = nil
     }
 
-    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         var newImage: UIImage
 
         if picker.sourceType == .camera {

@@ -8,32 +8,32 @@
 
 import UIKit
 
-public protocol TextFieldDelegate: class {
+protocol TextFieldDelegate: class {
     func textFieldDidDeleteBackward(_ textField: TextField)
 }
 
 @IBDesignable
-public class TextField: UITextField {
+class TextField: UITextField {
 
-    final let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
 
-    public weak var textFielddelegate: TextFieldDelegate?
+    weak var textFielddelegate: TextFieldDelegate?
 
-    override public func deleteBackward() {
+    override func deleteBackward() {
         super.deleteBackward()
 
         self.textFielddelegate?.textFieldDidDeleteBackward(self)
     }
 
-    override open func textRect(forBounds bounds: CGRect) -> CGRect {
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
         return UIEdgeInsetsInsetRect(bounds, self.padding)
     }
 
-    override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+    override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         return UIEdgeInsetsInsetRect(bounds, self.padding)
     }
 
-    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return UIEdgeInsetsInsetRect(bounds, self.padding)
     }
 }
