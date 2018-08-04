@@ -63,7 +63,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="MRl-LX-sep"/>
                                     <barButtonItem title="Done" id="VGm-nb-Q7N">
                                         <connections>
-                                            <action selector="doneButtonTapped:" destination="Atv-4x-zPf" id="k43-XC-DCr"/>
+                                            <action selector="doneButtonTapped:" destination="Atv-4x-zPf" id="JQQ-UW-TX7"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -117,7 +117,7 @@
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="4JL-VN-SfA">
                     <connections>
-                        <action selector="doneButtonTapped:" destination="Atv-4x-zPf" id="4uS-0v-rz4"/>
+                        <action selector="pickerViewTapped:" destination="Atv-4x-zPf" id="o5I-uc-vt4"/>
                         <outlet property="delegate" destination="Atv-4x-zPf" id="n5k-Jf-DwS"/>
                     </connections>
                 </tapGestureRecognizer>
@@ -156,11 +156,13 @@
                                 <subviews>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9H9-eg-aBJ">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                                        <gestureRecognizers/>
                                         <date key="date" timeIntervalSinceReferenceDate="-31651199.609707952">
                                             <!--1999-12-31 16:00:00 +0000-->
                                         </date>
                                         <connections>
                                             <action selector="datePickerSelected:" destination="gPO-bB-NGR" eventType="valueChanged" id="P0X-x8-g7v"/>
+                                            <outletCollection property="gestureRecognizers" destination="ul2-9c-6nj" appends="YES" id="C7w-gW-4X7"/>
                                         </connections>
                                     </datePicker>
                                 </subviews>
@@ -196,6 +198,12 @@
                 <tapGestureRecognizer id="94W-bW-JOS">
                     <connections>
                         <action selector="cancelButtonTapped:" destination="gPO-bB-NGR" id="dlS-bP-2fQ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="ul2-9c-6nj">
+                    <connections>
+                        <action selector="pickerViewTapped:" destination="gPO-bB-NGR" id="MbR-QQ-tEB"/>
+                        <outlet property="delegate" destination="gPO-bB-NGR" id="EAk-24-0NQ"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

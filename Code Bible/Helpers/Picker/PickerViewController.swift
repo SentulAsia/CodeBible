@@ -38,19 +38,21 @@ class PickerViewController: UIViewController {
         dismissView(isPicked: false)
     }
 
-    @IBAction func doneButtonTapped(_ sender: Any) {
-        if let s = sender as? UITapGestureRecognizer, s.state == .ended {
+    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
+        dismissView(isPicked: true)
+    }
+
+    @IBAction func pickerViewTapped(_ sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
             let rowHeight = self.pickerView.rowSize(forComponent: 0).height
             let selectedRowFrame: CGRect = self.pickerView.bounds.insetBy(dx: 0.0, dy: (self.pickerView.frame.height - rowHeight) / 2.0)
-            let userTappedOnSelectedRow = selectedRowFrame.contains(s.location(in: self.pickerView))
+            let userTappedOnSelectedRow = selectedRowFrame.contains(sender.location(in: self.pickerView))
             if userTappedOnSelectedRow {
                 if self.pickerSelectedIndex == nil {
                     self.pickerSelectedIndex = 0
                 }
                 dismissView(isPicked: true)
             }
-        } else if let _ = sender as? UIBarButtonItem {
-            dismissView(isPicked: true)
         }
     }
 }

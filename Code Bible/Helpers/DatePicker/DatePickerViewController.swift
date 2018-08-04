@@ -46,6 +46,19 @@ class DatePickerViewController: UIViewController {
     @IBAction func datePickerSelected(_ sender: UIDatePicker) {
         self.pickerDate = sender.date
     }
+
+    @IBAction func pickerViewTapped(_ sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            let selectedRowFrame: CGRect = self.datePicker.bounds.insetBy(dx: 0.0, dy: (self.datePicker.frame.height - 32.0) / 2.0)
+            let userTappedOnSelectedRow = selectedRowFrame.contains(sender.location(in: self.datePicker))
+            if userTappedOnSelectedRow {
+                if self.pickerDate == nil {
+                    self.pickerDate = self.datePicker.date
+                }
+                dismissView(isPicked: true)
+            }
+        }
+    }
 }
 
 extension DatePickerViewController {
@@ -57,5 +70,11 @@ extension DatePickerViewController {
             handler
         }
         self.dismiss(animated: true, completion: self.dismissCompletionHandler)
+    }
+}
+
+extension DatePickerViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
