@@ -50,7 +50,9 @@ class ToastViewController: UIViewController {
 
 extension ToastViewController {
     @objc
-    fileprivate func toastTimerDidFinish(_ timer: Timer) {
+    fileprivate func toastTimerDidFinish(
+        _ timer: Timer
+    ) {
         dismissView()
     }
 

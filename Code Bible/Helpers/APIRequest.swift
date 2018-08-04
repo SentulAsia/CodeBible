@@ -83,8 +83,8 @@ struct APIRequest {
         method: APIMethod,
         parameters: [String: Any]?,
         headers: [String: String]?,
-        completionHandler: @escaping (APIResponse) -> Void)
-    {
+        completionHandler: @escaping (_ response: APIResponse) -> Void
+    ) {
         var request = URLRequest(url: url)
         if let h = headers {
             for header in h {

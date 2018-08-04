@@ -90,13 +90,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="TRO-YH-xxr" firstAttribute="trailing" secondItem="vfq-E7-a0B" secondAttribute="trailing" id="Ayd-QP-Fqe"/>
                             <constraint firstItem="dbK-ew-2cd" firstAttribute="bottom" secondItem="vfq-E7-a0B" secondAttribute="bottom" id="BPu-et-Jy8"/>
                             <constraint firstItem="dbK-ew-2cd" firstAttribute="trailing" secondItem="vfq-E7-a0B" secondAttribute="trailing" id="Hfi-pg-uej"/>
+                            <constraint firstItem="TRO-YH-xxr" firstAttribute="leading" secondItem="zZJ-xf-fK0" secondAttribute="leading" id="TXT-v0-37C"/>
                             <constraint firstItem="c3K-eH-wrP" firstAttribute="leading" secondItem="vfq-E7-a0B" secondAttribute="leading" id="TbA-m7-9EO"/>
                             <constraint firstItem="dbK-ew-2cd" firstAttribute="leading" secondItem="vfq-E7-a0B" secondAttribute="leading" id="Wkq-XA-13J"/>
-                            <constraint firstItem="TRO-YH-xxr" firstAttribute="leading" secondItem="vfq-E7-a0B" secondAttribute="leading" id="h83-vg-gF0"/>
                             <constraint firstItem="c3K-eH-wrP" firstAttribute="top" secondItem="TRO-YH-xxr" secondAttribute="bottom" id="kip-61-7Rw"/>
+                            <constraint firstAttribute="trailing" secondItem="TRO-YH-xxr" secondAttribute="trailing" id="kmU-8t-CLb"/>
                             <constraint firstItem="dbK-ew-2cd" firstAttribute="top" secondItem="c3K-eH-wrP" secondAttribute="bottom" id="lPv-50-EZP"/>
                             <constraint firstItem="c3K-eH-wrP" firstAttribute="trailing" secondItem="vfq-E7-a0B" secondAttribute="trailing" id="u56-cs-aHa"/>
                             <constraint firstItem="TRO-YH-xxr" firstAttribute="top" secondItem="zZJ-xf-fK0" secondAttribute="top" id="vfv-C6-uUg"/>
@@ -114,7 +114,84 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="921" y="1565"/>
+            <point key="canvasLocation" x="920.79999999999995" y="1564.7676161919042"/>
+        </scene>
+        <!--Date Picker View Controller-->
+        <scene sceneID="Nmk-bM-a4W">
+            <objects>
+                <viewController storyboardIdentifier="DatePickerViewController" id="gPO-bB-NGR" customClass="DatePickerViewController" customModule="Code_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lyO-ZY-Gf0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zcN-b3-nd4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="407"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="94W-bW-JOS" appends="YES" id="l2Z-jr-lrl"/>
+                                </connections>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ke5-5Y-sTO">
+                                <rect key="frame" x="0.0" y="407" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="OoA-Ta-FZR"/>
+                                    <barButtonItem title="Done" id="S0B-bh-h97">
+                                        <connections>
+                                            <action selector="doneButtonTapped:" destination="gPO-bB-NGR" id="YtE-jT-l7Q"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d6S-Ef-Szb">
+                                <rect key="frame" x="0.0" y="451" width="375" height="216"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9H9-eg-aBJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="555055202.39029205">
+                                            <!--2018-08-04 06:00:02 +0000-->
+                                        </date>
+                                        <connections>
+                                            <action selector="datePickerSelected:" destination="gPO-bB-NGR" eventType="valueChanged" id="P0X-x8-g7v"/>
+                                        </connections>
+                                    </datePicker>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="9H9-eg-aBJ" firstAttribute="top" secondItem="d6S-Ef-Szb" secondAttribute="top" id="JiG-6z-bf8"/>
+                                    <constraint firstAttribute="trailing" secondItem="9H9-eg-aBJ" secondAttribute="trailing" id="LY6-b8-ogw"/>
+                                    <constraint firstAttribute="bottom" secondItem="9H9-eg-aBJ" secondAttribute="bottom" id="nIJ-Q1-AcL"/>
+                                    <constraint firstItem="9H9-eg-aBJ" firstAttribute="leading" secondItem="d6S-Ef-Szb" secondAttribute="leading" id="ob4-G4-H60"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zcN-b3-nd4" firstAttribute="top" secondItem="lyO-ZY-Gf0" secondAttribute="top" id="0eh-ED-biT"/>
+                            <constraint firstItem="SBJ-IK-Jye" firstAttribute="trailing" secondItem="Ke5-5Y-sTO" secondAttribute="trailing" id="6eB-12-a0z"/>
+                            <constraint firstItem="SBJ-IK-Jye" firstAttribute="leading" secondItem="Ke5-5Y-sTO" secondAttribute="leading" id="92H-Yr-gEK"/>
+                            <constraint firstItem="SBJ-IK-Jye" firstAttribute="bottom" secondItem="d6S-Ef-Szb" secondAttribute="bottom" id="A9w-kj-LZe"/>
+                            <constraint firstItem="SBJ-IK-Jye" firstAttribute="trailing" secondItem="d6S-Ef-Szb" secondAttribute="trailing" id="GDY-o6-mX6"/>
+                            <constraint firstItem="d6S-Ef-Szb" firstAttribute="top" secondItem="Ke5-5Y-sTO" secondAttribute="bottom" id="Kmr-vQ-2lz"/>
+                            <constraint firstItem="SBJ-IK-Jye" firstAttribute="leading" secondItem="d6S-Ef-Szb" secondAttribute="leading" id="LWp-A8-rZg"/>
+                            <constraint firstAttribute="trailing" secondItem="zcN-b3-nd4" secondAttribute="trailing" id="N5i-CR-Bhp"/>
+                            <constraint firstItem="zcN-b3-nd4" firstAttribute="leading" secondItem="lyO-ZY-Gf0" secondAttribute="leading" id="Wcc-ZG-Mzo"/>
+                            <constraint firstItem="Ke5-5Y-sTO" firstAttribute="top" secondItem="zcN-b3-nd4" secondAttribute="bottom" id="rti-9K-pif"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SBJ-IK-Jye"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="9H9-eg-aBJ" id="ilN-tf-XLv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hjv-SH-2fW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="94W-bW-JOS">
+                    <connections>
+                        <action selector="cancelButtonTapped:" destination="gPO-bB-NGR" id="dlS-bP-2fQ"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1860" y="1564.7676161919042"/>
         </scene>
         <!--Full Picker View Controller-->
         <scene sceneID="wgr-9X-e7s">

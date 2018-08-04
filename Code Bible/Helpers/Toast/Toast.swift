@@ -14,12 +14,15 @@ struct Toast {
 
     private init() {}
 
-    mutating func show(forViewController controller: UIViewController, withMessage message: String) {
-        self.controller = controller
+    mutating func show(
+        _ sender: UIViewController,
+        withMessage message: String
+    ) {
+        self.controller = sender
         let storyboard: UIStoryboard = UIStoryboard(name: Constant.Storyboard.helper, bundle: nil)
         let toastController = storyboard.instantiateViewController(withIdentifier: ToastViewController.identifier) as! ToastViewController
         toastController.modalPresentationStyle = .overFullScreen
         toastController.message = message
-        controller.present(toastController, animated: false, completion: nil)
+        sender.present(toastController, animated: false, completion: nil)
     }
 }

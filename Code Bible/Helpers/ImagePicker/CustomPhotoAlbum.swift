@@ -15,7 +15,6 @@ public class CustomPhotoAlbum {
     var assetCollection: PHAssetCollection!
 
     init() {
-
         func fetchAssetCollectionForAlbum() -> PHAssetCollection! {
 
             let fetchOptions = PHFetchOptions()
@@ -43,7 +42,9 @@ public class CustomPhotoAlbum {
         }
     }
 
-    public func saveImage(_ image: UIImage) {
+    public func saveImage(
+        _ image: UIImage
+    ) {
         if PHPhotoLibrary.authorizationStatus() == .authorized {
             if self.assetCollection == nil {
                 print("there was an error upstream, skip the save")

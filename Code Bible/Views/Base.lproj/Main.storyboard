@@ -131,6 +131,14 @@
                                     <action selector="showToastButtonTapped:" destination="6bV-jc-8Fp" eventType="touchUpInside" id="wVS-2C-JjY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24h-yM-DAA">
+                                <rect key="frame" x="44" y="332" width="287" height="30"/>
+                                <color key="backgroundColor" red="0.85882352939999995" green="0.94901960780000005" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="datePickerButtonTapped:" destination="6bV-jc-8Fp" eventType="touchUpInside" id="0BG-sv-4El"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number goes here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u2H-t5-MRc" customClass="TextField" customModule="Code_Bible" customModuleProvider="target">
                                 <rect key="frame" x="16" y="621" width="343" height="30"/>
                                 <nil key="textColor"/>
@@ -155,6 +163,7 @@
                             <constraint firstItem="emF-4Y-q63" firstAttribute="top" secondItem="96s-cj-SZw" secondAttribute="bottom" constant="8" id="4ZT-r3-IuZ"/>
                             <constraint firstItem="w5b-EC-eBA" firstAttribute="trailing" secondItem="nVi-di-tGZ" secondAttribute="trailing" constant="44" id="5WP-k4-PtJ"/>
                             <constraint firstItem="emF-4Y-q63" firstAttribute="centerX" secondItem="w5b-EC-eBA" secondAttribute="centerX" id="BQG-nV-Lgu"/>
+                            <constraint firstItem="24h-yM-DAA" firstAttribute="leading" secondItem="w5b-EC-eBA" secondAttribute="leading" constant="44" id="DXy-H0-C6q"/>
                             <constraint firstAttribute="bottom" secondItem="iPA-Qu-DRB" secondAttribute="bottom" id="GlZ-Gb-t7N"/>
                             <constraint firstItem="wWo-hR-eSh" firstAttribute="centerX" secondItem="w5b-EC-eBA" secondAttribute="centerX" id="HeW-RT-ion"/>
                             <constraint firstItem="ITu-OC-jYn" firstAttribute="leading" secondItem="IVJ-nF-d6Y" secondAttribute="leading" id="KhZ-R5-p7Y"/>
@@ -167,10 +176,12 @@
                             <constraint firstAttribute="trailing" secondItem="iPA-Qu-DRB" secondAttribute="trailing" id="bXy-lX-1iX"/>
                             <constraint firstItem="96s-cj-SZw" firstAttribute="leading" secondItem="w5b-EC-eBA" secondAttribute="leading" constant="44" id="biu-6m-jHH"/>
                             <constraint firstItem="wGr-dm-P54" firstAttribute="centerX" secondItem="w5b-EC-eBA" secondAttribute="centerX" id="gd6-us-iMI"/>
+                            <constraint firstItem="24h-yM-DAA" firstAttribute="top" secondItem="wGr-dm-P54" secondAttribute="bottom" constant="8" id="lK5-UX-cbG"/>
                             <constraint firstItem="96s-cj-SZw" firstAttribute="top" secondItem="nVi-di-tGZ" secondAttribute="bottom" constant="8" id="n9e-Hh-Hhi"/>
                             <constraint firstItem="wGr-dm-P54" firstAttribute="top" secondItem="wWo-hR-eSh" secondAttribute="bottom" constant="8" id="oea-mQ-pnt"/>
                             <constraint firstItem="nVi-di-tGZ" firstAttribute="top" secondItem="w5b-EC-eBA" secondAttribute="top" constant="8" id="pkc-Ka-92x"/>
                             <constraint firstAttribute="trailing" secondItem="ITu-OC-jYn" secondAttribute="trailing" id="rXa-C1-5z2"/>
+                            <constraint firstItem="w5b-EC-eBA" firstAttribute="trailing" secondItem="24h-yM-DAA" secondAttribute="trailing" constant="44" id="tlx-7a-k2s"/>
                             <constraint firstItem="ITu-OC-jYn" firstAttribute="top" secondItem="IVJ-nF-d6Y" secondAttribute="top" id="wON-Vo-OaH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="w5b-EC-eBA"/>

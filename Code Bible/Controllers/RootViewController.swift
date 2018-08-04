@@ -19,6 +19,7 @@ class RootViewController: UIViewController {
     let secondData = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     let keyboard = Keyboard()
 
+    var selectedDate: Date?
     var selectedIndex: Int?
     var anotherSelectedIndex: Int?
 
@@ -39,83 +40,55 @@ class RootViewController: UIViewController {
         self.view.endEditing(true)
     }
 
+    @IBAction func datePickerButtonTapped(_ sender: Any) {
+        DatePicker.shared.show(self, pickerDate: self.selectedDate) { (isPicked: Bool, pickerDate: Date?) in
+            if isPicked {
+                self.selectedDate = pickerDate
+                print(self.selectedDate)
+                // TODO: Handle selected date
+            }
+        }
+    }
+
     @IBAction func fullPickerButtonTapped(_ sender: Any) {
-        let storyboard: UIStoryboard = UIStoryboard(name: Constant.Storyboard.helper, bundle: nil)
-        let navigationController = storyboard.instantiateViewController(withIdentifier: FullPickerViewController.identifier) as! UINavigationController
-        let controller = navigationController.visibleViewController as! FullPickerViewController
-        controller.pickerList = self.firstData
-        controller.pickerSelectedIndex = self.selectedIndex
-        controller.dismissCompletionHandler = {
-            if controller.isPicked {
-                self.selectedIndex = controller.pickerSelectedIndex
+        Picker.shared.showFull(self, pickerList: self.firstData, pickerSelectedIndex: self.selectedIndex) { (isPicked: Bool, pickerSelectedIndex: Int?) in
+            if isPicked {
+                self.selectedIndex = pickerSelectedIndex
                 if let index = self.selectedIndex {
                     self.pickerButton.setTitle(self.firstData[index], for: .normal)
                 }
             }
         }
-        self.present(navigationController, animated: true, completion: nil)
     }
 
     @IBAction func pickerButtonTapped(_ sender: Any) {
-        let storyboard: UIStoryboard = UIStoryboard(name: Constant.Storyboard.helper, bundle: nil)
-        let blurController = storyboard.instantiateViewController(withIdentifier: BlurViewController.identifier) as! BlurViewController
-        blurController.modalPresentationStyle = .overFullScreen
-        blurController.appearCompletionHandler = { (isCompleted: Bool) in
-            let controller = storyboard.instantiateViewController(withIdentifier: PickerViewController.identifier) as! PickerViewController
-            controller.modalPresentationStyle = .overFullScreen
-            controller.pickerList = self.firstData
-            controller.pickerSelectedIndex = self.selectedIndex
-            controller.willDismissHandler = {
-                blurController.animateDismiss()
+        Picker.shared.show(self, pickerList: self.firstData, pickerSelectedIndex: self.selectedIndex) { (isPicked: Bool, pickerSelectedIndex: Int?) in
+            if isPicked {
+                self.selectedIndex = pickerSelectedIndex
+                if let index = self.selectedIndex {
+                    self.pickerButton.setTitle(self.firstData[index], for: .normal)
+                }
             }
-            controller.dismissCompletionHandler = {
-                blurController.dismissView(completionHandler: {
-                    if controller.isPicked {
-                        self.selectedIndex = controller.pickerSelectedIndex
-                        if let index = self.selectedIndex {
-                            self.pickerButton.setTitle(self.firstData[index], for: .normal)
-                        }
-                    }
-                })
-            }
-            blurController.present(controller, animated: true, completion: nil)
         }
-        self.present(blurController, animated: false, completion: nil)
     }
 
     @IBAction func anotherPickerButtonTapped(_ sender: Any) {
-        let storyboard: UIStoryboard = UIStoryboard(name: Constant.Storyboard.helper, bundle: nil)
-        let blurController = storyboard.instantiateViewController(withIdentifier: BlurViewController.identifier) as! BlurViewController
-        blurController.modalPresentationStyle = .overFullScreen
-        blurController.appearCompletionHandler = { (isCompleted: Bool) in
-            let controller = storyboard.instantiateViewController(withIdentifier: PickerViewController.identifier) as! PickerViewController
-            controller.modalPresentationStyle = .overFullScreen
-            controller.pickerList = self.secondData
-            controller.pickerSelectedIndex = self.anotherSelectedIndex
-            controller.willDismissHandler = {
-                blurController.animateDismiss()
+        Picker.shared.show(self, pickerList: self.firstData, pickerSelectedIndex: self.selectedIndex) { (isPicked: Bool, pickerSelectedIndex: Int?) in
+            if isPicked {
+                self.anotherSelectedIndex = pickerSelectedIndex
+                if let index = self.anotherSelectedIndex {
+                    self.anotherPickerButton.setTitle(self.secondData[index], for: .normal)
+                }
             }
-            controller.dismissCompletionHandler = {
-                blurController.dismissView(completionHandler: {
-                    if controller.isPicked {
-                        self.anotherSelectedIndex = controller.pickerSelectedIndex
-                        if let index = self.anotherSelectedIndex {
-                            self.anotherPickerButton.setTitle(self.secondData[index], for: .normal)
-                        }
-                    }
-                })
-            }
-            blurController.present(controller, animated: true, completion: nil)
         }
-        self.present(blurController, animated: false, completion: nil)
     }
 
     @IBAction func imageButtonTapped(_ sender: Any) {
-        ImagePicker.showMenu(sender: sender as! UIButton, delegate: self)
+        ImagePicker.showMenu(sender as! UIButton, delegate: self)
     }
 
     @IBAction func showToastButtonTapped(_ sender: Any) {
-        Toast.shared.show(forViewController: self, withMessage: "This is an example for a toast event that is simulating Android native toast")
+        Toast.shared.show(self, withMessage: "This is an example for a toast event that is simulating Android native toast")
     }
 }
 

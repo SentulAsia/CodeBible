@@ -28,6 +28,12 @@ class ChannelListViewController: UIViewController {
         getChannelListAPI()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        Spinner.shared.stopLoadingIndicatior()
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -37,7 +43,7 @@ class ChannelListViewController: UIViewController {
 extension ChannelListViewController {
     func getChannelListAPI() {
         let channelObj = Channel()
-        Spinner.shared.startLoadingIndicator(forViewController: self)
+        Spinner.shared.startLoadingIndicator(self)
         APIManager.shared.getChannelList(channelObj: channelObj, success: { (channelModelArrayObj) in
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // change 2 to desired number of seconds
                 Spinner.shared.stopLoadingIndicatior()
@@ -45,7 +51,8 @@ extension ChannelListViewController {
                 self.tableView.reloadData()
             }
         }) { (error) in
-            Toast.shared.show(forViewController: self, withMessage: error)
+            Spinner.shared.stopLoadingIndicatior()
+            Toast.shared.show(self, withMessage: error)
         }
     }
 }

@@ -23,7 +23,9 @@ public class Keyboard: NSObject {
     }
 
     @objc
-    func keyboardWillChangeFrame(notification: NSNotification) {
+    func keyboardWillChangeFrame(
+        notification: NSNotification
+    ) {
         if let userInfo = notification.userInfo {
             let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
             let duration: TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0

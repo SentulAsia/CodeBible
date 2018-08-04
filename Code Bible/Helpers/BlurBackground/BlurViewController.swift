@@ -14,7 +14,7 @@ class BlurViewController: UIViewController {
 
     static let identifier = "BlurViewController"
 
-    var appearCompletionHandler: ((Bool) -> Void)?
+    var appearCompletionHandler: ((_ isCompleted: Bool) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -27,7 +27,7 @@ public class ImagePicker: NSObject {
     }
 
     public static func showMenu(
-        sender: UIView,
+        _ sender: UIView,
         delegate: ImagePickerDelegate
     ) {
         let menu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -94,7 +94,9 @@ public class ImagePicker: NSObject {
         setImage(nil)
     }
 
-    fileprivate func setImage(_ image: UIImage?) {
+    fileprivate func setImage(
+        _ image: UIImage?
+    ) {
         if let i = image {
             self.delegate?.imagePickerFinishCapture(successfully: true, withImage: i)
         } else {

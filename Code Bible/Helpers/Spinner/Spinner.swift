@@ -14,14 +14,16 @@ struct Spinner {
 
     private init() {}
 
-    mutating func startLoadingIndicator(forViewController controller: UIViewController) {
+    mutating func startLoadingIndicator(
+        _ sender: UIViewController
+    ) {
         let loadingIndicator = UIView()
-        loadingIndicator.frame = CGRect(x: 0, y: -20, width: controller.view.frame.size.width, height: controller.view.frame.size.height + 20)
+        loadingIndicator.frame = CGRect(x: 0, y: -20, width: sender.view.frame.size.width, height: sender.view.frame.size.height + 20)
         loadingIndicator.backgroundColor = UIColor.clear
 
         let loadingView: UIView = UIView()
         loadingView.frame = CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0)
-        loadingView.center = controller.view.center
+        loadingView.center = sender.view.center
         loadingView.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0)
         loadingView.clipsToBounds = true
         loadingView.layer.cornerRadius = 10
@@ -35,7 +37,7 @@ struct Spinner {
 
         loadingView.addSubview(activityIndicator)
         loadingIndicator.addSubview(loadingView)
-        controller.view.addSubview(loadingIndicator)
+        sender.view.addSubview(loadingIndicator)
 
         self.loadingIndicator = loadingIndicator
     }

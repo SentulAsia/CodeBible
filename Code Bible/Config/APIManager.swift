@@ -15,8 +15,8 @@ struct APIManager {
 
     func getChannelList(
         channelObj: Channel,
-        success: @escaping((_ channelModelArrayObj: [Channel]) -> Void),
-        failure: @escaping((_ serverError: String) -> Void)
+        success: @escaping (_ channelModelArrayObj: [Channel]) -> Void,
+        failure: @escaping (_ serverError: String) -> Void
     ) {
         let channelListURLString = Constant.AstroAPI.baseURL + Constant.AstroAPI.channelList
         let channelListURL = URL(string: channelListURLString)!

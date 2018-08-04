@@ -1,5 +1,5 @@
 //
-//  PickerViewController.swift
+//  DatePickerViewController.swift
 //  Code Bible
 //
 //  Created by Zaid M. Said on 04/08/2018.
@@ -8,15 +8,14 @@
 
 import UIKit
 
-class PickerViewController: UIViewController {
+class DatePickerViewController: UIViewController {
 
-    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var datePicker: UIDatePicker!
 
-    static let identifier = "PickerViewController"
+    static let identifier = "DatePickerViewController"
 
     var isPicked = false // indicate to sender that user did picked from picker view or cancel picking
-    var pickerList: [String] = []
-    var pickerSelectedIndex: Int?
+    var pickerDate: Date?
     var willDismissHandler: (() -> Void)?
     var dismissCompletionHandler: (() -> Void)?
 
@@ -24,8 +23,8 @@ class PickerViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if let row = self.pickerSelectedIndex {
-            self.pickerView.selectRow(row, inComponent: 0, animated: false)
+        if let date = self.pickerDate {
+            self.datePicker.setDate(date, animated: false)
         }
     }
 
@@ -41,9 +40,13 @@ class PickerViewController: UIViewController {
     @IBAction func doneButtonTapped(_ sender: Any) {
         dismissView(isPicked: true)
     }
+
+    @IBAction func datePickerSelected(_ sender: UIDatePicker) {
+        self.pickerDate = sender.date
+    }
 }
 
-extension PickerViewController {
+extension DatePickerViewController {
     func dismissView(
         isPicked: Bool
     ) {
@@ -52,25 +55,5 @@ extension PickerViewController {
             handler
         }
         self.dismiss(animated: true, completion: self.dismissCompletionHandler)
-    }
-}
-
-extension PickerViewController: UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.pickerList.count
-    }
-}
-
-extension PickerViewController: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.pickerList[row]
-    }
-
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.pickerSelectedIndex = row
     }
 }

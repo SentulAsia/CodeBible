@@ -40,7 +40,9 @@ class FullPickerViewController: UIViewController {
 }
 
 extension FullPickerViewController {
-    func dismissView(isPicked: Bool) {
+    func dismissView(
+        isPicked: Bool
+    ) {
         self.isPicked = isPicked
         if let handler = self.willDismissHandler?() {
             handler

@@ -40,6 +40,9 @@
 		2EAA797621156D9400600D46 /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA797221156D9400600D46 /* ChannelTableViewCell.swift */; };
 		2EAA797721156D9400600D46 /* FullPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA797421156D9400600D46 /* FullPickerTableViewCell.swift */; };
 		2EAA797821156DEC00600D46 /* Helper.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EAA797A21156DEC00600D46 /* Helper.storyboard */; };
+		2EAA7987211579C400600D46 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA7986211579C400600D46 /* DatePickerViewController.swift */; };
+		2EAA798A21157F5E00600D46 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA798921157F5E00600D46 /* Picker.swift */; };
+		2EAA798C2115A9BF00600D46 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA798B2115A9BF00600D46 /* DatePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +81,9 @@
 		2EAA797221156D9400600D46 /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
 		2EAA797421156D9400600D46 /* FullPickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullPickerTableViewCell.swift; sourceTree = "<group>"; };
 		2EAA797921156DEC00600D46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Helper.storyboard; sourceTree = "<group>"; };
+		2EAA7986211579C400600D46 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		2EAA798921157F5E00600D46 /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
+		2EAA798B2115A9BF00600D46 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,10 +160,10 @@
 			children = (
 				2EAA7982211575BD00600D46 /* BlurBackground */,
 				2EAA7981211575B200600D46 /* Picker */,
-				2EAA797F2115750F00600D46 /* Full Picker */,
+				2EAA7988211579CA00600D46 /* DatePicker */,
+				2EAA79842115761000600D46 /* ImagePicker */,
 				2EAA79802115753600600D46 /* Toast */,
 				2EAA79832115760300600D46 /* Spinner */,
-				2EAA79842115761000600D46 /* ImagePicker */,
 				2EAA79852115763500600D46 /* Keyboard */,
 				2EAA794321156B5F00600D46 /* ViewHelper.swift */,
 				2EAA794021156B5F00600D46 /* ButtonHelper.swift */,
@@ -257,15 +263,6 @@
 			path = Petronas;
 			sourceTree = "<group>";
 		};
-		2EAA797F2115750F00600D46 /* Full Picker */ = {
-			isa = PBXGroup;
-			children = (
-				2EAA797421156D9400600D46 /* FullPickerTableViewCell.swift */,
-				2EAA796421156D6F00600D46 /* FullPickerViewController.swift */,
-			);
-			path = "Full Picker";
-			sourceTree = "<group>";
-		};
 		2EAA79802115753600600D46 /* Toast */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,7 +275,10 @@
 		2EAA7981211575B200600D46 /* Picker */ = {
 			isa = PBXGroup;
 			children = (
+				2EAA798921157F5E00600D46 /* Picker.swift */,
 				2EAA796621156D6F00600D46 /* PickerViewController.swift */,
+				2EAA797421156D9400600D46 /* FullPickerTableViewCell.swift */,
+				2EAA796421156D6F00600D46 /* FullPickerViewController.swift */,
 			);
 			path = Picker;
 			sourceTree = "<group>";
@@ -314,6 +314,15 @@
 				2EAA794521156B5F00600D46 /* KeyboardHelper.swift */,
 			);
 			path = Keyboard;
+			sourceTree = "<group>";
+		};
+		2EAA7988211579CA00600D46 /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				2EAA798B2115A9BF00600D46 /* DatePicker.swift */,
+				2EAA7986211579C400600D46 /* DatePickerViewController.swift */,
+			);
+			path = DatePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,9 +412,11 @@
 				2EAA797721156D9400600D46 /* FullPickerTableViewCell.swift in Sources */,
 				2EAA792B21156B3800600D46 /* OpeningTime.swift in Sources */,
 				2EAA796E21156D6F00600D46 /* ToastViewController.swift in Sources */,
+				2EAA798A21157F5E00600D46 /* Picker.swift in Sources */,
 				2EAA796A21156D6F00600D46 /* RestaurantListViewController.swift in Sources */,
 				2EAA796B21156D6F00600D46 /* FullPickerViewController.swift in Sources */,
 				2EAA796921156D6F00600D46 /* RootViewController.swift in Sources */,
+				2EAA7987211579C400600D46 /* DatePickerViewController.swift in Sources */,
 				2EAA794B21156B5F00600D46 /* TextFieldHelper.swift in Sources */,
 				2EAA797621156D9400600D46 /* ChannelTableViewCell.swift in Sources */,
 				2EAA795521156B6A00600D46 /* Constant.swift in Sources */,
@@ -417,6 +428,7 @@
 				2EAA792A21156B3800600D46 /* Day.swift in Sources */,
 				2EAA796C21156D6F00600D46 /* BlurViewController.swift in Sources */,
 				2EAA795021156B5F00600D46 /* StringHelper.swift in Sources */,
+				2EAA798C2115A9BF00600D46 /* DatePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
