@@ -64,7 +64,7 @@
                                     <outletCollection property="gestureRecognizers" destination="foD-mI-IDm" appends="YES" id="ibc-OA-D3b"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVi-di-tGZ" customClass="Button" customModule="Code_Bible" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVi-di-tGZ" customClass="ButtonHelper" customModule="Code_Bible" customModuleProvider="target">
                                 <rect key="frame" x="44" y="72" width="287" height="30"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.94901960780000005" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
@@ -83,7 +83,7 @@
                                     <action selector="pickerButtonTapped:" destination="6bV-jc-8Fp" eventType="touchUpInside" id="4m8-rb-wVl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="96s-cj-SZw" customClass="Button" customModule="Code_Bible" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="96s-cj-SZw" customClass="ButtonHelper" customModule="Code_Bible" customModuleProvider="target">
                                 <rect key="frame" x="44" y="110" width="287" height="30"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.94901960780000005" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
@@ -109,7 +109,7 @@
                                     <action selector="fullPickerButtonTapped:" destination="6bV-jc-8Fp" eventType="touchUpInside" id="3Yk-6W-v8Q"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wWo-hR-eSh" customClass="Button" customModule="Code_Bible" customModuleProvider="target">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wWo-hR-eSh" customClass="ButtonHelper" customModule="Code_Bible" customModuleProvider="target">
                                 <rect key="frame" x="137" y="186" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="1bh-Kp-NQL"/>
@@ -140,8 +140,8 @@
                                     <action selector="datePickerButtonTapped:" destination="6bV-jc-8Fp" eventType="touchUpInside" id="0BG-sv-4El"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number goes here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u2H-t5-MRc" customClass="TextField" customModule="Code_Bible" customModuleProvider="target">
-                                <rect key="frame" x="16" y="621" width="343" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number goes here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u2H-t5-MRc" customClass="TextFieldHelper" customModule="Code_Bible" customModuleProvider="target">
+                                <rect key="frame" x="16" y="572" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -163,6 +163,7 @@
                             <constraint firstItem="w5b-EC-eBA" firstAttribute="trailing" secondItem="u2H-t5-MRc" secondAttribute="trailing" constant="16" id="2xT-1E-ncm"/>
                             <constraint firstItem="emF-4Y-q63" firstAttribute="top" secondItem="96s-cj-SZw" secondAttribute="bottom" constant="8" id="4ZT-r3-IuZ"/>
                             <constraint firstItem="w5b-EC-eBA" firstAttribute="trailing" secondItem="nVi-di-tGZ" secondAttribute="trailing" constant="44" id="5WP-k4-PtJ"/>
+                            <constraint firstItem="w5b-EC-eBA" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="u2H-t5-MRc" secondAttribute="bottom" constant="16" id="6AQ-EZ-n6M"/>
                             <constraint firstItem="emF-4Y-q63" firstAttribute="centerX" secondItem="w5b-EC-eBA" secondAttribute="centerX" id="BQG-nV-Lgu"/>
                             <constraint firstItem="24h-yM-DAA" firstAttribute="leading" secondItem="w5b-EC-eBA" secondAttribute="leading" constant="44" id="DXy-H0-C6q"/>
                             <constraint firstAttribute="bottom" secondItem="iPA-Qu-DRB" secondAttribute="bottom" id="GlZ-Gb-t7N"/>
@@ -173,7 +174,7 @@
                             <constraint firstItem="u2H-t5-MRc" firstAttribute="leading" secondItem="w5b-EC-eBA" secondAttribute="leading" constant="16" id="Okz-aA-kRo"/>
                             <constraint firstItem="w5b-EC-eBA" firstAttribute="trailing" secondItem="96s-cj-SZw" secondAttribute="trailing" constant="44" id="RQ8-K0-tPg"/>
                             <constraint firstAttribute="bottom" secondItem="ITu-OC-jYn" secondAttribute="bottom" id="Rqa-iW-PYh"/>
-                            <constraint firstItem="iPA-Qu-DRB" firstAttribute="top" secondItem="u2H-t5-MRc" secondAttribute="bottom" constant="16" id="WGU-FD-3wg"/>
+                            <constraint firstItem="iPA-Qu-DRB" firstAttribute="top" secondItem="u2H-t5-MRc" secondAttribute="bottom" priority="750" constant="16" id="WGU-FD-3wg"/>
                             <constraint firstAttribute="trailing" secondItem="iPA-Qu-DRB" secondAttribute="trailing" id="bXy-lX-1iX"/>
                             <constraint firstItem="96s-cj-SZw" firstAttribute="leading" secondItem="w5b-EC-eBA" secondAttribute="leading" constant="44" id="biu-6m-jHH"/>
                             <constraint firstItem="wGr-dm-P54" firstAttribute="centerX" secondItem="w5b-EC-eBA" secondAttribute="centerX" id="gd6-us-iMI"/>
@@ -189,8 +190,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="IhF-gQ-YRf">
                         <rightBarButtonItems>
-                            <barButtonItem image="second" id="vfn-QT-SLv" customClass="BarButtonItem" customModule="Code_Bible" customModuleProvider="target"/>
-                            <barButtonItem image="first" id="O4D-W9-hKw" customClass="BarButtonItem" customModule="Code_Bible" customModuleProvider="target"/>
+                            <barButtonItem image="second" id="vfn-QT-SLv" customClass="BarButtonItemHelper" customModule="Code_Bible" customModuleProvider="target"/>
+                            <barButtonItem image="first" id="O4D-W9-hKw" customClass="BarButtonItemHelper" customModule="Code_Bible" customModuleProvider="target"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>

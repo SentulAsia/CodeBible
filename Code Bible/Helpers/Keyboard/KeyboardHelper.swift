@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Keyboard: NSObject {
+class KeyboardHelper: NSObject {
     weak var controller: UIViewController?
     weak var keyboardHeightLayoutConstraint: NSLayoutConstraint?
 
@@ -50,7 +50,7 @@ class Keyboard: NSObject {
     }
 }
 
-extension UITextField {
+extension TextFieldHelper {
     @IBInspectable
     var doneButton: Bool {
         get {

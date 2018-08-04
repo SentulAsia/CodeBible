@@ -9,11 +9,11 @@
 import UIKit
 
 protocol TextFieldDelegate: class {
-    func textFieldDidDeleteBackward(_ textField: TextField)
+    func textFieldDidDeleteBackward(_ textField: TextFieldHelper)
 }
 
 @IBDesignable
-class TextField: UITextField {
+class TextFieldHelper: UITextField {
 
     let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
 

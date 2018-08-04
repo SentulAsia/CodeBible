@@ -10,7 +10,7 @@ import UIKit
 
 class ToastViewController: UIViewController {
 
-    @IBOutlet weak var toastView: View!
+    @IBOutlet weak var toastView: ViewHelper!
     @IBOutlet weak var messageLabel: UILabel!
 
     static let identifier = "ToastViewController"

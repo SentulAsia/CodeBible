@@ -8,8 +8,8 @@
 
 import UIKit
 
-struct ViewController {
-    static let shared = ViewController()
+struct ViewControllerHelper {
+    static let shared = ViewControllerHelper()
 
     func getTopMostViewController() -> UIViewController? {
         if var topController = UIApplication.shared.keyWindow?.rootViewController {

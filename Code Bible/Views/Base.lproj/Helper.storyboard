@@ -154,10 +154,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d6S-Ef-Szb">
                                 <rect key="frame" x="0.0" y="451" width="375" height="216"/>
                                 <subviews>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9H9-eg-aBJ">
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9H9-eg-aBJ">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="555055202.39029205">
-                                            <!--2018-08-04 06:00:02 +0000-->
+                                        <date key="date" timeIntervalSinceReferenceDate="-31651199.609707952">
+                                            <!--1999-12-31 16:00:00 +0000-->
                                         </date>
                                         <connections>
                                             <action selector="datePickerSelected:" destination="gPO-bB-NGR" eventType="valueChanged" id="P0X-x8-g7v"/>
@@ -269,7 +269,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgW-Lu-dKV" customClass="View" customModule="Code_Bible" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgW-Lu-dKV" customClass="ViewHelper" customModule="Code_Bible" customModuleProvider="target">
                                 <rect key="frame" x="37" y="324" width="300" height="40.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Qt-wV-MIE">

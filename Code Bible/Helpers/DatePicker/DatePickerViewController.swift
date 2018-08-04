@@ -23,6 +23,8 @@ class DatePickerViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.datePicker.minimumDate = Calendar.current.date(byAdding: .year, value: -120, to: Date())!
+        self.datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: -16, to: Date())!
         if let date = self.pickerDate {
             self.datePicker.setDate(date, animated: false)
         }

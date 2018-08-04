@@ -19,7 +19,7 @@ fileprivate extension CAShapeLayer {
 
 fileprivate var handle: UInt8 = 0
 
-class BarButtonItem: UIBarButtonItem {
+class BarButtonItemHelper: UIBarButtonItem {
     var badge: String? {
         get {
             if let text = self.badgeLayer?.sublayers?.filter({ $0 is CATextLayer }).first as? CATextLayer {

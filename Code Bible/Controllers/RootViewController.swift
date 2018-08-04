@@ -10,8 +10,8 @@ import UIKit
 
 class RootViewController: UIViewController {
 
-    @IBOutlet weak var navigationButton: BarButtonItem!
-    @IBOutlet weak var anotherNavigationItem: BarButtonItem!
+    @IBOutlet weak var navigationButton: BarButtonItemHelper!
+    @IBOutlet weak var anotherNavigationItem: BarButtonItemHelper!
 
     @IBOutlet weak var pickerButton: UIButton!
     @IBOutlet weak var anotherPickerButton: UIButton!
@@ -20,7 +20,7 @@ class RootViewController: UIViewController {
     
     let firstData = ["First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth"]
     let secondData = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    let keyboard = Keyboard()
+    let keyboard = KeyboardHelper()
 
     var selectedDate: Date?
     var selectedIndex: Int?
