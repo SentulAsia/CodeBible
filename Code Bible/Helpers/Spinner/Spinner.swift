@@ -10,7 +10,7 @@ import UIKit
 
 struct Spinner {
     static var shared = Spinner()
-    fileprivate var loadingIndicator: UIView?
+    private var loadingIndicator: UIView?
 
     private init() {}
 

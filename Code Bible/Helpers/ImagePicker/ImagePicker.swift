@@ -19,7 +19,7 @@ class ImagePicker: NSObject {
     weak var delegate: ImagePickerDelegate?
     var imageWidth: CGFloat? // resize image to a specific width
 
-    fileprivate var imagePicker: UIImagePickerController!
+    private var imagePicker: UIImagePickerController!
 
     // MARK: Inherited
     override init() {
@@ -90,11 +90,11 @@ class ImagePicker: NSObject {
         }
     }
 
-    fileprivate func noCamera() {
+    private func noCamera() {
         setImage(nil)
     }
 
-    fileprivate func setImage(
+    private func setImage(
         _ image: UIImage?
     ) {
         if let i = image {

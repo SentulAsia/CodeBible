@@ -45,6 +45,8 @@
 		2EAA798C2115A9BF00600D46 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA798B2115A9BF00600D46 /* DatePicker.swift */; };
 		2EAA798E2115B58500600D46 /* BarButtonItemHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA798D2115B58500600D46 /* BarButtonItemHelper.swift */; };
 		2EAA79902115C09F00600D46 /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA798F2115C09F00600D46 /* ViewControllerHelper.swift */; };
+		2EAA79922116024700600D46 /* StepperHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA79912116024700600D46 /* StepperHelper.swift */; };
+		2EAA79942116029000600D46 /* NumberHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA79932116029000600D46 /* NumberHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +90,8 @@
 		2EAA798B2115A9BF00600D46 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		2EAA798D2115B58500600D46 /* BarButtonItemHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonItemHelper.swift; sourceTree = "<group>"; };
 		2EAA798F2115C09F00600D46 /* ViewControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
+		2EAA79912116024700600D46 /* StepperHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperHelper.swift; sourceTree = "<group>"; };
+		2EAA79932116029000600D46 /* NumberHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +179,8 @@
 				2EAA798D2115B58500600D46 /* BarButtonItemHelper.swift */,
 				2EAA794621156B5F00600D46 /* StringHelper.swift */,
 				2EAA794121156B5F00600D46 /* TextFieldHelper.swift */,
+				2EAA79932116029000600D46 /* NumberHelper.swift */,
+				2EAA79912116024700600D46 /* StepperHelper.swift */,
 				2EAA794421156B5F00600D46 /* APIRequest.swift */,
 			);
 			path = Helpers;
@@ -409,6 +415,7 @@
 				2EAA795121156B5F00600D46 /* Toast.swift in Sources */,
 				2EAA794E21156B5F00600D46 /* APIRequest.swift in Sources */,
 				2EAA797521156D9400600D46 /* OpeningTimeTableViewCell.swift in Sources */,
+				2EAA79922116024700600D46 /* StepperHelper.swift in Sources */,
 				2EAA794821156B5F00600D46 /* CustomPhotoAlbum.swift in Sources */,
 				2EAA794A21156B5F00600D46 /* ButtonHelper.swift in Sources */,
 				2EAA794C21156B5F00600D46 /* ImagePicker.swift in Sources */,
@@ -434,6 +441,7 @@
 				2EAA796D21156D6F00600D46 /* PickerViewController.swift in Sources */,
 				2EAA790F21156AE800600D46 /* AppDelegate.swift in Sources */,
 				2EAA792A21156B3800600D46 /* Day.swift in Sources */,
+				2EAA79942116029000600D46 /* NumberHelper.swift in Sources */,
 				2EAA796C21156D6F00600D46 /* BlurViewController.swift in Sources */,
 				2EAA795021156B5F00600D46 /* StringHelper.swift in Sources */,
 				2EAA798C2115A9BF00600D46 /* DatePicker.swift in Sources */,

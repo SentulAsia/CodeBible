@@ -10,7 +10,7 @@ import UIKit
 
 struct Toast {
     static var shared = Toast()
-    fileprivate var controller: UIViewController?
+    private var controller: UIViewController?
 
     private init() {}
 

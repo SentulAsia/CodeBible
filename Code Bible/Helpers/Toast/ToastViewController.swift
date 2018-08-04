@@ -50,13 +50,13 @@ class ToastViewController: UIViewController {
 
 extension ToastViewController {
     @objc
-    fileprivate func toastTimerDidFinish(
+    private func toastTimerDidFinish(
         _ timer: Timer
     ) {
         dismissView()
     }
 
-    fileprivate func dismissView() {
+    private func dismissView() {
         UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseIn, .beginFromCurrentState], animations: {
             self.toastView.alpha = 0.0
         }) { (isCompleted: Bool) in

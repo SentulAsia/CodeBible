@@ -63,7 +63,7 @@ extension TextFieldHelper {
         }
     }
 
-    fileprivate func addDoneButtonOnKeyboard() {
+    private func addDoneButtonOnKeyboard() {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44))
         doneToolbar.barStyle = .default
 
@@ -78,7 +78,7 @@ extension TextFieldHelper {
     }
 
     @objc
-    fileprivate func doneButtonAction() {
+    private func doneButtonAction() {
         self.resignFirstResponder()
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-fileprivate extension CAShapeLayer {
+private extension CAShapeLayer {
     func drawCircleAtLocation(location: CGPoint, withRadius radius: CGFloat, andColor color: UIColor, filled: Bool) {
         fillColor = filled ? color.cgColor : UIColor.white.cgColor
         strokeColor = color.cgColor
@@ -17,7 +17,7 @@ fileprivate extension CAShapeLayer {
     }
 }
 
-fileprivate var handle: UInt8 = 0
+private var handle: UInt8 = 0
 
 class BarButtonItemHelper: UIBarButtonItem {
     var badge: String? {
@@ -47,7 +47,7 @@ class BarButtonItemHelper: UIBarButtonItem {
         }
     }
 
-    fileprivate var badgeLayer: CAShapeLayer? {
+    private var badgeLayer: CAShapeLayer? {
         if let b: AnyObject = objc_getAssociatedObject(self, &handle) as AnyObject? {
             return b as? CAShapeLayer
         } else {
@@ -55,7 +55,7 @@ class BarButtonItemHelper: UIBarButtonItem {
         }
     }
 
-    fileprivate func addBadge(number: Int, withOffset offset: CGPoint = CGPoint.zero, andColor color: UIColor = UIColor.red, andFilled filled: Bool = true) {
+    private func addBadge(number: Int, withOffset offset: CGPoint = CGPoint.zero, andColor color: UIColor = UIColor.red, andFilled filled: Bool = true) {
         guard let view = self.value(forKey: "view") as? UIView else { return }
 
         badgeLayer?.removeFromSuperlayer()
@@ -82,7 +82,7 @@ class BarButtonItemHelper: UIBarButtonItem {
         objc_setAssociatedObject(self, &handle, badge, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
 
-    fileprivate func updateBadge(number: Int) {
+    private func updateBadge(number: Int) {
         if let text = self.badgeLayer?.sublayers?.filter({ $0 is CATextLayer }).first as? CATextLayer {
             text.string = "\(number)"
         } else {
@@ -90,7 +90,7 @@ class BarButtonItemHelper: UIBarButtonItem {
         }
     }
 
-    fileprivate func removeBadge() {
+    private func removeBadge() {
         self.badgeLayer?.removeFromSuperlayer()
     }
 }

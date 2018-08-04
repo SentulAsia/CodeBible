@@ -17,8 +17,7 @@ struct ViewControllerHelper {
                 topController = presentedViewController
             }
             return topController
-        } else {
-            return nil
         }
+        return nil
     }
 }
