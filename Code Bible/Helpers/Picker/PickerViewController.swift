@@ -44,9 +44,12 @@ class PickerViewController: UIViewController {
             let selectedRowFrame: CGRect = self.pickerView.bounds.insetBy(dx: 0.0, dy: (self.pickerView.frame.height - rowHeight) / 2.0)
             let userTappedOnSelectedRow = selectedRowFrame.contains(s.location(in: self.pickerView))
             if userTappedOnSelectedRow {
+                if self.pickerSelectedIndex == nil {
+                    self.pickerSelectedIndex = 0
+                }
                 dismissView(isPicked: true)
             }
-        } else {
+        } else if let _ = sender as? UIBarButtonItem {
             dismissView(isPicked: true)
         }
     }
