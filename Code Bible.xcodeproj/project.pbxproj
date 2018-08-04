@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2EAA790F21156AE800600D46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA790E21156AE800600D46 /* AppDelegate.swift */; };
-		2EAA791121156AE800600D46 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA791021156AE800600D46 /* FirstViewController.swift */; };
-		2EAA791321156AE800600D46 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA791221156AE800600D46 /* SecondViewController.swift */; };
 		2EAA791621156AE800600D46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EAA791421156AE800600D46 /* Main.storyboard */; };
 		2EAA791821156AE900600D46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EAA791721156AE900600D46 /* Assets.xcassets */; };
 		2EAA791B21156AE900600D46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EAA791921156AE900600D46 /* LaunchScreen.storyboard */; };
@@ -47,8 +45,6 @@
 /* Begin PBXFileReference section */
 		2EAA790B21156AE800600D46 /* Code Bible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Code Bible.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EAA790E21156AE800600D46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2EAA791021156AE800600D46 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		2EAA791221156AE800600D46 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		2EAA791521156AE800600D46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2EAA791721156AE900600D46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EAA791A21156AE900600D46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -121,8 +117,6 @@
 				2EAA795221156B6A00600D46 /* Config */,
 				2EAA795721156B8A00600D46 /* Supporting Files */,
 				2EAA795A21156BB800600D46 /* Lib */,
-				2EAA791021156AE800600D46 /* FirstViewController.swift */,
-				2EAA791221156AE800600D46 /* SecondViewController.swift */,
 				2EAA791721156AE900600D46 /* Assets.xcassets */,
 			);
 			path = "Code Bible";
@@ -158,16 +152,18 @@
 		2EAA793D21156B5F00600D46 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				2EAA793E21156B5F00600D46 /* CustomPhotoAlbum.swift */,
-				2EAA793F21156B5F00600D46 /* Spinner.swift */,
-				2EAA794021156B5F00600D46 /* ButtonHelper.swift */,
-				2EAA794121156B5F00600D46 /* TextFieldHelper.swift */,
-				2EAA794221156B5F00600D46 /* ImagePicker.swift */,
+				2EAA7982211575BD00600D46 /* BlurBackground */,
+				2EAA7981211575B200600D46 /* Picker */,
+				2EAA797F2115750F00600D46 /* Full Picker */,
+				2EAA79802115753600600D46 /* Toast */,
+				2EAA79832115760300600D46 /* Spinner */,
+				2EAA79842115761000600D46 /* ImagePicker */,
+				2EAA79852115763500600D46 /* Keyboard */,
 				2EAA794321156B5F00600D46 /* ViewHelper.swift */,
-				2EAA794421156B5F00600D46 /* APIRequest.swift */,
-				2EAA794521156B5F00600D46 /* KeyboardHelper.swift */,
+				2EAA794021156B5F00600D46 /* ButtonHelper.swift */,
 				2EAA794621156B5F00600D46 /* StringHelper.swift */,
-				2EAA794721156B5F00600D46 /* Toast.swift */,
+				2EAA794121156B5F00600D46 /* TextFieldHelper.swift */,
+				2EAA794421156B5F00600D46 /* APIRequest.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -213,41 +209,111 @@
 		2EAA796021156D6F00600D46 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2EAA796321156D6F00600D46 /* Helpers */,
+				2EAA797D2115748400600D46 /* Astro */,
+				2EAA797E2115748A00600D46 /* Petronas */,
 				2EAA796121156D6F00600D46 /* RootViewController.swift */,
-				2EAA796221156D6F00600D46 /* RestaurantListViewController.swift */,
-				2EAA796821156D6F00600D46 /* ChannelListViewController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		2EAA796321156D6F00600D46 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				2EAA796421156D6F00600D46 /* FullPickerViewController.swift */,
-				2EAA796521156D6F00600D46 /* BlurViewController.swift */,
-				2EAA796621156D6F00600D46 /* PickerViewController.swift */,
-				2EAA796721156D6F00600D46 /* ToastViewController.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		2EAA797021156D9400600D46 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				2EAA797321156D9400600D46 /* Helpers */,
-				2EAA797121156D9400600D46 /* OpeningTimeTableViewCell.swift */,
-				2EAA797221156D9400600D46 /* ChannelTableViewCell.swift */,
+				2EAA797C2115746700600D46 /* Astro */,
+				2EAA797B2115745D00600D46 /* Petronas */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
-		2EAA797321156D9400600D46 /* Helpers */ = {
+		2EAA797B2115745D00600D46 /* Petronas */ = {
+			isa = PBXGroup;
+			children = (
+				2EAA797121156D9400600D46 /* OpeningTimeTableViewCell.swift */,
+			);
+			path = Petronas;
+			sourceTree = "<group>";
+		};
+		2EAA797C2115746700600D46 /* Astro */ = {
+			isa = PBXGroup;
+			children = (
+				2EAA797221156D9400600D46 /* ChannelTableViewCell.swift */,
+			);
+			path = Astro;
+			sourceTree = "<group>";
+		};
+		2EAA797D2115748400600D46 /* Astro */ = {
+			isa = PBXGroup;
+			children = (
+				2EAA796821156D6F00600D46 /* ChannelListViewController.swift */,
+			);
+			path = Astro;
+			sourceTree = "<group>";
+		};
+		2EAA797E2115748A00600D46 /* Petronas */ = {
+			isa = PBXGroup;
+			children = (
+				2EAA796221156D6F00600D46 /* RestaurantListViewController.swift */,
+			);
+			path = Petronas;
+			sourceTree = "<group>";
+		};
+		2EAA797F2115750F00600D46 /* Full Picker */ = {
 			isa = PBXGroup;
 			children = (
 				2EAA797421156D9400600D46 /* FullPickerTableViewCell.swift */,
+				2EAA796421156D6F00600D46 /* FullPickerViewController.swift */,
 			);
-			path = Helpers;
+			path = "Full Picker";
+			sourceTree = "<group>";
+		};
+		2EAA79802115753600600D46 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				2EAA794721156B5F00600D46 /* Toast.swift */,
+				2EAA796721156D6F00600D46 /* ToastViewController.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		2EAA7981211575B200600D46 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				2EAA796621156D6F00600D46 /* PickerViewController.swift */,
+			);
+			path = Picker;
+			sourceTree = "<group>";
+		};
+		2EAA7982211575BD00600D46 /* BlurBackground */ = {
+			isa = PBXGroup;
+			children = (
+				2EAA796521156D6F00600D46 /* BlurViewController.swift */,
+			);
+			path = BlurBackground;
+			sourceTree = "<group>";
+		};
+		2EAA79832115760300600D46 /* Spinner */ = {
+			isa = PBXGroup;
+			children = (
+				2EAA793F21156B5F00600D46 /* Spinner.swift */,
+			);
+			path = Spinner;
+			sourceTree = "<group>";
+		};
+		2EAA79842115761000600D46 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				2EAA794221156B5F00600D46 /* ImagePicker.swift */,
+				2EAA793E21156B5F00600D46 /* CustomPhotoAlbum.swift */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		2EAA79852115763500600D46 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				2EAA794521156B5F00600D46 /* KeyboardHelper.swift */,
+			);
+			path = Keyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,7 +391,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EAA796F21156D6F00600D46 /* ChannelListViewController.swift in Sources */,
-				2EAA791321156AE800600D46 /* SecondViewController.swift in Sources */,
 				2EAA795121156B5F00600D46 /* Toast.swift in Sources */,
 				2EAA794E21156B5F00600D46 /* APIRequest.swift in Sources */,
 				2EAA797521156D9400600D46 /* OpeningTimeTableViewCell.swift in Sources */,
@@ -351,7 +416,6 @@
 				2EAA790F21156AE800600D46 /* AppDelegate.swift in Sources */,
 				2EAA792A21156B3800600D46 /* Day.swift in Sources */,
 				2EAA796C21156D6F00600D46 /* BlurViewController.swift in Sources */,
-				2EAA791121156AE800600D46 /* FirstViewController.swift in Sources */,
 				2EAA795021156B5F00600D46 /* StringHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

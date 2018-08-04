@@ -64,11 +64,8 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVi-di-tGZ" customClass="Button" customModule="Code_Bible" customModuleProvider="target">
-                                <rect key="frame" x="137" y="72" width="100" height="30"/>
+                                <rect key="frame" x="44" y="72" width="287" height="30"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.94901960780000005" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="7Zq-h4-7L1"/>
-                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -86,11 +83,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="96s-cj-SZw" customClass="Button" customModule="Code_Bible" customModuleProvider="target">
-                                <rect key="frame" x="137.5" y="110" width="100" height="30"/>
+                                <rect key="frame" x="44" y="110" width="287" height="30"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.94901960780000005" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="eNB-IS-keW"/>
-                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -159,20 +153,22 @@
                             <constraint firstItem="iPA-Qu-DRB" firstAttribute="leading" secondItem="IVJ-nF-d6Y" secondAttribute="leading" id="2ji-rD-Teo"/>
                             <constraint firstItem="w5b-EC-eBA" firstAttribute="trailing" secondItem="u2H-t5-MRc" secondAttribute="trailing" constant="16" id="2xT-1E-ncm"/>
                             <constraint firstItem="emF-4Y-q63" firstAttribute="top" secondItem="96s-cj-SZw" secondAttribute="bottom" constant="8" id="4ZT-r3-IuZ"/>
+                            <constraint firstItem="w5b-EC-eBA" firstAttribute="trailing" secondItem="nVi-di-tGZ" secondAttribute="trailing" constant="44" id="5WP-k4-PtJ"/>
                             <constraint firstItem="emF-4Y-q63" firstAttribute="centerX" secondItem="w5b-EC-eBA" secondAttribute="centerX" id="BQG-nV-Lgu"/>
                             <constraint firstAttribute="bottom" secondItem="iPA-Qu-DRB" secondAttribute="bottom" id="GlZ-Gb-t7N"/>
                             <constraint firstItem="wWo-hR-eSh" firstAttribute="centerX" secondItem="w5b-EC-eBA" secondAttribute="centerX" id="HeW-RT-ion"/>
                             <constraint firstItem="ITu-OC-jYn" firstAttribute="leading" secondItem="IVJ-nF-d6Y" secondAttribute="leading" id="KhZ-R5-p7Y"/>
                             <constraint firstItem="wWo-hR-eSh" firstAttribute="top" secondItem="emF-4Y-q63" secondAttribute="bottom" constant="8" id="MY2-S2-SG8"/>
+                            <constraint firstItem="nVi-di-tGZ" firstAttribute="leading" secondItem="w5b-EC-eBA" secondAttribute="leading" constant="44" id="OkI-CM-ObA"/>
                             <constraint firstItem="u2H-t5-MRc" firstAttribute="leading" secondItem="w5b-EC-eBA" secondAttribute="leading" constant="16" id="Okz-aA-kRo"/>
+                            <constraint firstItem="w5b-EC-eBA" firstAttribute="trailing" secondItem="96s-cj-SZw" secondAttribute="trailing" constant="44" id="RQ8-K0-tPg"/>
                             <constraint firstAttribute="bottom" secondItem="ITu-OC-jYn" secondAttribute="bottom" id="Rqa-iW-PYh"/>
-                            <constraint firstItem="nVi-di-tGZ" firstAttribute="centerX" secondItem="w5b-EC-eBA" secondAttribute="centerX" id="SnY-KH-PKz"/>
                             <constraint firstItem="iPA-Qu-DRB" firstAttribute="top" secondItem="u2H-t5-MRc" secondAttribute="bottom" constant="16" id="WGU-FD-3wg"/>
                             <constraint firstAttribute="trailing" secondItem="iPA-Qu-DRB" secondAttribute="trailing" id="bXy-lX-1iX"/>
+                            <constraint firstItem="96s-cj-SZw" firstAttribute="leading" secondItem="w5b-EC-eBA" secondAttribute="leading" constant="44" id="biu-6m-jHH"/>
                             <constraint firstItem="wGr-dm-P54" firstAttribute="centerX" secondItem="w5b-EC-eBA" secondAttribute="centerX" id="gd6-us-iMI"/>
                             <constraint firstItem="96s-cj-SZw" firstAttribute="top" secondItem="nVi-di-tGZ" secondAttribute="bottom" constant="8" id="n9e-Hh-Hhi"/>
                             <constraint firstItem="wGr-dm-P54" firstAttribute="top" secondItem="wWo-hR-eSh" secondAttribute="bottom" constant="8" id="oea-mQ-pnt"/>
-                            <constraint firstItem="96s-cj-SZw" firstAttribute="centerX" secondItem="w5b-EC-eBA" secondAttribute="centerX" id="oqS-aT-FRJ"/>
                             <constraint firstItem="nVi-di-tGZ" firstAttribute="top" secondItem="w5b-EC-eBA" secondAttribute="top" constant="8" id="pkc-Ka-92x"/>
                             <constraint firstAttribute="trailing" secondItem="ITu-OC-jYn" secondAttribute="trailing" id="rXa-C1-5z2"/>
                             <constraint firstItem="ITu-OC-jYn" firstAttribute="top" secondItem="IVJ-nF-d6Y" secondAttribute="top" id="wON-Vo-OaH"/>
