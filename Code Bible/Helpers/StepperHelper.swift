@@ -307,15 +307,17 @@ class StepperHelper: UIControl {
             textField.placeholder = "Value"
             textField.keyboardType = .decimalPad
         }
-        alertController.addAction(UIAlertAction(title: "Confirm", style: .default) { _ in
+        let action1 = UIAlertAction(title: "Confirm", style: .default) { _ in
             if let newString = alertController.textFields?.first?.text, let newValue = Double(newString) {
                 if newValue >= self.minimum || newValue <= self.maximum {
                     self.value = newValue
                 }
             }
-        })
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        ViewControllerHelper.shared.getTopMostViewController()?.present(alertController, animated: true, completion: nil)
+        }
+        alertController.addAction(action1)
+        let action2 = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(action2)
+        ViewControllerHelper.getTopMostViewController()?.present(alertController, animated: true, completion: nil)
     }
 
     private func setState() {

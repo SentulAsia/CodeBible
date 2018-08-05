@@ -23,7 +23,7 @@ class KeyboardHelper: NSObject {
     }
 
     @objc
-    func keyboardWillChangeFrame(
+    private func keyboardWillChangeFrame(
         notification: NSNotification
     ) {
         if let userInfo = notification.userInfo {

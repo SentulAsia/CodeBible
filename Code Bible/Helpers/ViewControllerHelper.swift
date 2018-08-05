@@ -11,7 +11,9 @@ import UIKit
 struct ViewControllerHelper {
     static let shared = ViewControllerHelper()
 
-    func getTopMostViewController() -> UIViewController? {
+    private init() {}
+
+    static func getTopMostViewController() -> UIViewController? {
         if var topController = UIApplication.shared.keyWindow?.rootViewController {
             while let presentedViewController = topController.presentedViewController {
                 topController = presentedViewController

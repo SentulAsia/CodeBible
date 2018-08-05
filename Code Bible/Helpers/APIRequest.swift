@@ -78,7 +78,7 @@ struct APIRequest {
 
     private init() {}
 
-    func request(
+    static func request(
         url: URL,
         method: APIMethod,
         parameters: [String: Any]?,

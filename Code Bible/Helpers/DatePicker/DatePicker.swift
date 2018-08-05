@@ -13,7 +13,7 @@ struct DatePicker {
 
     private init() {}
 
-    func show(
+    static func show(
         _ sender: UIViewController,
         pickerDate: Date? = nil,
         completionHandler: @escaping (_ isPicked: Bool, _ pickerDate: Date?) -> Void

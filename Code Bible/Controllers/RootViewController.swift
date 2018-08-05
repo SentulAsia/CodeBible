@@ -37,8 +37,8 @@ class RootViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        self.navigationButton.badge = "13"
-        self.anotherNavigationItem.badge = "8"
+        self.navigationButton.badge = 13
+        self.anotherNavigationItem.badge = 8
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,7 +51,7 @@ class RootViewController: UIViewController {
     }
 
     @IBAction func datePickerButtonTapped(_ sender: Any) {
-        DatePicker.shared.show(self, pickerDate: self.selectedDate) { (isPicked: Bool, pickerDate: Date?) in
+        DatePicker.show(self, pickerDate: self.selectedDate) { (isPicked: Bool, pickerDate: Date?) in
             if isPicked {
                 self.selectedDate = pickerDate
                 print(self.selectedDate)
@@ -61,7 +61,7 @@ class RootViewController: UIViewController {
     }
 
     @IBAction func fullPickerButtonTapped(_ sender: Any) {
-        Picker.shared.showFull(self, pickerList: self.firstData, pickerSelectedIndex: self.selectedIndex) { (isPicked: Bool, pickerSelectedIndex: Int?) in
+        Picker.showFull(self, pickerList: self.firstData, pickerSelectedIndex: self.selectedIndex) { (isPicked: Bool, pickerSelectedIndex: Int?) in
             if isPicked {
                 self.selectedIndex = pickerSelectedIndex
                 if let index = self.selectedIndex {
@@ -72,7 +72,7 @@ class RootViewController: UIViewController {
     }
 
     @IBAction func pickerButtonTapped(_ sender: Any) {
-        Picker.shared.show(self, pickerList: self.firstData, pickerSelectedIndex: self.selectedIndex) { (isPicked: Bool, pickerSelectedIndex: Int?) in
+        Picker.show(self, pickerList: self.firstData, pickerSelectedIndex: self.selectedIndex) { (isPicked: Bool, pickerSelectedIndex: Int?) in
             if isPicked {
                 self.selectedIndex = pickerSelectedIndex
                 if let index = self.selectedIndex {
@@ -83,7 +83,7 @@ class RootViewController: UIViewController {
     }
 
     @IBAction func anotherPickerButtonTapped(_ sender: Any) {
-        Picker.shared.show(self, pickerList: self.firstData, pickerSelectedIndex: self.selectedIndex) { (isPicked: Bool, pickerSelectedIndex: Int?) in
+        Picker.show(self, pickerList: self.firstData, pickerSelectedIndex: self.selectedIndex) { (isPicked: Bool, pickerSelectedIndex: Int?) in
             if isPicked {
                 self.anotherSelectedIndex = pickerSelectedIndex
                 if let index = self.anotherSelectedIndex {
@@ -98,7 +98,23 @@ class RootViewController: UIViewController {
     }
 
     @IBAction func showToastButtonTapped(_ sender: Any) {
-        Toast.shared.show(self, withMessage: "This is an example for a toast event that is simulating Android native toast")
+        Toast.show(self, withMessage: "This is an example for a toast event that is simulating Android native toast")
+    }
+
+    @IBAction func showAlertButtonTapped(_ sender: Any) {
+        AlertHelper.showSingleInput(self, withMessage: "Please Enter Your PIN", withTextField: { (textfield: UITextField) in
+            textfield.placeholder = "PIN Number"
+            textfield.isSecureTextEntry = true
+            textfield.keyboardType = .numberPad
+        }) { (newValue: String?) in
+            print(newValue)
+        }
+    }
+
+    @IBAction func showAnotherAlert(_ sender: Any) {
+        AlertHelper.showSingleAction(self, withMessage: "Do you want to logout?") { (action: UIAlertAction) in
+            print("Go to logout")
+        }
     }
 }
 

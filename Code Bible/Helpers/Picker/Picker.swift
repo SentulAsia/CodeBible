@@ -13,7 +13,7 @@ struct Picker {
 
     private init() {}
 
-    func show(
+    static func show(
         _ sender: UIViewController,
         pickerList: [String],
         pickerSelectedIndex: Int? = nil,
@@ -40,7 +40,7 @@ struct Picker {
         sender.present(blurController, animated: false, completion: nil)
     }
 
-    func showFull(
+    static func showFull(
         _ sender: UIViewController,
         pickerList: [String],
         pickerSelectedIndex: Int? = nil,

@@ -43,7 +43,7 @@ struct Restaurant {
 
     mutating func parseRow(withString string: String) {
         var dataArray: [OpeningTime] = []
-        let data = StringHelper.shared.parseQuotesFrom(string: string)
+        let data = StringHelper.parseQuotesFrom(string: string)
         let name = data.first!
         let openingTimeRaw = data.last!
         let openingTimeArray = openingTimeRaw.components(separatedBy: "  / ")

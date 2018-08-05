@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E98259D211626480074ABB2 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E98259C211626480074ABB2 /* ImageHelper.swift */; };
 		2EAA790F21156AE800600D46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA790E21156AE800600D46 /* AppDelegate.swift */; };
 		2EAA791621156AE800600D46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EAA791421156AE800600D46 /* Main.storyboard */; };
 		2EAA791821156AE900600D46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EAA791721156AE900600D46 /* Assets.xcassets */; };
@@ -47,9 +48,11 @@
 		2EAA79902115C09F00600D46 /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA798F2115C09F00600D46 /* ViewControllerHelper.swift */; };
 		2EAA79922116024700600D46 /* StepperHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA79912116024700600D46 /* StepperHelper.swift */; };
 		2EAA79942116029000600D46 /* NumberHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA79932116029000600D46 /* NumberHelper.swift */; };
+		2EDAB4F52116A10200F4B3F5 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDAB4F42116A10200F4B3F5 /* AlertHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E98259C211626480074ABB2 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		2EAA790B21156AE800600D46 /* Code Bible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Code Bible.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EAA790E21156AE800600D46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EAA791521156AE800600D46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 		2EAA798F2115C09F00600D46 /* ViewControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
 		2EAA79912116024700600D46 /* StepperHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperHelper.swift; sourceTree = "<group>"; };
 		2EAA79932116029000600D46 /* NumberHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberHelper.swift; sourceTree = "<group>"; };
+		2EDAB4F42116A10200F4B3F5 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,8 @@
 				2EAA794621156B5F00600D46 /* StringHelper.swift */,
 				2EAA794121156B5F00600D46 /* TextFieldHelper.swift */,
 				2EAA79932116029000600D46 /* NumberHelper.swift */,
+				2E98259C211626480074ABB2 /* ImageHelper.swift */,
+				2EDAB4F42116A10200F4B3F5 /* AlertHelper.swift */,
 				2EAA79912116024700600D46 /* StepperHelper.swift */,
 				2EAA794421156B5F00600D46 /* APIRequest.swift */,
 			);
@@ -417,6 +423,7 @@
 				2EAA797521156D9400600D46 /* OpeningTimeTableViewCell.swift in Sources */,
 				2EAA79922116024700600D46 /* StepperHelper.swift in Sources */,
 				2EAA794821156B5F00600D46 /* CustomPhotoAlbum.swift in Sources */,
+				2E98259D211626480074ABB2 /* ImageHelper.swift in Sources */,
 				2EAA794A21156B5F00600D46 /* ButtonHelper.swift in Sources */,
 				2EAA794C21156B5F00600D46 /* ImagePicker.swift in Sources */,
 				2EAA795621156B6A00600D46 /* APIManager.swift in Sources */,
@@ -434,6 +441,7 @@
 				2EAA798E2115B58500600D46 /* BarButtonItemHelper.swift in Sources */,
 				2EAA79902115C09F00600D46 /* ViewControllerHelper.swift in Sources */,
 				2EAA797621156D9400600D46 /* ChannelTableViewCell.swift in Sources */,
+				2EDAB4F52116A10200F4B3F5 /* AlertHelper.swift in Sources */,
 				2EAA795521156B6A00600D46 /* Constant.swift in Sources */,
 				2EAA794F21156B5F00600D46 /* KeyboardHelper.swift in Sources */,
 				2EAA792921156B3800600D46 /* Channel.swift in Sources */,

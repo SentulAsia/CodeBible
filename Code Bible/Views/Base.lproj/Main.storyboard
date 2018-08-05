@@ -140,6 +140,20 @@
                                     <action selector="datePickerButtonTapped:" destination="6bV-jc-8Fp" eventType="touchUpInside" id="0BG-sv-4El"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUx-f5-CKd">
+                                <rect key="frame" x="119" y="370" width="137" height="30"/>
+                                <state key="normal" title="Show Textfield Alert"/>
+                                <connections>
+                                    <action selector="showAlertButtonTapped:" destination="6bV-jc-8Fp" eventType="touchUpInside" id="X3b-LX-FOH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dR4-yX-Sv1">
+                                <rect key="frame" x="125.5" y="408" width="123" height="30"/>
+                                <state key="normal" title="Show Action Alert"/>
+                                <connections>
+                                    <action selector="showAnotherAlert:" destination="6bV-jc-8Fp" eventType="touchUpInside" id="pTc-JA-mxj"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number goes here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u2H-t5-MRc" customClass="TextFieldHelper" customModule="Code_Bible" customModuleProvider="target">
                                 <rect key="frame" x="16" y="572" width="343" height="30"/>
                                 <nil key="textColor"/>
@@ -172,12 +186,16 @@
                             <constraint firstItem="wWo-hR-eSh" firstAttribute="top" secondItem="emF-4Y-q63" secondAttribute="bottom" constant="8" id="MY2-S2-SG8"/>
                             <constraint firstItem="nVi-di-tGZ" firstAttribute="leading" secondItem="w5b-EC-eBA" secondAttribute="leading" constant="44" id="OkI-CM-ObA"/>
                             <constraint firstItem="u2H-t5-MRc" firstAttribute="leading" secondItem="w5b-EC-eBA" secondAttribute="leading" constant="16" id="Okz-aA-kRo"/>
+                            <constraint firstItem="dR4-yX-Sv1" firstAttribute="centerX" secondItem="w5b-EC-eBA" secondAttribute="centerX" id="QP6-ri-CAG"/>
                             <constraint firstItem="w5b-EC-eBA" firstAttribute="trailing" secondItem="96s-cj-SZw" secondAttribute="trailing" constant="44" id="RQ8-K0-tPg"/>
+                            <constraint firstItem="yUx-f5-CKd" firstAttribute="top" secondItem="24h-yM-DAA" secondAttribute="bottom" constant="8" id="Rdu-9v-pgB"/>
                             <constraint firstAttribute="bottom" secondItem="ITu-OC-jYn" secondAttribute="bottom" id="Rqa-iW-PYh"/>
                             <constraint firstItem="iPA-Qu-DRB" firstAttribute="top" secondItem="u2H-t5-MRc" secondAttribute="bottom" priority="750" constant="16" id="WGU-FD-3wg"/>
+                            <constraint firstItem="dR4-yX-Sv1" firstAttribute="top" secondItem="yUx-f5-CKd" secondAttribute="bottom" constant="8" id="Xst-eY-nxm"/>
                             <constraint firstAttribute="trailing" secondItem="iPA-Qu-DRB" secondAttribute="trailing" id="bXy-lX-1iX"/>
                             <constraint firstItem="96s-cj-SZw" firstAttribute="leading" secondItem="w5b-EC-eBA" secondAttribute="leading" constant="44" id="biu-6m-jHH"/>
                             <constraint firstItem="wGr-dm-P54" firstAttribute="centerX" secondItem="w5b-EC-eBA" secondAttribute="centerX" id="gd6-us-iMI"/>
+                            <constraint firstItem="yUx-f5-CKd" firstAttribute="centerX" secondItem="w5b-EC-eBA" secondAttribute="centerX" id="gkf-vG-T6s"/>
                             <constraint firstItem="24h-yM-DAA" firstAttribute="top" secondItem="wGr-dm-P54" secondAttribute="bottom" constant="8" id="lK5-UX-cbG"/>
                             <constraint firstItem="96s-cj-SZw" firstAttribute="top" secondItem="nVi-di-tGZ" secondAttribute="bottom" constant="8" id="n9e-Hh-Hhi"/>
                             <constraint firstItem="wGr-dm-P54" firstAttribute="top" secondItem="wWo-hR-eSh" secondAttribute="bottom" constant="8" id="oea-mQ-pnt"/>

@@ -52,7 +52,7 @@ extension ChannelListViewController {
             }
         }) { (error) in
             Spinner.shared.stopLoadingIndicatior()
-            Toast.shared.show(self, withMessage: error)
+            Toast.show(self, withMessage: error)
         }
     }
 }

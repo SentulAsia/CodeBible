@@ -13,7 +13,7 @@ struct StringHelper {
 
     private init() {}
 
-    func parseQuotesFrom(
+    static func parseQuotesFrom(
         string: String
     ) -> [String] {
         let data = string.components(separatedBy: "\",\"")

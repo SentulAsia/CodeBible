@@ -8,8 +8,8 @@
 
 import UIKit
 
-private extension CAShapeLayer {
-    func drawCircleAtLocation(location: CGPoint, withRadius radius: CGFloat, andColor color: UIColor, filled: Bool) {
+fileprivate extension CAShapeLayer {
+    fileprivate func drawCircleAtLocation(location: CGPoint, withRadius radius: CGFloat, andColor color: UIColor, filled: Bool) {
         fillColor = filled ? color.cgColor : UIColor.white.cgColor
         strokeColor = color.cgColor
         let origin = CGPoint(x: location.x - radius, y: location.y - radius)
@@ -20,29 +20,14 @@ private extension CAShapeLayer {
 private var handle: UInt8 = 0
 
 class BarButtonItemHelper: UIBarButtonItem {
-    var badge: String? {
-        get {
-            if let text = self.badgeLayer?.sublayers?.filter({ $0 is CATextLayer }).first as? CATextLayer {
-                return text.string as? String ?? nil
-            } else {
-                return nil
-            }
-        }
-        set {
-            if newValue == nil {
+    var badge: Int = 0 {
+        didSet {
+            if self.badge == 0 {
                 removeBadge()
-            } else if self.badge == nil {
-                if let value = Int(newValue!) {
-                    addBadge(number: value > 9 ? 9 : value)
-                } else {
-                    self.badge = nil
-                }
+            } else if oldValue == 0 {
+                addBadge(number: self.badge > 9 ? 9 : self.badge)
             } else {
-                if let value = Int(newValue!) {
-                    updateBadge(number: value > 9 ? 9 : value)
-                } else {
-                    self.badge = nil
-                }
+                updateBadge(number: self.badge > 9 ? 9 : self.badge)
             }
         }
     }
@@ -58,7 +43,7 @@ class BarButtonItemHelper: UIBarButtonItem {
     private func addBadge(number: Int, withOffset offset: CGPoint = CGPoint.zero, andColor color: UIColor = UIColor.red, andFilled filled: Bool = true) {
         guard let view = self.value(forKey: "view") as? UIView else { return }
 
-        badgeLayer?.removeFromSuperlayer()
+        self.badgeLayer?.removeFromSuperlayer()
 
         // Initialize Badge
         let badge = CAShapeLayer()

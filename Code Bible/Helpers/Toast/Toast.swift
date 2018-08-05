@@ -10,15 +10,13 @@ import UIKit
 
 struct Toast {
     static var shared = Toast()
-    private var controller: UIViewController?
 
     private init() {}
 
-    mutating func show(
+    static func show(
         _ sender: UIViewController,
         withMessage message: String
     ) {
-        self.controller = sender
         let storyboard: UIStoryboard = UIStoryboard(name: Constant.Storyboard.helper, bundle: nil)
         let toastController = storyboard.instantiateViewController(withIdentifier: ToastViewController.identifier) as! ToastViewController
         toastController.modalPresentationStyle = .overFullScreen

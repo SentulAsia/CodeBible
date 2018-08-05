@@ -8,6 +8,17 @@
 
 import Foundation
 
+struct ArabicNumber {
+    let value: String
+
+    init(englishNumber: Int) {
+        let someNumber = NSDecimalNumber(string: "\(englishNumber)")
+        let formatter = NumberFormatter()
+        formatter.locale = Locale(identifier: "AR")
+        self.value = formatter.string(from: someNumber) ?? "0"
+    }
+}
+
 extension Float {
     func rounded(digits: Int) -> Float {
         let behavior = NSDecimalNumberHandler(roundingMode: .bankers, scale: Int16(digits), raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: true)

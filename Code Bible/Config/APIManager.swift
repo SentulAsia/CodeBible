@@ -20,7 +20,7 @@ struct APIManager {
     ) {
         let channelListURLString = Constant.AstroAPI.baseURL + Constant.AstroAPI.channelList
         let channelListURL = URL(string: channelListURLString)!
-        APIRequest.shared.request(url: channelListURL, method: .get, parameters: nil, headers: nil) { (response) in
+        APIRequest.request(url: channelListURL, method: .get, parameters: nil, headers: nil) { (response) in
             guard response.result.isSuccess else {
                 failure((response.result.error?.localizedDescription)!)
                 return

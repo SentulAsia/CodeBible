@@ -31,32 +31,33 @@ class ImagePicker: NSObject {
         delegate: ImagePickerDelegate
     ) {
         let menu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-
         let action1 = UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
             let camera = ImagePicker.shared
             camera.delegate = delegate
             camera.imageWidth = 200
             camera.takePicture()
         })
+//        let image1 = UIImage(named: "icons8-camera")
+//        action1.setValue(image1, forKey: "image")
+//        action1.setValue(0, forKey: "titleTextAlignment")
         menu.addAction(action1)
-
         let action2 = UIAlertAction(title: "Photo Library", style: .default, handler: { (action: UIAlertAction) in
             let photoLibrary = ImagePicker.shared
             photoLibrary.delegate = delegate
             photoLibrary.imageWidth = 200
             photoLibrary.selectPicture()
         })
+//        let image2 = UIImage(named: "icons8-picture")
+//        action2.setValue(image2, forKey: "image")
+//        action2.setValue(0, forKey: "titleTextAlignment")
         menu.addAction(action2)
-
         let action3 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         menu.addAction(action3)
-
         menu.modalPresentationStyle = UIModalPresentationStyle.popover
         let popPresenter = menu.popoverPresentationController
         popPresenter?.sourceView = sender
         popPresenter?.sourceRect = sender.bounds
         popPresenter?.permittedArrowDirections = UIPopoverArrowDirection.up
-
         (delegate as? UIViewController)?.present(menu, animated: true, completion: nil)
     }
 
