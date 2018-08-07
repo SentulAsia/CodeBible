@@ -11,7 +11,7 @@ import Foundation
 struct OpeningTime {
     var day: DayIndex
     var time: String
-    var string: String
+    var string: String // Day and time together in a string
 
     init(
         day: DayIndex,
@@ -19,62 +19,86 @@ struct OpeningTime {
     ) {
         self.day = day
         self.time = time
-        self.string = self.day.name() + self.time
+        self.string = self.day.name() + " " + self.time
     }
 
+    // Get array of opening time from a string
     static func list(content: String) -> [OpeningTime] {
-        var contentArray = Array(content)
-        var processedContent = content
-        if contentArray.count > 2 {
-            var optionalStartDay = ""
-            if contentArray[3] == "," {
-                optionalStartDay = String(processedContent.prefix(3))
-                processedContent = String(processedContent.dropFirst(5))
-                contentArray = Array(processedContent)
-            }
-            var dayArray: [OpeningTime] = []
-            if contentArray[3] == "-" {
-                let startDay = String(processedContent.prefix(3))
-                let fullDay = String(processedContent.prefix(7))
-                let endDay = String(fullDay.suffix(3))
-                let list = DayIndex.list(startDay: startDay, endDay: endDay)
-                var balance = String(processedContent.dropFirst(7))
-                var optionalLastDay: String = ""
-                if balance.prefix(2) == ", " {
-                    balance = String(balance.dropFirst(2))
-                    optionalLastDay = String(balance.prefix(3))
-                    balance = String(balance.dropFirst(3))
-                }
-                if optionalStartDay != "" {
-                    let openingTime = OpeningTime(day: DayIndex.day(string: optionalStartDay)!, time: balance)
-                    dayArray.append(openingTime)
-                }
-                for l in list {
-                    let openingTime = OpeningTime(day: l, time: balance)
-                    dayArray.append(openingTime)
-                }
-                if optionalLastDay != "" {
-                    let openingTime = OpeningTime(day: DayIndex.day(string: optionalLastDay)!, time: balance)
-                    dayArray.append(openingTime)
-                }
-            } else {
-                if optionalStartDay != "" {
-                    var balance = String(processedContent.dropFirst(3))
-                    var openingTime = OpeningTime(day: DayIndex.day(string: optionalStartDay)!, time: balance)
-                    dayArray.append(openingTime)
-                    optionalStartDay = String(content.prefix(3))
-                    balance = String(content.dropFirst(3))
-                    openingTime = OpeningTime(day: DayIndex.day(string: optionalStartDay)!, time: balance)
-                    dayArray.append(openingTime)
-                } else {
-                    optionalStartDay = String(content.prefix(3))
-                    let balance = String(content.dropFirst(3))
-                    let openingTime = OpeningTime(day: DayIndex.day(string: optionalStartDay)!, time: balance)
-                    dayArray.append(openingTime)
-                }
-            }
-            return dayArray
+        func obtainDayStartedWithComma(string: String) -> (day: DayIndex, unprocessedString: String) {
+            let startDayString = String(string.prefix(3))
+            let unprocessedString = String(string.dropFirst(5))
+            return (DayIndex.day(string: startDayString)!, unprocessedString)
         }
-        return []
+
+        func obtainDaysWithHyphen(string: String) -> (days: [DayIndex], unprocessedString: String) {
+            let startDayString = String(string.prefix(3))
+            let fullDayString = String(string.prefix(7))
+            let endDayString = String(fullDayString.suffix(3))
+            let days = DayIndex.list(startDay: startDayString, endDay: endDayString)
+            let unprocessedString = String(string.dropFirst(7))
+            return (days, unprocessedString)
+        }
+
+        func obtainDayEndedWithComma(string: String) -> (day: DayIndex, unprocessedString: String) {
+            let processedString = String(string.dropFirst(2))
+            let endDayString = String(processedString.prefix(3))
+            let unprocessedString = String(processedString.dropFirst(3))
+            return (DayIndex.day(string: endDayString)!, unprocessedString)
+        }
+
+        func obtainDay(string: String) -> (day: DayIndex, unprocessedString: String) {
+            let dayString = String(string.prefix(3))
+            let unprocessedString = String(string.dropFirst(4))
+            return (DayIndex.day(string: dayString)!, unprocessedString)
+        }
+
+        // Parse string to get day index and opening time
+        func parse(string: String) -> (days: [DayIndex], openingTime: String) {
+            var processedString = string // everytime day is extracted from string, that string will be dropped and balance string is stored here
+            var characters = Array(processedString)
+            var days: [DayIndex] = []
+            var openingTime: String = ""
+            // check string for meaningful data
+            if characters.count > 2 {
+                // check if day text start with ,
+                if characters[3] == "," {
+                    let processedDay = obtainDayStartedWithComma(string: processedString)
+                    days.append(processedDay.day)
+                    processedString = processedDay.unprocessedString
+                    characters = Array(processedString)
+                }
+                // check if day text have -
+                if characters[3] == "-" {
+                    let processedDays = obtainDaysWithHyphen(string: processedString)
+                    days.append(contentsOf: processedDays.days)
+                    processedString = processedDays.unprocessedString
+                    characters = Array(processedString)
+                    // check if day text ended with ,
+                    if processedString.prefix(2) == ", " {
+                        let processedDay = obtainDayEndedWithComma(string: processedString)
+                        days.append(processedDay.day)
+                        processedString = processedDay.unprocessedString
+                        characters = Array(processedString)
+                    }
+                    processedString = String(processedString.dropFirst())
+                }
+                // check for stand alone day
+                if characters[3] == " " {
+                    let processedDay = obtainDay(string: processedString)
+                    days.append(processedDay.day)
+                    processedString = processedDay.unprocessedString
+                }
+                openingTime = processedString
+            }
+            return (days, openingTime)
+        }
+
+        let parsedDays = parse(string: content)
+        var openingTimes: [OpeningTime] = []
+        for day in parsedDays.days {
+            let openingTime = OpeningTime(day: day, time: parsedDays.openingTime)
+            openingTimes.append(openingTime)
+        }
+        return openingTimes
     }
 }

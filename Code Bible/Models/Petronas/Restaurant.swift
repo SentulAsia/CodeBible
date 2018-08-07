@@ -20,6 +20,7 @@ struct Restaurant {
         self.openingTime = openingTime
     }
 
+    // Get array of restaurant from file input
     static func list(forFile file: String) -> [Restaurant] {
         var list: [Restaurant] = []
         let filePath = file.components(separatedBy: ".")
@@ -28,6 +29,7 @@ struct Restaurant {
                 let contents = try String(contentsOfFile: path)
                 let rows = contents.components(separatedBy: "\n")
                 for row in rows {
+                    // check for row with no content
                     if row != "" {
                         var restaurant = Restaurant()
                         restaurant.parseRow(withString: row)
@@ -35,13 +37,14 @@ struct Restaurant {
                     }
                 }
             } catch {
-                print(error)
+                assertionFailure(error.localizedDescription)
             }
         }
         return list
     }
 
-    mutating func parseRow(withString string: String) {
+    // Parse each row of file to get name and opening time
+    private mutating func parseRow(withString string: String) {
         var dataArray: [OpeningTime] = []
         let data = StringHelper.parseQuotesFrom(string: string)
         let name = data.first!

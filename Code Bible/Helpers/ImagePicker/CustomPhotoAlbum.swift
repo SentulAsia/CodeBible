@@ -47,7 +47,7 @@ class CustomPhotoAlbum {
     ) {
         if PHPhotoLibrary.authorizationStatus() == .authorized {
             if self.assetCollection == nil {
-                print("there was an error upstream, skip the save")
+                assertionFailure("there was an error upstream, skip the save")
                 return
             }
 

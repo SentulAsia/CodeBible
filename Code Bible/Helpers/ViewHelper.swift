@@ -8,18 +8,16 @@
 
 import UIKit
 
-@IBDesignable
-class ViewHelper: UIView {
+@IBDesignable class ViewHelper: UIView {
 
-    @IBInspectable
-    var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
+    @IBInspectable var cornerRadius: CGFloat {
         set {
             layer.cornerRadius = newValue
             layer.masksToBounds = true
             clipsToBounds = true
+        }
+        get {
+            return layer.cornerRadius
         }
     }
 }
@@ -30,7 +28,7 @@ extension UIView {
     /// Please note that this has no effect if its `superview` is `nil` – add this `UIView` instance as a subview before calling this.
     func bindFrameToSuperviewBounds() {
         guard let superview = self.superview else {
-            print("Error! `superview` was nil – call `addSubview(view: UIView)` before calling `bindFrameToSuperviewBounds()` to fix this.")
+            assertionFailure("Error! `superview` was nil – call `addSubview(view: UIView)` before calling `bindFrameToSuperviewBounds()` to fix this.")
             return
         }
 

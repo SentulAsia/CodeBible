@@ -13,6 +13,7 @@ struct StringHelper {
 
     private init() {}
 
+    // Extract string wrapped in double quotes and output it in array
     static func parseQuotesFrom(
         string: String
     ) -> [String] {

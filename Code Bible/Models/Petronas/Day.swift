@@ -17,12 +17,7 @@ enum DayIndex: Int {
     case Sat
     case Sun
 
-    static let count: Int = {
-        var max: Int = 0
-        while let _ = DayIndex(rawValue: max) { max += 1 }
-        return max
-    }()
-
+    // Get the whole index in an array
     static let allValues: [DayIndex] = {
         var elements: [DayIndex] = []
         for i in 0...DayIndex.count - 1 {
@@ -33,6 +28,7 @@ enum DayIndex: Int {
         return elements
     }()
 
+    // Get the string of an index
     func name() -> String {
         switch self {
         case .Mon:
@@ -52,6 +48,7 @@ enum DayIndex: Int {
         }
     }
 
+    // Return array of day from start day to end day
     static func list(
         startDay: String,
         endDay: String
@@ -75,6 +72,7 @@ enum DayIndex: Int {
         return list
     }
 
+    // Return day based on string input
     static func day(string: String) -> DayIndex? {
         for c in DayIndex.allValues {
             if c.name() == string {
@@ -84,12 +82,10 @@ enum DayIndex: Int {
         return nil
     }
 
-    static func day(index: Int) -> DayIndex? {
-        for c in DayIndex.allValues {
-            if c.hashValue == index {
-                return c
-            }
-        }
-        return nil
-    }
+    // Find the last index value of the enum
+    private static let count: Int = {
+        var max: Int = 0
+        while let _ = DayIndex(rawValue: max) { max += 1 }
+        return max
+    }()
 }

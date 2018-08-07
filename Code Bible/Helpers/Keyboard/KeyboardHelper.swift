@@ -22,8 +22,7 @@ class KeyboardHelper: NSObject {
         NotificationCenter.default.removeObserver(self)
     }
 
-    @objc
-    private func keyboardWillChangeFrame(
+    @objc private func keyboardWillChangeFrame(
         notification: NSNotification
     ) {
         if let userInfo = notification.userInfo {

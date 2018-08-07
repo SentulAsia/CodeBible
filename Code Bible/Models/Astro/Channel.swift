@@ -29,7 +29,8 @@ struct Channel {
         self.channelStbNumber = channelStbNumber
     }
 
-    mutating func parseChannelResponse(dictionary: [String: Any]) {
+    // Parse dictionary to get channel properties
+    mutating func parseChannel(dictionary: [String: Any]) {
         if let channelId = dictionary["channelId"] as? Int {
             self.channelId = channelId
         }
@@ -41,28 +42,35 @@ struct Channel {
         }
     }
 
-    mutating func parseGetChannelList(response: [String: Any]) -> [Channel] {
+    // Parse dictionary to get channel array
+    mutating func parseGetChannelList(dictionary: [String: Any]) -> [Channel] {
         var channelModelObj = Channel()
         var channelModelArrayObj: [Channel] = []
 
-        if let message = response["responseMessage"] as? String, message == "Success" {
+        if let message = dictionary["responseMessage"] as? String, message == "Success" {
             self.isSuccess = true
+            self.message = message
 
-            if let list = response["channels"] as? [Any] {
+            if let code = dictionary["responseCode"] as? String {
+                self.code = code
+            }
+
+            if let list = dictionary["channels"] as? [Any] {
                 if list.count > 0 {
                     for index in 0..<list.count {
-                        let dictionary = list[index] as! [String: Any]
-                        channelModelObj.parseChannelResponse(dictionary: dictionary)
-                        channelModelArrayObj.append(channelModelObj)
+                        if let dictionary = list[index] as? [String: Any] {
+                            channelModelObj.parseChannel(dictionary: dictionary)
+                            channelModelArrayObj.append(channelModelObj)
+                        }
                     }
                 }
             }
         } else {
             self.isSuccess = false
-            if let message = response["responseMessage"] as? String {
+            if let message = dictionary["responseMessage"] as? String {
                 self.message = message
             } else {
-                self.message = "We're sorry, but something went wrong."
+                self.message = Constant.Message.failureDefault
             }
         }
         return channelModelArrayObj

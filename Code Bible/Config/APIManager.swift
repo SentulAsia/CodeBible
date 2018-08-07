@@ -34,7 +34,7 @@ struct APIManager {
             var channelModelObj = channelObj
             var channelModelArrayObj: [Channel] = []
             if !responseDictionary.isEmpty {
-                channelModelArrayObj = channelModelObj.parseGetChannelList(response: responseDictionary)
+                channelModelArrayObj = channelModelObj.parseGetChannelList(dictionary: responseDictionary)
             }
             if channelModelObj.isSuccess {
                 success(channelModelArrayObj)

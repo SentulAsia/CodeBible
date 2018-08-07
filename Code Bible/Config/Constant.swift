@@ -35,7 +35,7 @@ struct Constant {
     }
 
     struct Message {
-        static let failureDefault = "We’re sorry, but something went wrong."
+        static let failureDefault = "We're sorry, but something went wrong."
     }
 
     struct AstroAPI {
