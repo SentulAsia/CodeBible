@@ -43,4 +43,6 @@ struct Constant {
 
         static let channelList = "/ams/v3/getChannelList"
     }
+
+    static let generateDeeplinkURL = "https://sandbox.kiplepay.com:94/api/deeplinks/generate"
 }

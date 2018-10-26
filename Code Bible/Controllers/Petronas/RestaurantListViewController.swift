@@ -20,6 +20,25 @@ class RestaurantListViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let navigationController = self.navigationController as? ScrollingNavigationController {
+            navigationController.followScrollView(self.restaurantTableView, delay: 50.0)
+            navigationController.showNavbar(animated: true)
+        }
+        ScreenBrightnessHelper.shared.setBrightness(value: 0.8)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if let navigationController = self.navigationController as? ScrollingNavigationController {
+            navigationController.stopFollowingScrollView()
+        }
+        ScreenBrightnessHelper.shared.resetBrightness()
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

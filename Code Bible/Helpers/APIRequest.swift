@@ -100,18 +100,18 @@ struct APIRequest {
                 }
             } catch {
                 let result = APIResult.failure(error)
-                let response = APIResponse(request: request, data: nil, response: nil, result: result)
-                completionHandler(response)
+                let r = APIResponse(request: request, data: nil, response: nil, result: result)
+                completionHandler(r)
                 return
             }
         }
 
-        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let dataTask = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             if let e = error {
                 let result = APIResult.failure(e)
-                let response = APIResponse(request: request, data: data, response: response, result: result)
+                let r = APIResponse(request: request, data: data, response: response, result: result)
                 DispatchQueue.main.async {
-                    completionHandler(response)
+                    completionHandler(r)
                     return
                 }
             } else {
@@ -119,9 +119,9 @@ struct APIRequest {
                     if let responseDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any] {
                         if !responseDictionary.isEmpty {
                             let result = APIResult.success(responseDictionary as Any)
-                            let response = APIResponse(request: request, data: data, response: response, result: result)
+                            let r = APIResponse(request: request, data: data, response: response, result: result)
                             DispatchQueue.main.async {
-                                completionHandler(response)
+                                completionHandler(r)
                                 return
                             }
                         } else {
@@ -130,9 +130,9 @@ struct APIRequest {
                                 NSLocalizedFailureReasonErrorKey: NSLocalizedString("Error", value: Constant.Message.failureDefault, comment: "")
                                 ])
                             let result = APIResult.failure(e)
-                            let response = APIResponse(request: request, data: data, response: response, result: result)
+                            let r = APIResponse(request: request, data: data, response: response, result: result)
                             DispatchQueue.main.async {
-                                completionHandler(response)
+                                completionHandler(r)
                                 return
                             }
                         }
@@ -142,17 +142,17 @@ struct APIRequest {
                             NSLocalizedFailureReasonErrorKey: NSLocalizedString("Error", value: Constant.Message.failureDefault, comment: "")
                             ])
                         let result = APIResult.failure(e)
-                        let response = APIResponse(request: request, data: data, response: response, result: result)
+                        let r = APIResponse(request: request, data: data, response: response, result: result)
                         DispatchQueue.main.async {
-                            completionHandler(response)
+                            completionHandler(r)
                             return
                         }
                     }
                 } catch {
                     let result = APIResult.failure(error)
-                    let response = APIResponse(request: request, data: data, response: response, result: result)
+                    let r = APIResponse(request: request, data: data, response: response, result: result)
                     DispatchQueue.main.async {
-                        completionHandler(response)
+                        completionHandler(r)
                         return
                     }
                 }

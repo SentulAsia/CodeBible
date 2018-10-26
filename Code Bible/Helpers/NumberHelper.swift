@@ -24,6 +24,11 @@ extension Float {
         let behavior = NSDecimalNumberHandler(roundingMode: .bankers, scale: Int16(digits), raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: true)
         return NSDecimalNumber(value: self).rounding(accordingToBehavior: behavior).floatValue
     }
+
+    func rounded(toPlaces places: Int) -> Float {
+        let divisor = pow(10.0, Float(places))
+        return (self * divisor).rounded() / divisor
+    }
 }
 
 extension Double {

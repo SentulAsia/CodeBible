@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 class RootViewController: UIViewController {
 
@@ -21,6 +22,7 @@ class RootViewController: UIViewController {
     let firstData = ["First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth"]
     let secondData = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     let keyboard = KeyboardHelper()
+    let payment = KPPayment(merchantId: 48, storeId: 38, secret: "l43wrf8cai")
 
     var selectedDate: Date?
     var selectedIndex: Int?
@@ -30,6 +32,7 @@ class RootViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.payment.delegate = self
         self.keyboard.controller = self
         self.keyboard.keyboardHeightLayoutConstraint = self.keyboardHeightLayoutConstraint
     }
@@ -50,11 +53,15 @@ class RootViewController: UIViewController {
         self.view.endEditing(true)
     }
 
+    @IBAction func payWithKipleTapped(_ sender: Any) {
+        self.payment.makePayment(referenceId: "3480", amount: 1.1)
+    }
+
     @IBAction func datePickerButtonTapped(_ sender: Any) {
         DatePicker.show(self, pickerDate: self.selectedDate) { (isPicked: Bool, pickerDate: Date?) in
             if isPicked {
                 self.selectedDate = pickerDate
-                print(self.selectedDate)
+                print(self.selectedDate?.formattedISO8601)
                 // TODO: Handle selected date
             }
         }
@@ -114,6 +121,16 @@ class RootViewController: UIViewController {
     @IBAction func showAnotherAlert(_ sender: Any) {
         AlertHelper.showSingleAction(self, withMessage: "Do you want to logout?") { (action: UIAlertAction) in
             print("Go to logout")
+        }
+    }
+}
+
+extension RootViewController: KPPaymentDelegate {
+    func paymentDidFinish(successfully flag: Bool, withMessage message: String) {
+        if flag {
+            AlertHelper.showSimple(self, withMessage: "Payment is successful")
+        } else {
+            AlertHelper.showSimple(self, withMessage: "Payment is NOT successful")
         }
     }
 }

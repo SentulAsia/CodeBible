@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E399CA2211BDF49009F6B6E /* ScrollingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E399CA1211BDF49009F6B6E /* ScrollingNavigationController.swift */; };
+		2E399CA4211BDFBE009F6B6E /* ScrollingNavbar+Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E399CA3211BDFBE009F6B6E /* ScrollingNavbar+Sizes.swift */; };
+		2E3CDADD21647AB600FA7307 /* ScreenBrightnessHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CDADC21647AB600FA7307 /* ScreenBrightnessHelper.swift */; };
+		2E3CDADF2164948000FA7307 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CDADE2164948000FA7307 /* IPAddress.swift */; };
+		2E792EA621354BB50047502B /* KPPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E792EA521354BB50047502B /* KPPayment.swift */; };
+		2E792EA721354BB50047502B /* KPPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E792EA521354BB50047502B /* KPPayment.swift */; };
+		2E84360B216EF04C006A4791 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E84360A216EF04C006A4791 /* Deeplink.swift */; };
+		2E92BA56214270F900C1D61D /* beaming.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E92BA55214270F900C1D61D /* beaming.json */; };
 		2E98259D211626480074ABB2 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E98259C211626480074ABB2 /* ImageHelper.swift */; };
 		2EAA790F21156AE800600D46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA790E21156AE800600D46 /* AppDelegate.swift */; };
 		2EAA791621156AE800600D46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EAA791421156AE800600D46 /* Main.storyboard */; };
@@ -48,10 +56,76 @@
 		2EAA79902115C09F00600D46 /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA798F2115C09F00600D46 /* ViewControllerHelper.swift */; };
 		2EAA79922116024700600D46 /* StepperHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA79912116024700600D46 /* StepperHelper.swift */; };
 		2EAA79942116029000600D46 /* NumberHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA79932116029000600D46 /* NumberHelper.swift */; };
+		2EBDB3EA211C276D0028337F /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBDB3E9211C276D0028337F /* DateHelper.swift */; };
+		2EBDB3F0211C31000028337F /* CellHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBDB3EF211C31000028337F /* CellHelper.swift */; };
+		2EC9959D2133AF6100259CDE /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA796821156D6F00600D46 /* ChannelListViewController.swift */; };
+		2EC9959E2133AF6100259CDE /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA794721156B5F00600D46 /* Toast.swift */; };
+		2EC9959F2133AF6100259CDE /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA794421156B5F00600D46 /* APIRequest.swift */; };
+		2EC995A02133AF6100259CDE /* OpeningTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA797121156D9400600D46 /* OpeningTimeTableViewCell.swift */; };
+		2EC995A12133AF6100259CDE /* StepperHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA79912116024700600D46 /* StepperHelper.swift */; };
+		2EC995A22133AF6100259CDE /* CustomPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA793E21156B5F00600D46 /* CustomPhotoAlbum.swift */; };
+		2EC995A32133AF6100259CDE /* ScrollingNavbar+Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E399CA3211BDFBE009F6B6E /* ScrollingNavbar+Sizes.swift */; };
+		2EC995A42133AF6100259CDE /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E98259C211626480074ABB2 /* ImageHelper.swift */; };
+		2EC995A52133AF6100259CDE /* ButtonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA794021156B5F00600D46 /* ButtonHelper.swift */; };
+		2EC995A62133AF6100259CDE /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA794221156B5F00600D46 /* ImagePicker.swift */; };
+		2EC995A72133AF6100259CDE /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA795421156B6A00600D46 /* APIManager.swift */; };
+		2EC995A82133AF6100259CDE /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA793F21156B5F00600D46 /* Spinner.swift */; };
+		2EC995A92133AF6100259CDE /* ViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA794321156B5F00600D46 /* ViewHelper.swift */; };
+		2EC995AA2133AF6100259CDE /* FullPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA797421156D9400600D46 /* FullPickerTableViewCell.swift */; };
+		2EC995AB2133AF6100259CDE /* OpeningTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA792721156B3800600D46 /* OpeningTime.swift */; };
+		2EC995AC2133AF6100259CDE /* ToastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA796721156D6F00600D46 /* ToastViewController.swift */; };
+		2EC995AD2133AF6100259CDE /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA798921157F5E00600D46 /* Picker.swift */; };
+		2EC995AE2133AF6100259CDE /* RestaurantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA796221156D6F00600D46 /* RestaurantListViewController.swift */; };
+		2EC995AF2133AF6100259CDE /* SpotPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE9A6B8211A8A22004A8EAD /* SpotPrice.swift */; };
+		2EC995B02133AF6100259CDE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE9A6B9211A8A23004A8EAD /* User.swift */; };
+		2EC995B12133AF6100259CDE /* ScrollingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E399CA1211BDF49009F6B6E /* ScrollingNavigationController.swift */; };
+		2EC995B22133AF6100259CDE /* FullPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA796421156D6F00600D46 /* FullPickerViewController.swift */; };
+		2EC995B32133AF6100259CDE /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDFD0692125666400587A50 /* Routes.swift */; };
+		2EC995B42133AF6100259CDE /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA796121156D6F00600D46 /* RootViewController.swift */; };
+		2EC995B52133AF6100259CDE /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA7986211579C400600D46 /* DatePickerViewController.swift */; };
+		2EC995B62133AF6100259CDE /* TextFieldHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA794121156B5F00600D46 /* TextFieldHelper.swift */; };
+		2EC995B72133AF6100259CDE /* BarButtonItemHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA798D2115B58500600D46 /* BarButtonItemHelper.swift */; };
+		2EC995B82133AF6100259CDE /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA798F2115C09F00600D46 /* ViewControllerHelper.swift */; };
+		2EC995B92133AF6100259CDE /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA797221156D9400600D46 /* ChannelTableViewCell.swift */; };
+		2EC995BA2133AF6100259CDE /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDAB4F42116A10200F4B3F5 /* AlertHelper.swift */; };
+		2EC995BB2133AF6100259CDE /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA795321156B6A00600D46 /* Constant.swift */; };
+		2EC995BC2133AF6100259CDE /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA794521156B5F00600D46 /* KeyboardHelper.swift */; };
+		2EC995BD2133AF6100259CDE /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA792421156B3800600D46 /* Channel.swift */; };
+		2EC995BE2133AF6100259CDE /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA792821156B3800600D46 /* Restaurant.swift */; };
+		2EC995BF2133AF6100259CDE /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA796621156D6F00600D46 /* PickerViewController.swift */; };
+		2EC995C02133AF6100259CDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA790E21156AE800600D46 /* AppDelegate.swift */; };
+		2EC995C12133AF6100259CDE /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBDB3E9211C276D0028337F /* DateHelper.swift */; };
+		2EC995C22133AF6100259CDE /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA792621156B3800600D46 /* Day.swift */; };
+		2EC995C32133AF6100259CDE /* CellHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBDB3EF211C31000028337F /* CellHelper.swift */; };
+		2EC995C42133AF6100259CDE /* NumberHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA79932116029000600D46 /* NumberHelper.swift */; };
+		2EC995C52133AF6100259CDE /* BlurViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA796521156D6F00600D46 /* BlurViewController.swift */; };
+		2EC995C62133AF6100259CDE /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA794621156B5F00600D46 /* StringHelper.swift */; };
+		2EC995C72133AF6100259CDE /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA798B2115A9BF00600D46 /* DatePicker.swift */; };
+		2EC995CA2133AF6100259CDE /* iOS_TakeHomeTest2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2EAA795B21156BB800600D46 /* iOS_TakeHomeTest2.csv */; };
+		2EC995CB2133AF6100259CDE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2EAA795821156BAE00600D46 /* Settings.bundle */; };
+		2EC995CC2133AF6100259CDE /* Helper.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EAA797A21156DEC00600D46 /* Helper.storyboard */; };
+		2EC995CD2133AF6100259CDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EAA791921156AE900600D46 /* LaunchScreen.storyboard */; };
+		2EC995CE2133AF6100259CDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EAA791721156AE900600D46 /* Assets.xcassets */; };
+		2EC995CF2133AF6100259CDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EAA791421156AE800600D46 /* Main.storyboard */; };
+		2EC995D72133E43B00259CDE /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC995D62133E43B00259CDE /* Environment.swift */; };
+		2EC995D82133E43B00259CDE /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC995D62133E43B00259CDE /* Environment.swift */; };
 		2EDAB4F52116A10200F4B3F5 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDAB4F42116A10200F4B3F5 /* AlertHelper.swift */; };
+		2EDFD06A2125666400587A50 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDFD0692125666400587A50 /* Routes.swift */; };
+		2EE9A6BA211A8A23004A8EAD /* SpotPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE9A6B8211A8A22004A8EAD /* SpotPrice.swift */; };
+		2EE9A6BB211A8A23004A8EAD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE9A6B9211A8A23004A8EAD /* User.swift */; };
+		4A4A237AB867D21F081AB4AE /* Pods_Code_Bible_Dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABB78483F8F76BE8401CAF1 /* Pods_Code_Bible_Dev.framework */; };
+		64659E9C80B86835C5E811A6 /* Pods_Code_Bible.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7246B384203AEB291246016E /* Pods_Code_Bible.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1ABB78483F8F76BE8401CAF1 /* Pods_Code_Bible_Dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Code_Bible_Dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E399CA1211BDF49009F6B6E /* ScrollingNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingNavigationController.swift; sourceTree = "<group>"; };
+		2E399CA3211BDFBE009F6B6E /* ScrollingNavbar+Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollingNavbar+Sizes.swift"; sourceTree = "<group>"; };
+		2E3CDADC21647AB600FA7307 /* ScreenBrightnessHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenBrightnessHelper.swift; sourceTree = "<group>"; };
+		2E3CDADE2164948000FA7307 /* IPAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
+		2E792EA521354BB50047502B /* KPPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPPayment.swift; sourceTree = "<group>"; };
+		2E84360A216EF04C006A4791 /* Deeplink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deeplink.swift; sourceTree = "<group>"; };
+		2E92BA55214270F900C1D61D /* beaming.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = beaming.json; sourceTree = "<group>"; };
 		2E98259C211626480074ABB2 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		2EAA790B21156AE800600D46 /* Code Bible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Code Bible.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EAA790E21156AE800600D46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,7 +169,20 @@
 		2EAA798F2115C09F00600D46 /* ViewControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
 		2EAA79912116024700600D46 /* StepperHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperHelper.swift; sourceTree = "<group>"; };
 		2EAA79932116029000600D46 /* NumberHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberHelper.swift; sourceTree = "<group>"; };
+		2EBDB3E9211C276D0028337F /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		2EBDB3EF211C31000028337F /* CellHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHelper.swift; sourceTree = "<group>"; };
+		2EC995D32133AF6100259CDE /* Code Bible Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Code Bible Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EC995D52133CED700259CDE /* Info-Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Dev.plist"; sourceTree = "<group>"; };
+		2EC995D62133E43B00259CDE /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		2EDAB4F42116A10200F4B3F5 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		2EDFD0692125666400587A50 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		2EE9A6B8211A8A22004A8EAD /* SpotPrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotPrice.swift; sourceTree = "<group>"; };
+		2EE9A6B9211A8A23004A8EAD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		307A00F00C7FD84510B6B372 /* Pods-Code Bible Dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible Dev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev.debug.xcconfig"; sourceTree = "<group>"; };
+		4A44BB01066D74B9BF1E5916 /* Pods-Code Bible.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible/Pods-Code Bible.debug.xcconfig"; sourceTree = "<group>"; };
+		7246B384203AEB291246016E /* Pods_Code_Bible.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Code_Bible.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5422D5410E66630871228C5 /* Pods-Code Bible Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible Dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev.release.xcconfig"; sourceTree = "<group>"; };
+		ED4952F340F2336B5CA2200B /* Pods-Code Bible.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible/Pods-Code Bible.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,17 +190,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64659E9C80B86835C5E811A6 /* Pods_Code_Bible.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EC995C82133AF6100259CDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A4A237AB867D21F081AB4AE /* Pods_Code_Bible_Dev.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E399CA5211BDFF5009F6B6E /* ScrollingNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				2E399CA3211BDFBE009F6B6E /* ScrollingNavbar+Sizes.swift */,
+				2E399CA1211BDF49009F6B6E /* ScrollingNavigationController.swift */,
+			);
+			path = ScrollingNavigationController;
+			sourceTree = "<group>";
+		};
 		2EAA790221156AE800600D46 = {
 			isa = PBXGroup;
 			children = (
 				2EAA790D21156AE800600D46 /* Code Bible */,
 				2EAA790C21156AE800600D46 /* Products */,
+				6A2068BB9D17E5FCA0B312C1 /* Pods */,
+				C5ADC8EDBE640415EFD56A0A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				2EAA790B21156AE800600D46 /* Code Bible.app */,
+				2EC995D32133AF6100259CDE /* Code Bible Dev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,6 +253,8 @@
 			children = (
 				2EAA792321156B3800600D46 /* Astro */,
 				2EAA792521156B3800600D46 /* Petronas */,
+				2EE9A6BC211A8A28004A8EAD /* HelloGold */,
+				2E84360A216EF04C006A4791 /* Deeplink.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -177,6 +287,7 @@
 				2EAA79802115753600600D46 /* Toast */,
 				2EAA79832115760300600D46 /* Spinner */,
 				2EAA79852115763500600D46 /* Keyboard */,
+				2E399CA5211BDFF5009F6B6E /* ScrollingNavigationController */,
 				2EAA794321156B5F00600D46 /* ViewHelper.swift */,
 				2EAA798F2115C09F00600D46 /* ViewControllerHelper.swift */,
 				2EAA794021156B5F00600D46 /* ButtonHelper.swift */,
@@ -185,9 +296,13 @@
 				2EAA794121156B5F00600D46 /* TextFieldHelper.swift */,
 				2EAA79932116029000600D46 /* NumberHelper.swift */,
 				2E98259C211626480074ABB2 /* ImageHelper.swift */,
+				2EBDB3E9211C276D0028337F /* DateHelper.swift */,
+				2EBDB3EF211C31000028337F /* CellHelper.swift */,
 				2EDAB4F42116A10200F4B3F5 /* AlertHelper.swift */,
 				2EAA79912116024700600D46 /* StepperHelper.swift */,
 				2EAA794421156B5F00600D46 /* APIRequest.swift */,
+				2E3CDADC21647AB600FA7307 /* ScreenBrightnessHelper.swift */,
+				2E3CDADE2164948000FA7307 /* IPAddress.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -195,7 +310,9 @@
 		2EAA795221156B6A00600D46 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				2EC995D62133E43B00259CDE /* Environment.swift */,
 				2EAA795321156B6A00600D46 /* Constant.swift */,
+				2EDFD0692125666400587A50 /* Routes.swift */,
 				2EAA795421156B6A00600D46 /* APIManager.swift */,
 			);
 			path = Config;
@@ -206,6 +323,7 @@
 			children = (
 				2EAA790E21156AE800600D46 /* AppDelegate.swift */,
 				2EAA791C21156AE900600D46 /* Info.plist */,
+				2EC995D52133CED700259CDE /* Info-Dev.plist */,
 				2EAA795821156BAE00600D46 /* Settings.bundle */,
 			);
 			path = "Supporting Files";
@@ -214,7 +332,9 @@
 		2EAA795A21156BB800600D46 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				2E92BA55214270F900C1D61D /* beaming.json */,
 				2EAA795B21156BB800600D46 /* iOS_TakeHomeTest2.csv */,
+				2E792EA521354BB50047502B /* KPPayment.swift */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -343,6 +463,35 @@
 			path = DatePicker;
 			sourceTree = "<group>";
 		};
+		2EE9A6BC211A8A28004A8EAD /* HelloGold */ = {
+			isa = PBXGroup;
+			children = (
+				2EE9A6B8211A8A22004A8EAD /* SpotPrice.swift */,
+				2EE9A6B9211A8A23004A8EAD /* User.swift */,
+			);
+			path = HelloGold;
+			sourceTree = "<group>";
+		};
+		6A2068BB9D17E5FCA0B312C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A44BB01066D74B9BF1E5916 /* Pods-Code Bible.debug.xcconfig */,
+				ED4952F340F2336B5CA2200B /* Pods-Code Bible.release.xcconfig */,
+				307A00F00C7FD84510B6B372 /* Pods-Code Bible Dev.debug.xcconfig */,
+				C5422D5410E66630871228C5 /* Pods-Code Bible Dev.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C5ADC8EDBE640415EFD56A0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7246B384203AEB291246016E /* Pods_Code_Bible.framework */,
+				1ABB78483F8F76BE8401CAF1 /* Pods_Code_Bible_Dev.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -350,9 +499,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2EAA791F21156AE900600D46 /* Build configuration list for PBXNativeTarget "Code Bible" */;
 			buildPhases = (
+				4216D3213E45B26EE8BD0801 /* [CP] Check Pods Manifest.lock */,
 				2EAA790721156AE800600D46 /* Sources */,
 				2EAA790821156AE800600D46 /* Frameworks */,
 				2EAA790921156AE800600D46 /* Resources */,
+				9B6EB3FD49822B17222F46F8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -361,6 +512,25 @@
 			name = "Code Bible";
 			productName = "Code Bible";
 			productReference = 2EAA790B21156AE800600D46 /* Code Bible.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2EC9959B2133AF6100259CDE /* Code Bible Dev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EC995D02133AF6100259CDE /* Build configuration list for PBXNativeTarget "Code Bible Dev" */;
+			buildPhases = (
+				24CDBF7C97BD5B6010503A96 /* [CP] Check Pods Manifest.lock */,
+				2EC9959C2133AF6100259CDE /* Sources */,
+				2EC995C82133AF6100259CDE /* Frameworks */,
+				2EC995C92133AF6100259CDE /* Resources */,
+				05F2A4A7278BCA6638073EAC /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Code Bible Dev";
+			productName = "Code Bible";
+			productReference = 2EC995D32133AF6100259CDE /* Code Bible Dev.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -392,6 +562,7 @@
 			projectRoot = "";
 			targets = (
 				2EAA790A21156AE800600D46 /* Code Bible */,
+				2EC9959B2133AF6100259CDE /* Code Bible Dev */,
 			);
 		};
 /* End PBXProject section */
@@ -401,6 +572,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E92BA56214270F900C1D61D /* beaming.json in Resources */,
 				2EAA795C21156BB800600D46 /* iOS_TakeHomeTest2.csv in Resources */,
 				2EAA795921156BAE00600D46 /* Settings.bundle in Resources */,
 				2EAA797821156DEC00600D46 /* Helper.storyboard in Resources */,
@@ -410,7 +582,99 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2EC995C92133AF6100259CDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EC995CA2133AF6100259CDE /* iOS_TakeHomeTest2.csv in Resources */,
+				2EC995CB2133AF6100259CDE /* Settings.bundle in Resources */,
+				2EC995CC2133AF6100259CDE /* Helper.storyboard in Resources */,
+				2EC995CD2133AF6100259CDE /* LaunchScreen.storyboard in Resources */,
+				2EC995CE2133AF6100259CDE /* Assets.xcassets in Resources */,
+				2EC995CF2133AF6100259CDE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05F2A4A7278BCA6638073EAC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		24CDBF7C97BD5B6010503A96 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Code Bible Dev-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4216D3213E45B26EE8BD0801 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Code Bible-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B6EB3FD49822B17222F46F8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Code Bible/Pods-Code Bible-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Code Bible/Pods-Code Bible-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2EAA790721156AE800600D46 /* Sources */ = {
@@ -422,10 +686,13 @@
 				2EAA794E21156B5F00600D46 /* APIRequest.swift in Sources */,
 				2EAA797521156D9400600D46 /* OpeningTimeTableViewCell.swift in Sources */,
 				2EAA79922116024700600D46 /* StepperHelper.swift in Sources */,
+				2E84360B216EF04C006A4791 /* Deeplink.swift in Sources */,
 				2EAA794821156B5F00600D46 /* CustomPhotoAlbum.swift in Sources */,
+				2E399CA4211BDFBE009F6B6E /* ScrollingNavbar+Sizes.swift in Sources */,
 				2E98259D211626480074ABB2 /* ImageHelper.swift in Sources */,
 				2EAA794A21156B5F00600D46 /* ButtonHelper.swift in Sources */,
 				2EAA794C21156B5F00600D46 /* ImagePicker.swift in Sources */,
+				2E3CDADF2164948000FA7307 /* IPAddress.swift in Sources */,
 				2EAA795621156B6A00600D46 /* APIManager.swift in Sources */,
 				2EAA794921156B5F00600D46 /* Spinner.swift in Sources */,
 				2EAA794D21156B5F00600D46 /* ViewHelper.swift in Sources */,
@@ -434,25 +701,86 @@
 				2EAA796E21156D6F00600D46 /* ToastViewController.swift in Sources */,
 				2EAA798A21157F5E00600D46 /* Picker.swift in Sources */,
 				2EAA796A21156D6F00600D46 /* RestaurantListViewController.swift in Sources */,
+				2EE9A6BA211A8A23004A8EAD /* SpotPrice.swift in Sources */,
+				2EE9A6BB211A8A23004A8EAD /* User.swift in Sources */,
+				2E399CA2211BDF49009F6B6E /* ScrollingNavigationController.swift in Sources */,
 				2EAA796B21156D6F00600D46 /* FullPickerViewController.swift in Sources */,
+				2EDFD06A2125666400587A50 /* Routes.swift in Sources */,
 				2EAA796921156D6F00600D46 /* RootViewController.swift in Sources */,
 				2EAA7987211579C400600D46 /* DatePickerViewController.swift in Sources */,
 				2EAA794B21156B5F00600D46 /* TextFieldHelper.swift in Sources */,
+				2E3CDADD21647AB600FA7307 /* ScreenBrightnessHelper.swift in Sources */,
 				2EAA798E2115B58500600D46 /* BarButtonItemHelper.swift in Sources */,
 				2EAA79902115C09F00600D46 /* ViewControllerHelper.swift in Sources */,
 				2EAA797621156D9400600D46 /* ChannelTableViewCell.swift in Sources */,
+				2EC995D72133E43B00259CDE /* Environment.swift in Sources */,
 				2EDAB4F52116A10200F4B3F5 /* AlertHelper.swift in Sources */,
+				2E792EA621354BB50047502B /* KPPayment.swift in Sources */,
 				2EAA795521156B6A00600D46 /* Constant.swift in Sources */,
 				2EAA794F21156B5F00600D46 /* KeyboardHelper.swift in Sources */,
 				2EAA792921156B3800600D46 /* Channel.swift in Sources */,
 				2EAA792C21156B3800600D46 /* Restaurant.swift in Sources */,
 				2EAA796D21156D6F00600D46 /* PickerViewController.swift in Sources */,
 				2EAA790F21156AE800600D46 /* AppDelegate.swift in Sources */,
+				2EBDB3EA211C276D0028337F /* DateHelper.swift in Sources */,
 				2EAA792A21156B3800600D46 /* Day.swift in Sources */,
+				2EBDB3F0211C31000028337F /* CellHelper.swift in Sources */,
 				2EAA79942116029000600D46 /* NumberHelper.swift in Sources */,
 				2EAA796C21156D6F00600D46 /* BlurViewController.swift in Sources */,
 				2EAA795021156B5F00600D46 /* StringHelper.swift in Sources */,
 				2EAA798C2115A9BF00600D46 /* DatePicker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EC9959C2133AF6100259CDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EC9959D2133AF6100259CDE /* ChannelListViewController.swift in Sources */,
+				2EC9959E2133AF6100259CDE /* Toast.swift in Sources */,
+				2EC9959F2133AF6100259CDE /* APIRequest.swift in Sources */,
+				2EC995A02133AF6100259CDE /* OpeningTimeTableViewCell.swift in Sources */,
+				2EC995A12133AF6100259CDE /* StepperHelper.swift in Sources */,
+				2EC995A22133AF6100259CDE /* CustomPhotoAlbum.swift in Sources */,
+				2EC995A32133AF6100259CDE /* ScrollingNavbar+Sizes.swift in Sources */,
+				2EC995A42133AF6100259CDE /* ImageHelper.swift in Sources */,
+				2EC995A52133AF6100259CDE /* ButtonHelper.swift in Sources */,
+				2EC995A62133AF6100259CDE /* ImagePicker.swift in Sources */,
+				2EC995A72133AF6100259CDE /* APIManager.swift in Sources */,
+				2EC995A82133AF6100259CDE /* Spinner.swift in Sources */,
+				2EC995A92133AF6100259CDE /* ViewHelper.swift in Sources */,
+				2EC995AA2133AF6100259CDE /* FullPickerTableViewCell.swift in Sources */,
+				2EC995AB2133AF6100259CDE /* OpeningTime.swift in Sources */,
+				2EC995AC2133AF6100259CDE /* ToastViewController.swift in Sources */,
+				2EC995AD2133AF6100259CDE /* Picker.swift in Sources */,
+				2EC995AE2133AF6100259CDE /* RestaurantListViewController.swift in Sources */,
+				2EC995AF2133AF6100259CDE /* SpotPrice.swift in Sources */,
+				2EC995B02133AF6100259CDE /* User.swift in Sources */,
+				2EC995B12133AF6100259CDE /* ScrollingNavigationController.swift in Sources */,
+				2EC995B22133AF6100259CDE /* FullPickerViewController.swift in Sources */,
+				2EC995B32133AF6100259CDE /* Routes.swift in Sources */,
+				2EC995B42133AF6100259CDE /* RootViewController.swift in Sources */,
+				2EC995B52133AF6100259CDE /* DatePickerViewController.swift in Sources */,
+				2EC995B62133AF6100259CDE /* TextFieldHelper.swift in Sources */,
+				2EC995B72133AF6100259CDE /* BarButtonItemHelper.swift in Sources */,
+				2EC995B82133AF6100259CDE /* ViewControllerHelper.swift in Sources */,
+				2EC995B92133AF6100259CDE /* ChannelTableViewCell.swift in Sources */,
+				2EC995D82133E43B00259CDE /* Environment.swift in Sources */,
+				2EC995BA2133AF6100259CDE /* AlertHelper.swift in Sources */,
+				2E792EA721354BB50047502B /* KPPayment.swift in Sources */,
+				2EC995BB2133AF6100259CDE /* Constant.swift in Sources */,
+				2EC995BC2133AF6100259CDE /* KeyboardHelper.swift in Sources */,
+				2EC995BD2133AF6100259CDE /* Channel.swift in Sources */,
+				2EC995BE2133AF6100259CDE /* Restaurant.swift in Sources */,
+				2EC995BF2133AF6100259CDE /* PickerViewController.swift in Sources */,
+				2EC995C02133AF6100259CDE /* AppDelegate.swift in Sources */,
+				2EC995C12133AF6100259CDE /* DateHelper.swift in Sources */,
+				2EC995C22133AF6100259CDE /* Day.swift in Sources */,
+				2EC995C32133AF6100259CDE /* CellHelper.swift in Sources */,
+				2EC995C42133AF6100259CDE /* NumberHelper.swift in Sources */,
+				2EC995C52133AF6100259CDE /* BlurViewController.swift in Sources */,
+				2EC995C62133AF6100259CDE /* StringHelper.swift in Sources */,
+				2EC995C72133AF6100259CDE /* DatePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,7 +865,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -591,7 +919,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -602,16 +930,17 @@
 		};
 		2EAA792021156AE900600D46 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A44BB01066D74B9BF1E5916 /* Pods-Code Bible.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6YWC6NCX4M;
+				DEVELOPMENT_TEAM = C8C5YY57VR;
 				INFOPLIST_FILE = "Code Bible/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sentulasia.Code-Bible";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sentulasia.CodeBible;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -620,15 +949,56 @@
 		};
 		2EAA792121156AE900600D46 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED4952F340F2336B5CA2200B /* Pods-Code Bible.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6YWC6NCX4M;
+				DEVELOPMENT_TEAM = C8C5YY57VR;
 				INFOPLIST_FILE = "Code Bible/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sentulasia.CodeBible;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2EC995D12133AF6100259CDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 307A00F00C7FD84510B6B372 /* Pods-Code Bible Dev.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6YWC6NCX4M;
+				INFOPLIST_FILE = "Code Bible/Supporting Files/Info-Dev.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEVELOPMENT";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sentulasia.Code-Bible";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2EC995D22133AF6100259CDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5422D5410E66630871228C5 /* Pods-Code Bible Dev.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6YWC6NCX4M;
+				INFOPLIST_FILE = "Code Bible/Supporting Files/Info-Dev.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEVELOPMENT";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sentulasia.Code-Bible";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -653,6 +1023,15 @@
 			buildConfigurations = (
 				2EAA792021156AE900600D46 /* Debug */,
 				2EAA792121156AE900600D46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2EC995D02133AF6100259CDE /* Build configuration list for PBXNativeTarget "Code Bible Dev" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EC995D12133AF6100259CDE /* Debug */,
+				2EC995D22133AF6100259CDE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
