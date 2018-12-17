@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -103,14 +101,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emF-4Y-q63">
-                                <rect key="frame" x="164" y="148" width="46" height="30"/>
+                                <rect key="frame" x="164.5" y="148" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="fullPickerButtonTapped:" destination="6bV-jc-8Fp" eventType="touchUpInside" id="3Yk-6W-v8Q"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wWo-hR-eSh" customClass="ButtonHelper" customModule="Code_Bible" customModuleProvider="target">
-                                <rect key="frame" x="137" y="186" width="100" height="100"/>
+                                <rect key="frame" x="137.5" y="186" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="1bh-Kp-NQL"/>
                                     <constraint firstAttribute="width" secondItem="wWo-hR-eSh" secondAttribute="height" multiplier="1:1" id="UlE-xg-jkm"/>
@@ -148,13 +146,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dR4-yX-Sv1">
-                                <rect key="frame" x="125.5" y="408" width="123" height="30"/>
+                                <rect key="frame" x="126" y="408" width="123" height="30"/>
                                 <state key="normal" title="Show Action Alert"/>
                                 <connections>
                                     <action selector="showAnotherAlert:" destination="6bV-jc-8Fp" eventType="touchUpInside" id="pTc-JA-mxj"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number goes here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u2H-t5-MRc" customClass="TextFieldHelper" customModule="Code_Bible" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u2H-t5-MRc" customClass="TextFieldHelper" customModule="Code_Bible" customModuleProvider="target">
                                 <rect key="frame" x="16" y="572" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -162,6 +160,9 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="doneButton" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="6bV-jc-8Fp" id="7sX-9q-8bw"/>
+                                </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPA-Qu-DRB">
                                 <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
@@ -384,7 +385,7 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
-        <image name="icons8-name-filled" width="50" height="50"/>
+        <image name="icons8-name-filled" width="75" height="75"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>
