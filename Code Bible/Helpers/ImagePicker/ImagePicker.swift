@@ -124,7 +124,10 @@ extension ImagePicker: UINavigationControllerDelegate, UIImagePickerControllerDe
         self.imagePicker = nil
     }
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
         var newImage: UIImage
 
         if picker.sourceType == .camera {
@@ -175,4 +178,9 @@ extension ImagePicker: UINavigationControllerDelegate, UIImagePickerControllerDe
             self.imagePicker = nil
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
 }

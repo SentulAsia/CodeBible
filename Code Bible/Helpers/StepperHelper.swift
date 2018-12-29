@@ -123,14 +123,14 @@ class StepperHelper: UIControl {
     }()
 
     lazy var decreaseButton: UIButton = {
-        let button = UIButton(type: UIButtonType.custom)
+        let button = UIButton(type: UIButton.ButtonType.custom)
         button.tag = Button.decrease.rawValue
         button.backgroundColor = self.backgroundButtonColor
         return button
     }()
 
     lazy var increaseButton: UIButton = {
-        let button = UIButton(type: UIButtonType.custom)
+        let button = UIButton(type: UIButton.ButtonType.custom)
         button.backgroundColor = UIColor.clear
         button.tag = Button.increase.rawValue
         return button

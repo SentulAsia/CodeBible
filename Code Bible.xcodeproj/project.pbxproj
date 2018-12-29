@@ -117,6 +117,10 @@
 		64659E9C80B86835C5E811A6 /* Pods_Code_Bible.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7246B384203AEB291246016E /* Pods_Code_Bible.framework */; };
 		B86D413421D7301100214666 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D413321D7301100214666 /* ColorHelper.swift */; };
 		B86D413521D7301100214666 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D413321D7301100214666 /* ColorHelper.swift */; };
+		B86D413621D732E800214666 /* beaming.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E92BA55214270F900C1D61D /* beaming.json */; };
+		B86D413721D737D700214666 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E84360A216EF04C006A4791 /* Deeplink.swift */; };
+		B86D413821D737E600214666 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CDADE2164948000FA7307 /* IPAddress.swift */; };
+		B86D413921D737F500214666 /* ScreenBrightnessHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CDADC21647AB600FA7307 /* ScreenBrightnessHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -549,6 +553,7 @@
 				TargetAttributes = {
 					2EAA790A21156AE800600D46 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -590,6 +595,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B86D413621D732E800214666 /* beaming.json in Resources */,
 				2EC995CA2133AF6100259CDE /* iOS_TakeHomeTest2.csv in Resources */,
 				2EC995CB2133AF6100259CDE /* Settings.bundle in Resources */,
 				2EC995CC2133AF6100259CDE /* Helper.storyboard in Resources */,
@@ -760,9 +766,11 @@
 				2EC995AC2133AF6100259CDE /* ToastViewController.swift in Sources */,
 				2EC995AD2133AF6100259CDE /* Picker.swift in Sources */,
 				2EC995AE2133AF6100259CDE /* RestaurantListViewController.swift in Sources */,
+				B86D413921D737F500214666 /* ScreenBrightnessHelper.swift in Sources */,
 				2EC995AF2133AF6100259CDE /* SpotPrice.swift in Sources */,
 				2EC995B02133AF6100259CDE /* User.swift in Sources */,
 				2EC995B12133AF6100259CDE /* ScrollingNavigationController.swift in Sources */,
+				B86D413721D737D700214666 /* Deeplink.swift in Sources */,
 				2EC995B22133AF6100259CDE /* FullPickerViewController.swift in Sources */,
 				2EC995B32133AF6100259CDE /* Routes.swift in Sources */,
 				2EC995B42133AF6100259CDE /* RootViewController.swift in Sources */,
@@ -781,6 +789,7 @@
 				2EC995BF2133AF6100259CDE /* PickerViewController.swift in Sources */,
 				2EC995C02133AF6100259CDE /* AppDelegate.swift in Sources */,
 				2EC995C12133AF6100259CDE /* DateHelper.swift in Sources */,
+				B86D413821D737E600214666 /* IPAddress.swift in Sources */,
 				2EC995C22133AF6100259CDE /* Day.swift in Sources */,
 				2EC995C32133AF6100259CDE /* CellHelper.swift in Sources */,
 				2EC995C42133AF6100259CDE /* NumberHelper.swift in Sources */,
@@ -948,7 +957,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sentulasia.CodeBible;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -967,7 +976,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sentulasia.CodeBible;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -978,16 +987,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6YWC6NCX4M;
+				DEVELOPMENT_TEAM = C8C5YY57VR;
 				INFOPLIST_FILE = "Code Bible/Supporting Files/Info-Dev.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEVELOPMENT";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sentulasia.Code-Bible";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sentulasia.CodeBible-Dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -998,16 +1007,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6YWC6NCX4M;
+				DEVELOPMENT_TEAM = C8C5YY57VR;
 				INFOPLIST_FILE = "Code Bible/Supporting Files/Info-Dev.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEVELOPMENT";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sentulasia.Code-Bible";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sentulasia.CodeBible-Dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

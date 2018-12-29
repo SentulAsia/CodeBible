@@ -37,14 +37,14 @@ protocol TextFieldDelegate: class {
     }
 
     override func textRect(forBounds bounds: CGRect) -> CGRect {
-        return UIEdgeInsetsInsetRect(bounds, self.padding)
+        return bounds.inset(by: self.padding)
     }
 
     override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        return UIEdgeInsetsInsetRect(bounds, self.padding)
+        return bounds.inset(by: self.padding)
     }
 
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return UIEdgeInsetsInsetRect(bounds, self.padding)
+        return bounds.inset(by: self.padding)
     }
 }

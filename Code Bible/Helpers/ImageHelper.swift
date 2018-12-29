@@ -22,7 +22,7 @@ import UIKit
 
 extension UIImage {
     var base64EncodedString: String {
-        return UIImageJPEGRepresentation(self, 1.0)!.base64EncodedString(options: .lineLength64Characters)
+        return self.jpegData(compressionQuality: 1.0)!.base64EncodedString(options: .lineLength64Characters)
     }
 }
 
