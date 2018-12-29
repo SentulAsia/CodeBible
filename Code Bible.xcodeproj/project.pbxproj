@@ -115,6 +115,8 @@
 		2EE9A6BB211A8A23004A8EAD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE9A6B9211A8A23004A8EAD /* User.swift */; };
 		4A4A237AB867D21F081AB4AE /* Pods_Code_Bible_Dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABB78483F8F76BE8401CAF1 /* Pods_Code_Bible_Dev.framework */; };
 		64659E9C80B86835C5E811A6 /* Pods_Code_Bible.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7246B384203AEB291246016E /* Pods_Code_Bible.framework */; };
+		B86D413421D7301100214666 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D413321D7301100214666 /* ColorHelper.swift */; };
+		B86D413521D7301100214666 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D413321D7301100214666 /* ColorHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -181,6 +183,7 @@
 		307A00F00C7FD84510B6B372 /* Pods-Code Bible Dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible Dev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev.debug.xcconfig"; sourceTree = "<group>"; };
 		4A44BB01066D74B9BF1E5916 /* Pods-Code Bible.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible/Pods-Code Bible.debug.xcconfig"; sourceTree = "<group>"; };
 		7246B384203AEB291246016E /* Pods_Code_Bible.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Code_Bible.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B86D413321D7301100214666 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
 		C5422D5410E66630871228C5 /* Pods-Code Bible Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible Dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev.release.xcconfig"; sourceTree = "<group>"; };
 		ED4952F340F2336B5CA2200B /* Pods-Code Bible.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible/Pods-Code Bible.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -294,6 +297,7 @@
 				2EAA798D2115B58500600D46 /* BarButtonItemHelper.swift */,
 				2EAA794621156B5F00600D46 /* StringHelper.swift */,
 				2EAA794121156B5F00600D46 /* TextFieldHelper.swift */,
+				B86D413321D7301100214666 /* ColorHelper.swift */,
 				2EAA79932116029000600D46 /* NumberHelper.swift */,
 				2E98259C211626480074ABB2 /* ImageHelper.swift */,
 				2EBDB3E9211C276D0028337F /* DateHelper.swift */,
@@ -700,6 +704,7 @@
 				2EAA792B21156B3800600D46 /* OpeningTime.swift in Sources */,
 				2EAA796E21156D6F00600D46 /* ToastViewController.swift in Sources */,
 				2EAA798A21157F5E00600D46 /* Picker.swift in Sources */,
+				B86D413421D7301100214666 /* ColorHelper.swift in Sources */,
 				2EAA796A21156D6F00600D46 /* RestaurantListViewController.swift in Sources */,
 				2EE9A6BA211A8A23004A8EAD /* SpotPrice.swift in Sources */,
 				2EE9A6BB211A8A23004A8EAD /* User.swift in Sources */,
@@ -745,6 +750,7 @@
 				2EC995A32133AF6100259CDE /* ScrollingNavbar+Sizes.swift in Sources */,
 				2EC995A42133AF6100259CDE /* ImageHelper.swift in Sources */,
 				2EC995A52133AF6100259CDE /* ButtonHelper.swift in Sources */,
+				B86D413521D7301100214666 /* ColorHelper.swift in Sources */,
 				2EC995A62133AF6100259CDE /* ImagePicker.swift in Sources */,
 				2EC995A72133AF6100259CDE /* APIManager.swift in Sources */,
 				2EC995A82133AF6100259CDE /* Spinner.swift in Sources */,
