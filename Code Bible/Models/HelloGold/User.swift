@@ -63,17 +63,18 @@ struct User: Codable {
     }
 
     init(fromDictionary dictionary: [String: Any]) {
+        let keys = CodingKeys.self
         self.email = ""
         self.uuid = ""
         self.tnc = false
-        self.result = dictionary["result"] as? String
-        self.message = dictionary["message"] as? String
-        self.code = dictionary["code"] as? String
-        if let data = dictionary["data"] as? [String: Any] {
-            self.accountNumber = data["account_number"] as? String
-            self.apiKey = data["api_key"] as? String
-            self.apiToken = data["api_token"] as? String
-            self.publicKey = data["public_key"] as? String
+        self.result = dictionary[keys.result.rawValue] as? String
+        self.message = dictionary[keys.message.rawValue] as? String
+        self.code = dictionary[keys.code.rawValue] as? String
+        if let data = dictionary[keys.data.rawValue] as? [String: Any] {
+            self.accountNumber = data[keys.accountNumber.rawValue] as? String
+            self.apiKey = data[keys.apiKey.rawValue] as? String
+            self.apiToken = data[keys.apiToken.rawValue] as? String
+            self.publicKey = data[keys.publicKey.rawValue] as? String
         } else {
             self.accountNumber = ""
             self.apiKey = ""
@@ -106,11 +107,12 @@ struct User: Codable {
     }
 
     func toDictionary() -> [String: Any] {
+        let keys = CodingKeys.self
         var dictionary = [String: Any]()
-        dictionary["email"] = self.email ?? ""
-        dictionary["uuid"] = uuid ?? ""
-        dictionary["data"] = data ?? ""
-        dictionary["tnc"] = tnc ?? false
+        dictionary[keys.email.rawValue] = self.email ?? ""
+        dictionary[keys.uuid.rawValue] = uuid ?? ""
+        dictionary[keys.data.rawValue] = data ?? ""
+        dictionary[keys.tnc.rawValue] = tnc ?? false
         return dictionary
     }
 }
