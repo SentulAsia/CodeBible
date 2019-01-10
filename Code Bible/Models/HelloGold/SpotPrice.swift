@@ -54,14 +54,15 @@ struct SpotPrice: Codable {
     }
 
     init(fromDictionary dictionary: [String: Any]) {
-        self.result = dictionary["result"] as? String
-        self.message = dictionary["message"] as? String
-        self.code = dictionary["code"] as? String
-        if let data = dictionary["data"] as? [String: Any] {
-            self.buy = data["buy"] as? Double
-            self.sell = data["sell"] as? Double
-            self.spotPrice = data["spot_price"] as? Double
-            self.timestamp = data["timestamp"] as? String
+        let keys = CodingKeys.self
+        self.result = dictionary[keys.result.rawValue] as? String
+        self.message = dictionary[keys.message.rawValue] as? String
+        self.code = dictionary[keys.code.rawValue] as? String
+        if let data = dictionary[keys.data.rawValue] as? [String: Any] {
+            self.buy = data[keys.buy.rawValue] as? Double
+            self.sell = data[keys.sell.rawValue] as? Double
+            self.spotPrice = data[keys.spotPrice.rawValue] as? Double
+            self.timestamp = data[keys.timestamp.rawValue] as? String
         } else {
             self.buy = 0.0
             self.sell = 0.0
