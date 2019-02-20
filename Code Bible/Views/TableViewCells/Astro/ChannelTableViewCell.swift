@@ -21,8 +21,10 @@
 import UIKit
 
 class ChannelTableViewCell: UITableViewCell {
-
-    static let identifier = "ChannelTableViewCell"
+    
+    enum Constants {
+        static let identifier = "ChannelTableViewCell"
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

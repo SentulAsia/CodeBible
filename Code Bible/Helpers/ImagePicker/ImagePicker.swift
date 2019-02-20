@@ -49,7 +49,7 @@ class ImagePicker: NSObject {
             camera.imageWidth = 200
             camera.takePicture()
         })
-//        let image1 = UIImage(named: "icons8-camera")
+//        let image1 = #imageLiteral(resourceName: "icons8-camera")
 //        action1.setValue(image1, forKey: "image")
 //        action1.setValue(0, forKey: "titleTextAlignment")
         menu.addAction(action1)
@@ -59,7 +59,7 @@ class ImagePicker: NSObject {
             photoLibrary.imageWidth = 200
             photoLibrary.selectPicture()
         })
-//        let image2 = UIImage(named: "icons8-picture")
+//        let image2 = #imageLiteral(resourceName: "icons8-picture")
 //        action2.setValue(image2, forKey: "image")
 //        action2.setValue(0, forKey: "titleTextAlignment")
         menu.addAction(action2)

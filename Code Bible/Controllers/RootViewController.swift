@@ -23,8 +23,8 @@ import Lottie
 
 class RootViewController: UIViewController {
 
-    @IBOutlet weak var navigationButton: BarButtonItemHelper!
-    @IBOutlet weak var anotherNavigationItem: BarButtonItemHelper!
+    @IBOutlet weak var navigationButton: CustomBarButtonItem!
+    @IBOutlet weak var anotherNavigationItem: CustomBarButtonItem!
 
     @IBOutlet weak var pickerButton: UIButton!
     @IBOutlet weak var anotherPickerButton: UIButton!
@@ -73,7 +73,7 @@ class RootViewController: UIViewController {
         DatePicker.show(self, pickerDate: self.selectedDate) { (isPicked: Bool, pickerDate: Date?) in
             if isPicked {
                 self.selectedDate = pickerDate
-                print(self.selectedDate?.formattedISO8601)
+                print(self.selectedDate?.formattedISO8601 ?? "")
                 // TODO: Handle selected date
             }
         }
@@ -121,17 +121,17 @@ class RootViewController: UIViewController {
     }
 
     @IBAction func showAlertButtonTapped(_ sender: Any) {
-        AlertHelper.showSingleInput(self, withMessage: "Please Enter Your PIN", withTextField: { (textfield: UITextField) in
+        CustomAlert.showSingleInput(self, withMessage: "Please Enter Your PIN", withTextField: { (textfield: UITextField) in
             textfield.placeholder = "PIN Number"
             textfield.isSecureTextEntry = true
             textfield.keyboardType = .numberPad
         }) { (newValue: String?) in
-            print(newValue)
+            print(newValue ?? "")
         }
     }
 
     @IBAction func showAnotherAlert(_ sender: Any) {
-        AlertHelper.showSingleAction(self, withMessage: "Do you want to logout?") { (action: UIAlertAction) in
+        CustomAlert.showSingleAction(self, withMessage: "Do you want to logout?") { (action: UIAlertAction) in
             print("Go to logout")
         }
     }
@@ -140,9 +140,9 @@ class RootViewController: UIViewController {
 extension RootViewController: KPPaymentDelegate {
     func paymentDidFinish(successfully flag: Bool, withMessage message: String) {
         if flag {
-            AlertHelper.showSimple(self, withMessage: "Payment is successful")
+            CustomAlert.showSimple(self, withMessage: "Payment is successful")
         } else {
-            AlertHelper.showSimple(self, withMessage: "Payment is NOT successful")
+            CustomAlert.showSimple(self, withMessage: "Payment is NOT successful")
         }
     }
 }

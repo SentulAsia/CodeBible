@@ -31,7 +31,7 @@ struct Picker {
         pickerSelectedIndex: Int? = nil,
         completionHandler: @escaping (_ isPicked: Bool, _ pickerSelectedIndex: Int?) -> Void
     ) {
-        let storyboard: UIStoryboard = UIStoryboard(name: Constant.Storyboard.helper, bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: Constants.Storyboard.helper, bundle: nil)
         let blurController = storyboard.instantiateViewController(withIdentifier: BlurViewController.identifier) as! BlurViewController
         blurController.modalPresentationStyle = .overFullScreen
         blurController.appearCompletionHandler = { (isCompleted: Bool) in
@@ -58,7 +58,7 @@ struct Picker {
         pickerSelectedIndex: Int? = nil,
         completionHandler: @escaping (_ isPicked: Bool, _ pickerSelectedIndex: Int?) -> Void
     ) {
-        let storyboard: UIStoryboard = UIStoryboard(name: Constant.Storyboard.helper, bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: Constants.Storyboard.helper, bundle: nil)
         let navigationController = storyboard.instantiateViewController(withIdentifier: FullPickerViewController.identifier) as! UINavigationController
         let controller = navigationController.visibleViewController as! FullPickerViewController
         controller.pickerList = pickerList

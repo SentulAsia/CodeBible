@@ -26,7 +26,7 @@ private enum Button: Int {
 }
 
 @IBDesignable
-class StepperHelper: UIControl {
+class CustomStepper: UIControl {
 
     @IBInspectable
     var value: Double = 0.0 {

@@ -61,7 +61,7 @@ class KeyboardHelper: NSObject {
     }
 }
 
-extension TextFieldHelper {
+extension CustomTextField {
     @IBInspectable
     var doneButton: Bool {
         get {

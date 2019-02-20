@@ -74,7 +74,7 @@ public class KPPayment: NSObject {
     }
 
     @objc private func applicationDidBecomeActive(_ notification: Notification) {
-        if let referenceId = self.referenceId {
+        if let _ = self.referenceId {
             self.delegate?.paymentDidFinish(successfully: true, withMessage: "Success")
             self.referenceId = nil
         }

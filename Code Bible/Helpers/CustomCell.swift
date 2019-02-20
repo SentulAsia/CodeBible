@@ -20,7 +20,7 @@
 
 import UIKit
 
-struct CellHelper {
+struct CustomCell {
     let identifier: String
     let content: Any
     let height: CGFloat?

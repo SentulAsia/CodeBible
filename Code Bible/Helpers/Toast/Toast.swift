@@ -29,7 +29,7 @@ struct Toast {
         _ sender: UIViewController,
         withMessage message: String
     ) {
-        let storyboard: UIStoryboard = UIStoryboard(name: Constant.Storyboard.helper, bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: Constants.Storyboard.helper, bundle: nil)
         let toastController = storyboard.instantiateViewController(withIdentifier: ToastViewController.identifier) as! ToastViewController
         toastController.modalPresentationStyle = .overFullScreen
         toastController.message = message

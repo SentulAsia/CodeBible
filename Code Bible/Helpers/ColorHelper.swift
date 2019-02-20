@@ -30,7 +30,7 @@ extension UIColor {
         let green = components?[1] ?? 0
         let blue = ((components?.count ?? 0) > 2 ? components?[2] : green) ?? 0 // UIColor.white don't have 3rd component
         return String(
-            format: "#%02lX%02lX%02lX",
+            format: "#%02lx%02lx%02lx",
             lroundf(Float(red * 255)),
             lroundf(Float(green * 255)),
             lroundf(Float(blue * 255))

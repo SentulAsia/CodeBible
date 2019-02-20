@@ -21,10 +21,13 @@
 import UIKit
 
 class RestaurantListViewController: UIViewController {
+    
+    enum Constants {
+        static let identifier = "RestaurantListViewController"
+    }
 
     @IBOutlet weak var restaurantTableView: UITableView!
 
-    static let identifier = "RestaurantListViewController"
     let restaurants = Restaurant.list(forFile: "iOS_TakeHomeTest2.csv")
 
     override func viewDidLoad() {
@@ -67,7 +70,7 @@ extension RestaurantListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: OpeningTimeTableViewCell.identifier, for: indexPath) as! OpeningTimeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: OpeningTimeTableViewCell.Constants.identifier, for: indexPath) as! OpeningTimeTableViewCell
         cell.textLabel?.text = self.restaurants[indexPath.section].openingTime[indexPath.row].string
         return cell
     }

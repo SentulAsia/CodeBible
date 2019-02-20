@@ -31,7 +31,7 @@ fileprivate extension CAShapeLayer {
 
 private var handle: UInt8 = 0
 
-class BarButtonItemHelper: UIBarButtonItem {
+class CustomBarButtonItem: UIBarButtonItem {
     var badge: Int = 0 {
         didSet {
             if self.badge == 0 {

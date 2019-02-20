@@ -22,7 +22,9 @@ import UIKit
 
 class OpeningTimeTableViewCell: UITableViewCell {
 
-    static let identifier = "OpeningTimeTableViewCell"
+    enum Constants {
+        static let identifier = "OpeningTimeTableViewCell"
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

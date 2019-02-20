@@ -20,8 +20,8 @@
 
 import Foundation
 
-struct IPAddress {
-    static var shared = IPAddress()
+struct IPAddressHelper {
+    static var shared = IPAddressHelper()
 
     private init() {}
 
@@ -33,7 +33,7 @@ struct IPAddress {
     public mutating func getPublic() {
         let publicURLString = "https://api.ipify.org?format=json"
         if let publicURL = URL(string: publicURLString) {
-            APIRequest.request(url: publicURL, method: .get, parameters: nil, headers: nil) { (response) in
+            APIWorker.request(url: publicURL, method: .get, parameters: nil, headers: nil) { (response) in
                 guard response.result.isSuccess else {
                     return
                 }

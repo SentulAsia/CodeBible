@@ -21,10 +21,13 @@
 import UIKit
 
 class ChannelListViewController: UIViewController {
+    
+    enum Constants {
+        static let identifier = "ChannelListViewController"
+    }
 
     @IBOutlet weak var tableView: UITableView!
 
-    static let identifier = "ChannelListViewController"
     var channels: [Channel] = []
 
     override func viewDidLoad() {
@@ -83,7 +86,7 @@ extension ChannelListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ChannelTableViewCell.identifier, for: indexPath) as! ChannelTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ChannelTableViewCell.Constants.identifier, for: indexPath) as! ChannelTableViewCell
 
         cell.textLabel?.text = self.channels[indexPath.row].channelTitle
         cell.detailTextLabel?.text = String(self.channels[indexPath.row].channelStbNumber)

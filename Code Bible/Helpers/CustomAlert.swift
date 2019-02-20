@@ -20,20 +20,20 @@
 
 import UIKit
 
-struct AlertHelper {
-    static let shared = AlertHelper()
+struct CustomAlert {
+    static let shared = CustomAlert()
 
     private init() {}
 
     static func showSimple(_ sender: UIViewController, withMessage message: String? = nil) {
-        let alert = UIAlertController(title: Constant.appName, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: Constants.appName, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(action)
         sender.present(alert, animated: true, completion: nil)
     }
 
     static func showSingleAction(_ sender: UIViewController, withMessage message: String? = nil, withAction handler: ((UIAlertAction) -> Void)?) {
-        let alert = UIAlertController(title: Constant.appName, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: Constants.appName, message: message, preferredStyle: .alert)
         let action1 = UIAlertAction(title: "OK", style: .cancel, handler: handler)
         alert.addAction(action1)
         let action2 = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
@@ -42,7 +42,7 @@ struct AlertHelper {
     }
 
     static func showSingleInput(_ sender: UIViewController, withMessage message: String? = nil, withTextField textField: ((UITextField) -> Void)? = nil, dismissCompletionHandler: @escaping (_ newValue: String?) -> Void) {
-        let alert = UIAlertController(title: Constant.appName, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: Constants.appName, message: message, preferredStyle: .alert)
         alert.addTextField(configurationHandler: textField)
         let action1 = UIAlertAction(title: "Confirm", style: .cancel) { (action: UIAlertAction) in
             let newValue = alert.textFields?.first?.text

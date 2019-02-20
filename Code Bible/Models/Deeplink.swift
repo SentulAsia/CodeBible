@@ -29,6 +29,17 @@ struct Deeplink : Codable {
     let deeplinkURL: String?
     let createAt: Date?
     var message: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case merchantId = "MerchantId"
+        case storeId = "StoreId"
+        case amount = "Amount"
+        case referenceId = "ReferenceId"
+        case checkSum = "CheckSum"
+        case deeplinkURL = "DeepLinkUrl"
+        case createAt = "CreateAt"
+        case message = "Message"
+    }
 
     init(merchantId: Int = 0, storeId: Int = 0, amount: Float = 0.0, referenceId: String = "", checkSum: String = "") {
         self.merchantId = merchantId
@@ -42,35 +53,35 @@ struct Deeplink : Codable {
     }
 
     init(fromDictionary dictionary: [String: Any]) {
-        self.deeplinkURL = dictionary["DeepLinkUrl"] as? String
-        self.createAt = (dictionary["CreateAt"] as? String)?.formattedKiple
-        self.referenceId = dictionary["ReferenceId"] as? String
-        self.checkSum = dictionary["CheckSum"] as? String
-        self.message = dictionary["Message"] as? String
+        let keys = CodingKeys.self
+        self.deeplinkURL = dictionary[keys.deeplinkURL.rawValue] as? String
+        self.createAt = (dictionary[keys.createAt.rawValue] as? String)?.formattedKiple
+        self.referenceId = dictionary[keys.referenceId.rawValue] as? String
+        self.checkSum = dictionary[keys.checkSum.rawValue] as? String
+        self.message = dictionary[keys.message.rawValue] as? String
         self.merchantId = nil
         self.storeId = nil
         self.amount = nil
     }
 
     func toDictionary() -> [String: Any] {
-        print(#function)
+        let keys = CodingKeys.self
         var dictionary = [String: Any]()
-        if merchantId != nil {
-            dictionary["MerchantId"] = merchantId
+        if let merchantId = merchantId {
+            dictionary[keys.merchantId.rawValue] = merchantId
         }
-        if storeId != nil {
-            dictionary["StoreId"] = storeId
+        if let storeId = storeId {
+            dictionary[keys.storeId.rawValue] = storeId
         }
-        if amount != nil {
-            dictionary["Amount"] = amount
+        if let amount = amount {
+            dictionary[keys.amount.rawValue] = amount
         }
-        if referenceId != nil {
-            dictionary["ReferenceId"] = referenceId
+        if let referenceId = referenceId {
+            dictionary[keys.referenceId.rawValue] = referenceId
         }
-        if checkSum != nil {
-            dictionary["CheckSum"] = checkSum
+        if let checkSum = checkSum {
+            dictionary[keys.checkSum.rawValue] = checkSum
         }
-        print(dictionary)
         return dictionary
     }
 }

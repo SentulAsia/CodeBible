@@ -30,9 +30,9 @@ struct APIManager {
         success: @escaping (_ channelModelArrayObj: [Channel]) -> Void,
         failure: @escaping (_ serverError: String) -> Void
     ) {
-        let channelListURLString = Constant.AstroAPI.baseURL + Constant.AstroAPI.channelList
+        let channelListURLString = Constants.AstroAPI.baseURL + Constants.AstroAPI.channelList
         if let channelListURL = URL(string: channelListURLString) {
-            APIRequest.request(url: channelListURL, method: .get, parameters: nil, headers: nil) { (response) in
+            APIWorker.request(url: channelListURL, method: .get, parameters: nil, headers: nil) { (response) in
                 guard response.result.isSuccess else {
                     failure((response.result.error?.localizedDescription)!)
                     return
@@ -40,7 +40,7 @@ struct APIManager {
 
                 guard let value = response.result.value,
                     let responseDictionary = value as? [String: Any] else {
-                        failure(Constant.Message.failureDefault)
+                        failure(Constants.Message.failureDefault)
                         return
                 }
                 var channelModelObj = channelObj
@@ -63,10 +63,10 @@ struct APIManager {
         failure: @escaping (_ serverError: String) -> Void
         ) {
         print(#function)
-        let generateDeeplinkURLString = Constant.generateDeeplinkURL
+        let generateDeeplinkURLString = Constants.generateDeeplinkURL
         let headers = ["Content-Type": "application/json"]
         if let generateDeeplinkURL = URL(string: generateDeeplinkURLString) {
-            APIRequest.request(url: generateDeeplinkURL, method: .post, parameters: deeplinkObj.toDictionary(), headers: headers) { (response) in
+            APIWorker.request(url: generateDeeplinkURL, method: .post, parameters: deeplinkObj.toDictionary(), headers: headers) { (response) in
                 guard response.result.isSuccess else {
                     failure((response.result.error?.localizedDescription)!)
                     return
@@ -74,14 +74,14 @@ struct APIManager {
 
                 guard let value = response.result.value,
                     let responseDictionary = value as? [String: Any] else {
-                        failure(Constant.Message.failureDefault)
+                        failure(Constants.Message.failureDefault)
                         return
                 }
 
                 let deeplinkModelObj = Deeplink(fromDictionary: responseDictionary)
 
                 if deeplinkModelObj.deeplinkURL == nil {
-                    let message = deeplinkModelObj.message ?? Constant.Message.failureDefault
+                    let message = deeplinkModelObj.message ?? Constants.Message.failureDefault
                     failure(message)
                     return
                 } else {

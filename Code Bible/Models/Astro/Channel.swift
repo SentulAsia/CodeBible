@@ -82,7 +82,7 @@ struct Channel {
             if let message = dictionary["responseMessage"] as? String {
                 self.message = message
             } else {
-                self.message = Constant.Message.failureDefault
+                self.message = Constants.Message.failureDefault
             }
         }
         return channelModelArrayObj

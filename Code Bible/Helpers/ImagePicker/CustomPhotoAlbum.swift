@@ -21,20 +21,20 @@
 import Photos
 
 class CustomPhotoAlbum {
-    static let albumName = Constant.appName
+    static let albumName = Constants.appName
     static let shared = CustomPhotoAlbum()
 
     var assetCollection: PHAssetCollection!
 
     init() {
-        func fetchAssetCollectionForAlbum() -> PHAssetCollection! {
+        func fetchAssetCollectionForAlbum() -> PHAssetCollection? {
 
             let fetchOptions = PHFetchOptions()
             fetchOptions.predicate = NSPredicate(format: "title = %@", CustomPhotoAlbum.albumName)
             let collection = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: fetchOptions)
 
             if let firstObject: AnyObject = collection.firstObject {
-                return firstObject as! PHAssetCollection
+                return firstObject as? PHAssetCollection
             }
 
             return nil

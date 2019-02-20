@@ -85,8 +85,8 @@ struct APIResponse {
     }
 }
 
-struct APIRequest {
-    static let shared = APIRequest()
+struct APIWorker {
+    static let shared = APIWorker()
 
     private init() {}
 
@@ -94,9 +94,13 @@ struct APIRequest {
         url: URL,
         method: APIMethod,
         parameters: [String: Any]?,
-        headers: [String: String]?,
+        headers: [String: String]? = nil,
+        body: Data? = nil,
         completionHandler: @escaping (_ response: APIResponse) -> Void
     ) {
+        print("\n*******************************************************")
+        print("API url: ", url.description)
+        print("params: ", parameters ?? "")
         var request = URLRequest(url: url)
         if let h = headers {
             for header in h {
@@ -109,8 +113,11 @@ struct APIRequest {
             do {
                 if let data = try JSONSerialization.data(withJSONObject: p, options: JSONSerialization.WritingOptions(rawValue: 0)) as Data? {
                     request.httpBody = data
+                } else if let data = body {
+                    request.httpBody = data
                 }
             } catch {
+                print("\n\(url.description) Failed")
                 let result = APIResult.failure(error)
                 let r = APIResponse(request: request, data: nil, response: nil, result: result)
                 completionHandler(r)
@@ -120,6 +127,7 @@ struct APIRequest {
 
         let dataTask = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             if let e = error {
+                print("\n\(url.description) Failed")
                 let result = APIResult.failure(e)
                 let r = APIResponse(request: request, data: data, response: response, result: result)
                 DispatchQueue.main.async {
@@ -130,6 +138,11 @@ struct APIRequest {
                 do {
                     if let responseDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any] {
                         if !responseDictionary.isEmpty {
+                            print("\n\(url.description) Success")
+                            print("Result: ", responseDictionary.values)
+                            if let httpResponse = response as? HTTPURLResponse {
+                                print("Status Code: ", httpResponse.statusCode)
+                            }
                             let result = APIResult.success(responseDictionary as Any)
                             let r = APIResponse(request: request, data: data, response: response, result: result)
                             DispatchQueue.main.async {
@@ -138,9 +151,10 @@ struct APIRequest {
                             }
                         } else {
                             let e = NSError(domain: "", code: 0, userInfo: [
-                                NSLocalizedDescriptionKey: NSLocalizedString("Error", value: Constant.Message.failureDefault, comment: "") ,
-                                NSLocalizedFailureReasonErrorKey: NSLocalizedString("Error", value: Constant.Message.failureDefault, comment: "")
+                                NSLocalizedDescriptionKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: "") ,
+                                NSLocalizedFailureReasonErrorKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: "")
                                 ])
+                            print("\n\(url.description) Failed")
                             let result = APIResult.failure(e)
                             let r = APIResponse(request: request, data: data, response: response, result: result)
                             DispatchQueue.main.async {
@@ -150,9 +164,10 @@ struct APIRequest {
                         }
                     } else {
                         let e = NSError(domain: "", code: 0, userInfo: [
-                            NSLocalizedDescriptionKey: NSLocalizedString("Error", value: Constant.Message.failureDefault, comment: "") ,
-                            NSLocalizedFailureReasonErrorKey: NSLocalizedString("Error", value: Constant.Message.failureDefault, comment: "")
+                            NSLocalizedDescriptionKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: "") ,
+                            NSLocalizedFailureReasonErrorKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: "")
                             ])
+                        print("\n\(url.description) Failed")
                         let result = APIResult.failure(e)
                         let r = APIResponse(request: request, data: data, response: response, result: result)
                         DispatchQueue.main.async {
@@ -161,6 +176,7 @@ struct APIRequest {
                         }
                     }
                 } catch {
+                    print("\n\(url.description) Failed")
                     let result = APIResult.failure(error)
                     let r = APIResponse(request: request, data: data, response: response, result: result)
                     DispatchQueue.main.async {
@@ -171,5 +187,6 @@ struct APIRequest {
             }
         }
         dataTask.resume()
+        print("*******************************************************\n")
     }
 }

@@ -593,7 +593,7 @@ open class ScrollingNavigationController: UINavigationController, UIGestureRecog
     open func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         guard let gestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer else { return true }
         let velocity = gestureRecognizer.velocity(in: gestureRecognizer.view)
-        return fabs(velocity.y) > fabs(velocity.x)
+        return abs(velocity.y) > abs(velocity.x)
     }
 
     /**
