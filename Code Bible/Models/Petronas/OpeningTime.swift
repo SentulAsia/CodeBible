@@ -21,54 +21,51 @@
 import Foundation
 
 struct OpeningTime {
-    var day: DayIndex
+    var day: Day
     var time: String
     var string: String // Day and time together in a string
 
-    init(
-        day: DayIndex,
-        time: String = ""
-    ) {
+    init(day: Day, time: String = "") {
         self.day = day
         self.time = time
-        self.string = self.day.name() + " " + self.time
+        self.string = self.day.rawValue + " " + self.time
     }
 
     // Get array of opening time from a string
     static func list(content: String) -> [OpeningTime] {
-        func obtainDayStartedWithComma(string: String) -> (day: DayIndex, unprocessedString: String) {
+        func obtainDayStartedWithComma(string: String) -> (day: Day, unprocessedString: String) {
             let startDayString = String(string.prefix(3))
             let unprocessedString = String(string.dropFirst(5))
-            return (DayIndex.day(string: startDayString)!, unprocessedString)
+            return (Day(rawValue: startDayString)!, unprocessedString)
         }
 
-        func obtainDaysWithHyphen(string: String) -> (days: [DayIndex], unprocessedString: String) {
+        func obtainDaysWithHyphen(string: String) -> (days: [Day], unprocessedString: String) {
             let startDayString = String(string.prefix(3))
             let fullDayString = String(string.prefix(7))
             let endDayString = String(fullDayString.suffix(3))
-            let days = DayIndex.list(startDay: startDayString, endDay: endDayString)
+            let days = Day.list(startDay: startDayString, endDay: endDayString)
             let unprocessedString = String(string.dropFirst(7))
             return (days, unprocessedString)
         }
 
-        func obtainDayEndedWithComma(string: String) -> (day: DayIndex, unprocessedString: String) {
+        func obtainDayEndedWithComma(string: String) -> (day: Day, unprocessedString: String) {
             let processedString = String(string.dropFirst(2))
             let endDayString = String(processedString.prefix(3))
             let unprocessedString = String(processedString.dropFirst(3))
-            return (DayIndex.day(string: endDayString)!, unprocessedString)
+            return (Day(rawValue: endDayString)!, unprocessedString)
         }
 
-        func obtainDay(string: String) -> (day: DayIndex, unprocessedString: String) {
+        func obtainDay(string: String) -> (day: Day, unprocessedString: String) {
             let dayString = String(string.prefix(3))
             let unprocessedString = String(string.dropFirst(4))
-            return (DayIndex.day(string: dayString)!, unprocessedString)
+            return (Day(rawValue: dayString)!, unprocessedString)
         }
 
         // Parse string to get day index and opening time
-        func parse(string: String) -> (days: [DayIndex], openingTime: String) {
+        func parse(string: String) -> (days: [Day], openingTime: String) {
             var processedString = string // everytime day is extracted from string, that string will be dropped and balance string is stored here
             var characters = Array(processedString)
-            var days: [DayIndex] = []
+            var days: [Day] = []
             var openingTime: String = ""
             // check string for meaningful data
             if characters.count > 2 {

@@ -21,10 +21,12 @@
 import UIKit
 
 class BlurViewController: UIViewController {
+    
+    enum Constants {
+        static let identifier = "BlurViewController"
+    }
 
     @IBOutlet weak var blurView: UIView!
-
-    static let identifier = "BlurViewController"
 
     var appearCompletionHandler: ((_ isCompleted: Bool) -> Void)?
 

@@ -28,11 +28,7 @@ struct Channel {
     var channelTitle: String
     var channelStbNumber: Int
 
-    init(
-        channelId: Int = 0,
-        channelTitle: String = "",
-        channelStbNumber: Int = 0
-    ) {
+    init(channelId: Int = 0, channelTitle: String = "", channelStbNumber: Int = 0) {
         self.isSuccess = false
         self.message = ""
         self.code = ""

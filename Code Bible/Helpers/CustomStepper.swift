@@ -25,11 +25,9 @@ private enum Button: Int {
     case increase
 }
 
-@IBDesignable
-class CustomStepper: UIControl {
+@IBDesignable class CustomStepper: UIControl {
 
-    @IBInspectable
-    var value: Double = 0.0 {
+    @IBInspectable var value: Double = 0.0 {
         didSet {
             if self.value > self.maximum || self.value < self.minimum {
                 // discard
@@ -41,59 +39,48 @@ class CustomStepper: UIControl {
         }
     }
 
-    @IBInspectable
-    var minimum: Double = 0.0 {
+    @IBInspectable var minimum: Double = 0.0 {
         didSet {
             setState()
         }
     }
 
-    @IBInspectable
-    var maximum: Double = 100.0 {
+    @IBInspectable var maximum: Double = 100.0 {
         didSet {
             setState()
         }
     }
 
-    @IBInspectable
-    var step: Double = 1.0
+    @IBInspectable var step: Double = 1.0
 
-    @IBInspectable
-    var enableManualEditing: Bool = false {
+    @IBInspectable var enableManualEditing: Bool = false {
         didSet {
             self.valueLabel.isUserInteractionEnabled = self.enableManualEditing
         }
     }
 
-    @IBInspectable
-    var autorepeat: Bool = true
+    @IBInspectable var autorepeat: Bool = true
 
-    @IBInspectable
-    var highlightedBackgroundColor: UIColor = UIColor(red: 0.0 / 255.0, green: 122.0 / 255.0, blue: 255.0 / 255.0, alpha: 0.13)
+    @IBInspectable var highlightedBackgroundColor: UIColor = UIColor(red: 0.0 / 255.0, green: 122.0 / 255.0, blue: 255.0 / 255.0, alpha: 0.13)
 
-    @IBInspectable
-    var disabledIconButtonColor: UIColor = UIColor(red: 127.0 / 255.0, green: 188.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0)
+    @IBInspectable var disabledIconButtonColor: UIColor = UIColor(red: 127.0 / 255.0, green: 188.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0)
 
-    @IBInspectable
-    var disabledBackgroundButtonColor: UIColor = UIColor.clear
+    @IBInspectable var disabledBackgroundButtonColor: UIColor = UIColor.clear
 
-    @IBInspectable
-    var backgroundButtonColor: UIColor = UIColor.clear {
+    @IBInspectable var backgroundButtonColor: UIColor = UIColor.clear {
         didSet {
             self.decreaseButton.backgroundColor = self.backgroundButtonColor
             self.increaseButton.backgroundColor = self.backgroundButtonColor
         }
     }
 
-    @IBInspectable
-    var backgroundLabelColor: UIColor = UIColor.clear {
+    @IBInspectable var backgroundLabelColor: UIColor = UIColor.clear {
         didSet {
             self.valueLabel.backgroundColor = self.backgroundLabelColor
         }
     }
 
-    @IBInspectable
-    var labelTextColor: UIColor = UIColor(red: 0.0 / 255.0, green: 122.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0) {
+    @IBInspectable var labelTextColor: UIColor = UIColor(red: 0.0 / 255.0, green: 122.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0) {
         didSet {
             self.valueLabel.textColor = self.labelTextColor
         }

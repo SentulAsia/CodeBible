@@ -21,10 +21,12 @@
 import UIKit
 
 class DatePickerViewController: UIViewController {
+    
+    enum Constants {
+        static let identifier = "DatePickerViewController"
+    }
 
     @IBOutlet weak var datePicker: UIDatePicker!
-
-    static let identifier = "DatePickerViewController"
 
     var isPicked = false // indicate to sender that user did picked from picker view or cancel picking
     var pickerDate: Date?
@@ -74,9 +76,7 @@ class DatePickerViewController: UIViewController {
 }
 
 extension DatePickerViewController {
-    func dismissView(
-        isPicked: Bool
-    ) {
+    func dismissView(isPicked: Bool) {
         self.isPicked = isPicked
         if let handler = self.willDismissHandler?() {
             handler

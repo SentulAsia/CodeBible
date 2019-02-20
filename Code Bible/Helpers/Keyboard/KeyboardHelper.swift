@@ -34,9 +34,7 @@ class KeyboardHelper: NSObject {
         NotificationCenter.default.removeObserver(self)
     }
 
-    @objc private func keyboardWillChangeFrame(
-        notification: NSNotification
-    ) {
+    @objc private func keyboardWillChangeFrame(notification: NSNotification) {
         if let userInfo = notification.userInfo {
             let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
             let duration: TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
@@ -62,8 +60,7 @@ class KeyboardHelper: NSObject {
 }
 
 extension CustomTextField {
-    @IBInspectable
-    var doneButton: Bool {
+    @IBInspectable var doneButton: Bool {
         get {
             return self.doneButton
         }
@@ -88,8 +85,7 @@ extension CustomTextField {
         self.inputAccessoryView = doneToolbar
     }
 
-    @objc
-    private func doneButtonAction() {
+    @objc private func doneButtonAction() {
         self.resignFirstResponder()
     }
 }

@@ -38,10 +38,7 @@ class ImagePicker: NSObject {
         super.init()
     }
 
-    static func showMenu(
-        _ sender: UIView,
-        delegate: ImagePickerDelegate
-    ) {
+    static func showMenu(_ sender: UIView, delegate: ImagePickerDelegate) {
         let menu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let action1 = UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
             let camera = ImagePicker.shared
@@ -107,9 +104,7 @@ class ImagePicker: NSObject {
         setImage(nil)
     }
 
-    private func setImage(
-        _ image: UIImage?
-    ) {
+    private func setImage(_ image: UIImage?) {
         if let i = image {
             self.delegate?.imagePickerFinishCapture(successfully: true, withImage: i)
         } else {
@@ -125,8 +120,7 @@ extension ImagePicker: UINavigationControllerDelegate, UIImagePickerControllerDe
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-// Local variable inserted by Swift 4.2 migrator.
-let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+        let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
 
         var newImage: UIImage
 
@@ -178,9 +172,8 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             self.imagePicker = nil
         }
     }
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+    
+    fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+        return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+    }
 }

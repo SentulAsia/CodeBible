@@ -24,10 +24,7 @@ struct Restaurant {
     var name: String
     var openingTime: [OpeningTime]
 
-    init(
-        name: String = "",
-        openingTime: [OpeningTime] = []
-    ) {
+    init(name: String = "", openingTime: [OpeningTime] = []) {
         self.name = name
         self.openingTime = openingTime
     }
@@ -54,11 +51,13 @@ struct Restaurant {
         }
         return list
     }
+}
 
+private extension Restaurant {
     // Parse each row of file to get name and opening time
-    private mutating func parseRow(withString string: String) {
+    mutating func parseRow(withString string: String) {
         var dataArray: [OpeningTime] = []
-        let data = StringHelper.parseQuotesFrom(string: string)
+        let data = parseQuotesFrom(string: string)
         let name = data.first!
         let openingTimeRaw = data.last!
         let openingTimeArray = openingTimeRaw.components(separatedBy: "  / ")
@@ -68,5 +67,16 @@ struct Restaurant {
         }
         self.name = name
         self.openingTime = dataArray
+    }
+    
+    func parseQuotesFrom(string: String) -> [String] {
+        let data = string.components(separatedBy: "\",\"")
+        var result: [String] = []
+        for datum in data {
+            let d = datum.replacingOccurrences(of: "\"", with: "")
+            result.append(d)
+        }
+        
+        return result
     }
 }

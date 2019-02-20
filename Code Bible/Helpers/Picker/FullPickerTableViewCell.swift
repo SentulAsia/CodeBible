@@ -21,8 +21,10 @@
 import UIKit
 
 class FullPickerTableViewCell: UITableViewCell {
-
-    static let identifier = "FullPickerTableViewCell"
+    
+    enum Constants {
+        static let identifier = "FullPickerTableViewCell"
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

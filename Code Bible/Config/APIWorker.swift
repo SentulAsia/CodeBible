@@ -72,12 +72,7 @@ struct APIResponse {
     var value: Any? { return self.result.value }
     var error: Error? { return self.result.error }
 
-    init(
-        request: URLRequest?,
-        data: Data?,
-        response: URLResponse?,
-        result: APIResult)
-    {
+    init(request: URLRequest?, data: Data?, response: URLResponse?, result: APIResult) {
         self.request = request
         self.response = response
         self.data = data
@@ -90,14 +85,12 @@ struct APIWorker {
 
     private init() {}
 
-    static func request(
-        url: URL,
-        method: APIMethod,
-        parameters: [String: Any]?,
-        headers: [String: String]? = nil,
-        body: Data? = nil,
-        completionHandler: @escaping (_ response: APIResponse) -> Void
-    ) {
+    static func request(url: URL,
+                        method: APIMethod,
+                        parameters: [String: Any]?,
+                        headers: [String: String]? = nil,
+                        body: Data? = nil,
+                        completionHandler: @escaping (_ response: APIResponse) -> Void) {
         print("\n*******************************************************")
         print("API url: ", url.description)
         print("params: ", parameters ?? "")

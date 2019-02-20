@@ -54,9 +54,7 @@ class CustomPhotoAlbum {
         }
     }
 
-    func saveImage(
-        _ image: UIImage
-    ) {
+    func saveImage(_ image: UIImage) {
         if PHPhotoLibrary.authorizationStatus() == .authorized {
             if self.assetCollection == nil {
                 assertionFailure("there was an error upstream, skip the save")

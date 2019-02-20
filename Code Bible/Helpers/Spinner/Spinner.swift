@@ -26,9 +26,7 @@ struct Spinner {
 
     private init() {}
 
-    mutating func startLoadingIndicator(
-        _ sender: UIViewController
-    ) {
+    mutating func startLoadingIndicator(_ sender: UIViewController) {
         let loadingIndicator = UIView()
         loadingIndicator.frame = CGRect(x: 0, y: -20, width: sender.view.frame.size.width, height: sender.view.frame.size.height + 20)
         loadingIndicator.backgroundColor = UIColor.clear

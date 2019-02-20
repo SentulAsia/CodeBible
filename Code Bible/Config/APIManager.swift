@@ -25,11 +25,9 @@ struct APIManager {
 
     private init() {}
 
-    func getChannelList(
-        channelObj: Channel,
-        success: @escaping (_ channelModelArrayObj: [Channel]) -> Void,
-        failure: @escaping (_ serverError: String) -> Void
-    ) {
+    func getChannelList(channelObj: Channel,
+                        success: @escaping (_ channelModelArrayObj: [Channel]) -> Void,
+                        failure: @escaping (_ serverError: String) -> Void) {
         let channelListURLString = Constants.AstroAPI.baseURL + Constants.AstroAPI.channelList
         if let channelListURL = URL(string: channelListURLString) {
             APIWorker.request(url: channelListURL, method: .get, parameters: nil, headers: nil) { (response) in
@@ -57,11 +55,9 @@ struct APIManager {
         }
     }
 
-    func postGenerateDeeplink(
-        deeplinkObj: Deeplink,
-        success: @escaping (_ deeplinkModelObj: Deeplink) -> Void,
-        failure: @escaping (_ serverError: String) -> Void
-        ) {
+    func postGenerateDeeplink(deeplinkObj: Deeplink,
+                              success: @escaping (_ deeplinkModelObj: Deeplink) -> Void,
+                              failure: @escaping (_ serverError: String) -> Void) {
         print(#function)
         let generateDeeplinkURLString = Constants.generateDeeplinkURL
         let headers = ["Content-Type": "application/json"]

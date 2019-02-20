@@ -95,3 +95,12 @@ extension TimeInterval {
         return String(format: "%02d:%02d", Int(self / 60), Int(ceil(truncatingRemainder(dividingBy: 60))))
     }
 }
+
+extension Int {
+    var asDate: Date {
+        if let interval = TimeInterval(exactly: self) {
+            return Date(timeIntervalSince1970: interval)
+        }
+        return Date()
+    }
+}

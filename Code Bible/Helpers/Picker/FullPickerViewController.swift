@@ -21,10 +21,12 @@
 import UIKit
 
 class FullPickerViewController: UIViewController {
+    
+    enum Constants {
+        static let identifier = "FullPickerViewController"
+    }
 
     @IBOutlet weak var tableView: UITableView!
-
-    static let identifier = "FullPickerViewController"
 
     var isPicked = false // indicate to sender that user did picked from picker view or cancel picking
     var pickerList: [String] = []
@@ -52,9 +54,7 @@ class FullPickerViewController: UIViewController {
 }
 
 extension FullPickerViewController {
-    func dismissView(
-        isPicked: Bool
-    ) {
+    func dismissView(isPicked: Bool) {
         self.isPicked = isPicked
         if let handler = self.willDismissHandler?() {
             handler
@@ -69,7 +69,7 @@ extension FullPickerViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FullPickerTableViewCell.identifier, for: indexPath) as! FullPickerTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: FullPickerTableViewCell.Constants.identifier, for: indexPath) as! FullPickerTableViewCell
         cell.textLabel?.text = self.pickerList[indexPath.row]
         return cell
     }
@@ -77,6 +77,7 @@ extension FullPickerViewController: UITableViewDataSource {
 
 extension FullPickerViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         self.pickerSelectedIndex = indexPath.row
         dismissView(isPicked: true)
     }

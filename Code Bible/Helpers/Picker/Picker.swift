@@ -25,17 +25,15 @@ struct Picker {
 
     private init() {}
 
-    static func show(
-        _ sender: UIViewController,
-        pickerList: [String],
-        pickerSelectedIndex: Int? = nil,
-        completionHandler: @escaping (_ isPicked: Bool, _ pickerSelectedIndex: Int?) -> Void
-    ) {
+    static func show(_ sender: UIViewController,
+                     pickerList: [String],
+                     pickerSelectedIndex: Int? = nil,
+                     completionHandler: @escaping (_ isPicked: Bool, _ pickerSelectedIndex: Int?) -> Void) {
         let storyboard: UIStoryboard = UIStoryboard(name: Constants.Storyboard.helper, bundle: nil)
-        let blurController = storyboard.instantiateViewController(withIdentifier: BlurViewController.identifier) as! BlurViewController
+        let blurController = storyboard.instantiateViewController(withIdentifier: BlurViewController.Constants.identifier) as! BlurViewController
         blurController.modalPresentationStyle = .overFullScreen
         blurController.appearCompletionHandler = { (isCompleted: Bool) in
-            let controller = storyboard.instantiateViewController(withIdentifier: PickerViewController.identifier) as! PickerViewController
+            let controller = storyboard.instantiateViewController(withIdentifier: PickerViewController.Constants.identifier) as! PickerViewController
             controller.modalPresentationStyle = .overFullScreen
             controller.pickerList = pickerList
             controller.pickerSelectedIndex = pickerSelectedIndex
@@ -52,14 +50,12 @@ struct Picker {
         sender.present(blurController, animated: false, completion: nil)
     }
 
-    static func showFull(
-        _ sender: UIViewController,
-        pickerList: [String],
-        pickerSelectedIndex: Int? = nil,
-        completionHandler: @escaping (_ isPicked: Bool, _ pickerSelectedIndex: Int?) -> Void
-    ) {
+    static func showFull(_ sender: UIViewController,
+                         pickerList: [String],
+                         pickerSelectedIndex: Int? = nil,
+                         completionHandler: @escaping (_ isPicked: Bool, _ pickerSelectedIndex: Int?) -> Void) {
         let storyboard: UIStoryboard = UIStoryboard(name: Constants.Storyboard.helper, bundle: nil)
-        let navigationController = storyboard.instantiateViewController(withIdentifier: FullPickerViewController.identifier) as! UINavigationController
+        let navigationController = storyboard.instantiateViewController(withIdentifier: FullPickerViewController.Constants.identifier) as! UINavigationController
         let controller = navigationController.visibleViewController as! FullPickerViewController
         controller.pickerList = pickerList
         controller.pickerSelectedIndex = pickerSelectedIndex

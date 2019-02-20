@@ -21,10 +21,12 @@
 import UIKit
 
 class PickerViewController: UIViewController {
+    
+    enum Constants {
+        static let identifier = "PickerViewController"
+    }
 
     @IBOutlet weak var pickerView: UIPickerView!
-
-    static let identifier = "PickerViewController"
 
     var isPicked = false // indicate to sender that user did picked from picker view or cancel picking
     var pickerList: [String] = []
@@ -70,9 +72,7 @@ class PickerViewController: UIViewController {
 }
 
 extension PickerViewController {
-    func dismissView(
-        isPicked: Bool
-    ) {
+    func dismissView(isPicked: Bool) {
         self.isPicked = isPicked
         if let handler = self.willDismissHandler?() {
             handler

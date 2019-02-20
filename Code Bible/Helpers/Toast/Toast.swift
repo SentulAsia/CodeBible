@@ -25,12 +25,9 @@ struct Toast {
 
     private init() {}
 
-    static func show(
-        _ sender: UIViewController,
-        withMessage message: String
-    ) {
+    static func show(_ sender: UIViewController, withMessage message: String) {
         let storyboard: UIStoryboard = UIStoryboard(name: Constants.Storyboard.helper, bundle: nil)
-        let toastController = storyboard.instantiateViewController(withIdentifier: ToastViewController.identifier) as! ToastViewController
+        let toastController = storyboard.instantiateViewController(withIdentifier: ToastViewController.Constants.identifier) as! ToastViewController
         toastController.modalPresentationStyle = .overFullScreen
         toastController.message = message
         sender.present(toastController, animated: false, completion: nil)

@@ -65,8 +65,7 @@ import UIKit
 /**
  Wraps a view that follows the navigation bar, providing the direction that the view should follow
  */
-@objcMembers
-open class NavigationBarFollower {
+@objcMembers open class NavigationBarFollower {
     public weak var view: UIView?
     public var direction = NavigationBarFollowerCollapseDirection.scrollUp
 
@@ -80,8 +79,7 @@ open class NavigationBarFollower {
  A custom `UINavigationController` that enables the scrolling of the navigation bar alongside the
  scrolling of an observed content view
  */
-@objcMembers
-open class ScrollingNavigationController: UINavigationController, UIGestureRecognizerDelegate {
+@objcMembers open class ScrollingNavigationController: UINavigationController, UIGestureRecognizerDelegate {
 
     /**
      Returns the `NavigationBarState` of the navigation bar

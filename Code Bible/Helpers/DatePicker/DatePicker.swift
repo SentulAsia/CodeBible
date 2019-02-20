@@ -25,16 +25,14 @@ struct DatePicker {
 
     private init() {}
 
-    static func show(
-        _ sender: UIViewController,
-        pickerDate: Date? = nil,
-        completionHandler: @escaping (_ isPicked: Bool, _ pickerDate: Date?) -> Void
-        ) {
+    static func show(_ sender: UIViewController,
+                     pickerDate: Date? = nil,
+                     completionHandler: @escaping (_ isPicked: Bool, _ pickerDate: Date?) -> Void) {
         let storyboard: UIStoryboard = UIStoryboard(name: Constants.Storyboard.helper, bundle: nil)
-        let blurController = storyboard.instantiateViewController(withIdentifier: BlurViewController.identifier) as! BlurViewController
+        let blurController = storyboard.instantiateViewController(withIdentifier: BlurViewController.Constants.identifier) as! BlurViewController
         blurController.modalPresentationStyle = .overFullScreen
         blurController.appearCompletionHandler = { (isCompleted: Bool) in
-            let controller = storyboard.instantiateViewController(withIdentifier: DatePickerViewController.identifier) as! DatePickerViewController
+            let controller = storyboard.instantiateViewController(withIdentifier: DatePickerViewController.Constants.identifier) as! DatePickerViewController
             controller.modalPresentationStyle = .overFullScreen
             controller.pickerDate = pickerDate
             controller.willDismissHandler = {

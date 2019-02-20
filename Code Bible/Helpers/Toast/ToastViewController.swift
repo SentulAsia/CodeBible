@@ -21,11 +21,13 @@
 import UIKit
 
 class ToastViewController: UIViewController {
+    
+    enum Constants {
+        static let identifier = "ToastViewController"
+    }
 
     @IBOutlet weak var toastView: CustomView!
     @IBOutlet weak var messageLabel: UILabel!
-
-    static let identifier = "ToastViewController"
 
     var message = ""
     var duration: TimeInterval = 3.0
@@ -61,10 +63,7 @@ class ToastViewController: UIViewController {
 }
 
 extension ToastViewController {
-    @objc
-    private func toastTimerDidFinish(
-        _ timer: Timer
-    ) {
+    @objc private func toastTimerDidFinish(_ timer: Timer) {
         dismissView()
     }
 
