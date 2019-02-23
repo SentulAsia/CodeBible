@@ -26,8 +26,8 @@ class ToastViewController: UIViewController {
         static let identifier = "ToastViewController"
     }
 
-    @IBOutlet weak var toastView: CustomView!
-    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet var toastView: CustomView!
+    @IBOutlet var messageLabel: UILabel!
 
     var message = ""
     var duration: TimeInterval = 3.0

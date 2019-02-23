@@ -20,11 +20,12 @@
 
 import UIKit
 
-struct ScreenBrightnessHelper {
-    static var shared = ScreenBrightnessHelper()
+protocol ScreenBrightnessHelper: class {
+    func setBrightness(value: CGFloat)
+    func resetBrightness()
+}
 
-    private init() {}
-
+extension ScreenBrightnessHelper {
     private var brightness: CGFloat {
         set {
             UserDefaults.standard.set(Float(newValue), forKey: "ScreenBrightnessHelper.brightness")
@@ -36,12 +37,12 @@ struct ScreenBrightnessHelper {
         }
     }
 
-    public mutating func setBrightness(value: CGFloat) {
+    func setBrightness(value: CGFloat) {
         self.brightness = UIScreen.main.brightness
         UIScreen.main.brightness = value
     }
 
-    public mutating func resetBrightness() {
+    func resetBrightness() {
         UIScreen.main.brightness = self.brightness
     }
 }

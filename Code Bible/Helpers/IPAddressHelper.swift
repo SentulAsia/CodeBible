@@ -20,17 +20,18 @@
 
 import Foundation
 
-struct IPAddressHelper {
-    static var shared = IPAddressHelper()
+protocol IPAddressHelper {
+    var ipAddressValue: String? { get }
+    func getPublicIPAddress()
+}
 
-    private init() {}
-
-    public var value: String? {
+extension IPAddressHelper {
+    var ipAddressValue: String? {
         UserDefaults.standard.synchronize()
         return UserDefaults.standard.string(forKey: "IPAddress.value")
     }
 
-    public mutating func getPublic() {
+    func getPublicIPAddress() {
         let publicURLString = "https://api.ipify.org?format=json"
         if let publicURL = URL(string: publicURLString) {
             APIWorker.request(url: publicURL, method: .get, parameters: nil, headers: nil) { (response) in

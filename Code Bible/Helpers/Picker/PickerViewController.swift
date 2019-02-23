@@ -26,7 +26,7 @@ class PickerViewController: UIViewController {
         static let identifier = "PickerViewController"
     }
 
-    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet var pickerView: UIPickerView!
 
     var isPicked = false // indicate to sender that user did picked from picker view or cancel picking
     var pickerList: [String] = []

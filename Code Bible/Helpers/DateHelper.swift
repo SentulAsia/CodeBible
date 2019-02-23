@@ -25,6 +25,30 @@ extension Foundation.Date {
         return Date.formatterISO8601.string(from: self)
     }
 
+    var year: Int {
+        let calendar = Calendar.current
+        let components = (calendar as NSCalendar).components(.year, from: self)
+        let year = components.year
+
+        return year!
+    }
+
+    var month: Int {
+        let calendar = Calendar.current
+        let components = (calendar as NSCalendar).components(.month, from: self)
+        let month = components.month
+
+        return month!
+    }
+
+    var day: Int {
+        let calendar = Calendar.current
+        let components = (calendar as NSCalendar).components(.day, from: self)
+        let day = components.day
+
+        return day!
+    }
+    
     private static let formatterISO8601: DateFormatter = {
         let formatter = DateFormatter()
         formatter.calendar = Calendar(identifier: Calendar.Identifier.iso8601)
@@ -33,30 +57,6 @@ extension Foundation.Date {
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         return formatter
     }()
-
-    func year() -> Int {
-        let calendar = Calendar.current
-        let components = (calendar as NSCalendar).components(.year, from: self)
-        let year = components.year
-
-        return year!
-    }
-
-    func month() -> Int {
-        let calendar = Calendar.current
-        let components = (calendar as NSCalendar).components(.month, from: self)
-        let month = components.month
-
-        return month!
-    }
-
-    func day() -> Int {
-        let calendar = Calendar.current
-        let components = (calendar as NSCalendar).components(.day, from: self)
-        let day = components.day
-
-        return day!
-    }
 }
 
 extension String {
@@ -68,24 +68,24 @@ extension String {
         }
     }
 
-    private static let formatterISO8601: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        return formatter
-    }()
-
-    var formattedKiple: Date {
-        if let date = String.formatterKiple.date(from: self) {
+    var formattedDecimal: Date {
+        if let date = String.formatterDecimal.date(from: self) {
             return date
         } else {
             return Date()
         }
     }
-
-    static let formatterKiple: DateFormatter = {
+    
+    private static let formatterISO8601: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        return formatter
+    }()
+    
+    private static let formatterDecimal: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSzzzz"
-
+        
         return formatter
     }()
 }

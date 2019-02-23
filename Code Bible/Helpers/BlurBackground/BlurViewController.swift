@@ -26,7 +26,7 @@ class BlurViewController: UIViewController {
         static let identifier = "BlurViewController"
     }
 
-    @IBOutlet weak var blurView: UIView!
+    @IBOutlet var blurView: UIView!
 
     var appearCompletionHandler: ((_ isCompleted: Bool) -> Void)?
 

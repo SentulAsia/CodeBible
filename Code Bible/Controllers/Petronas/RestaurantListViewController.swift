@@ -20,7 +20,7 @@
 
 import UIKit
 
-class RestaurantListViewController: UIViewController {
+class RestaurantListViewController: UIViewController, ScreenBrightnessHelper {
     
     enum Constants {
         static let identifier = "RestaurantListViewController"
@@ -42,7 +42,7 @@ class RestaurantListViewController: UIViewController {
             navigationController.followScrollView(self.restaurantTableView, delay: 50.0)
             navigationController.showNavbar(animated: true)
         }
-        ScreenBrightnessHelper.shared.setBrightness(value: 0.8)
+        setBrightness(value: 0.8)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -51,7 +51,7 @@ class RestaurantListViewController: UIViewController {
         if let navigationController = self.navigationController as? ScrollingNavigationController {
             navigationController.stopFollowingScrollView()
         }
-        ScreenBrightnessHelper.shared.resetBrightness()
+        resetBrightness()
     }
 
     override func didReceiveMemoryWarning() {

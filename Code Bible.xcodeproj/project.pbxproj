@@ -10,7 +10,7 @@
 		2E399CA2211BDF49009F6B6E /* ScrollingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E399CA1211BDF49009F6B6E /* ScrollingNavigationController.swift */; };
 		2E399CA4211BDFBE009F6B6E /* ScrollingNavbar+Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E399CA3211BDFBE009F6B6E /* ScrollingNavbar+Sizes.swift */; };
 		2E3CDADD21647AB600FA7307 /* ScreenBrightnessHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CDADC21647AB600FA7307 /* ScreenBrightnessHelper.swift */; };
-		2E3CDADF2164948000FA7307 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CDADE2164948000FA7307 /* IPAddress.swift */; };
+		2E3CDADF2164948000FA7307 /* IPAddressHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CDADE2164948000FA7307 /* IPAddressHelper.swift */; };
 		2E792EA621354BB50047502B /* KPPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E792EA521354BB50047502B /* KPPayment.swift */; };
 		2E792EA721354BB50047502B /* KPPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E792EA521354BB50047502B /* KPPayment.swift */; };
 		2E84360B216EF04C006A4791 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E84360A216EF04C006A4791 /* Deeplink.swift */; };
@@ -119,8 +119,18 @@
 		B86D413521D7301100214666 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D413321D7301100214666 /* ColorHelper.swift */; };
 		B86D413621D732E800214666 /* beaming.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E92BA55214270F900C1D61D /* beaming.json */; };
 		B86D413721D737D700214666 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E84360A216EF04C006A4791 /* Deeplink.swift */; };
-		B86D413821D737E600214666 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CDADE2164948000FA7307 /* IPAddress.swift */; };
+		B86D413821D737E600214666 /* IPAddressHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CDADE2164948000FA7307 /* IPAddressHelper.swift */; };
 		B86D413921D737F500214666 /* ScreenBrightnessHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CDADC21647AB600FA7307 /* ScreenBrightnessHelper.swift */; };
+		B8D37BAB222147ED00300AA4 /* AppDirectories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D37BAA222147EC00300AA4 /* AppDirectories.swift */; };
+		B8D37BAC222147ED00300AA4 /* AppDirectories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D37BAA222147EC00300AA4 /* AppDirectories.swift */; };
+		B8D37BAF22214AEB00300AA4 /* AppDirectoryNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D37BAE22214AEB00300AA4 /* AppDirectoryNames.swift */; };
+		B8D37BB022214AEB00300AA4 /* AppDirectoryNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D37BAE22214AEB00300AA4 /* AppDirectoryNames.swift */; };
+		B8D37BB222214C6400300AA4 /* AppFileStatusChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D37BB122214C6400300AA4 /* AppFileStatusChecking.swift */; };
+		B8D37BB322214C6400300AA4 /* AppFileStatusChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D37BB122214C6400300AA4 /* AppFileStatusChecking.swift */; };
+		B8D37BB522214CFD00300AA4 /* AppFileSystemMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D37BB422214CFD00300AA4 /* AppFileSystemMetaData.swift */; };
+		B8D37BB622214CFD00300AA4 /* AppFileSystemMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D37BB422214CFD00300AA4 /* AppFileSystemMetaData.swift */; };
+		B8D37BB822214D6500300AA4 /* AppFileManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D37BB722214D6500300AA4 /* AppFileManipulation.swift */; };
+		B8D37BB922214D6500300AA4 /* AppFileManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D37BB722214D6500300AA4 /* AppFileManipulation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,7 +138,7 @@
 		2E399CA1211BDF49009F6B6E /* ScrollingNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingNavigationController.swift; sourceTree = "<group>"; };
 		2E399CA3211BDFBE009F6B6E /* ScrollingNavbar+Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollingNavbar+Sizes.swift"; sourceTree = "<group>"; };
 		2E3CDADC21647AB600FA7307 /* ScreenBrightnessHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenBrightnessHelper.swift; sourceTree = "<group>"; };
-		2E3CDADE2164948000FA7307 /* IPAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
+		2E3CDADE2164948000FA7307 /* IPAddressHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPAddressHelper.swift; sourceTree = "<group>"; };
 		2E792EA521354BB50047502B /* KPPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPPayment.swift; sourceTree = "<group>"; };
 		2E84360A216EF04C006A4791 /* Deeplink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deeplink.swift; sourceTree = "<group>"; };
 		2E92BA55214270F900C1D61D /* beaming.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = beaming.json; sourceTree = "<group>"; };
@@ -188,6 +198,11 @@
 		4A44BB01066D74B9BF1E5916 /* Pods-Code Bible.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible/Pods-Code Bible.debug.xcconfig"; sourceTree = "<group>"; };
 		7246B384203AEB291246016E /* Pods_Code_Bible.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Code_Bible.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86D413321D7301100214666 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
+		B8D37BAA222147EC00300AA4 /* AppDirectories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDirectories.swift; sourceTree = "<group>"; };
+		B8D37BAE22214AEB00300AA4 /* AppDirectoryNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDirectoryNames.swift; sourceTree = "<group>"; };
+		B8D37BB122214C6400300AA4 /* AppFileStatusChecking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFileStatusChecking.swift; sourceTree = "<group>"; };
+		B8D37BB422214CFD00300AA4 /* AppFileSystemMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFileSystemMetaData.swift; sourceTree = "<group>"; };
+		B8D37BB722214D6500300AA4 /* AppFileManipulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFileManipulation.swift; sourceTree = "<group>"; };
 		C5422D5410E66630871228C5 /* Pods-Code Bible Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible Dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev.release.xcconfig"; sourceTree = "<group>"; };
 		ED4952F340F2336B5CA2200B /* Pods-Code Bible.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible/Pods-Code Bible.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -295,14 +310,15 @@
 				2EAA79832115760300600D46 /* Spinner */,
 				2EAA79852115763500600D46 /* Keyboard */,
 				2E399CA5211BDFF5009F6B6E /* ScrollingNavigationController */,
-				2EAA798F2115C09F00600D46 /* ViewControllerHelper.swift */,
+				B8D37BAD2221480200300AA4 /* FileManagerHelper */,
 				2EAA794621156B5F00600D46 /* StringHelper.swift */,
-				B86D413321D7301100214666 /* ColorHelper.swift */,
 				2EAA79932116029000600D46 /* NumberHelper.swift */,
+				B86D413321D7301100214666 /* ColorHelper.swift */,
 				2E98259C211626480074ABB2 /* ImageHelper.swift */,
 				2EBDB3E9211C276D0028337F /* DateHelper.swift */,
+				2EAA798F2115C09F00600D46 /* ViewControllerHelper.swift */,
 				2E3CDADC21647AB600FA7307 /* ScreenBrightnessHelper.swift */,
-				2E3CDADE2164948000FA7307 /* IPAddress.swift */,
+				2E3CDADE2164948000FA7307 /* IPAddressHelper.swift */,
 				2EBDB3EF211C31000028337F /* CustomCell.swift */,
 				2EDAB4F42116A10200F4B3F5 /* CustomAlert.swift */,
 				2EAA79912116024700600D46 /* CustomStepper.swift */,
@@ -489,6 +505,18 @@
 				C5422D5410E66630871228C5 /* Pods-Code Bible Dev.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B8D37BAD2221480200300AA4 /* FileManagerHelper */ = {
+			isa = PBXGroup;
+			children = (
+				B8D37BAA222147EC00300AA4 /* AppDirectories.swift */,
+				B8D37BAE22214AEB00300AA4 /* AppDirectoryNames.swift */,
+				B8D37BB122214C6400300AA4 /* AppFileStatusChecking.swift */,
+				B8D37BB422214CFD00300AA4 /* AppFileSystemMetaData.swift */,
+				B8D37BB722214D6500300AA4 /* AppFileManipulation.swift */,
+			);
+			path = FileManagerHelper;
 			sourceTree = "<group>";
 		};
 		C5ADC8EDBE640415EFD56A0A /* Frameworks */ = {
@@ -694,6 +722,7 @@
 				2EAA796F21156D6F00600D46 /* ChannelListViewController.swift in Sources */,
 				2EAA795121156B5F00600D46 /* Toast.swift in Sources */,
 				2EAA794E21156B5F00600D46 /* APIWorker.swift in Sources */,
+				B8D37BB222214C6400300AA4 /* AppFileStatusChecking.swift in Sources */,
 				2EAA797521156D9400600D46 /* OpeningTimeTableViewCell.swift in Sources */,
 				2EAA79922116024700600D46 /* CustomStepper.swift in Sources */,
 				2E84360B216EF04C006A4791 /* Deeplink.swift in Sources */,
@@ -702,10 +731,11 @@
 				2E98259D211626480074ABB2 /* ImageHelper.swift in Sources */,
 				2EAA794A21156B5F00600D46 /* CustomButton.swift in Sources */,
 				2EAA794C21156B5F00600D46 /* ImagePicker.swift in Sources */,
-				2E3CDADF2164948000FA7307 /* IPAddress.swift in Sources */,
+				2E3CDADF2164948000FA7307 /* IPAddressHelper.swift in Sources */,
 				2EAA795621156B6A00600D46 /* APIManager.swift in Sources */,
 				2EAA794921156B5F00600D46 /* Spinner.swift in Sources */,
 				2EAA794D21156B5F00600D46 /* CustomView.swift in Sources */,
+				B8D37BAB222147ED00300AA4 /* AppDirectories.swift in Sources */,
 				2EAA797721156D9400600D46 /* FullPickerTableViewCell.swift in Sources */,
 				2EAA792B21156B3800600D46 /* OpeningTime.swift in Sources */,
 				2EAA796E21156D6F00600D46 /* ToastViewController.swift in Sources */,
@@ -725,6 +755,7 @@
 				2EAA79902115C09F00600D46 /* ViewControllerHelper.swift in Sources */,
 				2EAA797621156D9400600D46 /* ChannelTableViewCell.swift in Sources */,
 				2EC995D72133E43B00259CDE /* Environments.swift in Sources */,
+				B8D37BB522214CFD00300AA4 /* AppFileSystemMetaData.swift in Sources */,
 				2EDAB4F52116A10200F4B3F5 /* CustomAlert.swift in Sources */,
 				2E792EA621354BB50047502B /* KPPayment.swift in Sources */,
 				2EAA795521156B6A00600D46 /* Constants.swift in Sources */,
@@ -733,12 +764,14 @@
 				2EAA792C21156B3800600D46 /* Restaurant.swift in Sources */,
 				2EAA796D21156D6F00600D46 /* PickerViewController.swift in Sources */,
 				2EAA790F21156AE800600D46 /* AppDelegate.swift in Sources */,
+				B8D37BAF22214AEB00300AA4 /* AppDirectoryNames.swift in Sources */,
 				2EBDB3EA211C276D0028337F /* DateHelper.swift in Sources */,
 				2EAA792A21156B3800600D46 /* Day.swift in Sources */,
 				2EBDB3F0211C31000028337F /* CustomCell.swift in Sources */,
 				2EAA79942116029000600D46 /* NumberHelper.swift in Sources */,
 				2EAA796C21156D6F00600D46 /* BlurViewController.swift in Sources */,
 				2EAA795021156B5F00600D46 /* StringHelper.swift in Sources */,
+				B8D37BB822214D6500300AA4 /* AppFileManipulation.swift in Sources */,
 				2EAA798C2115A9BF00600D46 /* DatePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -750,6 +783,7 @@
 				2EC9959D2133AF6100259CDE /* ChannelListViewController.swift in Sources */,
 				2EC9959E2133AF6100259CDE /* Toast.swift in Sources */,
 				2EC9959F2133AF6100259CDE /* APIWorker.swift in Sources */,
+				B8D37BB322214C6400300AA4 /* AppFileStatusChecking.swift in Sources */,
 				2EC995A02133AF6100259CDE /* OpeningTimeTableViewCell.swift in Sources */,
 				2EC995A12133AF6100259CDE /* CustomStepper.swift in Sources */,
 				2EC995A22133AF6100259CDE /* CustomPhotoAlbum.swift in Sources */,
@@ -762,6 +796,7 @@
 				2EC995A82133AF6100259CDE /* Spinner.swift in Sources */,
 				2EC995A92133AF6100259CDE /* CustomView.swift in Sources */,
 				2EC995AA2133AF6100259CDE /* FullPickerTableViewCell.swift in Sources */,
+				B8D37BAC222147ED00300AA4 /* AppDirectories.swift in Sources */,
 				2EC995AB2133AF6100259CDE /* OpeningTime.swift in Sources */,
 				2EC995AC2133AF6100259CDE /* ToastViewController.swift in Sources */,
 				2EC995AD2133AF6100259CDE /* Picker.swift in Sources */,
@@ -781,6 +816,7 @@
 				2EC995B92133AF6100259CDE /* ChannelTableViewCell.swift in Sources */,
 				2EC995D82133E43B00259CDE /* Environments.swift in Sources */,
 				2EC995BA2133AF6100259CDE /* CustomAlert.swift in Sources */,
+				B8D37BB622214CFD00300AA4 /* AppFileSystemMetaData.swift in Sources */,
 				2E792EA721354BB50047502B /* KPPayment.swift in Sources */,
 				2EC995BB2133AF6100259CDE /* Constants.swift in Sources */,
 				2EC995BC2133AF6100259CDE /* KeyboardHelper.swift in Sources */,
@@ -789,12 +825,14 @@
 				2EC995BF2133AF6100259CDE /* PickerViewController.swift in Sources */,
 				2EC995C02133AF6100259CDE /* AppDelegate.swift in Sources */,
 				2EC995C12133AF6100259CDE /* DateHelper.swift in Sources */,
-				B86D413821D737E600214666 /* IPAddress.swift in Sources */,
+				B8D37BB022214AEB00300AA4 /* AppDirectoryNames.swift in Sources */,
+				B86D413821D737E600214666 /* IPAddressHelper.swift in Sources */,
 				2EC995C22133AF6100259CDE /* Day.swift in Sources */,
 				2EC995C32133AF6100259CDE /* CustomCell.swift in Sources */,
 				2EC995C42133AF6100259CDE /* NumberHelper.swift in Sources */,
 				2EC995C52133AF6100259CDE /* BlurViewController.swift in Sources */,
 				2EC995C62133AF6100259CDE /* StringHelper.swift in Sources */,
+				B8D37BB922214D6500300AA4 /* AppFileManipulation.swift in Sources */,
 				2EC995C72133AF6100259CDE /* DatePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,7 +26,7 @@ class FullPickerViewController: UIViewController {
         static let identifier = "FullPickerViewController"
     }
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
 
     var isPicked = false // indicate to sender that user did picked from picker view or cancel picking
     var pickerList: [String] = []

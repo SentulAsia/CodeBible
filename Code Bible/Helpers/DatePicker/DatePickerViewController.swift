@@ -26,7 +26,7 @@ class DatePickerViewController: UIViewController {
         static let identifier = "DatePickerViewController"
     }
 
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet var datePicker: UIDatePicker!
 
     var isPicked = false // indicate to sender that user did picked from picker view or cancel picking
     var pickerDate: Date?

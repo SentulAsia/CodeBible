@@ -20,9 +20,11 @@
 
 import UIKit
 
-@IBDesignable class CustomView: UIView {
+@IBDesignable
+class CustomView: UIView {
 
-    @IBInspectable var cornerRadius: CGFloat {
+    @IBInspectable
+    var cornerRadius: CGFloat {
         set {
             layer.cornerRadius = newValue
             layer.masksToBounds = true

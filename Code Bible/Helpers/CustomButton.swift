@@ -20,9 +20,11 @@
 
 import UIKit
 
-@IBDesignable class CustomButton: UIButton {
+@IBDesignable
+class CustomButton: UIButton {
 
-    @IBInspectable var cornerRadius: CGFloat {
+    @IBInspectable
+    var cornerRadius: CGFloat {
         set {
             layer.cornerRadius = newValue
             layer.masksToBounds = true
@@ -33,7 +35,8 @@ import UIKit
         }
     }
 
-    @IBInspectable var borderWidth: CGFloat {
+    @IBInspectable
+    var borderWidth: CGFloat {
         set {
             layer.borderWidth = newValue
         }
@@ -42,7 +45,8 @@ import UIKit
         }
     }
 
-    @IBInspectable var borderColor: UIColor? {
+    @IBInspectable
+    var borderColor: UIColor? {
         set {
             layer.borderColor = newValue!.cgColor
         }

@@ -29,12 +29,7 @@ extension UIColor {
         let red = components?[0] ?? 0
         let green = components?[1] ?? 0
         let blue = ((components?.count ?? 0) > 2 ? components?[2] : green) ?? 0 // UIColor.white don't have 3rd component
-        return String(
-            format: "#%02lx%02lx%02lx",
-            lroundf(Float(red * 255)),
-            lroundf(Float(green * 255)),
-            lroundf(Float(blue * 255))
-        )
+        return String(format: "#%02lx%02lx%02lx", lroundf(Float(red * 255)), lroundf(Float(green * 255)), lroundf(Float(blue * 255)))
     }
     
     // MARK: - Get Color for Hex String
@@ -43,18 +38,13 @@ extension UIColor {
         if let normalizedHexString = UIColor.normalize(hexString) {
             var c: CUnsignedInt = 0
             Scanner(string: normalizedHexString).scanHexInt32(&c)
-            return UIColor(
-                red: UIColorMasks.redValue(c),
-                green: UIColorMasks.greenValue(c),
-                blue: UIColorMasks.blueValue(c),
-                alpha: UIColorMasks.alphaValue(c)
-            )
+            return UIColor(red: UIColorMasks.redValue(c), green: UIColorMasks.greenValue(c), blue: UIColorMasks.blueValue(c), alpha: UIColorMasks.alphaValue(c))
         }
         return nil
     }
 }
 
-fileprivate extension UIColor {
+private extension UIColor {
     
     // MARK: Mask Normalized CUnsignedInt to CGFloat
     
