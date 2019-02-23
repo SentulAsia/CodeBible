@@ -87,7 +87,7 @@
 		2EC995B72133AF6100259CDE /* CustomBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA798D2115B58500600D46 /* CustomBarButtonItem.swift */; };
 		2EC995B82133AF6100259CDE /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA798F2115C09F00600D46 /* ViewControllerHelper.swift */; };
 		2EC995B92133AF6100259CDE /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA797221156D9400600D46 /* ChannelTableViewCell.swift */; };
-		2EC995BA2133AF6100259CDE /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDAB4F42116A10200F4B3F5 /* CustomAlert.swift */; };
+		2EC995BA2133AF6100259CDE /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDAB4F42116A10200F4B3F5 /* AlertHelper.swift */; };
 		2EC995BB2133AF6100259CDE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA795321156B6A00600D46 /* Constants.swift */; };
 		2EC995BC2133AF6100259CDE /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA794521156B5F00600D46 /* KeyboardHelper.swift */; };
 		2EC995BD2133AF6100259CDE /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA792421156B3800600D46 /* Channel.swift */; };
@@ -109,7 +109,7 @@
 		2EC995CF2133AF6100259CDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EAA791421156AE800600D46 /* Main.storyboard */; };
 		2EC995D72133E43B00259CDE /* Environments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC995D62133E43B00259CDE /* Environments.swift */; };
 		2EC995D82133E43B00259CDE /* Environments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC995D62133E43B00259CDE /* Environments.swift */; };
-		2EDAB4F52116A10200F4B3F5 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDAB4F42116A10200F4B3F5 /* CustomAlert.swift */; };
+		2EDAB4F52116A10200F4B3F5 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDAB4F42116A10200F4B3F5 /* AlertHelper.swift */; };
 		2EDFD06A2125666400587A50 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDFD0692125666400587A50 /* Routes.swift */; };
 		2EE9A6BA211A8A23004A8EAD /* SpotPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE9A6B8211A8A22004A8EAD /* SpotPrice.swift */; };
 		2EE9A6BB211A8A23004A8EAD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE9A6B9211A8A23004A8EAD /* User.swift */; };
@@ -190,7 +190,7 @@
 		2EC995D32133AF6100259CDE /* Code Bible Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Code Bible Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EC995D52133CED700259CDE /* Info-Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Dev.plist"; sourceTree = "<group>"; };
 		2EC995D62133E43B00259CDE /* Environments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environments.swift; sourceTree = "<group>"; };
-		2EDAB4F42116A10200F4B3F5 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		2EDAB4F42116A10200F4B3F5 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		2EDFD0692125666400587A50 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 		2EE9A6B8211A8A22004A8EAD /* SpotPrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotPrice.swift; sourceTree = "<group>"; };
 		2EE9A6B9211A8A23004A8EAD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -317,10 +317,10 @@
 				2E98259C211626480074ABB2 /* ImageHelper.swift */,
 				2EBDB3E9211C276D0028337F /* DateHelper.swift */,
 				2EAA798F2115C09F00600D46 /* ViewControllerHelper.swift */,
+				2EDAB4F42116A10200F4B3F5 /* AlertHelper.swift */,
 				2E3CDADC21647AB600FA7307 /* ScreenBrightnessHelper.swift */,
 				2E3CDADE2164948000FA7307 /* IPAddressHelper.swift */,
 				2EBDB3EF211C31000028337F /* CustomCell.swift */,
-				2EDAB4F42116A10200F4B3F5 /* CustomAlert.swift */,
 				2EAA79912116024700600D46 /* CustomStepper.swift */,
 				2EAA794321156B5F00600D46 /* CustomView.swift */,
 				2EAA794021156B5F00600D46 /* CustomButton.swift */,
@@ -756,7 +756,7 @@
 				2EAA797621156D9400600D46 /* ChannelTableViewCell.swift in Sources */,
 				2EC995D72133E43B00259CDE /* Environments.swift in Sources */,
 				B8D37BB522214CFD00300AA4 /* AppFileSystemMetaData.swift in Sources */,
-				2EDAB4F52116A10200F4B3F5 /* CustomAlert.swift in Sources */,
+				2EDAB4F52116A10200F4B3F5 /* AlertHelper.swift in Sources */,
 				2E792EA621354BB50047502B /* KPPayment.swift in Sources */,
 				2EAA795521156B6A00600D46 /* Constants.swift in Sources */,
 				2EAA794F21156B5F00600D46 /* KeyboardHelper.swift in Sources */,
@@ -815,7 +815,7 @@
 				2EC995B82133AF6100259CDE /* ViewControllerHelper.swift in Sources */,
 				2EC995B92133AF6100259CDE /* ChannelTableViewCell.swift in Sources */,
 				2EC995D82133E43B00259CDE /* Environments.swift in Sources */,
-				2EC995BA2133AF6100259CDE /* CustomAlert.swift in Sources */,
+				2EC995BA2133AF6100259CDE /* AlertHelper.swift in Sources */,
 				B8D37BB622214CFD00300AA4 /* AppFileSystemMetaData.swift in Sources */,
 				2E792EA721354BB50047502B /* KPPayment.swift in Sources */,
 				2EC995BB2133AF6100259CDE /* Constants.swift in Sources */,

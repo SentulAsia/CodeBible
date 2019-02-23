@@ -20,19 +20,21 @@
 
 import UIKit
 
-struct CustomAlert {
-    static let shared = CustomAlert()
+protocol AlertHelper {
+    func showSimpleAlert(_ sender: UIViewController, withMessage message: String?)
+    func showSingleActionAlert(_ sender: UIViewController, withMessage message: String?, withAction handler: ((UIAlertAction) -> Void)?)
+    func showSingleInputAlert(_ sender: UIViewController, withMessage message: String?, withTextField textField: ((UITextField) -> Void)?, dismissCompletionHandler: @escaping (_ newValue: String?) -> Void)
+}
 
-    private init() {}
-
-    static func showSimple(_ sender: UIViewController, withMessage message: String? = nil) {
+extension AlertHelper {
+    func showSimpleAlert(_ sender: UIViewController, withMessage message: String?) {
         let alert = UIAlertController(title: Constants.appName, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(action)
         sender.present(alert, animated: true, completion: nil)
     }
 
-    static func showSingleAction(_ sender: UIViewController, withMessage message: String? = nil, withAction handler: ((UIAlertAction) -> Void)?) {
+    func showSingleActionAlert(_ sender: UIViewController, withMessage message: String?, withAction handler: ((UIAlertAction) -> Void)?) {
         let alert = UIAlertController(title: Constants.appName, message: message, preferredStyle: .alert)
         let action1 = UIAlertAction(title: "OK", style: .cancel, handler: handler)
         alert.addAction(action1)
@@ -41,7 +43,7 @@ struct CustomAlert {
         sender.present(alert, animated: true, completion: nil)
     }
 
-    static func showSingleInput(_ sender: UIViewController, withMessage message: String? = nil, withTextField textField: ((UITextField) -> Void)? = nil, dismissCompletionHandler: @escaping (_ newValue: String?) -> Void) {
+    func showSingleInputAlert(_ sender: UIViewController, withMessage message: String?, withTextField textField: ((UITextField) -> Void)?, dismissCompletionHandler: @escaping (_ newValue: String?) -> Void) {
         let alert = UIAlertController(title: Constants.appName, message: message, preferredStyle: .alert)
         alert.addTextField(configurationHandler: textField)
         let action1 = UIAlertAction(title: "Confirm", style: .cancel) { (action: UIAlertAction) in

@@ -20,7 +20,7 @@
 
 import UIKit
 
-protocol TextFieldDelegate: class {
+protocol CustomTextFieldDelegate: UITextFieldDelegate {
     func textFieldDidDeleteBackward(_ textField: CustomTextField)
 }
 
@@ -29,7 +29,7 @@ class CustomTextField: UITextField {
 
     let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
 
-    weak var textFielddelegate: TextFieldDelegate?
+    weak var textFielddelegate: CustomTextFieldDelegate?
 
     override func deleteBackward() {
         super.deleteBackward()

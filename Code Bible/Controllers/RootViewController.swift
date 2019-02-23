@@ -21,7 +21,7 @@
 import UIKit
 import Lottie
 
-class RootViewController: UIViewController {
+class RootViewController: UIViewController, AlertHelper {
 
     @IBOutlet var navigationButton: CustomBarButtonItem!
     @IBOutlet var anotherNavigationItem: CustomBarButtonItem!
@@ -122,7 +122,7 @@ class RootViewController: UIViewController {
     }
 
     @IBAction func showAlertButtonTapped(_ sender: Any) {
-        CustomAlert.showSingleInput(self, withMessage: "Please Enter Your PIN", withTextField: { (textfield: UITextField) in
+        showSingleInputAlert(self, withMessage: "Please Enter Your PIN", withTextField: { (textfield: UITextField) in
             textfield.placeholder = "PIN Number"
             textfield.isSecureTextEntry = true
             textfield.keyboardType = .numberPad
@@ -132,7 +132,7 @@ class RootViewController: UIViewController {
     }
 
     @IBAction func showAnotherAlert(_ sender: Any) {
-        CustomAlert.showSingleAction(self, withMessage: "Do you want to logout?") { (action: UIAlertAction) in
+        showSingleActionAlert(self, withMessage: "Do you want to logout?") { (action: UIAlertAction) in
             print("Go to logout")
         }
     }
@@ -141,9 +141,9 @@ class RootViewController: UIViewController {
 extension RootViewController: KPPaymentDelegate {
     func paymentDidFinish(successfully flag: Bool, withMessage message: String) {
         if flag {
-            CustomAlert.showSimple(self, withMessage: "Payment is successful")
+            showSimpleAlert(self, withMessage: "Payment is successful")
         } else {
-            CustomAlert.showSimple(self, withMessage: "Payment is NOT successful")
+            showSimpleAlert(self, withMessage: "Payment is NOT successful")
         }
     }
 }
