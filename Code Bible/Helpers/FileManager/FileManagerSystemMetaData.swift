@@ -20,9 +20,32 @@
 
 import Foundation
 
-enum AppDirectories: String {
-    case Documents = "Documents"
-    case Inbox = "Inbox"
-    case Library = "Library"
-    case Temp = "tmp"
+protocol FileManagerSystemMetaData {
+    func list(directory at: URL) -> Bool
+    func attributes(ofFile atFullPath: URL) -> [FileAttributeKey : Any]
+}
+
+extension FileManagerSystemMetaData {
+    func list(directory at: URL) -> Bool {
+        let listing = try! FileManager.default.contentsOfDirectory(atPath: at.path)
+        
+        if listing.count > 0 {
+            print("\n----------------------------")
+            print("LISTING: \(at.path)")
+            print("")
+            for file in listing {
+                print("File: \(file.debugDescription)")
+            }
+            print("")
+            print("----------------------------\n")
+            
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func attributes(ofFile atFullPath: URL) -> [FileAttributeKey : Any] {
+        return try! FileManager.default.attributesOfItem(atPath: atFullPath.path)
+    }
 }

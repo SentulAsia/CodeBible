@@ -20,15 +20,13 @@
 
 import UIKit
 
-struct Picker {
-    static let shared = Picker()
+protocol PickerHelper {
+    func presentPicker(_ sender: UIViewController, pickerList: [String], pickerSelectedIndex: Int?, completionHandler: @escaping (_ isPicked: Bool, _ pickerSelectedIndex: Int?) -> Void)
+    func presentFullPicker(_ sender: UIViewController, pickerList: [String], pickerSelectedIndex: Int?, completionHandler: @escaping (_ isPicked: Bool, _ pickerSelectedIndex: Int?) -> Void)
+}
 
-    private init() {}
-
-    static func show(_ sender: UIViewController,
-                     pickerList: [String],
-                     pickerSelectedIndex: Int? = nil,
-                     completionHandler: @escaping (_ isPicked: Bool, _ pickerSelectedIndex: Int?) -> Void) {
+extension PickerHelper {
+    func presentPicker(_ sender: UIViewController, pickerList: [String], pickerSelectedIndex: Int?, completionHandler: @escaping (_ isPicked: Bool, _ pickerSelectedIndex: Int?) -> Void) {
         let storyboard: UIStoryboard = UIStoryboard(name: Constants.Storyboard.helper, bundle: nil)
         let blurController = storyboard.instantiateViewController(withIdentifier: BlurViewController.Constants.identifier) as! BlurViewController
         blurController.modalPresentationStyle = .overFullScreen
@@ -50,10 +48,7 @@ struct Picker {
         sender.present(blurController, animated: false, completion: nil)
     }
 
-    static func showFull(_ sender: UIViewController,
-                         pickerList: [String],
-                         pickerSelectedIndex: Int? = nil,
-                         completionHandler: @escaping (_ isPicked: Bool, _ pickerSelectedIndex: Int?) -> Void) {
+    func presentFullPicker(_ sender: UIViewController, pickerList: [String], pickerSelectedIndex: Int?, completionHandler: @escaping (_ isPicked: Bool, _ pickerSelectedIndex: Int?) -> Void) {
         let storyboard: UIStoryboard = UIStoryboard(name: Constants.Storyboard.helper, bundle: nil)
         let navigationController = storyboard.instantiateViewController(withIdentifier: FullPickerViewController.Constants.identifier) as! UINavigationController
         let controller = navigationController.visibleViewController as! FullPickerViewController

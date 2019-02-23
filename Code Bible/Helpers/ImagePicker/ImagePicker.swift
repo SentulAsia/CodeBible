@@ -38,7 +38,7 @@ class ImagePicker: NSObject {
         super.init()
     }
 
-    static func showMenu(_ sender: UIView, delegate: ImagePickerDelegate) {
+    static func presentMenu(_ sender: UIView, delegate: ImagePickerDelegate) {
         let menu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let action1 = UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
             let camera = ImagePicker.shared

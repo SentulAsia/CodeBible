@@ -21,7 +21,7 @@
 import UIKit
 import Lottie
 
-class RootViewController: UIViewController, AlertHelper {
+class RootViewController: UIViewController, AlertHelper, PickerHelper, DatePickerHelper, ToastHelper {
 
     @IBOutlet var navigationButton: CustomBarButtonItem!
     @IBOutlet var anotherNavigationItem: CustomBarButtonItem!
@@ -71,7 +71,7 @@ class RootViewController: UIViewController, AlertHelper {
     }
 
     @IBAction func datePickerButtonTapped(_ sender: Any) {
-        DatePicker.show(self, pickerDate: self.selectedDate) { (isPicked: Bool, pickerDate: Date?) in
+        presentDatePicker(self, pickerDate: self.selectedDate) { (isPicked: Bool, pickerDate: Date?) in
             if isPicked {
                 self.selectedDate = pickerDate
                 print(self.selectedDate?.formattedISO8601 ?? "")
@@ -81,7 +81,7 @@ class RootViewController: UIViewController, AlertHelper {
     }
 
     @IBAction func fullPickerButtonTapped(_ sender: Any) {
-        Picker.showFull(self, pickerList: self.firstData, pickerSelectedIndex: self.selectedIndex) { (isPicked: Bool, pickerSelectedIndex: Int?) in
+        presentFullPicker(self, pickerList: self.firstData, pickerSelectedIndex: self.selectedIndex) { (isPicked: Bool, pickerSelectedIndex: Int?) in
             if isPicked {
                 self.selectedIndex = pickerSelectedIndex
                 if let index = self.selectedIndex {
@@ -92,7 +92,7 @@ class RootViewController: UIViewController, AlertHelper {
     }
 
     @IBAction func pickerButtonTapped(_ sender: Any) {
-        Picker.show(self, pickerList: self.firstData, pickerSelectedIndex: self.selectedIndex) { (isPicked: Bool, pickerSelectedIndex: Int?) in
+        presentPicker(self, pickerList: self.firstData, pickerSelectedIndex: self.selectedIndex) { (isPicked: Bool, pickerSelectedIndex: Int?) in
             if isPicked {
                 self.selectedIndex = pickerSelectedIndex
                 if let index = self.selectedIndex {
@@ -103,7 +103,7 @@ class RootViewController: UIViewController, AlertHelper {
     }
 
     @IBAction func anotherPickerButtonTapped(_ sender: Any) {
-        Picker.show(self, pickerList: self.firstData, pickerSelectedIndex: self.selectedIndex) { (isPicked: Bool, pickerSelectedIndex: Int?) in
+        presentPicker(self, pickerList: self.firstData, pickerSelectedIndex: self.selectedIndex) { (isPicked: Bool, pickerSelectedIndex: Int?) in
             if isPicked {
                 self.anotherSelectedIndex = pickerSelectedIndex
                 if let index = self.anotherSelectedIndex {
@@ -114,15 +114,15 @@ class RootViewController: UIViewController, AlertHelper {
     }
 
     @IBAction func imageButtonTapped(_ sender: Any) {
-        ImagePicker.showMenu(sender as! UIButton, delegate: self)
+        ImagePicker.presentMenu(sender as! UIButton, delegate: self)
     }
 
     @IBAction func showToastButtonTapped(_ sender: Any) {
-        Toast.show(self, withMessage: "This is an example for a toast event that is simulating Android native toast")
+        presentToast(self, withMessage: "This is an example for a toast event that is simulating Android native toast")
     }
 
     @IBAction func showAlertButtonTapped(_ sender: Any) {
-        showSingleInputAlert(self, withMessage: "Please Enter Your PIN", withTextField: { (textfield: UITextField) in
+        presentSingleInputAlert(self, withMessage: "Please Enter Your PIN", withTextField: { (textfield: UITextField) in
             textfield.placeholder = "PIN Number"
             textfield.isSecureTextEntry = true
             textfield.keyboardType = .numberPad
@@ -132,7 +132,7 @@ class RootViewController: UIViewController, AlertHelper {
     }
 
     @IBAction func showAnotherAlert(_ sender: Any) {
-        showSingleActionAlert(self, withMessage: "Do you want to logout?") { (action: UIAlertAction) in
+        presentSingleActionAlert(self, withMessage: "Do you want to logout?") { (action: UIAlertAction) in
             print("Go to logout")
         }
     }
@@ -141,9 +141,9 @@ class RootViewController: UIViewController, AlertHelper {
 extension RootViewController: KPPaymentDelegate {
     func paymentDidFinish(successfully flag: Bool, withMessage message: String) {
         if flag {
-            showSimpleAlert(self, withMessage: "Payment is successful")
+            presentSimpleAlert(self, withMessage: "Payment is successful")
         } else {
-            showSimpleAlert(self, withMessage: "Payment is NOT successful")
+            presentSimpleAlert(self, withMessage: "Payment is NOT successful")
         }
     }
 }

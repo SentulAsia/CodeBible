@@ -18,40 +18,27 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
+import UIKit
 
-protocol AppFileStatusChecking {
-    func isWritable(file at: URL) -> Bool
-    func isReadable(file at: URL) -> Bool
-    func exists(file at: URL) -> Bool
-}
-
-extension AppFileStatusChecking {
-    func isWritable(file at: URL) -> Bool {
-        if FileManager.default.isWritableFile(atPath: at.path) {
-            print(at.path)
-            return true
-        } else {
-            print(at.path)
-            return false
-        }
-    }
-    
-    func isReadable(file at: URL) -> Bool {
-        if FileManager.default.isReadableFile(atPath: at.path) {
-            print(at.path)
-            return true
-        } else {
-            print(at.path)
-            return false
-        }
-    }
-    
-    func exists(file at: URL) -> Bool {
-        if FileManager.default.fileExists(atPath: at.path) {
-            return true
-        } else {
-            return false
-        }
-    }
-}
+//fileprivate extension Constants {
+//    static let sample = "Sample.txt"
+//}
+//
+//protocol FileManagerDataStore: FileManagerHelper {
+//    var sampleImage: String? { get set }
+//}
+//
+//extension FileManagerDataStore {
+//    var sampleImage: String? {
+//        get {
+//            return readFile(at: .Documents, withName: Constants.sample)
+//        }
+//        set {
+//            if let value = newValue {
+//                createFile(containing: value, to: .Documents, withName: Constants.sample)
+//            } else {
+//                deleteFile(at: .Documents, withName: Constants.sample)
+//            }
+//        }
+//    }
+//}

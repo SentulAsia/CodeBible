@@ -47,13 +47,9 @@ class KeyboardHelper: NSObject {
                 self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
             }
             if let d = self.controller {
-                UIView.animate(withDuration: duration,
-                               delay: 0,
-                               options: animationCurve,
-                               animations: {
-                                d.view.layoutIfNeeded()
-                },
-                               completion: nil)
+                UIView.animate(withDuration: duration, delay: 0, options: animationCurve, animations: {
+                    d.view.layoutIfNeeded()
+                }, completion: nil)
             }
         }
     }

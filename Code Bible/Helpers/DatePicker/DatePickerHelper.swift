@@ -20,14 +20,12 @@
 
 import UIKit
 
-struct DatePicker {
-    static let shared = DatePicker()
+protocol DatePickerHelper {
+    func presentDatePicker(_ sender: UIViewController, pickerDate: Date?, completionHandler: @escaping (_ isPicked: Bool, _ pickerDate: Date?) -> Void)
+}
 
-    private init() {}
-
-    static func show(_ sender: UIViewController,
-                     pickerDate: Date? = nil,
-                     completionHandler: @escaping (_ isPicked: Bool, _ pickerDate: Date?) -> Void) {
+extension DatePickerHelper {
+    func presentDatePicker(_ sender: UIViewController, pickerDate: Date?, completionHandler: @escaping (_ isPicked: Bool, _ pickerDate: Date?) -> Void) {
         let storyboard: UIStoryboard = UIStoryboard(name: Constants.Storyboard.helper, bundle: nil)
         let blurController = storyboard.instantiateViewController(withIdentifier: BlurViewController.Constants.identifier) as! BlurViewController
         blurController.modalPresentationStyle = .overFullScreen

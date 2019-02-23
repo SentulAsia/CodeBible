@@ -20,7 +20,7 @@
 
 import UIKit
 
-class ChannelListViewController: UIViewController {
+class ChannelListViewController: UIViewController, ToastHelper {
     
     enum Constants {
         static let identifier = "ChannelListViewController"
@@ -35,6 +35,7 @@ class ChannelListViewController: UIViewController {
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
+        tableView.isHidden = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -63,11 +64,12 @@ extension ChannelListViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // change 2 to desired number of seconds
                 Spinner.shared.stopLoadingIndicatior()
                 self.channels = channelModelArrayObj
+                self.tableView.isHidden = false
                 self.tableView.reloadData()
             }
         }) { (error) in
             Spinner.shared.stopLoadingIndicatior()
-            Toast.show(self, withMessage: error)
+            self.presentToast(self, withMessage: error)
         }
     }
 }

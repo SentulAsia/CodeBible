@@ -21,20 +21,20 @@
 import UIKit
 
 protocol AlertHelper {
-    func showSimpleAlert(_ sender: UIViewController, withMessage message: String?)
-    func showSingleActionAlert(_ sender: UIViewController, withMessage message: String?, withAction handler: ((UIAlertAction) -> Void)?)
-    func showSingleInputAlert(_ sender: UIViewController, withMessage message: String?, withTextField textField: ((UITextField) -> Void)?, dismissCompletionHandler: @escaping (_ newValue: String?) -> Void)
+    func presentSimpleAlert(_ sender: UIViewController, withMessage message: String?)
+    func presentSingleActionAlert(_ sender: UIViewController, withMessage message: String?, withAction handler: ((UIAlertAction) -> Void)?)
+    func presentSingleInputAlert(_ sender: UIViewController, withMessage message: String?, withTextField textField: ((UITextField) -> Void)?, dismissCompletionHandler: @escaping (_ newValue: String?) -> Void)
 }
 
 extension AlertHelper {
-    func showSimpleAlert(_ sender: UIViewController, withMessage message: String?) {
+    func presentSimpleAlert(_ sender: UIViewController, withMessage message: String?) {
         let alert = UIAlertController(title: Constants.appName, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(action)
         sender.present(alert, animated: true, completion: nil)
     }
 
-    func showSingleActionAlert(_ sender: UIViewController, withMessage message: String?, withAction handler: ((UIAlertAction) -> Void)?) {
+    func presentSingleActionAlert(_ sender: UIViewController, withMessage message: String?, withAction handler: ((UIAlertAction) -> Void)?) {
         let alert = UIAlertController(title: Constants.appName, message: message, preferredStyle: .alert)
         let action1 = UIAlertAction(title: "OK", style: .cancel, handler: handler)
         alert.addAction(action1)
@@ -43,7 +43,7 @@ extension AlertHelper {
         sender.present(alert, animated: true, completion: nil)
     }
 
-    func showSingleInputAlert(_ sender: UIViewController, withMessage message: String?, withTextField textField: ((UITextField) -> Void)?, dismissCompletionHandler: @escaping (_ newValue: String?) -> Void) {
+    func presentSingleInputAlert(_ sender: UIViewController, withMessage message: String?, withTextField textField: ((UITextField) -> Void)?, dismissCompletionHandler: @escaping (_ newValue: String?) -> Void) {
         let alert = UIAlertController(title: Constants.appName, message: message, preferredStyle: .alert)
         alert.addTextField(configurationHandler: textField)
         let action1 = UIAlertAction(title: "Confirm", style: .cancel) { (action: UIAlertAction) in

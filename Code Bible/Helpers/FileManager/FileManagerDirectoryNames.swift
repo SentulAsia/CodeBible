@@ -20,23 +20,22 @@
 
 import Foundation
 
-protocol AppDirectoryNames {
+protocol FileManagerDirectoryNames {
     func documentsDirectoryURL() -> URL
     func inboxDirectoryURL() -> URL
     func libraryDirectoryURL() -> URL
     func tempDirectoryURL() -> URL
-    func getURL(for directory: AppDirectories) -> URL
-    func buildFullPath(forFileName name: String, inDirectory directory: AppDirectories) -> URL
+    func getURL(for directory: FileManagerDirectories) -> URL
+    func buildFullPath(forFileName name: String, inDirectory directory: FileManagerDirectories) -> URL
 }
 
-extension AppDirectoryNames {
+extension FileManagerDirectoryNames {
     func documentsDirectoryURL() -> URL {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        //return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     }
     
     func inboxDirectoryURL() -> URL {
-        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(AppDirectories.Inbox.rawValue) // "Inbox")
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(FileManagerDirectories.Inbox.rawValue)
     }
     
     func libraryDirectoryURL() -> URL {
@@ -45,10 +44,9 @@ extension AppDirectoryNames {
     
     func tempDirectoryURL() -> URL {
         return FileManager.default.temporaryDirectory
-        //urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(AppDirectories.Temp.rawValue) //"tmp")
     }
     
-    func getURL(for directory: AppDirectories) -> URL {
+    func getURL(for directory: FileManagerDirectories) -> URL {
         switch directory {
         case .Documents:
             return documentsDirectoryURL()
@@ -61,7 +59,7 @@ extension AppDirectoryNames {
         }
     }
     
-    func buildFullPath(forFileName name: String, inDirectory directory: AppDirectories) -> URL {
+    func buildFullPath(forFileName name: String, inDirectory directory: FileManagerDirectories) -> URL {
         return getURL(for: directory).appendingPathComponent(name)
     }
 }
