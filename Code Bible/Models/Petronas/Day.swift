@@ -21,13 +21,13 @@
 import Foundation
 
 enum Day: String, CaseIterable {
-    case Mon
-    case Tue
-    case Wed
-    case Thu
-    case Fri
-    case Sat
-    case Sun
+    case mon = "Mon"
+    case tue = "Tue"
+    case wed = "Wed"
+    case thu = "Thu"
+    case fri = "Fri"
+    case sat = "Sat"
+    case sun = "Sun"
 
     // Return array of day from start day to end day
     static func list(startDay: String, endDay: String) -> [Day] {

@@ -85,11 +85,7 @@ struct APIWorker {
 
     private init() {}
 
-    static func request(url: URL,
-                        method: APIMethod,
-                        parameters: [String: Any]?,
-                        headers: [String: String]? = nil,
-                        body: Data? = nil,
+    static func request(url: URL, method: APIMethod, parameters: [String: Any]?, headers: [String: String]? = nil, body: Data? = nil,
                         completionHandler: @escaping (_ response: APIResponse) -> Void) {
         var request = URLRequest(url: url)
         if let h = headers {

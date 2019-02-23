@@ -19,3 +19,16 @@
 /// THE SOFTWARE.
 
 import Foundation
+
+enum Environment {
+    case production
+    case development
+}
+
+struct Environments {
+    #if DEVELOPMENT
+    let value: Environment = .development
+    #else
+    let value: Environment = .production
+    #endif
+}
