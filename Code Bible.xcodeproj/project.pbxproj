@@ -115,6 +115,8 @@
 		2EE9A6BB211A8A23004A8EAD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE9A6B9211A8A23004A8EAD /* User.swift */; };
 		4A4A237AB867D21F081AB4AE /* Pods_Code_Bible_Dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABB78483F8F76BE8401CAF1 /* Pods_Code_Bible_Dev.framework */; };
 		64659E9C80B86835C5E811A6 /* Pods_Code_Bible.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7246B384203AEB291246016E /* Pods_Code_Bible.framework */; };
+		B81820002221DF24008D071A /* Locales.plist in Resources */ = {isa = PBXBuildFile; fileRef = B81820032221DF24008D071A /* Locales.plist */; };
+		B81820012221DF24008D071A /* Locales.plist in Resources */ = {isa = PBXBuildFile; fileRef = B81820032221DF24008D071A /* Locales.plist */; };
 		B86D413421D7301100214666 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D413321D7301100214666 /* ColorHelper.swift */; };
 		B86D413521D7301100214666 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D413321D7301100214666 /* ColorHelper.swift */; };
 		B86D413621D732E800214666 /* beaming.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E92BA55214270F900C1D61D /* beaming.json */; };
@@ -201,6 +203,8 @@
 		307A00F00C7FD84510B6B372 /* Pods-Code Bible Dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible Dev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev.debug.xcconfig"; sourceTree = "<group>"; };
 		4A44BB01066D74B9BF1E5916 /* Pods-Code Bible.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible/Pods-Code Bible.debug.xcconfig"; sourceTree = "<group>"; };
 		7246B384203AEB291246016E /* Pods_Code_Bible.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Code_Bible.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B81820022221DF24008D071A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Locales.plist; sourceTree = "<group>"; };
+		B81820042221DF40008D071A /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ar; path = ar.lproj/Locales.plist; sourceTree = "<group>"; };
 		B86D413321D7301100214666 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
 		B8D37BAA222147EC00300AA4 /* FileManagerDirectories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerDirectories.swift; sourceTree = "<group>"; };
 		B8D37BAE22214AEB00300AA4 /* FileManagerDirectoryNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerDirectoryNames.swift; sourceTree = "<group>"; };
@@ -264,14 +268,12 @@
 		2EAA790D21156AE800600D46 /* Code Bible */ = {
 			isa = PBXGroup;
 			children = (
-				2EAA792221156B3800600D46 /* Models */,
-				2EAA795D21156BBF00600D46 /* Views */,
-				2EAA796021156D6F00600D46 /* Controllers */,
-				2EAA793D21156B5F00600D46 /* Helpers */,
+				B818200C2221E164008D071A /* App */,
 				2EAA795221156B6A00600D46 /* Config */,
-				2EAA795721156B8A00600D46 /* Supporting Files */,
+				B81820062221E0B7008D071A /* DataStore */,
 				2EAA795A21156BB800600D46 /* Lib */,
-				2EAA791721156AE900600D46 /* Assets.xcassets */,
+				B818200E2221E1B3008D071A /* Vendor */,
+				2EAA795721156B8A00600D46 /* Supporting Files */,
 			);
 			path = "Code Bible";
 			sourceTree = "<group>";
@@ -308,6 +310,7 @@
 		2EAA793D21156B5F00600D46 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B81820052221DFD7008D071A /* APIManager */,
 				B8D37BAD2221480200300AA4 /* FileManager */,
 				2EAA7982211575BD00600D46 /* BlurBackground */,
 				2EAA7981211575B200600D46 /* Picker */,
@@ -339,11 +342,11 @@
 		2EAA795221156B6A00600D46 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				2EC995D62133E43B00259CDE /* Environments.swift */,
+				2EAA790E21156AE800600D46 /* AppDelegate.swift */,
 				2EAA795321156B6A00600D46 /* Constants.swift */,
+				2EC995D62133E43B00259CDE /* Environments.swift */,
 				2EDFD0692125666400587A50 /* Routes.swift */,
-				2EAA795421156B6A00600D46 /* APIManager.swift */,
-				2EAA794421156B5F00600D46 /* APIWorker.swift */,
+				B81820032221DF24008D071A /* Locales.plist */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -351,7 +354,6 @@
 		2EAA795721156B8A00600D46 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2EAA790E21156AE800600D46 /* AppDelegate.swift */,
 				2EAA791C21156AE900600D46 /* Info.plist */,
 				2EC995D52133CED700259CDE /* Info-Dev.plist */,
 				2EAA795821156BAE00600D46 /* Settings.bundle */,
@@ -362,9 +364,7 @@
 		2EAA795A21156BB800600D46 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				2E92BA55214270F900C1D61D /* beaming.json */,
-				2EAA795B21156BB800600D46 /* iOS_TakeHomeTest2.csv */,
-				2E792EA521354BB50047502B /* KPPayment.swift */,
+				B818200D2221E180008D071A /* Assets */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -513,10 +513,103 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		B8D37BAD2221480200300AA4 /* FileManager */ = {
+		B81820052221DFD7008D071A /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				2EAA795421156B6A00600D46 /* APIManager.swift */,
+				2EAA794421156B5F00600D46 /* APIWorker.swift */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
+		B81820062221E0B7008D071A /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
 				B8D37BBA2221699100300AA4 /* FileManagerDataStore.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		B81820072221E0D1008D071A /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Validators;
+			sourceTree = "<group>";
+		};
+		B81820082221E103008D071A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				B81820092221E10C008D071A /* Images */,
+				B818200A2221E118008D071A /* Fonts */,
+				B818200B2221E124008D071A /* Sounds */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		B81820092221E10C008D071A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				2EAA791721156AE900600D46 /* Assets.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		B818200A2221E118008D071A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B818200B2221E124008D071A /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		B818200C2221E164008D071A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2EAA792221156B3800600D46 /* Models */,
+				2EAA795D21156BBF00600D46 /* Views */,
+				2EAA796021156D6F00600D46 /* Controllers */,
+				2EAA793D21156B5F00600D46 /* Helpers */,
+				B81820072221E0D1008D071A /* Validators */,
+				B81820082221E103008D071A /* Assets */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B818200D2221E180008D071A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2E92BA55214270F900C1D61D /* beaming.json */,
+				2EAA795B21156BB800600D46 /* iOS_TakeHomeTest2.csv */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		B818200E2221E1B3008D071A /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				B818200F2221E1E2008D071A /* Plugins */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		B818200F2221E1E2008D071A /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				2E792EA521354BB50047502B /* KPPayment.swift */,
+			);
+			path = Plugins;
+			sourceTree = "<group>";
+		};
+		B8D37BAD2221480200300AA4 /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
 				B8D37BBD2221B38E00300AA4 /* FileManagerObject.swift */,
 				B8D37BB722214D6500300AA4 /* FileManagerHelper.swift */,
 				B8D37BAE22214AEB00300AA4 /* FileManagerDirectoryNames.swift */,
@@ -600,6 +693,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 2EAA790221156AE800600D46;
 			productRefGroup = 2EAA790C21156AE800600D46 /* Products */;
@@ -619,6 +713,7 @@
 			files = (
 				2E92BA56214270F900C1D61D /* beaming.json in Resources */,
 				2EAA795C21156BB800600D46 /* iOS_TakeHomeTest2.csv in Resources */,
+				B81820002221DF24008D071A /* Locales.plist in Resources */,
 				2EAA795921156BAE00600D46 /* Settings.bundle in Resources */,
 				2EAA797821156DEC00600D46 /* Helper.storyboard in Resources */,
 				2EAA791B21156AE900600D46 /* LaunchScreen.storyboard in Resources */,
@@ -633,6 +728,7 @@
 			files = (
 				B86D413621D732E800214666 /* beaming.json in Resources */,
 				2EC995CA2133AF6100259CDE /* iOS_TakeHomeTest2.csv in Resources */,
+				B81820012221DF24008D071A /* Locales.plist in Resources */,
 				2EC995CB2133AF6100259CDE /* Settings.bundle in Resources */,
 				2EC995CC2133AF6100259CDE /* Helper.storyboard in Resources */,
 				2EC995CD2133AF6100259CDE /* LaunchScreen.storyboard in Resources */,
@@ -876,6 +972,15 @@
 			name = Helper.storyboard;
 			sourceTree = "<group>";
 		};
+		B81820032221DF24008D071A /* Locales.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B81820022221DF24008D071A /* Base */,
+				B81820042221DF40008D071A /* ar */,
+			);
+			name = Locales.plist;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -883,6 +988,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -943,6 +1049,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

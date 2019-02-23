@@ -99,8 +99,6 @@ struct APIWorker {
             do {
                 if let data = try JSONSerialization.data(withJSONObject: p, options: JSONSerialization.WritingOptions(rawValue: 0)) as Data? {
                     request.httpBody = data
-                } else if let data = body {
-                    request.httpBody = data
                 }
             } catch {
                 print("\n----------------------------")
@@ -113,6 +111,8 @@ struct APIWorker {
                 completionHandler(r)
                 return
             }
+        } else if let data = body {
+            request.httpBody = data
         }
         
         let sessionConfig = URLSessionConfiguration.default

@@ -20,15 +20,15 @@
 
 import Foundation
 
-enum Environment {
+enum ProjectTarget {
     case production
     case development
 }
 
-struct Environments {
+struct Environment {
     #if DEVELOPMENT
-    let value: Environment = .development
+    let value: ProjectTarget = .development
     #else
-    let value: Environment = .production
+    let value: ProjectTarget = .production
     #endif
 }
