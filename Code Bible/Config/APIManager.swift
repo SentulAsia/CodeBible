@@ -36,8 +36,7 @@ struct APIManager {
                     return
                 }
 
-                guard let value = response.result.value,
-                    let responseDictionary = value as? [String: Any] else {
+                guard let value = response.result.value as? Data, let response = try? JSONSerialization.jsonObject(with: value, options: []) as? [String: Any], let responseDictionary = response else {
                         failure(Constants.Message.failureDefault)
                         return
                 }
@@ -58,7 +57,6 @@ struct APIManager {
     func postGenerateDeeplink(deeplinkObj: Deeplink,
                               success: @escaping (_ deeplinkModelObj: Deeplink) -> Void,
                               failure: @escaping (_ serverError: String) -> Void) {
-        print(#function)
         let generateDeeplinkURLString = Constants.generateDeeplinkURL
         let headers = ["Content-Type": "application/json"]
         if let generateDeeplinkURL = URL(string: generateDeeplinkURLString) {
@@ -68,8 +66,7 @@ struct APIManager {
                     return
                 }
 
-                guard let value = response.result.value,
-                    let responseDictionary = value as? [String: Any] else {
+                guard let value = response.result.value as? Data, let response = try? JSONSerialization.jsonObject(with: value, options: []) as? [String: Any], let responseDictionary = response else {
                         failure(Constants.Message.failureDefault)
                         return
                 }

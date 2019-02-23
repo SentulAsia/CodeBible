@@ -118,12 +118,17 @@ struct APIWorker {
                 return
             }
         }
+        
+        let sessionConfig = URLSessionConfiguration.default
+        sessionConfig.timeoutIntervalForRequest = 12.0
+        sessionConfig.timeoutIntervalForResource = 60.0
+        let sessionManager = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 
-        let dataTask = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+        let dataTask = sessionManager.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             if let e = error {
                 print("\n----------------------------")
-                print("API url: ", url.description)
-                print("params: ", parameters ?? "")
+                print("API url:", url.description)
+                print("params:", parameters ?? "")
                 print("\n\(url.description) Failed")
                 print("----------------------------\n")
                 let result = APIResult.failure(e)
@@ -133,65 +138,33 @@ struct APIWorker {
                     return
                 }
             } else {
-                do {
-                    if let responseDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any] {
-                        if !responseDictionary.isEmpty {
-                            print("\n----------------------------")
-                            print("API url: ", url.description)
-                            print("params: ", parameters ?? "")
-                            print("\n\(url.description) Success")
-                            print("Result: ", responseDictionary.values)
-                            if let httpResponse = response as? HTTPURLResponse {
-                                print("Status Code: ", httpResponse.statusCode)
-                            }
-                            print("----------------------------\n")
-                            let result = APIResult.success(responseDictionary as Any)
-                            let r = APIResponse(request: request, data: data, response: response, result: result)
-                            DispatchQueue.main.async {
-                                completionHandler(r)
-                                return
-                            }
-                        } else {
-                            let e = NSError(domain: "", code: 0, userInfo: [
-                                NSLocalizedDescriptionKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: "") ,
-                                NSLocalizedFailureReasonErrorKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: "")
-                                ])
-                            print("\n----------------------------")
-                            print("API url: ", url.description)
-                            print("params: ", parameters ?? "")
-                            print("\n\(url.description) Failed")
-                            print("----------------------------\n")
-                            let result = APIResult.failure(e)
-                            let r = APIResponse(request: request, data: data, response: response, result: result)
-                            DispatchQueue.main.async {
-                                completionHandler(r)
-                                return
-                            }
-                        }
-                    } else {
-                        let e = NSError(domain: "", code: 0, userInfo: [
-                            NSLocalizedDescriptionKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: "") ,
-                            NSLocalizedFailureReasonErrorKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: "")
-                            ])
-                        print("\n----------------------------")
-                        print("API url: ", url.description)
-                        print("params: ", parameters ?? "")
-                        print("\n\(url.description) Failed")
-                        print("----------------------------\n")
-                        let result = APIResult.failure(e)
-                        let r = APIResponse(request: request, data: data, response: response, result: result)
-                        DispatchQueue.main.async {
-                            completionHandler(r)
-                            return
-                        }
-                    }
-                } catch {
+                if let d = data {
                     print("\n----------------------------")
-                    print("API url: ", url.description)
-                    print("params: ", parameters ?? "")
+                    print("API url:", url.description)
+                    print("params:", parameters ?? "")
+                    print("\n\(url.description) Success")
+                    if let httpResponse = response as? HTTPURLResponse {
+                        print("Result:", httpResponse.allHeaderFields as? [String: Any] ?? httpResponse)
+                        print("Status Code:", httpResponse.statusCode)
+                    }
+                    print("----------------------------\n")
+                    let result = APIResult.success(d as Any)
+                    let r = APIResponse(request: request, data: data, response: response, result: result)
+                    DispatchQueue.main.async {
+                        completionHandler(r)
+                        return
+                    }
+                } else {
+                    let e = NSError(domain: "", code: 0, userInfo: [
+                        NSLocalizedDescriptionKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: "") ,
+                        NSLocalizedFailureReasonErrorKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: "")
+                        ])
+                    print("\n----------------------------")
+                    print("API url:", url.description)
+                    print("params:", parameters ?? "")
                     print("\n\(url.description) Failed")
                     print("----------------------------\n")
-                    let result = APIResult.failure(error)
+                    let result = APIResult.failure(e)
                     let r = APIResponse(request: request, data: data, response: response, result: result)
                     DispatchQueue.main.async {
                         completionHandler(r)

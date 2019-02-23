@@ -58,9 +58,9 @@ extension FileManagerHelper {
         }
         if let r = rawData {
             return FileManager.default.createFile(atPath: filePath, contents: r, attributes: nil)
-        } else {
-            return false
         }
+        
+        return false
     }
     
     @discardableResult
@@ -85,41 +85,51 @@ extension FileManagerHelper {
                 return fileContents as AnyObject
             }
         }
+        
         return nil
     }
     
     @discardableResult
     func deleteFile(at path: FileManagerDirectories, withName name: String) -> Bool {
         let filePath = buildFullPath(forFileName: name, inDirectory: path)
-        try! FileManager.default.removeItem(at: filePath)
-        return true
+        if let _ = try? FileManager.default.removeItem(at: filePath) {
+            return true
+        }
+        
+        return false
     }
     
     @discardableResult
     func renameFile(at path: FileManagerDirectories, with oldName: String, to newName: String) -> Bool {
         let oldPath = getURL(for: path).appendingPathComponent(oldName)
         let newPath = getURL(for: path).appendingPathComponent(newName)
-        try! FileManager.default.moveItem(at: oldPath, to: newPath)
+        if let _ = try? FileManager.default.moveItem(at: oldPath, to: newPath) {
+            return true
+        }
         
-        return true
+        return false
     }
     
     @discardableResult
     func moveFile(withName name: String, inDirectory: FileManagerDirectories, toDirectory directory: FileManagerDirectories) -> Bool {
         let originURL = buildFullPath(forFileName: name, inDirectory: inDirectory)
         let destinationURL = buildFullPath(forFileName: name, inDirectory: directory)
-        // warning: constant 'success' inferred to have type '()', which may be unexpected
-        // let success =
-        try! FileManager.default.moveItem(at: originURL, to: destinationURL)
-        return true
+        if let _ = try? FileManager.default.moveItem(at: originURL, to: destinationURL) {
+            return true
+        }
+        
+        return false
     }
     
     @discardableResult
     func copyFile(withName name: String, inDirectory: FileManagerDirectories, toDirectory directory: FileManagerDirectories) -> Bool {
         let originURL = buildFullPath(forFileName: name, inDirectory: inDirectory)
         let destinationURL = buildFullPath(forFileName: name+"1", inDirectory: directory)
-        try! FileManager.default.copyItem(at: originURL, to: destinationURL)
-        return true
+        if let _ = try? FileManager.default.copyItem(at: originURL, to: destinationURL) {
+            return true
+        }
+        
+        return false
     }
     
     @discardableResult
@@ -132,9 +142,11 @@ extension FileManagerHelper {
         let originURL = buildFullPath(forFileName: name, inDirectory: inDirectory)
         let destinationURL = buildFullPath(forFileName: finalFileName, inDirectory: inDirectory)
         
-        try! FileManager.default.moveItem(at: originURL, to: destinationURL)
+        if let _ = try? FileManager.default.moveItem(at: originURL, to: destinationURL) {
+            return true
+        }
         
-        return true
+        return false
     }
 }
 
