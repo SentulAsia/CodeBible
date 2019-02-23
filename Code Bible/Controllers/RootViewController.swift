@@ -23,13 +23,14 @@ import Lottie
 
 class RootViewController: UIViewController {
 
-    @IBOutlet weak var navigationButton: CustomBarButtonItem!
-    @IBOutlet weak var anotherNavigationItem: CustomBarButtonItem!
+    @IBOutlet var navigationButton: CustomBarButtonItem!
+    @IBOutlet var anotherNavigationItem: CustomBarButtonItem!
 
-    @IBOutlet weak var pickerButton: UIButton!
-    @IBOutlet weak var anotherPickerButton: UIButton!
-    @IBOutlet weak var imageButton: UIButton!
-    @IBOutlet weak var keyboardHeightLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet var paywithKiple: UIButton!
+    @IBOutlet var pickerButton: UIButton!
+    @IBOutlet var anotherPickerButton: UIButton!
+    @IBOutlet var imageButton: UIButton!
+    @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint!
     
     let firstData = ["First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth"]
     let secondData = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]

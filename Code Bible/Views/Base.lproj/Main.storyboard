@@ -228,6 +228,7 @@
                         <outlet property="imageButton" destination="wWo-hR-eSh" id="dNu-B2-Gcc"/>
                         <outlet property="keyboardHeightLayoutConstraint" destination="pm1-n2-s81" id="4Gg-7e-avs"/>
                         <outlet property="navigationButton" destination="vfn-QT-SLv" id="rrE-xB-B6t"/>
+                        <outlet property="paywithKiple" destination="c1m-l6-9Pj" id="r2W-Ll-Hva"/>
                         <outlet property="pickerButton" destination="nVi-di-tGZ" id="HS9-UG-oYU"/>
                     </connections>
                 </viewController>

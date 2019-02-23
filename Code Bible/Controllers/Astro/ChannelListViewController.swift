@@ -26,7 +26,7 @@ class ChannelListViewController: UIViewController {
         static let identifier = "ChannelListViewController"
     }
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
 
     var channels: [Channel] = []
 

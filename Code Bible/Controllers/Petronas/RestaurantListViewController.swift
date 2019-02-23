@@ -26,7 +26,7 @@ class RestaurantListViewController: UIViewController {
         static let identifier = "RestaurantListViewController"
     }
 
-    @IBOutlet weak var restaurantTableView: UITableView!
+    @IBOutlet var restaurantTableView: UITableView!
 
     let restaurants = Restaurant.list(forFile: "iOS_TakeHomeTest2.csv")
 
