@@ -25,7 +25,7 @@ struct APIManager {
 
     private init() {}
 
-    func getChannelList(channelObj: Channel,
+    static func getChannelList(channelObj: Channel,
                         success: @escaping (_ channelModelArrayObj: [Channel]) -> Void,
                         failure: @escaping (_ serverError: String) -> Void) {
         let channelListURLString = Constants.AstroAPI.baseURL + Constants.AstroAPI.channelList
@@ -54,7 +54,7 @@ struct APIManager {
         }
     }
 
-    func postGenerateDeeplink(deeplinkObj: Deeplink,
+    static func postGenerateDeeplink(deeplinkObj: Deeplink,
                               success: @escaping (_ deeplinkModelObj: Deeplink) -> Void,
                               failure: @escaping (_ serverError: String) -> Void) {
         let generateDeeplinkURLString = Constants.generateDeeplinkURL

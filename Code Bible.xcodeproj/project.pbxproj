@@ -135,8 +135,6 @@
 		B8D37BB922214D6500300AA4 /* FileManagerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D37BB722214D6500300AA4 /* FileManagerHelper.swift */; };
 		B8D37BBB2221699100300AA4 /* FileManagerDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D37BBA2221699100300AA4 /* FileManagerDataStore.swift */; };
 		B8D37BBC2221699100300AA4 /* FileManagerDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D37BBA2221699100300AA4 /* FileManagerDataStore.swift */; };
-		B8D37BBE2221B38E00300AA4 /* FileManagerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D37BBD2221B38E00300AA4 /* FileManagerObject.swift */; };
-		B8D37BBF2221B38E00300AA4 /* FileManagerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D37BBD2221B38E00300AA4 /* FileManagerObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -212,7 +210,6 @@
 		B8D37BB422214CFD00300AA4 /* FileManagerSystemMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerSystemMetaData.swift; sourceTree = "<group>"; };
 		B8D37BB722214D6500300AA4 /* FileManagerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerHelper.swift; sourceTree = "<group>"; };
 		B8D37BBA2221699100300AA4 /* FileManagerDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerDataStore.swift; sourceTree = "<group>"; };
-		B8D37BBD2221B38E00300AA4 /* FileManagerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerObject.swift; sourceTree = "<group>"; };
 		B8F00CEC222232B500A8311F /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B8F00CED222232F200A8311F /* MyViewController.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyViewController.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C5422D5410E66630871228C5 /* Pods-Code Bible Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible Dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev.release.xcconfig"; sourceTree = "<group>"; };
@@ -575,8 +572,8 @@
 		B818200C2221E164008D071A /* App */ = {
 			isa = PBXGroup;
 			children = (
-				2EAA792221156B3800600D46 /* Models */,
 				2EAA795D21156BBF00600D46 /* Views */,
+				2EAA792221156B3800600D46 /* Models */,
 				2EAA796021156D6F00600D46 /* Controllers */,
 				2EAA793D21156B5F00600D46 /* Helpers */,
 				B81820072221E0D1008D071A /* Validators */,
@@ -613,7 +610,6 @@
 		B8D37BAD2221480200300AA4 /* FileManager */ = {
 			isa = PBXGroup;
 			children = (
-				B8D37BBD2221B38E00300AA4 /* FileManagerObject.swift */,
 				B8D37BB722214D6500300AA4 /* FileManagerHelper.swift */,
 				B8D37BAE22214AEB00300AA4 /* FileManagerDirectoryNames.swift */,
 				B8D37BAA222147EC00300AA4 /* FileManagerDirectories.swift */,
@@ -888,7 +884,6 @@
 				2EAA79942116029000600D46 /* NumberHelper.swift in Sources */,
 				2EAA796C21156D6F00600D46 /* BlurViewController.swift in Sources */,
 				2EAA795021156B5F00600D46 /* StringHelper.swift in Sources */,
-				B8D37BBE2221B38E00300AA4 /* FileManagerObject.swift in Sources */,
 				B8D37BB822214D6500300AA4 /* FileManagerHelper.swift in Sources */,
 				2EAA798C2115A9BF00600D46 /* DatePickerHelper.swift in Sources */,
 			);
@@ -951,7 +946,6 @@
 				2EC995C42133AF6100259CDE /* NumberHelper.swift in Sources */,
 				2EC995C52133AF6100259CDE /* BlurViewController.swift in Sources */,
 				2EC995C62133AF6100259CDE /* StringHelper.swift in Sources */,
-				B8D37BBF2221B38E00300AA4 /* FileManagerObject.swift in Sources */,
 				B8D37BB922214D6500300AA4 /* FileManagerHelper.swift in Sources */,
 				2EC995C72133AF6100259CDE /* DatePickerHelper.swift in Sources */,
 			);

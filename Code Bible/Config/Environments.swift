@@ -25,10 +25,10 @@ enum ProjectTarget {
     case development
 }
 
-struct Environment {
+enum Environment {
     #if DEVELOPMENT
-    let value: ProjectTarget = .development
+    static let value: ProjectTarget = .development
     #else
-    let value: ProjectTarget = .production
+    static let value: ProjectTarget = .production
     #endif
 }

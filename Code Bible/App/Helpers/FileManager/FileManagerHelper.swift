@@ -172,10 +172,23 @@ extension Float: DataConvertible {}
 extension Double: DataConvertible {}
 extension Decimal: DataConvertible {}
 
+extension UInt16: DataConvertible {
+    init?(data: Data) {
+        guard data.count == MemoryLayout<UInt16>.size else { return nil }
+        self = data.withUnsafeBytes { $0.pointee }
+    }
+    
+    var data: Data {
+        var value = CFSwapInt16HostToBig(self)
+        return Data(buffer: UnsafeBufferPointer(start: &value, count: 1))
+    }
+}
+
 extension String: DataConvertible {
     init?(data: Data) {
         self.init(data: data, encoding: .utf8)
     }
+    
     var data: Data {
         if let utf8 = self.data(using: .utf8) {
             return utf8
@@ -188,8 +201,6 @@ extension UIImage: DataConvertible {
     var data: Data {
         if let pngData = self.pngData() {
             return pngData
-        } else if let jpegData = self.jpegData(compressionQuality: 1.0) {
-            return jpegData
         }
         return withUnsafeBytes(of: self) { Data($0) }
     }

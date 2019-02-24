@@ -20,25 +20,25 @@
 
 import UIKit
 
-//fileprivate extension Constants {
-//    static let sample = "Sample.txt"
-//}
-//
-//protocol FileManagerDataStore: FileManagerHelper {
-//    var sampleImage: String? { get set }
-//}
-//
-//extension FileManagerDataStore {
-//    var sampleImage: String? {
-//        get {
-//            return readFile(at: .Documents, withName: Constants.sample)
-//        }
-//        set {
-//            if let value = newValue {
-//                createFile(containing: value, to: .Documents, withName: Constants.sample)
-//            } else {
-//                deleteFile(at: .Documents, withName: Constants.sample)
-//            }
-//        }
-//    }
-//}
+fileprivate extension Constants {
+    static let sample = "Profile.png"
+}
+
+protocol FileManagerDataStore: FileManagerHelper {
+    var profileImage: UIImage? { get set }
+}
+
+extension FileManagerDataStore {
+    var profileImage: UIImage? {
+        get {
+            return readFile(at: .Documents, withName: Constants.sample) as? UIImage
+        }
+        set {
+            if let value = newValue {
+                createFile(containing: value, to: .Documents, withName: Constants.sample)
+            } else {
+                deleteFile(at: .Documents, withName: Constants.sample)
+            }
+        }
+    }
+}

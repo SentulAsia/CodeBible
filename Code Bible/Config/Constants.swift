@@ -20,7 +20,7 @@
 
 import UIKit
 
-struct Constants {
+enum Constants {
     static let appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String ?? "Code Bible"
     static let appVersion = "\(Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String) (\(Bundle.main.infoDictionary!["CFBundleVersion"] as! String))"
 

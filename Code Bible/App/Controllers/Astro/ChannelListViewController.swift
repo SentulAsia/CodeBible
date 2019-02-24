@@ -60,7 +60,7 @@ extension ChannelListViewController {
     func getChannelListAPI() {
         let channelObj = Channel()
         Spinner.shared.startLoadingIndicator(self)
-        APIManager.shared.getChannelList(channelObj: channelObj, success: { (channelModelArrayObj) in
+        APIManager.getChannelList(channelObj: channelObj, success: { (channelModelArrayObj) in
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // change 2 to desired number of seconds
                 Spinner.shared.stopLoadingIndicatior()
                 self.channels = channelModelArrayObj
