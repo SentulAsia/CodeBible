@@ -21,12 +21,12 @@
 import Foundation
 
 protocol FileManagerSystemMetaData {
-    func list(directory at: URL) -> Bool
+    func list(directory at: URL) -> [String]?
     func attributes(ofFile atFullPath: URL) -> [FileAttributeKey : Any]
 }
 
 extension FileManagerSystemMetaData {
-    func list(directory at: URL) -> Bool {
+    func list(directory at: URL) -> [String]? {
         let listing = try! FileManager.default.contentsOfDirectory(atPath: at.path)
         
         if listing.count > 0 {
@@ -39,9 +39,9 @@ extension FileManagerSystemMetaData {
             print("")
             print("----------------------------\n")
             
-            return true
+            return listing
         } else {
-            return false
+            return nil
         }
     }
     

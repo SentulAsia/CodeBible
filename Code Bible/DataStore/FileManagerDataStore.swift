@@ -24,8 +24,9 @@ fileprivate extension Constants {
     static let sample = "Profile.png"
 }
 
-protocol FileManagerDataStore: FileManagerHelper {
+protocol FileManagerDataStore: FileManagerHelper, FileManagerSystemMetaData {
     var profileImage: UIImage? { get set }
+    func deleteAll()
 }
 
 extension FileManagerDataStore {
@@ -38,6 +39,14 @@ extension FileManagerDataStore {
                 createFile(containing: value, to: .Documents, withName: Constants.sample)
             } else {
                 deleteFile(at: .Documents, withName: Constants.sample)
+            }
+        }
+    }
+    
+    func deleteAll() {
+        if let files = list(directory: getURL(for: .Documents)) {
+            for file in files {
+                deleteFile(at: .Documents, withName: file)
             }
         }
     }

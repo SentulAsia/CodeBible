@@ -30,6 +30,7 @@ protocol UserDefaultsDataStore: class {
     var currentVersion: String? { get set }
     var ipAddress: String? { get set }
     var brightness: CGFloat { get set }
+    func deleteAll()
 }
 
 extension UserDefaultsDataStore {
@@ -72,5 +73,10 @@ extension UserDefaultsDataStore {
             UserDefaults.standard.set(Float(newValue), forKey: Constants.brightness)
             UserDefaults.standard.synchronize()
         }
+    }
+    
+    func deleteAll() {
+        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        UserDefaults.standard.synchronize()
     }
 }
