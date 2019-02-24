@@ -39,7 +39,11 @@ extension UserDefaultsDataStore {
             return UserDefaults.standard.string(forKey: Constants.currentVersion)
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: Constants.currentVersion)
+            if let value = newValue {
+                UserDefaults.standard.set(value, forKey: Constants.currentVersion)
+            } else {
+                UserDefaults.standard.removeObject(forKey: Constants.currentVersion)
+            }
             UserDefaults.standard.synchronize()
         }
     }
@@ -50,7 +54,11 @@ extension UserDefaultsDataStore {
             return UserDefaults.standard.string(forKey: Constants.ipAddress)
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: Constants.ipAddress)
+            if let value = newValue {
+                UserDefaults.standard.set(value, forKey: Constants.ipAddress)
+            } else {
+                UserDefaults.standard.removeObject(forKey: Constants.ipAddress)
+            }
             UserDefaults.standard.synchronize()
         }
     }
