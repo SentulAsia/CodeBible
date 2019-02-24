@@ -32,6 +32,8 @@ extension ScreenBrightnessHelper {
     }
 
     func resetBrightness() {
-        UIScreen.main.brightness = brightness
+        if let b = brightness {
+            UIScreen.main.brightness = b
+        }
     }
 }

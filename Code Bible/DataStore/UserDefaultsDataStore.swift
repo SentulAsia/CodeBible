@@ -29,7 +29,7 @@ fileprivate extension Constants {
 protocol UserDefaultsDataStore: class {
     var currentVersion: String? { get set }
     var ipAddress: String? { get set }
-    var brightness: CGFloat { get set }
+    var brightness: CGFloat? { get set }
     func deleteAll()
 }
 
@@ -64,13 +64,17 @@ extension UserDefaultsDataStore {
         }
     }
     
-    var brightness: CGFloat {
+    var brightness: CGFloat? {
         get {
             UserDefaults.standard.synchronize()
             return CGFloat(UserDefaults.standard.float(forKey: Constants.brightness))
         }
         set {
-            UserDefaults.standard.set(Float(newValue), forKey: Constants.brightness)
+            if let value = newValue {
+                UserDefaults.standard.set(Float(value), forKey: Constants.brightness)
+            } else {
+                UserDefaults.standard.removeObject(forKey: Constants.brightness)
+            }
             UserDefaults.standard.synchronize()
         }
     }
