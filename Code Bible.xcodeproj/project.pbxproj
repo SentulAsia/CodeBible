@@ -213,6 +213,8 @@
 		B8D37BB722214D6500300AA4 /* FileManagerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerHelper.swift; sourceTree = "<group>"; };
 		B8D37BBA2221699100300AA4 /* FileManagerDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerDataStore.swift; sourceTree = "<group>"; };
 		B8D37BBD2221B38E00300AA4 /* FileManagerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerObject.swift; sourceTree = "<group>"; };
+		B8F00CEC222232B500A8311F /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B8F00CED222232F200A8311F /* MyViewController.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyViewController.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C5422D5410E66630871228C5 /* Pods-Code Bible Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible Dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev.release.xcconfig"; sourceTree = "<group>"; };
 		ED4952F340F2336B5CA2200B /* Pods-Code Bible.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible/Pods-Code Bible.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -273,6 +275,7 @@
 				B81820062221E0B7008D071A /* DataStore */,
 				2EAA795A21156BB800600D46 /* Lib */,
 				B818200E2221E1B3008D071A /* Vendor */,
+				B8F00CEB2222322600A8311F /* Bin */,
 				2EAA795721156B8A00600D46 /* Supporting Files */,
 			);
 			path = "Code Bible";
@@ -618,6 +621,15 @@
 				B8D37BB422214CFD00300AA4 /* FileManagerSystemMetaData.swift */,
 			);
 			path = FileManager;
+			sourceTree = "<group>";
+		};
+		B8F00CEB2222322600A8311F /* Bin */ = {
+			isa = PBXGroup;
+			children = (
+				B8F00CEC222232B500A8311F /* MyPlayground.playground */,
+				B8F00CED222232F200A8311F /* MyViewController.playground */,
+			);
+			path = Bin;
 			sourceTree = "<group>";
 		};
 		C5ADC8EDBE640415EFD56A0A /* Frameworks */ = {
