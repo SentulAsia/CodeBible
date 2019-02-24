@@ -20,14 +20,14 @@
 
 import Foundation
 
-protocol IPAddressHelper: UserDefaultsDataStore {
+protocol IPAddressHelper {
     var ipAddressValue: String? { get }
     func getPublicIPAddress()
 }
 
 extension IPAddressHelper {
     var ipAddressValue: String? {
-        return ipAddress
+        return UserDefaultsDataStore.shared.ipAddress
     }
 
     func getPublicIPAddress() {
@@ -36,7 +36,7 @@ extension IPAddressHelper {
             APIWorker.request(url: publicURL, method: .get, parameters: nil, headers: nil) { (response) in
                 guard response.result.isSuccess, let value = response.result.value as? Data, let response = try? JSONSerialization.jsonObject(with: value, options: []) as? [String: Any], let responseDictionary = response else { return }
                 if let ip = responseDictionary["ip"] as? String {
-                    self.ipAddress = ip
+                    UserDefaultsDataStore.shared.ipAddress = ip
                 }
             }
         }

@@ -26,14 +26,11 @@ fileprivate extension Constants {
     static let brightness = "ScreenBrightnessHelper.brightness"
 }
 
-protocol UserDefaultsDataStore: class {
-    var currentVersion: String? { get set }
-    var ipAddress: String? { get set }
-    var brightness: CGFloat? { get set }
-    func deleteAll()
-}
-
-extension UserDefaultsDataStore {
+struct UserDefaultsDataStore {
+    static var shared = UserDefaultsDataStore()
+    
+    private init() {}
+    
     var currentVersion: String? {
         get {
             UserDefaults.standard.synchronize()
