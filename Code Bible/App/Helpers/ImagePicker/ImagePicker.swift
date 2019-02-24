@@ -76,7 +76,9 @@ class ImagePicker: NSObject {
         self.imagePicker.sourceType = .photoLibrary
         self.imagePicker.delegate = self
 
-        (self.delegate as? UIViewController)?.present(self.imagePicker, animated: true, completion: nil)
+        (self.delegate as? UIViewController)?.present(self.imagePicker, animated: true, completion: {
+            CustomPhotoAlbum.shared.requestAuthorization()
+        })
     }
 
     func takePicture() {
@@ -119,7 +121,7 @@ extension ImagePicker: UINavigationControllerDelegate, UIImagePickerControllerDe
         self.imagePicker = nil
     }
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
 
         var newImage: UIImage

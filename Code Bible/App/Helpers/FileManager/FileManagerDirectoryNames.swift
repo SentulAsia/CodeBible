@@ -20,7 +20,7 @@
 
 import Foundation
 
-protocol FileManagerDirectoryNames {
+protocol FileManagerDirectoryNames: class {
     func documentsDirectoryURL() -> URL
     func inboxDirectoryURL() -> URL
     func libraryDirectoryURL() -> URL

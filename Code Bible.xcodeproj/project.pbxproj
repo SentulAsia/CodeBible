@@ -135,6 +135,8 @@
 		B8D37BB922214D6500300AA4 /* FileManagerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D37BB722214D6500300AA4 /* FileManagerHelper.swift */; };
 		B8D37BBB2221699100300AA4 /* FileManagerDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D37BBA2221699100300AA4 /* FileManagerDataStore.swift */; };
 		B8D37BBC2221699100300AA4 /* FileManagerDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D37BBA2221699100300AA4 /* FileManagerDataStore.swift */; };
+		B8F00CEF2222EF9900A8311F /* UserDefaultsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F00CEE2222EF9900A8311F /* UserDefaultsDataStore.swift */; };
+		B8F00CF02222EF9900A8311F /* UserDefaultsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F00CEE2222EF9900A8311F /* UserDefaultsDataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -212,6 +214,7 @@
 		B8D37BBA2221699100300AA4 /* FileManagerDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerDataStore.swift; sourceTree = "<group>"; };
 		B8F00CEC222232B500A8311F /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B8F00CED222232F200A8311F /* MyViewController.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyViewController.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B8F00CEE2222EF9900A8311F /* UserDefaultsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsDataStore.swift; sourceTree = "<group>"; };
 		C5422D5410E66630871228C5 /* Pods-Code Bible Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible Dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev.release.xcconfig"; sourceTree = "<group>"; };
 		ED4952F340F2336B5CA2200B /* Pods-Code Bible.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible/Pods-Code Bible.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -525,6 +528,7 @@
 		B81820062221E0B7008D071A /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
+				B8F00CEE2222EF9900A8311F /* UserDefaultsDataStore.swift */,
 				B8D37BBA2221699100300AA4 /* FileManagerDataStore.swift */,
 			);
 			path = DataStore;
@@ -867,6 +871,7 @@
 				2EAA798E2115B58500600D46 /* CustomBarButtonItem.swift in Sources */,
 				2EAA79902115C09F00600D46 /* ViewControllerHelper.swift in Sources */,
 				2EAA797621156D9400600D46 /* ChannelTableViewCell.swift in Sources */,
+				B8F00CEF2222EF9900A8311F /* UserDefaultsDataStore.swift in Sources */,
 				2EC995D72133E43B00259CDE /* Environments.swift in Sources */,
 				B8D37BB522214CFD00300AA4 /* FileManagerSystemMetaData.swift in Sources */,
 				2EDAB4F52116A10200F4B3F5 /* AlertHelper.swift in Sources */,
@@ -929,6 +934,7 @@
 				2EC995B82133AF6100259CDE /* ViewControllerHelper.swift in Sources */,
 				2EC995B92133AF6100259CDE /* ChannelTableViewCell.swift in Sources */,
 				2EC995D82133E43B00259CDE /* Environments.swift in Sources */,
+				B8F00CF02222EF9900A8311F /* UserDefaultsDataStore.swift in Sources */,
 				2EC995BA2133AF6100259CDE /* AlertHelper.swift in Sources */,
 				B8D37BB622214CFD00300AA4 /* FileManagerSystemMetaData.swift in Sources */,
 				2E792EA721354BB50047502B /* KPPayment.swift in Sources */,

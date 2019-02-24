@@ -55,6 +55,10 @@ class RootViewController: UIViewController, AlertHelper, PickerHelper, DatePicke
 
         self.navigationButton.badge = 13
         self.anotherNavigationItem.badge = 8
+        if let i = profileImage {
+            self.imageButton.setBackgroundImage(i, for: .normal)
+            profileImage = i
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -148,10 +152,11 @@ extension RootViewController: KPPaymentDelegate {
     }
 }
 
-extension RootViewController: ImagePickerDelegate {
+extension RootViewController: ImagePickerDelegate, FileManagerDataStore {
     func imagePickerFinishCapture(successfully flag: Bool, withImage image: UIImage?) {
         if let i = image {
             self.imageButton.setBackgroundImage(i, for: .normal)
+            profileImage = i
         }
     }
 }
