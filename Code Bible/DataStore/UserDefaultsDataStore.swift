@@ -34,37 +34,37 @@ struct UserDefaultsDataStore {
     
     var currentVersion: String? {
         get {
-            return getValue(forKey: Constants.currentVersion) as? String
+            return getObject(forKey: Constants.currentVersion) as? String
         }
         set {
-            setValue(newValue: newValue, forKey: Constants.currentVersion)
+            setObject(newValue, forKey: Constants.currentVersion)
         }
     }
     
     var ipAddress: String? {
         get {
-            return getValue(forKey: Constants.ipAddress) as? String
+            return getObject(forKey: Constants.ipAddress) as? String
         }
         set {
-            setValue(newValue: newValue, forKey: Constants.ipAddress)
+            setObject(newValue, forKey: Constants.ipAddress)
         }
     }
     
     var brightness: CGFloat? {
         get {
-            return (getValue(forKey: Constants.brightness) as? Double)?.cgFloatValue
+            return (getObject(forKey: Constants.brightness) as? Double)?.cgFloatValue
         }
         set {
-            setValue(newValue: newValue?.doubleValue, forKey: Constants.brightness)
+            setObject(newValue?.doubleValue, forKey: Constants.brightness)
         }
     }
     
     var userEmail: String? {
         get {
-            return getValue(forKey: Constants.userEmail) as? String
+            return getObject(forKey: Constants.userEmail) as? String
         }
         set {
-            setValue(newValue: newValue, forKey: Constants.userEmail)
+            setObject(newValue, forKey: Constants.userEmail)
         }
     }
     
@@ -75,17 +75,17 @@ struct UserDefaultsDataStore {
 }
 
 private extension UserDefaultsDataStore {
-    func getValue(forKey key: String) -> Any? {
+    func getObject(forKey key: String) -> Any? {
         UserDefaults.standard.synchronize()
-        if let value = UserDefaults.standard.object(forKey: key) {
-            return value
+        if let object = UserDefaults.standard.object(forKey: key) {
+            return object
         }
         return nil
     }
     
-    func setValue(newValue: Any?, forKey key: String) {
-        if let value = newValue {
-            UserDefaults.standard.set(value, forKey: key)
+    func setObject(_ object: Any?, forKey key: String) {
+        if let o = object {
+            UserDefaults.standard.set(o, forKey: key)
         } else {
             UserDefaults.standard.removeObject(forKey: key)
         }
