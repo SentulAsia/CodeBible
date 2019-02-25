@@ -24,6 +24,7 @@ fileprivate extension Constants {
     static let currentVersion = "AppDelegate.CurrentVersion"
     static let ipAddress = "IPAddress.value"
     static let brightness = "ScreenBrightnessHelper.brightness"
+    static let userEmail = "HelloGold.userEmail"
 }
 
 struct UserDefaultsDataStore {
@@ -33,51 +34,68 @@ struct UserDefaultsDataStore {
     
     var currentVersion: String? {
         get {
-            UserDefaults.standard.synchronize()
-            return UserDefaults.standard.string(forKey: Constants.currentVersion)
+            return getValue(forKey: Constants.currentVersion) as? String
         }
         set {
-            if let value = newValue {
-                UserDefaults.standard.set(value, forKey: Constants.currentVersion)
-            } else {
-                UserDefaults.standard.removeObject(forKey: Constants.currentVersion)
-            }
-            UserDefaults.standard.synchronize()
+            setValue(newValue: newValue, forKey: Constants.currentVersion)
         }
     }
     
     var ipAddress: String? {
         get {
-            UserDefaults.standard.synchronize()
-            return UserDefaults.standard.string(forKey: Constants.ipAddress)
+            return getValue(forKey: Constants.ipAddress) as? String
         }
         set {
-            if let value = newValue {
-                UserDefaults.standard.set(value, forKey: Constants.ipAddress)
-            } else {
-                UserDefaults.standard.removeObject(forKey: Constants.ipAddress)
-            }
-            UserDefaults.standard.synchronize()
+            setValue(newValue: newValue, forKey: Constants.ipAddress)
         }
     }
     
     var brightness: CGFloat? {
         get {
-            UserDefaults.standard.synchronize()
-            return CGFloat(UserDefaults.standard.float(forKey: Constants.brightness))
+            if let value = getValue(forKey: Constants.brightness) as? Double {
+                return CGFloat(value)
+            }
+            return nil
         }
         set {
             if let value = newValue {
-                UserDefaults.standard.set(Float(value), forKey: Constants.brightness)
+                setValue(newValue: Double(value), forKey: Constants.brightness)
             } else {
-                UserDefaults.standard.removeObject(forKey: Constants.brightness)
+                setValue(newValue: nil, forKey: Constants.brightness)
             }
-            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    var userEmail: String? {
+        get {
+            return getValue(forKey: Constants.userEmail) as? String
+        }
+        set {
+            setValue(newValue: newValue, forKey: Constants.userEmail)
         }
     }
     
     func deleteAll() {
         UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        UserDefaults.standard.synchronize()
+    }
+}
+
+private extension UserDefaultsDataStore {
+    func getValue(forKey key: String) -> Any? {
+        UserDefaults.standard.synchronize()
+        if let value = UserDefaults.standard.object(forKey: key) {
+            return value
+        }
+        return nil
+    }
+    
+    func setValue(newValue: Any?, forKey key: String) {
+        if let value = newValue {
+            UserDefaults.standard.set(value, forKey: key)
+        } else {
+            UserDefaults.standard.removeObject(forKey: key)
+        }
         UserDefaults.standard.synchronize()
     }
 }

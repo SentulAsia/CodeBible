@@ -20,8 +20,8 @@
 
 import UIKit
 
-struct SpinnerManager {
-    static var shared = SpinnerManager()
+struct SpinnerController {
+    static var shared = SpinnerController()
     private var loadingIndicator: UIView?
 
     private init() {}

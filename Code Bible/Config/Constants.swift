@@ -56,5 +56,14 @@ enum Constants {
         static let channelList = "/ams/v3/getChannelList"
     }
 
-    static let generateDeeplinkURL = "https://sandbox.kiplepay.com:94/api/deeplinks/generate"
+    struct KipleAPI {
+        static let generateDeeplinkURL = "https://sandbox.kiplepay.com:94/api/deeplinks/generate"
+    }
+    
+    struct HelloGoldAPI {
+        static let baseURL = "https://staging.hellogold.com"
+        
+        static let registerUser = "/api/v3/users/register"
+        static let getSpotPrice = "/api/v2/spot_price"
+    }
 }

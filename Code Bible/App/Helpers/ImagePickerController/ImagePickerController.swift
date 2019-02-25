@@ -20,15 +20,15 @@
 
 import UIKit
 
-protocol ImagePickerManagerDelegate: class {
+protocol ImagePickerDelegate: class {
     func imagePickerFinishCapture(successfully flag: Bool, withImage image: UIImage?)
 }
 
-class ImagePickerManager: NSObject {
-    static let shared = ImagePickerManager()
+class ImagePickerController: NSObject {
+    static let shared = ImagePickerController()
 
     // MARK: Delegate
-    weak var delegate: ImagePickerManagerDelegate?
+    weak var delegate: ImagePickerDelegate?
     var imageWidth: CGFloat? // resize image to a specific width
 
     private var imagePicker: UIImagePickerController!
@@ -38,10 +38,10 @@ class ImagePickerManager: NSObject {
         super.init()
     }
 
-    static func presentMenu(_ sender: UIView, delegate: ImagePickerManagerDelegate) {
+    static func presentMenu(_ sender: UIView, delegate: ImagePickerDelegate) {
         let menu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let action1 = UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
-            let camera = ImagePickerManager.shared
+            let camera = ImagePickerController.shared
             camera.delegate = delegate
             camera.imageWidth = 200
             camera.takePicture()
@@ -51,7 +51,7 @@ class ImagePickerManager: NSObject {
 //        action1.setValue(0, forKey: "titleTextAlignment")
         menu.addAction(action1)
         let action2 = UIAlertAction(title: "Photo Library", style: .default, handler: { (action: UIAlertAction) in
-            let photoLibrary = ImagePickerManager.shared
+            let photoLibrary = ImagePickerController.shared
             photoLibrary.delegate = delegate
             photoLibrary.imageWidth = 200
             photoLibrary.selectPicture()
@@ -115,7 +115,7 @@ class ImagePickerManager: NSObject {
     }
 }
 
-extension ImagePickerManager: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+extension ImagePickerController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.imagePicker.dismiss(animated: true, completion: nil)
         self.imagePicker = nil

@@ -117,7 +117,7 @@ class RootViewController: UIViewController, AlertHelper, PickerHelper, DatePicke
     }
 
     @IBAction func imageButtonTapped(_ sender: Any) {
-        ImagePickerManager.presentMenu(sender as! UIButton, delegate: self)
+        ImagePickerController.presentMenu(sender as! UIButton, delegate: self)
     }
 
     @IBAction func showToastButtonTapped(_ sender: Any) {
@@ -151,7 +151,7 @@ extension RootViewController: KPPaymentDelegate {
     }
 }
 
-extension RootViewController: ImagePickerManagerDelegate {
+extension RootViewController: ImagePickerDelegate {
     func imagePickerFinishCapture(successfully flag: Bool, withImage image: UIImage?) {
         if let i = image {
             self.imageButton.setBackgroundImage(i, for: .normal)
@@ -162,13 +162,6 @@ extension RootViewController: ImagePickerManagerDelegate {
 
 extension RootViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        print(#function)
-        print(string)
-        let regex = try? NSRegularExpression.init(pattern: "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~@\\-]+", options: NSRegularExpression.Options.useUnixLineSeparators)
-        let range = NSRange.init(location: 0, length: string.count)
-        let matches = regex?.matches(in: string, options: .withoutAnchoringBounds, range: range)
-        guard let matchingString = matches, matchingString.count > 0 else { return false }
-        
-        return true
+        return RegularExpression.validateTwoDecimalAmount(forString: string, andRange: range)
     }
 }
