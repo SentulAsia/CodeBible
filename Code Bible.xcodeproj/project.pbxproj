@@ -25,10 +25,10 @@
 		2EAA792B21156B3800600D46 /* OpeningTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA792721156B3800600D46 /* OpeningTime.swift */; };
 		2EAA792C21156B3800600D46 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA792821156B3800600D46 /* Restaurant.swift */; };
 		2EAA794821156B5F00600D46 /* CustomPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA793E21156B5F00600D46 /* CustomPhotoAlbum.swift */; };
-		2EAA794921156B5F00600D46 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA793F21156B5F00600D46 /* Spinner.swift */; };
+		2EAA794921156B5F00600D46 /* SpinnerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA793F21156B5F00600D46 /* SpinnerManager.swift */; };
 		2EAA794A21156B5F00600D46 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA794021156B5F00600D46 /* CustomButton.swift */; };
 		2EAA794B21156B5F00600D46 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA794121156B5F00600D46 /* CustomTextField.swift */; };
-		2EAA794C21156B5F00600D46 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA794221156B5F00600D46 /* ImagePicker.swift */; };
+		2EAA794C21156B5F00600D46 /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA794221156B5F00600D46 /* ImagePickerManager.swift */; };
 		2EAA794D21156B5F00600D46 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA794321156B5F00600D46 /* CustomView.swift */; };
 		2EAA794E21156B5F00600D46 /* APIWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA794421156B5F00600D46 /* APIWorker.swift */; };
 		2EAA794F21156B5F00600D46 /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA794521156B5F00600D46 /* KeyboardHelper.swift */; };
@@ -67,9 +67,9 @@
 		2EC995A32133AF6100259CDE /* ScrollingNavbar+Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E399CA3211BDFBE009F6B6E /* ScrollingNavbar+Sizes.swift */; };
 		2EC995A42133AF6100259CDE /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E98259C211626480074ABB2 /* ImageHelper.swift */; };
 		2EC995A52133AF6100259CDE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA794021156B5F00600D46 /* CustomButton.swift */; };
-		2EC995A62133AF6100259CDE /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA794221156B5F00600D46 /* ImagePicker.swift */; };
+		2EC995A62133AF6100259CDE /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA794221156B5F00600D46 /* ImagePickerManager.swift */; };
 		2EC995A72133AF6100259CDE /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA795421156B6A00600D46 /* APIManager.swift */; };
-		2EC995A82133AF6100259CDE /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA793F21156B5F00600D46 /* Spinner.swift */; };
+		2EC995A82133AF6100259CDE /* SpinnerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA793F21156B5F00600D46 /* SpinnerManager.swift */; };
 		2EC995A92133AF6100259CDE /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA794321156B5F00600D46 /* CustomView.swift */; };
 		2EC995AA2133AF6100259CDE /* FullPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA797421156D9400600D46 /* FullPickerTableViewCell.swift */; };
 		2EC995AB2133AF6100259CDE /* OpeningTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA792721156B3800600D46 /* OpeningTime.swift */; };
@@ -160,10 +160,10 @@
 		2EAA792721156B3800600D46 /* OpeningTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningTime.swift; sourceTree = "<group>"; };
 		2EAA792821156B3800600D46 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		2EAA793E21156B5F00600D46 /* CustomPhotoAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPhotoAlbum.swift; sourceTree = "<group>"; };
-		2EAA793F21156B5F00600D46 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		2EAA793F21156B5F00600D46 /* SpinnerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerManager.swift; sourceTree = "<group>"; };
 		2EAA794021156B5F00600D46 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		2EAA794121156B5F00600D46 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		2EAA794221156B5F00600D46 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		2EAA794221156B5F00600D46 /* ImagePickerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
 		2EAA794321156B5F00600D46 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		2EAA794421156B5F00600D46 /* APIWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIWorker.swift; sourceTree = "<group>"; };
 		2EAA794521156B5F00600D46 /* KeyboardHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
@@ -315,12 +315,12 @@
 			children = (
 				B81820052221DFD7008D071A /* APIManager */,
 				B8D37BAD2221480200300AA4 /* FileManager */,
-				2EAA7982211575BD00600D46 /* BlurBackground */,
+				2EAA79832115760300600D46 /* SpinnerManager */,
+				2EAA79842115761000600D46 /* ImagePickerManager */,
 				2EAA7981211575B200600D46 /* Picker */,
 				2EAA7988211579CA00600D46 /* DatePicker */,
-				2EAA79842115761000600D46 /* ImagePicker */,
+				2EAA7982211575BD00600D46 /* BlurBackground */,
 				2EAA79802115753600600D46 /* Toast */,
-				2EAA79832115760300600D46 /* Spinner */,
 				2EAA79852115763500600D46 /* Keyboard */,
 				2E399CA5211BDFF5009F6B6E /* ScrollingNavigationController */,
 				2EAA794621156B5F00600D46 /* StringHelper.swift */,
@@ -462,21 +462,21 @@
 			path = BlurBackground;
 			sourceTree = "<group>";
 		};
-		2EAA79832115760300600D46 /* Spinner */ = {
+		2EAA79832115760300600D46 /* SpinnerManager */ = {
 			isa = PBXGroup;
 			children = (
-				2EAA793F21156B5F00600D46 /* Spinner.swift */,
+				2EAA793F21156B5F00600D46 /* SpinnerManager.swift */,
 			);
-			path = Spinner;
+			path = SpinnerManager;
 			sourceTree = "<group>";
 		};
-		2EAA79842115761000600D46 /* ImagePicker */ = {
+		2EAA79842115761000600D46 /* ImagePickerManager */ = {
 			isa = PBXGroup;
 			children = (
-				2EAA794221156B5F00600D46 /* ImagePicker.swift */,
+				2EAA794221156B5F00600D46 /* ImagePickerManager.swift */,
 				2EAA793E21156B5F00600D46 /* CustomPhotoAlbum.swift */,
 			);
-			path = ImagePicker;
+			path = ImagePickerManager;
 			sourceTree = "<group>";
 		};
 		2EAA79852115763500600D46 /* Keyboard */ = {
@@ -847,10 +847,10 @@
 				2E98259D211626480074ABB2 /* ImageHelper.swift in Sources */,
 				B8D37BBB2221699100300AA4 /* FileManagerDataStore.swift in Sources */,
 				2EAA794A21156B5F00600D46 /* CustomButton.swift in Sources */,
-				2EAA794C21156B5F00600D46 /* ImagePicker.swift in Sources */,
+				2EAA794C21156B5F00600D46 /* ImagePickerManager.swift in Sources */,
 				2E3CDADF2164948000FA7307 /* IPAddressHelper.swift in Sources */,
 				2EAA795621156B6A00600D46 /* APIManager.swift in Sources */,
-				2EAA794921156B5F00600D46 /* Spinner.swift in Sources */,
+				2EAA794921156B5F00600D46 /* SpinnerManager.swift in Sources */,
 				2EAA794D21156B5F00600D46 /* CustomView.swift in Sources */,
 				B8D37BAB222147ED00300AA4 /* FileManagerDirectories.swift in Sources */,
 				2EAA797721156D9400600D46 /* FullPickerTableViewCell.swift in Sources */,
@@ -910,9 +910,9 @@
 				2EC995A52133AF6100259CDE /* CustomButton.swift in Sources */,
 				B8D37BBC2221699100300AA4 /* FileManagerDataStore.swift in Sources */,
 				B86D413521D7301100214666 /* ColorHelper.swift in Sources */,
-				2EC995A62133AF6100259CDE /* ImagePicker.swift in Sources */,
+				2EC995A62133AF6100259CDE /* ImagePickerManager.swift in Sources */,
 				2EC995A72133AF6100259CDE /* APIManager.swift in Sources */,
-				2EC995A82133AF6100259CDE /* Spinner.swift in Sources */,
+				2EC995A82133AF6100259CDE /* SpinnerManager.swift in Sources */,
 				2EC995A92133AF6100259CDE /* CustomView.swift in Sources */,
 				2EC995AA2133AF6100259CDE /* FullPickerTableViewCell.swift in Sources */,
 				B8D37BAC222147ED00300AA4 /* FileManagerDirectories.swift in Sources */,

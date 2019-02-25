@@ -47,7 +47,7 @@ class ChannelListViewController: UIViewController, ToastHelper {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        Spinner.shared.stopLoadingIndicatior()
+        SpinnerManager.shared.stopLoadingIndicatior()
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,16 +59,16 @@ class ChannelListViewController: UIViewController, ToastHelper {
 extension ChannelListViewController {
     func getChannelListAPI() {
         let channelObj = Channel()
-        Spinner.shared.startLoadingIndicator(self)
+        SpinnerManager.shared.startLoadingIndicator(self)
         APIManager.getChannelList(channelObj: channelObj, success: { (channelModelArrayObj) in
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // change 2 to desired number of seconds
-                Spinner.shared.stopLoadingIndicatior()
+                SpinnerManager.shared.stopLoadingIndicatior()
                 self.channels = channelModelArrayObj
                 self.tableView.isHidden = false
                 self.tableView.reloadData()
             }
         }) { (error) in
-            Spinner.shared.stopLoadingIndicatior()
+            SpinnerManager.shared.stopLoadingIndicatior()
             self.presentToast(self, withMessage: error)
         }
     }

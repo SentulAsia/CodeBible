@@ -117,7 +117,7 @@ class RootViewController: UIViewController, AlertHelper, PickerHelper, DatePicke
     }
 
     @IBAction func imageButtonTapped(_ sender: Any) {
-        ImagePicker.presentMenu(sender as! UIButton, delegate: self)
+        ImagePickerManager.presentMenu(sender as! UIButton, delegate: self)
     }
 
     @IBAction func showToastButtonTapped(_ sender: Any) {
@@ -151,7 +151,7 @@ extension RootViewController: KPPaymentDelegate {
     }
 }
 
-extension RootViewController: ImagePickerDelegate {
+extension RootViewController: ImagePickerManagerDelegate {
     func imagePickerFinishCapture(successfully flag: Bool, withImage image: UIImage?) {
         if let i = image {
             self.imageButton.setBackgroundImage(i, for: .normal)
