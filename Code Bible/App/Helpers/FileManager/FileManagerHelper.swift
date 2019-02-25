@@ -137,7 +137,7 @@ extension FileManagerHelper {
         var newFileName = NSString(string:name)
         newFileName = newFileName.deletingPathExtension as NSString
         newFileName = (newFileName.appendingPathExtension(newExtension) as NSString?)!
-        let finalFileName:String =  String(newFileName)
+        let finalFileName: String =  newFileName as String
         
         let originURL = buildFullPath(forFileName: name, inDirectory: inDirectory)
         let destinationURL = buildFullPath(forFileName: finalFileName, inDirectory: inDirectory)

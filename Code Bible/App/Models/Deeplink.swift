@@ -23,7 +23,7 @@ import Foundation
 struct Deeplink : Codable {
     let merchantId: Int?
     let storeId: Int?
-    let amount: Float?
+    let amount: Decimal?
     let referenceId: String?
     let checkSum: String?
     let deeplinkURL: String?
@@ -41,7 +41,7 @@ struct Deeplink : Codable {
         case message = "Message"
     }
 
-    init(merchantId: Int = 0, storeId: Int = 0, amount: Float = 0.0, referenceId: String = "", checkSum: String = "") {
+    init(merchantId: Int = 0, storeId: Int = 0, amount: Decimal = 0.0, referenceId: String = "", checkSum: String = "") {
         self.merchantId = merchantId
         self.storeId = storeId
         self.amount = amount

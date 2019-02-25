@@ -52,17 +52,10 @@ struct UserDefaultsDataStore {
     
     var brightness: CGFloat? {
         get {
-            if let value = getValue(forKey: Constants.brightness) as? Double {
-                return CGFloat(value)
-            }
-            return nil
+            return (getValue(forKey: Constants.brightness) as? Double)?.cgFloatValue
         }
         set {
-            if let value = newValue {
-                setValue(newValue: Double(value), forKey: Constants.brightness)
-            } else {
-                setValue(newValue: nil, forKey: Constants.brightness)
-            }
+            setValue(newValue: newValue?.doubleValue, forKey: Constants.brightness)
         }
     }
     

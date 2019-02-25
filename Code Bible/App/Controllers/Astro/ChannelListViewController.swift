@@ -91,7 +91,7 @@ extension ChannelListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: ChannelTableViewCell.Constants.identifier, for: indexPath) as! ChannelTableViewCell
 
         cell.textLabel?.text = self.channels[indexPath.row].channelTitle
-        cell.detailTextLabel?.text = String(self.channels[indexPath.row].channelStbNumber)
+        cell.detailTextLabel?.text = self.channels[indexPath.row].channelStbNumber.description
 
         return cell
     }
