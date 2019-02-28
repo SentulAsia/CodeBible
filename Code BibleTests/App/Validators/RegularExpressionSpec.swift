@@ -52,6 +52,6 @@ class RegularExpressionSpec: XCTestCase {
         let actualResult = RegularExpression.validateEmail(forString: invalidEmail)
         
         // then
-        XCTAssertEqual(actualResult, expectedResult, "validateEmail(forString:) should accept valid email")
+        XCTAssertEqual(actualResult, expectedResult, "validateEmail(forString:) should reject invalid email")
     }
 }
