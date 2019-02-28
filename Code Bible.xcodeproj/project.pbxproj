@@ -114,6 +114,7 @@
 		2EE9A6BA211A8A23004A8EAD /* SpotPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE9A6B8211A8A22004A8EAD /* SpotPrice.swift */; };
 		2EE9A6BB211A8A23004A8EAD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE9A6B9211A8A23004A8EAD /* User.swift */; };
 		4A4A237AB867D21F081AB4AE /* Pods_Code_Bible_Dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABB78483F8F76BE8401CAF1 /* Pods_Code_Bible_Dev.framework */; };
+		643C67AFE84D987838CA7C1A /* Pods_Code_BibleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 348B982538367FA7BE2C1A14 /* Pods_Code_BibleTests.framework */; };
 		64659E9C80B86835C5E811A6 /* Pods_Code_Bible.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7246B384203AEB291246016E /* Pods_Code_Bible.framework */; };
 		B81820002221DF24008D071A /* Locales.plist in Resources */ = {isa = PBXBuildFile; fileRef = B81820032221DF24008D071A /* Locales.plist */; };
 		B81820012221DF24008D071A /* Locales.plist in Resources */ = {isa = PBXBuildFile; fileRef = B81820032221DF24008D071A /* Locales.plist */; };
@@ -143,7 +144,25 @@
 		B8D37BBC2221699100300AA4 /* FileManagerDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D37BBA2221699100300AA4 /* FileManagerDataStore.swift */; };
 		B8F00CEF2222EF9900A8311F /* UserDefaultsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F00CEE2222EF9900A8311F /* UserDefaultsDataStore.swift */; };
 		B8F00CF02222EF9900A8311F /* UserDefaultsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F00CEE2222EF9900A8311F /* UserDefaultsDataStore.swift */; };
+		B8F9C8CE22284007008A8717 /* RegularExpressionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F9C8CD22284007008A8717 /* RegularExpressionSpec.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B82D15C02228468100D2B90A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2EAA790321156AE800600D46 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2EC9959B2133AF6100259CDE;
+			remoteInfo = "Code Bible Dev";
+		};
+		B8F9C8C722283F42008A8717 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2EAA790321156AE800600D46 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2EAA790A21156AE800600D46;
+			remoteInfo = "Code Bible";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1ABB78483F8F76BE8401CAF1 /* Pods_Code_Bible_Dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Code_Bible_Dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,7 +226,9 @@
 		2EE9A6B8211A8A22004A8EAD /* SpotPrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotPrice.swift; sourceTree = "<group>"; };
 		2EE9A6B9211A8A23004A8EAD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		307A00F00C7FD84510B6B372 /* Pods-Code Bible Dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible Dev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev.debug.xcconfig"; sourceTree = "<group>"; };
+		348B982538367FA7BE2C1A14 /* Pods_Code_BibleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Code_BibleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A44BB01066D74B9BF1E5916 /* Pods-Code Bible.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible/Pods-Code Bible.debug.xcconfig"; sourceTree = "<group>"; };
+		5D14A86617FD18224F90FA3C /* Pods-Code BibleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code BibleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code BibleTests/Pods-Code BibleTests.release.xcconfig"; sourceTree = "<group>"; };
 		7246B384203AEB291246016E /* Pods_Code_Bible.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Code_Bible.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B81820022221DF24008D071A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Locales.plist; sourceTree = "<group>"; };
 		B81820042221DF40008D071A /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ar; path = ar.lproj/Locales.plist; sourceTree = "<group>"; };
@@ -221,11 +242,18 @@
 		B8D37BB422214CFD00300AA4 /* FileManagerSystemMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerSystemMetaData.swift; sourceTree = "<group>"; };
 		B8D37BB722214D6500300AA4 /* FileManagerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerHelper.swift; sourceTree = "<group>"; };
 		B8D37BBA2221699100300AA4 /* FileManagerDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerDataStore.swift; sourceTree = "<group>"; };
-		B8F00CEC222232B500A8311F /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		B8F00CED222232F200A8311F /* MyViewController.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyViewController.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B8F00CEE2222EF9900A8311F /* UserDefaultsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsDataStore.swift; sourceTree = "<group>"; };
+		B8F9C8C222283F42008A8717 /* Code BibleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Code BibleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8F9C8C622283F42008A8717 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8F9C8CC22284007008A8717 /* Code BibleTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Code BibleTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		B8F9C8CD22284007008A8717 /* RegularExpressionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionSpec.swift; sourceTree = "<group>"; };
+		B8F9C8D0222840C2008A8717 /* MyViewController.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyViewController.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B8F9C8D12228412E008A8717 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B8F9C8D222284165008A8717 /* Code Bible-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Code Bible-Bridging-Header.h"; sourceTree = "<group>"; };
+		B8F9C8D322284165008A8717 /* Code Bible Dev-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Code Bible Dev-Bridging-Header.h"; sourceTree = "<group>"; };
 		C5422D5410E66630871228C5 /* Pods-Code Bible Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible Dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev.release.xcconfig"; sourceTree = "<group>"; };
 		ED4952F340F2336B5CA2200B /* Pods-Code Bible.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible/Pods-Code Bible.release.xcconfig"; sourceTree = "<group>"; };
+		F2B5C5352A36F3D2B4AF9E3A /* Pods-Code BibleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code BibleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code BibleTests/Pods-Code BibleTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +273,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B8F9C8BF22283F42008A8717 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				643C67AFE84D987838CA7C1A /* Pods_Code_BibleTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -261,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				2EAA790D21156AE800600D46 /* Code Bible */,
+				B8F9C8C322283F42008A8717 /* Code BibleTests */,
 				2EAA790C21156AE800600D46 /* Products */,
 				6A2068BB9D17E5FCA0B312C1 /* Pods */,
 				C5ADC8EDBE640415EFD56A0A /* Frameworks */,
@@ -272,6 +309,7 @@
 			children = (
 				2EAA790B21156AE800600D46 /* Code Bible.app */,
 				2EC995D32133AF6100259CDE /* Code Bible Dev.app */,
+				B8F9C8C222283F42008A8717 /* Code BibleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -284,7 +322,7 @@
 				B81820062221E0B7008D071A /* DataStore */,
 				2EAA795A21156BB800600D46 /* Lib */,
 				B818200E2221E1B3008D071A /* Vendor */,
-				B8F00CEB2222322600A8311F /* Bin */,
+				B8F9C8CF22284074008A8717 /* Bin */,
 				2EAA795721156B8A00600D46 /* Supporting Files */,
 			);
 			path = "Code Bible";
@@ -369,6 +407,8 @@
 			children = (
 				2EAA791C21156AE900600D46 /* Info.plist */,
 				2EC995D52133CED700259CDE /* Info-Dev.plist */,
+				B8F9C8D222284165008A8717 /* Code Bible-Bridging-Header.h */,
+				B8F9C8D322284165008A8717 /* Code Bible Dev-Bridging-Header.h */,
 				2EAA795821156BAE00600D46 /* Settings.bundle */,
 			);
 			path = "Supporting Files";
@@ -522,6 +562,8 @@
 				ED4952F340F2336B5CA2200B /* Pods-Code Bible.release.xcconfig */,
 				307A00F00C7FD84510B6B372 /* Pods-Code Bible Dev.debug.xcconfig */,
 				C5422D5410E66630871228C5 /* Pods-Code Bible Dev.release.xcconfig */,
+				F2B5C5352A36F3D2B4AF9E3A /* Pods-Code BibleTests.debug.xcconfig */,
+				5D14A86617FD18224F90FA3C /* Pods-Code BibleTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -635,13 +677,47 @@
 			path = FileManager;
 			sourceTree = "<group>";
 		};
-		B8F00CEB2222322600A8311F /* Bin */ = {
+		B8F9C8C322283F42008A8717 /* Code BibleTests */ = {
 			isa = PBXGroup;
 			children = (
-				B8F00CEC222232B500A8311F /* MyPlayground.playground */,
-				B8F00CED222232F200A8311F /* MyViewController.playground */,
+				B8F9C8D9222843BC008A8717 /* App */,
+				B8F9C8D822284323008A8717 /* Supporting Files */,
+			);
+			path = "Code BibleTests";
+			sourceTree = "<group>";
+		};
+		B8F9C8CF22284074008A8717 /* Bin */ = {
+			isa = PBXGroup;
+			children = (
+				B8F9C8D12228412E008A8717 /* MyPlayground.playground */,
+				B8F9C8D0222840C2008A8717 /* MyViewController.playground */,
 			);
 			path = Bin;
+			sourceTree = "<group>";
+		};
+		B8F9C8D822284323008A8717 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B8F9C8C622283F42008A8717 /* Info.plist */,
+				B8F9C8CC22284007008A8717 /* Code BibleTests-Bridging-Header.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8F9C8D9222843BC008A8717 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B8F9C8DA222843C3008A8717 /* Validators */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B8F9C8DA222843C3008A8717 /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				B8F9C8CD22284007008A8717 /* RegularExpressionSpec.swift */,
+			);
+			path = Validators;
 			sourceTree = "<group>";
 		};
 		C5ADC8EDBE640415EFD56A0A /* Frameworks */ = {
@@ -649,6 +725,7 @@
 			children = (
 				7246B384203AEB291246016E /* Pods_Code_Bible.framework */,
 				1ABB78483F8F76BE8401CAF1 /* Pods_Code_Bible_Dev.framework */,
+				348B982538367FA7BE2C1A14 /* Pods_Code_BibleTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -694,19 +771,47 @@
 			productReference = 2EC995D32133AF6100259CDE /* Code Bible Dev.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B8F9C8C122283F42008A8717 /* Code BibleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8F9C8CB22283F42008A8717 /* Build configuration list for PBXNativeTarget "Code BibleTests" */;
+			buildPhases = (
+				4D5E376EA3722436421D7209 /* [CP] Check Pods Manifest.lock */,
+				B8F9C8BE22283F42008A8717 /* Sources */,
+				B8F9C8BF22283F42008A8717 /* Frameworks */,
+				B8F9C8C022283F42008A8717 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B8F9C8C822283F42008A8717 /* PBXTargetDependency */,
+				B82D15C12228468100D2B90A /* PBXTargetDependency */,
+			);
+			name = "Code BibleTests";
+			productName = "Code BibleTests";
+			productReference = B8F9C8C222283F42008A8717 /* Code BibleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		2EAA790321156AE800600D46 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Zaid Said";
 				TargetAttributes = {
 					2EAA790A21156AE800600D46 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1010;
+					};
+					2EC9959B2133AF6100259CDE = {
+						LastSwiftMigration = 1010;
+					};
+					B8F9C8C122283F42008A8717 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
+						TestTargetID = 2EAA790A21156AE800600D46;
 					};
 				};
 			};
@@ -726,6 +831,7 @@
 			targets = (
 				2EAA790A21156AE800600D46 /* Code Bible */,
 				2EC9959B2133AF6100259CDE /* Code Bible Dev */,
+				B8F9C8C122283F42008A8717 /* Code BibleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -758,6 +864,13 @@
 				2EC995CD2133AF6100259CDE /* LaunchScreen.storyboard in Resources */,
 				2EC995CE2133AF6100259CDE /* Assets.xcassets in Resources */,
 				2EC995CF2133AF6100259CDE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8F9C8C022283F42008A8717 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -814,6 +927,28 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Code Bible-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4D5E376EA3722436421D7209 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Code BibleTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -975,7 +1110,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B8F9C8BE22283F42008A8717 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8F9C8CE22284007008A8717 /* RegularExpressionSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B82D15C12228468100D2B90A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2EC9959B2133AF6100259CDE /* Code Bible Dev */;
+			targetProxy = B82D15C02228468100D2B90A /* PBXContainerItemProxy */;
+		};
+		B8F9C8C822283F42008A8717 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2EAA790A21156AE800600D46 /* Code Bible */;
+			targetProxy = B8F9C8C722283F42008A8717 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2EAA791421156AE800600D46 /* Main.storyboard */ = {
@@ -1135,6 +1291,7 @@
 			baseConfigurationReference = 4A44BB01066D74B9BF1E5916 /* Pods-Code Bible.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C8C5YY57VR;
 				INFOPLIST_FILE = "Code Bible/Supporting Files/Info.plist";
@@ -1144,6 +1301,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sentulasia.CodeBible;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Code Bible/Supporting Files/Code Bible-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1154,6 +1313,7 @@
 			baseConfigurationReference = ED4952F340F2336B5CA2200B /* Pods-Code Bible.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C8C5YY57VR;
 				INFOPLIST_FILE = "Code Bible/Supporting Files/Info.plist";
@@ -1163,6 +1323,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sentulasia.CodeBible;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Code Bible/Supporting Files/Code Bible-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1173,6 +1334,7 @@
 			baseConfigurationReference = 307A00F00C7FD84510B6B372 /* Pods-Code Bible Dev.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C8C5YY57VR;
 				INFOPLIST_FILE = "Code Bible/Supporting Files/Info-Dev.plist";
@@ -1183,6 +1345,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEVELOPMENT";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sentulasia.CodeBible-Dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Code Bible/Supporting Files/Code Bible Dev-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1193,6 +1357,7 @@
 			baseConfigurationReference = C5422D5410E66630871228C5 /* Pods-Code Bible Dev.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C8C5YY57VR;
 				INFOPLIST_FILE = "Code Bible/Supporting Files/Info-Dev.plist";
@@ -1203,8 +1368,61 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEVELOPMENT";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sentulasia.CodeBible-Dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Code Bible/Supporting Files/Code Bible Dev-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B8F9C8C922283F42008A8717 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2B5C5352A36F3D2B4AF9E3A /* Pods-Code BibleTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C8C5YY57VR;
+				INFOPLIST_FILE = "Code BibleTests/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sentulasia.Code-BibleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Code BibleTests/Supporting Files/Code BibleTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Code Bible.app/Code Bible";
+			};
+			name = Debug;
+		};
+		B8F9C8CA22283F42008A8717 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D14A86617FD18224F90FA3C /* Pods-Code BibleTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C8C5YY57VR;
+				INFOPLIST_FILE = "Code BibleTests/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sentulasia.Code-BibleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Code BibleTests/Supporting Files/Code BibleTests-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Code Bible.app/Code Bible";
 			};
 			name = Release;
 		};
@@ -1234,6 +1452,15 @@
 			buildConfigurations = (
 				2EC995D12133AF6100259CDE /* Debug */,
 				2EC995D22133AF6100259CDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8F9C8CB22283F42008A8717 /* Build configuration list for PBXNativeTarget "Code BibleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8F9C8C922283F42008A8717 /* Debug */,
+				B8F9C8CA22283F42008A8717 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
