@@ -21,8 +21,8 @@
 import UIKit
 
 protocol FileManagerHelper: FileManagerDirectoryNames {
-    @discardableResult func createFile(containing: AnyObject, to path: FileManagerDirectories, withName name: String) -> Bool
-    @discardableResult func readFile(at path: FileManagerDirectories, withName name: String) -> AnyObject?
+    @discardableResult func createFile(containing value: Any, to path: FileManagerDirectories, withName name: String) -> Bool
+    @discardableResult func readFile(at path: FileManagerDirectories, withName name: String) -> Any?
     @discardableResult func deleteFile(at path: FileManagerDirectories, withName name: String) -> Bool
     @discardableResult func renameFile(at path: FileManagerDirectories, with oldName: String, to newName: String) -> Bool
     @discardableResult func moveFile(withName name: String, inDirectory: FileManagerDirectories, toDirectory directory: FileManagerDirectories) -> Bool
@@ -32,26 +32,26 @@ protocol FileManagerHelper: FileManagerDirectoryNames {
 
 extension FileManagerHelper {
     @discardableResult
-    func createFile(containing: AnyObject, to path: FileManagerDirectories, withName name: String) -> Bool {
+    func createFile(containing value: Any, to path: FileManagerDirectories, withName name: String) -> Bool {
         let filePath = getURL(for: path).path + "/" + name
         let rawData: Data?
-        switch containing {
+        switch value {
         case is Bool:
-            rawData = (containing as? Bool)?.data
+            rawData = (value as? Bool)?.data
         case is Int:
-            rawData = (containing as? Int)?.data
+            rawData = (value as? Int)?.data
         case is Decimal:
-            rawData = (containing as? Decimal)?.data
+            rawData = (value as? Decimal)?.data
         case is Float:
-            rawData = (containing as? Float)?.data
+            rawData = (value as? Float)?.data
         case is Double:
-            rawData = (containing as? Double)?.data
+            rawData = (value as? Double)?.data
         case is String:
-            rawData = (containing as? String)?.data
+            rawData = (value as? String)?.data
         case is UIImage:
-            rawData = (containing as? UIImage)?.data
+            rawData = (value as? UIImage)?.data
         case is Data:
-            rawData = containing as? Data
+            rawData = value as? Data
         default:
             print("FileManagerHelper: invalid data type")
             return false
@@ -64,25 +64,25 @@ extension FileManagerHelper {
     }
     
     @discardableResult
-    func readFile(at path: FileManagerDirectories, withName name: String) -> AnyObject? {
+    func readFile(at path: FileManagerDirectories, withName name: String) -> Any? {
         let filePath = getURL(for: path).path + "/" + name
         if let fileContents = FileManager.default.contents(atPath: filePath) {
             if let fileContentsAsImage = UIImage(data: fileContents) {
-                return fileContentsAsImage as AnyObject
+                return fileContentsAsImage
             } else if let fileContentsAsString = String(data: fileContents) {
-                return fileContentsAsString as AnyObject
+                return fileContentsAsString
             } else if let fileContentsAsDouble = Double(data: fileContents) {
-                return fileContentsAsDouble as AnyObject
+                return fileContentsAsDouble
             } else if let fileContentsAsFloat = Float(data: fileContents) {
-                return fileContentsAsFloat as AnyObject
+                return fileContentsAsFloat
             } else if let fileContentsAsDecimal = Decimal(data: fileContents) {
-                return fileContentsAsDecimal as AnyObject
+                return fileContentsAsDecimal
             } else if let fileContentsAsInt = Int(data: fileContents) {
-                return fileContentsAsInt as AnyObject
+                return fileContentsAsInt
             } else if let fileContentsAsBool = Bool(data: fileContents) {
-                return fileContentsAsBool as AnyObject
+                return fileContentsAsBool
             } else {
-                return fileContents as AnyObject
+                return fileContents
             }
         }
         
@@ -124,7 +124,7 @@ extension FileManagerHelper {
     @discardableResult
     func copyFile(withName name: String, inDirectory: FileManagerDirectories, toDirectory directory: FileManagerDirectories) -> Bool {
         let originURL = buildFullPath(forFileName: name, inDirectory: inDirectory)
-        let destinationURL = buildFullPath(forFileName: name+"1", inDirectory: directory)
+        let destinationURL = buildFullPath(forFileName: name + "1", inDirectory: directory)
         if let _ = try? FileManager.default.copyItem(at: originURL, to: destinationURL) {
             return true
         }
@@ -134,10 +134,10 @@ extension FileManagerHelper {
     
     @discardableResult
     func changeFileExtension(withName name: String, inDirectory: FileManagerDirectories, toNewExtension newExtension: String) -> Bool {
-        var newFileName = NSString(string:name)
+        var newFileName = NSString(string: name)
         newFileName = newFileName.deletingPathExtension as NSString
         newFileName = (newFileName.appendingPathExtension(newExtension) as NSString?)!
-        let finalFileName: String =  newFileName as String
+        let finalFileName: String = newFileName as String
         
         let originURL = buildFullPath(forFileName: name, inDirectory: inDirectory)
         let destinationURL = buildFullPath(forFileName: finalFileName, inDirectory: inDirectory)

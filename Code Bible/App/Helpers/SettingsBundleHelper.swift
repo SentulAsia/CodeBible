@@ -18,35 +18,33 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-fileprivate extension Constants {
-    static let sample = "Profile.png"
+protocol SettingsBundleHelper {
+    func setVersionAndBuildNumber()
+    func checkAndExecuteSettings(completionHandler: (() -> Void)?)
 }
 
-struct FileManagerDataStore: FileManagerHelper, FileManagerSystemMetaData {
-    static var shared = FileManagerDataStore()
-    
-    private init() {}
-    
-    var profileImage: UIImage? {
-        get {
-            return readFile(at: .Documents, withName: Constants.sample) as? UIImage
-        }
-        set {
-            if let value = newValue {
-                createFile(containing: value, to: .Documents, withName: Constants.sample)
-            } else {
-                deleteFile(at: .Documents, withName: Constants.sample)
-            }
-        }
+extension SettingsBundleHelper {
+    func setVersionAndBuildNumber() {
+        UserDefaultsDataStore.shared.currentVersion = Constants.appVersion
     }
     
-    func deleteAll(forDirectory directory: FileManagerDirectories) {
-        if let files = list(directory: getURL(for: directory)) {
-            for file in files {
-                deleteFile(at: .Documents, withName: file)
-            }
+    func checkAndExecuteSettings(completionHandler: (() -> Void)?) {
+        if UserDefaultsDataStore.shared.clearCache == true {
+            CacheDataStore.shared.deleteAll()
+            FileManagerDataStore.shared.deleteAll(forDirectory: .Temp)
+            UserDefaultsDataStore.shared.clearCache = false
+        }
+        if UserDefaultsDataStore.shared.clearData  == true {
+            FileManagerDataStore.shared.deleteAll(forDirectory: .Documents)
+            FileManagerDataStore.shared.deleteAll(forDirectory: .Inbox)
+            FileManagerDataStore.shared.deleteAll(forDirectory: .Library)
+            FileManagerDataStore.shared.deleteAll(forDirectory: .Temp)
+            UserDefaultsDataStore.shared.deleteAll()
+        }
+        if let c = completionHandler {
+            c()
         }
     }
 }

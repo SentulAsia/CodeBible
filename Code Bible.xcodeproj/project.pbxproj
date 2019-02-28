@@ -117,6 +117,10 @@
 		64659E9C80B86835C5E811A6 /* Pods_Code_Bible.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7246B384203AEB291246016E /* Pods_Code_Bible.framework */; };
 		B81820002221DF24008D071A /* Locales.plist in Resources */ = {isa = PBXBuildFile; fileRef = B81820032221DF24008D071A /* Locales.plist */; };
 		B81820012221DF24008D071A /* Locales.plist in Resources */ = {isa = PBXBuildFile; fileRef = B81820032221DF24008D071A /* Locales.plist */; };
+		B85540D022276DFB009F318C /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85540CF22276DFB009F318C /* SettingsBundleHelper.swift */; };
+		B85540D122276DFB009F318C /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85540CF22276DFB009F318C /* SettingsBundleHelper.swift */; };
+		B85540D32227720E009F318C /* CacheDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85540D22227720E009F318C /* CacheDataStore.swift */; };
+		B85540D42227720E009F318C /* CacheDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85540D22227720E009F318C /* CacheDataStore.swift */; };
 		B86D413421D7301100214666 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D413321D7301100214666 /* ColorHelper.swift */; };
 		B86D413521D7301100214666 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D413321D7301100214666 /* ColorHelper.swift */; };
 		B86D413621D732E800214666 /* beaming.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E92BA55214270F900C1D61D /* beaming.json */; };
@@ -207,6 +211,8 @@
 		7246B384203AEB291246016E /* Pods_Code_Bible.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Code_Bible.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B81820022221DF24008D071A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Locales.plist; sourceTree = "<group>"; };
 		B81820042221DF40008D071A /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ar; path = ar.lproj/Locales.plist; sourceTree = "<group>"; };
+		B85540CF22276DFB009F318C /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
+		B85540D22227720E009F318C /* CacheDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheDataStore.swift; sourceTree = "<group>"; };
 		B86D413321D7301100214666 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
 		B8C2920922237BCB003236B1 /* RegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpression.swift; sourceTree = "<group>"; };
 		B8D37BAA222147EC00300AA4 /* FileManagerDirectories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerDirectories.swift; sourceTree = "<group>"; };
@@ -335,6 +341,7 @@
 				2EDAB4F42116A10200F4B3F5 /* AlertHelper.swift */,
 				2E3CDADC21647AB600FA7307 /* ScreenBrightnessHelper.swift */,
 				2E3CDADE2164948000FA7307 /* IPAddressHelper.swift */,
+				B85540CF22276DFB009F318C /* SettingsBundleHelper.swift */,
 				2EBDB3EF211C31000028337F /* CustomCell.swift */,
 				2EAA79912116024700600D46 /* CustomStepper.swift */,
 				2EAA794321156B5F00600D46 /* CustomView.swift */,
@@ -533,6 +540,7 @@
 			children = (
 				B8F00CEE2222EF9900A8311F /* UserDefaultsDataStore.swift */,
 				B8D37BBA2221699100300AA4 /* FileManagerDataStore.swift */,
+				B85540D22227720E009F318C /* CacheDataStore.swift */,
 			);
 			path = DataStore;
 			sourceTree = "<group>";
@@ -871,6 +879,7 @@
 				2EDFD06A2125666400587A50 /* Routes.swift in Sources */,
 				2EAA796921156D6F00600D46 /* RootViewController.swift in Sources */,
 				2EAA7987211579C400600D46 /* DatePickerViewController.swift in Sources */,
+				B85540D32227720E009F318C /* CacheDataStore.swift in Sources */,
 				2EAA794B21156B5F00600D46 /* CustomTextField.swift in Sources */,
 				2E3CDADD21647AB600FA7307 /* ScreenBrightnessHelper.swift in Sources */,
 				2EAA798E2115B58500600D46 /* CustomBarButtonItem.swift in Sources */,
@@ -890,6 +899,7 @@
 				B8D37BAF22214AEB00300AA4 /* FileManagerDirectoryNames.swift in Sources */,
 				2EBDB3EA211C276D0028337F /* DateHelper.swift in Sources */,
 				2EAA792A21156B3800600D46 /* Day.swift in Sources */,
+				B85540D022276DFB009F318C /* SettingsBundleHelper.swift in Sources */,
 				2EBDB3F0211C31000028337F /* CustomCell.swift in Sources */,
 				2EAA79942116029000600D46 /* NumberHelper.swift in Sources */,
 				2EAA796C21156D6F00600D46 /* BlurViewController.swift in Sources */,
@@ -935,6 +945,7 @@
 				2EC995B32133AF6100259CDE /* Routes.swift in Sources */,
 				2EC995B42133AF6100259CDE /* RootViewController.swift in Sources */,
 				2EC995B52133AF6100259CDE /* DatePickerViewController.swift in Sources */,
+				B85540D42227720E009F318C /* CacheDataStore.swift in Sources */,
 				2EC995B62133AF6100259CDE /* CustomTextField.swift in Sources */,
 				2EC995B72133AF6100259CDE /* CustomBarButtonItem.swift in Sources */,
 				2EC995B82133AF6100259CDE /* ViewControllerHelper.swift in Sources */,
@@ -954,6 +965,7 @@
 				B8D37BB022214AEB00300AA4 /* FileManagerDirectoryNames.swift in Sources */,
 				B86D413821D737E600214666 /* IPAddressHelper.swift in Sources */,
 				2EC995C22133AF6100259CDE /* Day.swift in Sources */,
+				B85540D122276DFB009F318C /* SettingsBundleHelper.swift in Sources */,
 				2EC995C32133AF6100259CDE /* CustomCell.swift in Sources */,
 				2EC995C42133AF6100259CDE /* NumberHelper.swift in Sources */,
 				2EC995C52133AF6100259CDE /* BlurViewController.swift in Sources */,

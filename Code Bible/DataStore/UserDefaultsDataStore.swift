@@ -21,7 +21,9 @@
 import UIKit
 
 fileprivate extension Constants {
-    static let currentVersion = "AppDelegate.CurrentVersion"
+    static let currentVersion = "SettingsBundle.AppVersion"
+    static let clearData = "SettingsBundle.ClearData"
+    static let clearCache = "SettingsBundle.ClearCache"
     static let ipAddress = "IPAddress.value"
     static let brightness = "ScreenBrightnessHelper.brightness"
     static let userEmail = "HelloGold.userEmail"
@@ -38,6 +40,24 @@ struct UserDefaultsDataStore {
         }
         set {
             setObject(newValue, forKey: Constants.currentVersion)
+        }
+    }
+    
+    var clearData: Bool? {
+        get {
+            return getObject(forKey: Constants.clearData) as? Bool
+        }
+        set {
+            setObject(newValue, forKey: Constants.clearData)
+        }
+    }
+    
+    var clearCache: Bool? {
+        get {
+            return getObject(forKey: Constants.clearCache) as? Bool
+        }
+        set {
+            setObject(newValue, forKey: Constants.clearCache)
         }
     }
     
