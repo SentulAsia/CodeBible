@@ -21,7 +21,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, IPAddressHelper, SettingsBundleHelper {
+class AppDelegate: UIResponder, UIApplicationDelegate, SettingsBundleHelper, IPAddressHelper {
 
     var window: UIWindow?
 
