@@ -21,8 +21,8 @@
 import Foundation
 
 extension Foundation.Date {
-    var formattedISO8601: String {
-        return Date.formatterISO8601.string(from: self)
+    var iso8601: String {
+        return Date.iso8601.string(from: self)
     }
 
     var year: Int {
@@ -49,7 +49,7 @@ extension Foundation.Date {
         return day!
     }
     
-    private static let formatterISO8601: DateFormatter = {
+    private static let iso8601: DateFormatter = {
         let formatter = DateFormatter()
         formatter.calendar = Calendar(identifier: Calendar.Identifier.iso8601)
         formatter.locale = Locale(identifier: "en_US_POSIX")
@@ -60,31 +60,31 @@ extension Foundation.Date {
 }
 
 extension String {
-    var formattedISO8601: Date {
-        if let date = String.formatterISO8601.date(from: self) {
+    var iso8601: Date {
+        if let date = String.iso8601.date(from: self) {
             return date
         } else {
             return Date()
         }
     }
 
-    var formattedDecimal: Date {
-        if let date = String.formatterDecimal.date(from: self) {
+    var iso8601Full: Date {
+        if let date = String.iso8601Full.date(from: self) {
             return date
         } else {
             return Date()
         }
     }
     
-    private static let formatterISO8601: DateFormatter = {
+    private static let iso8601: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         return formatter
     }()
     
-    private static let formatterDecimal: DateFormatter = {
+    private static let iso8601Full: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSzzzz"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
         
         return formatter
     }()

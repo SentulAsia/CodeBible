@@ -55,7 +55,7 @@ struct Deeplink : Codable {
     init(fromDictionary dictionary: [String: Any]) {
         let keys = CodingKeys.self
         self.deeplinkURL = dictionary[keys.deeplinkURL.rawValue] as? String
-        self.createAt = (dictionary[keys.createAt.rawValue] as? String)?.formattedDecimal
+        self.createAt = (dictionary[keys.createAt.rawValue] as? String)?.iso8601Full
         self.referenceId = dictionary[keys.referenceId.rawValue] as? String
         self.checkSum = dictionary[keys.checkSum.rawValue] as? String
         self.message = dictionary[keys.message.rawValue] as? String
