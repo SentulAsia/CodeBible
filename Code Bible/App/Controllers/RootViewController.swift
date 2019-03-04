@@ -77,8 +77,7 @@ class RootViewController: UIViewController, AlertHelper, PickerHelper, DatePicke
         presentDatePicker(self, pickerDate: self.selectedDate) { (isPicked: Bool, pickerDate: Date?) in
             if isPicked {
                 self.selectedDate = pickerDate
-                print(self.selectedDate?.formattedISO8601 ?? "")
-                // TODO: Handle selected date
+                // TODO: Handle self.selectedDate?.formattedISO8601
             }
         }
     }
@@ -130,14 +129,12 @@ class RootViewController: UIViewController, AlertHelper, PickerHelper, DatePicke
             textfield.isSecureTextEntry = true
             textfield.keyboardType = .numberPad
         }) { (newValue: String?) in
-            print(newValue ?? "")
+            // TODO: handle newValue
         }
     }
 
     @IBAction func showAnotherAlert(_ sender: Any) {
-        presentSingleActionAlert(self, withMessage: "Do you want to logout?") { (action: UIAlertAction) in
-            print("Go to logout")
-        }
+        presentSingleActionAlert(self, withMessage: "Do you want to logout?", withAction: nil)
     }
 }
 

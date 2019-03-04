@@ -101,11 +101,14 @@ struct APIWorker {
                     request.httpBody = data
                 }
             } catch {
+                #if DEVELOPMENT
                 print("\n----------------------------")
                 print("API url: ", url.description)
                 print("params: ", parameters ?? "")
                 print("\n\(url.description) Failed")
+                print("response: nil")
                 print("----------------------------\n")
+                #endif
                 let result = APIResult.failure(error)
                 let r = APIResponse(request: request, data: nil, response: nil, result: result)
                 completionHandler(r)
@@ -122,11 +125,14 @@ struct APIWorker {
 
         let dataTask = sessionManager.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             if let e = error {
+                #if DEVELOPMENT
                 print("\n----------------------------")
                 print("API url:", url.description)
                 print("params:", parameters ?? "")
                 print("\n\(url.description) Failed")
+                debugPrint("response: \(response)")
                 print("----------------------------\n")
+                #endif
                 let result = APIResult.failure(e)
                 let r = APIResponse(request: request, data: data, response: response, result: result)
                 DispatchQueue.main.async {
@@ -135,6 +141,7 @@ struct APIWorker {
                 }
             } else {
                 if let d = data {
+                    #if DEVELOPMENT
                     print("\n----------------------------")
                     print("API url:", url.description)
                     print("params:", parameters ?? "")
@@ -142,8 +149,10 @@ struct APIWorker {
                     if let httpResponse = response as? HTTPURLResponse {
                         print("Result:", httpResponse.allHeaderFields as? [String: Any] ?? httpResponse)
                         print("Status Code:", httpResponse.statusCode)
+                        debugPrint("response: \(response)")
                     }
                     print("----------------------------\n")
+                    #endif
                     let result = APIResult.success(d as Any)
                     let r = APIResponse(request: request, data: data, response: response, result: result)
                     DispatchQueue.main.async {
@@ -155,11 +164,14 @@ struct APIWorker {
                         NSLocalizedDescriptionKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: "") ,
                         NSLocalizedFailureReasonErrorKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: "")
                         ])
+                    #if DEVELOPMENT
                     print("\n----------------------------")
                     print("API url:", url.description)
                     print("params:", parameters ?? "")
                     print("\n\(url.description) Failed")
+                    debugPrint("response: \(response)")
                     print("----------------------------\n")
+                    #endif
                     let result = APIResult.failure(e)
                     let r = APIResponse(request: request, data: data, response: response, result: result)
                     DispatchQueue.main.async {

@@ -73,7 +73,9 @@ class CustomPhotoAlbum {
     func requestAuthorization() {
         if PHPhotoLibrary.authorizationStatus() == .notDetermined {
             PHPhotoLibrary.requestAuthorization({ (status: PHAuthorizationStatus) in
+                #if DEVELOPMENT
                 print("PHPhotoLibrary.authorizationStatus: \(status)")
+                #endif
             })
         }
     }

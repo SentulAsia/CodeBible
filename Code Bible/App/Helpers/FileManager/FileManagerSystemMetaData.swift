@@ -30,6 +30,7 @@ extension FileManagerSystemMetaData {
         let listing = try! FileManager.default.contentsOfDirectory(atPath: at.path)
         
         if listing.count > 0 {
+            #if DEVELOPMENT
             print("\n----------------------------")
             print("LISTING: \(at.path)")
             print("")
@@ -38,6 +39,7 @@ extension FileManagerSystemMetaData {
             }
             print("")
             print("----------------------------\n")
+            #endif
             
             return listing
         } else {

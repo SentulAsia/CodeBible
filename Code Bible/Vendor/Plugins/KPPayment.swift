@@ -46,7 +46,6 @@ public class KPPayment: NSObject {
     }
 
     public func makePayment(referenceId: String, amount: Decimal) {
-        print(#function)
         self.referenceId = referenceId
         let param1 = self.secret
         let param2 = self.merchantId.description
@@ -56,9 +55,7 @@ public class KPPayment: NSObject {
         let checkSum = (param1 + param2 + param3 + param4 + param5).sha1()
         let deeplink = Deeplink(merchantId: self.merchantId, storeId: self.storeId, amount: amount, referenceId: referenceId, checkSum: checkSum)
         APIManager.postGenerateDeeplink(deeplinkObj: deeplink, success: { (deeplinkModelObj: Deeplink) in
-            print(deeplinkModelObj)
             if let appURLString = deeplinkModelObj.deeplinkURL, let appURL = URL(string: appURLString) {
-                print(appURL)
                 UIApplication.shared.open(appURL) { success in
                     if !success {
                         self.delegate?.paymentDidFinish(successfully: false, withMessage: "Unable to redirect to kiplePay")
@@ -68,7 +65,6 @@ public class KPPayment: NSObject {
                 self.delegate?.paymentDidFinish(successfully: false, withMessage: "Unable to redirect to kiplePay")
             }
         }) { (error) in
-            print(error)
             self.delegate?.paymentDidFinish(successfully: false, withMessage: error)
         }
     }

@@ -152,8 +152,9 @@ extension ImagePickerController: UINavigationControllerDelegate, UIImagePickerCo
             }
         }
 
-        // do something interesting here!
+        #if DEVELOPMENT
         print("image size before: \(newImage.size)")
+        #endif
 
         if let newWidth = self.imageWidth {
 
@@ -165,7 +166,9 @@ extension ImagePickerController: UINavigationControllerDelegate, UIImagePickerCo
             newImage.draw(in: CGRect(x: 0, y: 0,width: newWidth, height: newHeight))
             newImage = UIGraphicsGetImageFromCurrentImageContext()!
             UIGraphicsEndImageContext()
+            #if DEVELOPMENT
             print("image size after: \(newImage.size)")
+            #endif
         }
 
         setImage(newImage)
