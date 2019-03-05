@@ -151,7 +151,7 @@ struct APIWorker {
                     }
                     print("----------------------------\n")
                     #endif
-                    let result = APIResult.success(d as Any)
+                    let result = APIResult.success(d)
                     let r = APIResponse(request: request, data: data, response: response, result: result)
                     DispatchQueue.main.async {
                         completionHandler(r)

@@ -30,6 +30,18 @@ struct ChannelResponse: Codable {
         case code = "responseCode"
         case channels = "channels"
     }
+    
+    init(from dictionary: [String: Any]) {
+        let keys = CodingKeys.self
+        self.message = dictionary[keys.message.rawValue] as? String
+        self.code = dictionary[keys.code.rawValue] as? String
+        if let channels = dictionary[keys.channels.rawValue] as? [[String: Any]] {
+            self.channels = []
+            for channel in channels {
+                self.channels?.append(Channel(from: channel))
+            }
+        }
+    }
 }
 
 struct Channel: Codable {
@@ -41,5 +53,12 @@ struct Channel: Codable {
         case channelId = "channelId"
         case channelTitle = "channelTitle"
         case channelStbNumber = "channelStbNumber"
+    }
+    
+    init(from dictionary: [String: Any]) {
+        let keys = CodingKeys.self
+        self.channelId = dictionary[keys.channelId.rawValue] as? Int
+        self.channelTitle = dictionary[keys.channelTitle.rawValue] as? String
+        self.channelStbNumber = dictionary[keys.channelStbNumber.rawValue] as? Int
     }
 }

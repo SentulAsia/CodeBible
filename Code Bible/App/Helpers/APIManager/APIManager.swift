@@ -30,90 +30,63 @@ struct APIManager {
         let channelListURLString = Constants.AstroAPI.baseURL + Constants.AstroAPI.channelList
         if let channelListURL = URL(string: channelListURLString) {
             APIWorker.request(url: channelListURL, method: .get, parameters: nil, headers: nil) { (response) in
+                let defaultError = response.result.error?.localizedDescription ?? Constants.Message.failureDefault
                 guard response.result.isSuccess else {
-                    failure((response.result.error?.localizedDescription)!)
+                    failure(defaultError)
                     return
                 }
                 
                 var channelResponse: ChannelResponse?
-                
                 let decoder = JSONDecoder()
+                
                 if let rawData = response.data, let decodedData = try? decoder.decode(ChannelResponse.self, from: rawData) {
                     channelResponse = decodedData
                 }
+                
                 if let channels = channelResponse?.channels {
                     success(channels)
                     return
-                } else {
-                    failure(Constants.Message.failureDefault)
-                    return
                 }
-            }
-        }
-    }
-
-    static func postGenerateDeeplink(deeplinkObj: Deeplink,
-                              success: @escaping (_ deeplinkModelObj: Deeplink) -> Void,
-                              failure: @escaping (_ serverError: String) -> Void) {
-        let generateDeeplinkURLString = Constants.KipleAPI.generateDeeplinkURL
-        let headers = ["Content-Type": "application/json"]
-        if let generateDeeplinkURL = URL(string: generateDeeplinkURLString) {
-            APIWorker.request(url: generateDeeplinkURL, method: .post, parameters: deeplinkObj.toDictionary(), headers: headers) { (response) in
-                guard response.result.isSuccess else {
-                    failure((response.result.error?.localizedDescription)!)
-                    return
-                }
-
-                guard let value = response.result.value as? Data, let response = try? JSONSerialization.jsonObject(with: value, options: []) as? [String: Any], let responseDictionary = response else {
-                        failure(Constants.Message.failureDefault)
-                        return
-                }
-
-                let deeplinkModelObj = Deeplink(from: responseDictionary)
-
-                if deeplinkModelObj.deeplinkURL == nil {
-                    let message = deeplinkModelObj.message ?? Constants.Message.failureDefault
-                    failure(message)
-                    return
-                } else {
-                    success(deeplinkModelObj)
-                    return
-                }
+                failure(defaultError)
+                return
             }
         }
     }
     
     static func postUser(userObj: User,
-                         success: @escaping (_ userModelObj: User) -> Void,
+                         success: @escaping (_ user: User) -> Void,
                          failure: @escaping (_ serverError: String) -> Void) {
         let registerUserURLString = Constants.HelloGoldAPI.baseURL + Constants.HelloGoldAPI.registerUser
-        let userDictionary = userObj.toDictionary()
+        let encoder = JSONEncoder()
+        let userData = try? encoder.encode(userObj)
         let registerUserHeaders = ["Content-Type": "application/json"]
         if let registerUserURL = URL(string: registerUserURLString) {
-            APIWorker.request(url: registerUserURL, method: .post, parameters: userDictionary, headers: registerUserHeaders) { (response) in
+            APIWorker.request(url: registerUserURL, method: .post, parameters: nil, headers: registerUserHeaders, body: userData) { (response) in
+                let defaultError = response.result.error?.localizedDescription ?? Constants.Message.failureDefault
                 guard response.result.isSuccess else {
-                    failure((response.result.error?.localizedDescription)!)
+                    failure(defaultError)
                     return
                 }
                 
-                guard let value = response.result.value,
-                    let responseDictionary = value as? [String: Any] else {
-                        failure(Constants.Message.failureDefault)
+                var userResponse: UserResponse?
+                let decoder = JSONDecoder()
+                
+                if let rawData = response.data, let decodedData = try? decoder.decode(UserResponse.self, from: rawData) {
+                    userResponse = decodedData
+                }
+                
+                if let r = userResponse, let user = r.user {
+                    if r.result == "ok" {
+                        success(user)
                         return
+                    } else if r.result == "error" {
+                        let message = r.message ?? defaultError
+                        failure(message)
+                        return
+                    }
                 }
-                
-                let userModelObj = User(from: responseDictionary)
-                if userModelObj.result == "ok" {
-                    success(userModelObj)
-                    return
-                } else if userModelObj.result == "error" {
-                    let message = userModelObj.message ?? Constants.Message.failureDefault
-                    failure(message)
-                    return
-                } else {
-                    failure(Constants.Message.failureDefault)
-                    return
-                }
+                failure(defaultError)
+                return
             }
         }
     }
@@ -125,27 +98,61 @@ struct APIManager {
         let getSpotPriceHeaders = ["Content-Type": "application/json"]
         if let getSpotPriceURL = URL(string: getSpotPriceURLString) {
             APIWorker.request(url: getSpotPriceURL, method: .get, parameters: nil, headers: getSpotPriceHeaders) { (response) in
+                let defaultError = response.result.error?.localizedDescription ?? Constants.Message.failureDefault
                 guard response.result.isSuccess else {
                     failure((response.result.error?.localizedDescription)!)
                     return
                 }
                 
-                guard let value = response.result.value,
-                    let responseDictionary = value as? [String: Any] else {
-                        failure(Constants.Message.failureDefault)
-                        return
+                var spotPriceResponse: SpotPriceResponse?
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                
+                if let rawData = response.data, let decodedData = try? decoder.decode(SpotPriceResponse.self, from: rawData) {
+                    spotPriceResponse = decodedData
                 }
                 
-                let spotPriceModelObj = SpotPrice(from: responseDictionary)
-                if spotPriceModelObj.result == "ok" {
-                    success(spotPriceModelObj)
+                if let r = spotPriceResponse, let user = r.spotPrice {
+                    if r.result == "ok" {
+                        success(user)
+                        return
+                    } else if r.result == "error" {
+                        let message = r.message ?? defaultError
+                        failure(message)
+                        return
+                    }
+                }
+                failure(defaultError)
+                return
+            }
+        }
+    }
+    
+    static func postGenerateDeeplink(deeplinkObj: Deeplink,
+                                     success: @escaping (_ deeplinkModelObj: Deeplink) -> Void,
+                                     failure: @escaping (_ serverError: String) -> Void) {
+        let generateDeeplinkURLString = Constants.KipleAPI.generateDeeplinkURL
+        let headers = ["Content-Type": "application/json"]
+        if let generateDeeplinkURL = URL(string: generateDeeplinkURLString) {
+            APIWorker.request(url: generateDeeplinkURL, method: .post, parameters: deeplinkObj.toDictionary(), headers: headers) { (response) in
+                guard response.result.isSuccess else {
+                    failure((response.result.error?.localizedDescription)!)
                     return
-                } else if spotPriceModelObj.result == "error" {
-                    let message = spotPriceModelObj.message ?? Constants.Message.failureDefault
+                }
+                
+                guard let value = response.result.value as? Data, let response = try? JSONSerialization.jsonObject(with: value, options: []) as? [String: Any], let responseDictionary = response else {
+                    failure(Constants.Message.failureDefault)
+                    return
+                }
+                
+                let deeplinkModelObj = Deeplink(from: responseDictionary)
+                
+                if deeplinkModelObj.deeplinkURL == nil {
+                    let message = deeplinkModelObj.message ?? Constants.Message.failureDefault
                     failure(message)
                     return
                 } else {
-                    failure(Constants.Message.failureDefault)
+                    success(deeplinkModelObj)
                     return
                 }
             }
