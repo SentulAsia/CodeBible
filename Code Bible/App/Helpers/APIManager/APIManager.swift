@@ -25,9 +25,8 @@ struct APIManager {
 
     private init() {}
 
-    static func getChannelList(channelObj: Channel,
-                        success: @escaping (_ channelModelArrayObj: [Channel]) -> Void,
-                        failure: @escaping (_ serverError: String) -> Void) {
+    static func getChannelList(success: @escaping (_ channels: [Channel]) -> Void,
+                               failure: @escaping (_ serverError: String) -> Void) {
         let channelListURLString = Constants.AstroAPI.baseURL + Constants.AstroAPI.channelList
         if let channelListURL = URL(string: channelListURLString) {
             APIWorker.request(url: channelListURL, method: .get, parameters: nil, headers: nil) { (response) in
@@ -35,21 +34,18 @@ struct APIManager {
                     failure((response.result.error?.localizedDescription)!)
                     return
                 }
-
-                guard let value = response.result.value as? Data, let response = try? JSONSerialization.jsonObject(with: value, options: []) as? [String: Any], let responseDictionary = response else {
-                        failure(Constants.Message.failureDefault)
-                        return
+                
+                var channelResponse: ChannelResponse?
+                
+                let decoder = JSONDecoder()
+                if let rawData = response.data, let decodedData = try? decoder.decode(ChannelResponse.self, from: rawData) {
+                    channelResponse = decodedData
                 }
-                var channelModelObj = channelObj
-                var channelModelArrayObj: [Channel] = []
-                if !responseDictionary.isEmpty {
-                    channelModelArrayObj = channelModelObj.parseGetChannelList(dictionary: responseDictionary)
-                }
-                if channelModelObj.isSuccess {
-                    success(channelModelArrayObj)
+                if let channels = channelResponse?.channels {
+                    success(channels)
                     return
                 } else {
-                    failure(channelModelObj.message)
+                    failure(Constants.Message.failureDefault)
                     return
                 }
             }

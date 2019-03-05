@@ -58,12 +58,11 @@ class ChannelListViewController: UIViewController, ToastHelper {
 
 extension ChannelListViewController {
     func getChannelListAPI() {
-        let channelObj = Channel()
         SpinnerController.shared.startLoadingIndicator(self)
-        APIManager.getChannelList(channelObj: channelObj, success: { (channelModelArrayObj) in
+        APIManager.getChannelList(success: { (channels) in
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // change 2 to desired number of seconds
                 SpinnerController.shared.stopLoadingIndicatior()
-                self.channels = channelModelArrayObj
+                self.channels = channels
                 self.tableView.isHidden = false
                 self.tableView.reloadData()
             }
@@ -91,7 +90,7 @@ extension ChannelListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: ChannelTableViewCell.Constants.identifier, for: indexPath) as! ChannelTableViewCell
 
         cell.textLabel?.text = self.channels[indexPath.row].channelTitle
-        cell.detailTextLabel?.text = self.channels[indexPath.row].channelStbNumber.description
+        cell.detailTextLabel?.text = self.channels[indexPath.row].channelStbNumber?.description
 
         return cell
     }
