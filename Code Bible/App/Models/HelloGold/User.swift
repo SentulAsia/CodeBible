@@ -62,7 +62,7 @@ struct User: Codable {
         self.publicKey = ""
     }
 
-    init(fromDictionary dictionary: [String: Any]) {
+    init(from dictionary: [String: Any]) {
         let keys = CodingKeys.self
         self.email = ""
         self.uuid = ""

@@ -128,6 +128,44 @@
 		B86D413721D737D700214666 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E84360A216EF04C006A4791 /* Deeplink.swift */; };
 		B86D413821D737E600214666 /* IPAddressHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CDADE2164948000FA7307 /* IPAddressHelper.swift */; };
 		B86D413921D737F500214666 /* ScreenBrightnessHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CDADC21647AB600FA7307 /* ScreenBrightnessHelper.swift */; };
+		B884ADB1222E0C2100588E1A /* me_quran2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADB0222E0C2100588E1A /* me_quran2.ttf */; };
+		B884ADB2222E0C2100588E1A /* me_quran2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADB0222E0C2100588E1A /* me_quran2.ttf */; };
+		B884ADC6222E0C5300588E1A /* heartbeat.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B884ADB4222E0C5200588E1A /* heartbeat.m4a */; };
+		B884ADC7222E0C5300588E1A /* heartbeat.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B884ADB4222E0C5200588E1A /* heartbeat.m4a */; };
+		B884ADC8222E0C5300588E1A /* challengerFound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B884ADB5222E0C5200588E1A /* challengerFound.m4a */; };
+		B884ADC9222E0C5300588E1A /* challengerFound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B884ADB5222E0C5200588E1A /* challengerFound.m4a */; };
+		B884ADCA222E0C5300588E1A /* tap.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B884ADB6222E0C5200588E1A /* tap.m4a */; };
+		B884ADCB222E0C5300588E1A /* tap.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B884ADB6222E0C5200588E1A /* tap.m4a */; };
+		B884ADCC222E0C5300588E1A /* wordCardFlipSound.caf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADB7222E0C5200588E1A /* wordCardFlipSound.caf */; };
+		B884ADCD222E0C5300588E1A /* wordCardFlipSound.caf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADB7222E0C5200588E1A /* wordCardFlipSound.caf */; };
+		B884ADCE222E0C5300588E1A /* mashaAllah-sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADB8222E0C5200588E1A /* mashaAllah-sound.caf */; };
+		B884ADCF222E0C5300588E1A /* mashaAllah-sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADB8222E0C5200588E1A /* mashaAllah-sound.caf */; };
+		B884ADD0222E0C5300588E1A /* appear.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B884ADB9222E0C5200588E1A /* appear.m4a */; };
+		B884ADD1222E0C5300588E1A /* appear.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B884ADB9222E0C5200588E1A /* appear.m4a */; };
+		B884ADD2222E0C5300588E1A /* losing.caf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADBA222E0C5200588E1A /* losing.caf */; };
+		B884ADD3222E0C5300588E1A /* losing.caf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADBA222E0C5200588E1A /* losing.caf */; };
+		B884ADD4222E0C5300588E1A /* notification.caf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADBB222E0C5200588E1A /* notification.caf */; };
+		B884ADD5222E0C5300588E1A /* notification.caf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADBB222E0C5200588E1A /* notification.caf */; };
+		B884ADD6222E0C5300588E1A /* tap.caf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADBC222E0C5200588E1A /* tap.caf */; };
+		B884ADD7222E0C5300588E1A /* tap.caf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADBC222E0C5200588E1A /* tap.caf */; };
+		B884ADD8222E0C5300588E1A /* countdown.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B884ADBD222E0C5200588E1A /* countdown.m4a */; };
+		B884ADD9222E0C5300588E1A /* countdown.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B884ADBD222E0C5200588E1A /* countdown.m4a */; };
+		B884ADDA222E0C5300588E1A /* questionAppear.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B884ADBE222E0C5200588E1A /* questionAppear.m4a */; };
+		B884ADDB222E0C5300588E1A /* questionAppear.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B884ADBE222E0C5200588E1A /* questionAppear.m4a */; };
+		B884ADDC222E0C5300588E1A /* correctAnswer.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B884ADBF222E0C5300588E1A /* correctAnswer.m4a */; };
+		B884ADDD222E0C5300588E1A /* correctAnswer.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B884ADBF222E0C5300588E1A /* correctAnswer.m4a */; };
+		B884ADDE222E0C5300588E1A /* alhamdulillah-sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADC0222E0C5300588E1A /* alhamdulillah-sound.caf */; };
+		B884ADDF222E0C5300588E1A /* alhamdulillah-sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADC0222E0C5300588E1A /* alhamdulillah-sound.caf */; };
+		B884ADE0222E0C5300588E1A /* Swoosh.caf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADC1222E0C5300588E1A /* Swoosh.caf */; };
+		B884ADE1222E0C5300588E1A /* Swoosh.caf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADC1222E0C5300588E1A /* Swoosh.caf */; };
+		B884ADE2222E0C5300588E1A /* snooze.caf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADC2222E0C5300588E1A /* snooze.caf */; };
+		B884ADE3222E0C5300588E1A /* snooze.caf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADC2222E0C5300588E1A /* snooze.caf */; };
+		B884ADE4222E0C5300588E1A /* winning.caf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADC3222E0C5300588E1A /* winning.caf */; };
+		B884ADE5222E0C5300588E1A /* winning.caf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADC3222E0C5300588E1A /* winning.caf */; };
+		B884ADE6222E0C5300588E1A /* wrong-answer.caf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADC4222E0C5300588E1A /* wrong-answer.caf */; };
+		B884ADE7222E0C5300588E1A /* wrong-answer.caf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADC4222E0C5300588E1A /* wrong-answer.caf */; };
+		B884ADE8222E0C5300588E1A /* wrongAnswer.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B884ADC5222E0C5300588E1A /* wrongAnswer.m4a */; };
+		B884ADE9222E0C5300588E1A /* wrongAnswer.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B884ADC5222E0C5300588E1A /* wrongAnswer.m4a */; };
 		B8C2920A22237BCB003236B1 /* RegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C2920922237BCB003236B1 /* RegularExpression.swift */; };
 		B8C2920B22237BCB003236B1 /* RegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C2920922237BCB003236B1 /* RegularExpression.swift */; };
 		B8D37BAB222147ED00300AA4 /* FileManagerDirectories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D37BAA222147EC00300AA4 /* FileManagerDirectories.swift */; };
@@ -235,6 +273,25 @@
 		B85540CF22276DFB009F318C /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		B85540D22227720E009F318C /* CacheDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheDataStore.swift; sourceTree = "<group>"; };
 		B86D413321D7301100214666 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
+		B884ADB0222E0C2100588E1A /* me_quran2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = me_quran2.ttf; sourceTree = "<group>"; };
+		B884ADB4222E0C5200588E1A /* heartbeat.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = heartbeat.m4a; sourceTree = "<group>"; };
+		B884ADB5222E0C5200588E1A /* challengerFound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = challengerFound.m4a; sourceTree = "<group>"; };
+		B884ADB6222E0C5200588E1A /* tap.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = tap.m4a; sourceTree = "<group>"; };
+		B884ADB7222E0C5200588E1A /* wordCardFlipSound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = wordCardFlipSound.caf; sourceTree = "<group>"; };
+		B884ADB8222E0C5200588E1A /* mashaAllah-sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mashaAllah-sound.caf"; sourceTree = "<group>"; };
+		B884ADB9222E0C5200588E1A /* appear.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = appear.m4a; sourceTree = "<group>"; };
+		B884ADBA222E0C5200588E1A /* losing.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = losing.caf; sourceTree = "<group>"; };
+		B884ADBB222E0C5200588E1A /* notification.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.caf; sourceTree = "<group>"; };
+		B884ADBC222E0C5200588E1A /* tap.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tap.caf; sourceTree = "<group>"; };
+		B884ADBD222E0C5200588E1A /* countdown.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = countdown.m4a; sourceTree = "<group>"; };
+		B884ADBE222E0C5200588E1A /* questionAppear.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = questionAppear.m4a; sourceTree = "<group>"; };
+		B884ADBF222E0C5300588E1A /* correctAnswer.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = correctAnswer.m4a; sourceTree = "<group>"; };
+		B884ADC0222E0C5300588E1A /* alhamdulillah-sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "alhamdulillah-sound.caf"; sourceTree = "<group>"; };
+		B884ADC1222E0C5300588E1A /* Swoosh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Swoosh.caf; sourceTree = "<group>"; };
+		B884ADC2222E0C5300588E1A /* snooze.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = snooze.caf; sourceTree = "<group>"; };
+		B884ADC3222E0C5300588E1A /* winning.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = winning.caf; sourceTree = "<group>"; };
+		B884ADC4222E0C5300588E1A /* wrong-answer.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "wrong-answer.caf"; sourceTree = "<group>"; };
+		B884ADC5222E0C5300588E1A /* wrongAnswer.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = wrongAnswer.m4a; sourceTree = "<group>"; };
 		B8C2920922237BCB003236B1 /* RegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpression.swift; sourceTree = "<group>"; };
 		B8D37BAA222147EC00300AA4 /* FileManagerDirectories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerDirectories.swift; sourceTree = "<group>"; };
 		B8D37BAE22214AEB00300AA4 /* FileManagerDirectoryNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerDirectoryNames.swift; sourceTree = "<group>"; };
@@ -599,8 +656,8 @@
 			isa = PBXGroup;
 			children = (
 				B81820092221E10C008D071A /* Images */,
-				B818200A2221E118008D071A /* Fonts */,
-				B818200B2221E124008D071A /* Sounds */,
+				B884ADB3222E0C2A00588E1A /* Fonts */,
+				B884ADEA222E0C5900588E1A /* Sounds */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -611,20 +668,6 @@
 				2EAA791721156AE900600D46 /* Assets.xcassets */,
 			);
 			path = Images;
-			sourceTree = "<group>";
-		};
-		B818200A2221E118008D071A /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
-		B818200B2221E124008D071A /* Sounds */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Sounds;
 			sourceTree = "<group>";
 		};
 		B818200C2221E164008D071A /* App */ = {
@@ -663,6 +706,39 @@
 				2E792EA521354BB50047502B /* KPPayment.swift */,
 			);
 			path = Plugins;
+			sourceTree = "<group>";
+		};
+		B884ADB3222E0C2A00588E1A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B884ADB0222E0C2100588E1A /* me_quran2.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B884ADEA222E0C5900588E1A /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				B884ADC0222E0C5300588E1A /* alhamdulillah-sound.caf */,
+				B884ADB9222E0C5200588E1A /* appear.m4a */,
+				B884ADB5222E0C5200588E1A /* challengerFound.m4a */,
+				B884ADBF222E0C5300588E1A /* correctAnswer.m4a */,
+				B884ADBD222E0C5200588E1A /* countdown.m4a */,
+				B884ADB4222E0C5200588E1A /* heartbeat.m4a */,
+				B884ADBA222E0C5200588E1A /* losing.caf */,
+				B884ADB8222E0C5200588E1A /* mashaAllah-sound.caf */,
+				B884ADBB222E0C5200588E1A /* notification.caf */,
+				B884ADBE222E0C5200588E1A /* questionAppear.m4a */,
+				B884ADC2222E0C5300588E1A /* snooze.caf */,
+				B884ADC1222E0C5300588E1A /* Swoosh.caf */,
+				B884ADBC222E0C5200588E1A /* tap.caf */,
+				B884ADB6222E0C5200588E1A /* tap.m4a */,
+				B884ADC3222E0C5300588E1A /* winning.caf */,
+				B884ADB7222E0C5200588E1A /* wordCardFlipSound.caf */,
+				B884ADC4222E0C5300588E1A /* wrong-answer.caf */,
+				B884ADC5222E0C5300588E1A /* wrongAnswer.m4a */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		B8D37BAD2221480200300AA4 /* FileManager */ = {
@@ -841,14 +917,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B884ADD6222E0C5300588E1A /* tap.caf in Resources */,
+				B884ADCC222E0C5300588E1A /* wordCardFlipSound.caf in Resources */,
+				B884ADCA222E0C5300588E1A /* tap.m4a in Resources */,
+				B884ADCE222E0C5300588E1A /* mashaAllah-sound.caf in Resources */,
+				B884ADD0222E0C5300588E1A /* appear.m4a in Resources */,
+				B884ADB1222E0C2100588E1A /* me_quran2.ttf in Resources */,
+				B884ADD4222E0C5300588E1A /* notification.caf in Resources */,
+				B884ADD8222E0C5300588E1A /* countdown.m4a in Resources */,
+				B884ADE6222E0C5300588E1A /* wrong-answer.caf in Resources */,
+				B884ADE2222E0C5300588E1A /* snooze.caf in Resources */,
 				2E92BA56214270F900C1D61D /* beaming.json in Resources */,
 				2EAA795C21156BB800600D46 /* iOS_TakeHomeTest2.csv in Resources */,
+				B884ADDC222E0C5300588E1A /* correctAnswer.m4a in Resources */,
+				B884ADE8222E0C5300588E1A /* wrongAnswer.m4a in Resources */,
+				B884ADC6222E0C5300588E1A /* heartbeat.m4a in Resources */,
+				B884ADC8222E0C5300588E1A /* challengerFound.m4a in Resources */,
+				B884ADDE222E0C5300588E1A /* alhamdulillah-sound.caf in Resources */,
 				B81820002221DF24008D071A /* Locales.plist in Resources */,
+				B884ADE0222E0C5300588E1A /* Swoosh.caf in Resources */,
 				2EAA795921156BAE00600D46 /* Settings.bundle in Resources */,
+				B884ADE4222E0C5300588E1A /* winning.caf in Resources */,
 				2EAA797821156DEC00600D46 /* Helper.storyboard in Resources */,
 				2EAA791B21156AE900600D46 /* LaunchScreen.storyboard in Resources */,
 				2EAA791821156AE900600D46 /* Assets.xcassets in Resources */,
+				B884ADD2222E0C5300588E1A /* losing.caf in Resources */,
 				2EAA791621156AE800600D46 /* Main.storyboard in Resources */,
+				B884ADDA222E0C5300588E1A /* questionAppear.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -856,14 +951,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B884ADD7222E0C5300588E1A /* tap.caf in Resources */,
+				B884ADCD222E0C5300588E1A /* wordCardFlipSound.caf in Resources */,
+				B884ADCB222E0C5300588E1A /* tap.m4a in Resources */,
+				B884ADCF222E0C5300588E1A /* mashaAllah-sound.caf in Resources */,
+				B884ADD1222E0C5300588E1A /* appear.m4a in Resources */,
+				B884ADB2222E0C2100588E1A /* me_quran2.ttf in Resources */,
+				B884ADD5222E0C5300588E1A /* notification.caf in Resources */,
+				B884ADD9222E0C5300588E1A /* countdown.m4a in Resources */,
+				B884ADE7222E0C5300588E1A /* wrong-answer.caf in Resources */,
+				B884ADE3222E0C5300588E1A /* snooze.caf in Resources */,
 				B86D413621D732E800214666 /* beaming.json in Resources */,
 				2EC995CA2133AF6100259CDE /* iOS_TakeHomeTest2.csv in Resources */,
+				B884ADDD222E0C5300588E1A /* correctAnswer.m4a in Resources */,
+				B884ADE9222E0C5300588E1A /* wrongAnswer.m4a in Resources */,
+				B884ADC7222E0C5300588E1A /* heartbeat.m4a in Resources */,
+				B884ADC9222E0C5300588E1A /* challengerFound.m4a in Resources */,
+				B884ADDF222E0C5300588E1A /* alhamdulillah-sound.caf in Resources */,
 				B81820012221DF24008D071A /* Locales.plist in Resources */,
+				B884ADE1222E0C5300588E1A /* Swoosh.caf in Resources */,
 				2EC995CB2133AF6100259CDE /* Settings.bundle in Resources */,
+				B884ADE5222E0C5300588E1A /* winning.caf in Resources */,
 				2EC995CC2133AF6100259CDE /* Helper.storyboard in Resources */,
 				2EC995CD2133AF6100259CDE /* LaunchScreen.storyboard in Resources */,
 				2EC995CE2133AF6100259CDE /* Assets.xcassets in Resources */,
+				B884ADD3222E0C5300588E1A /* losing.caf in Resources */,
 				2EC995CF2133AF6100259CDE /* Main.storyboard in Resources */,
+				B884ADDB222E0C5300588E1A /* questionAppear.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

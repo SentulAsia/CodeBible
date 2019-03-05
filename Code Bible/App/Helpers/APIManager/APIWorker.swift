@@ -130,7 +130,6 @@ struct APIWorker {
                 print("API url:", url.description)
                 print("params:", parameters ?? "")
                 print("\n\(url.description) Failed")
-                debugPrint("response: \(response)")
                 print("----------------------------\n")
                 #endif
                 let result = APIResult.failure(e)
@@ -149,7 +148,6 @@ struct APIWorker {
                     if let httpResponse = response as? HTTPURLResponse {
                         print("Result:", httpResponse.allHeaderFields as? [String: Any] ?? httpResponse)
                         print("Status Code:", httpResponse.statusCode)
-                        debugPrint("response: \(response)")
                     }
                     print("----------------------------\n")
                     #endif
@@ -169,7 +167,6 @@ struct APIWorker {
                     print("API url:", url.description)
                     print("params:", parameters ?? "")
                     print("\n\(url.description) Failed")
-                    debugPrint("response: \(response)")
                     print("----------------------------\n")
                     #endif
                     let result = APIResult.failure(e)

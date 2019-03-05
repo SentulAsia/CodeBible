@@ -73,7 +73,7 @@ struct APIManager {
                         return
                 }
 
-                let deeplinkModelObj = Deeplink(fromDictionary: responseDictionary)
+                let deeplinkModelObj = Deeplink(from: responseDictionary)
 
                 if deeplinkModelObj.deeplinkURL == nil {
                     let message = deeplinkModelObj.message ?? Constants.Message.failureDefault
@@ -106,7 +106,7 @@ struct APIManager {
                         return
                 }
                 
-                let userModelObj = User(fromDictionary: responseDictionary)
+                let userModelObj = User(from: responseDictionary)
                 if userModelObj.result == "ok" {
                     success(userModelObj)
                     return
@@ -140,7 +140,7 @@ struct APIManager {
                         return
                 }
                 
-                let spotPriceModelObj = SpotPrice(fromDictionary: responseDictionary)
+                let spotPriceModelObj = SpotPrice(from: responseDictionary)
                 if spotPriceModelObj.result == "ok" {
                     success(spotPriceModelObj)
                     return

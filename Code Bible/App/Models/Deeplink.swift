@@ -52,7 +52,7 @@ struct Deeplink : Codable {
         self.message = nil
     }
 
-    init(fromDictionary dictionary: [String: Any]) {
+    init(from dictionary: [String: Any]) {
         let keys = CodingKeys.self
         self.deeplinkURL = dictionary[keys.deeplinkURL.rawValue] as? String
         self.createAt = (dictionary[keys.createAt.rawValue] as? String)?.iso8601Full

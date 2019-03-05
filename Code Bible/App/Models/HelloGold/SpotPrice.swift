@@ -53,7 +53,7 @@ struct SpotPrice: Codable {
         self.timestamp = ""
     }
 
-    init(fromDictionary dictionary: [String: Any]) {
+    init(from dictionary: [String: Any]) {
         let keys = CodingKeys.self
         self.result = dictionary[keys.result.rawValue] as? String
         self.message = dictionary[keys.message.rawValue] as? String
