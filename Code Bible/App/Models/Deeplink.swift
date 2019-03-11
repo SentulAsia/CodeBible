@@ -54,14 +54,26 @@ struct Deeplink : Codable {
 
     init(from dictionary: [String: Any]) {
         let keys = CodingKeys.self
+        self.merchantId = dictionary[keys.merchantId.rawValue] as? Int
+        self.storeId = dictionary[keys.storeId.rawValue] as? Int
+        self.amount = (dictionary[keys.amount.rawValue] as? NSNumber)?.decimalValue
         self.deeplinkURL = dictionary[keys.deeplinkURL.rawValue] as? String
         self.createAt = (dictionary[keys.createAt.rawValue] as? String)?.iso8601Full
         self.referenceId = dictionary[keys.referenceId.rawValue] as? String
         self.checkSum = dictionary[keys.checkSum.rawValue] as? String
         self.message = dictionary[keys.message.rawValue] as? String
-        self.merchantId = nil
-        self.storeId = nil
-        self.amount = nil
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.merchantId = try values.decodeIfPresent(Int.self, forKey: .merchantId)
+        self.storeId = try values.decodeIfPresent(Int.self, forKey: .storeId)
+        self.amount = try values.decodeIfPresent(Decimal.self, forKey: .amount)
+        self.deeplinkURL = try values.decodeIfPresent(String.self, forKey: .deeplinkURL)
+        self.createAt = try values.decodeIfPresent(Date.self, forKey: .createAt)
+        self.referenceId = try values.decodeIfPresent(String.self, forKey: .referenceId)
+        self.checkSum = try values.decodeIfPresent(String.self, forKey: .checkSum)
+        self.message = try values.decodeIfPresent(String.self, forKey: .message)
     }
 
     func toDictionary() -> [String: Any] {

@@ -42,6 +42,13 @@ struct ChannelResponse: Codable {
             }
         }
     }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.message = try values.decodeIfPresent(String.self, forKey: .message)
+        self.code = try values.decodeIfPresent(String.self, forKey: .code)
+        self.channels = try values.decodeIfPresent([Channel].self, forKey: .channels)
+    }
 }
 
 struct Channel: Codable {
@@ -60,5 +67,12 @@ struct Channel: Codable {
         self.channelId = dictionary[keys.channelId.rawValue] as? Int
         self.channelTitle = dictionary[keys.channelTitle.rawValue] as? String
         self.channelStbNumber = dictionary[keys.channelStbNumber.rawValue] as? Int
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.channelId = try values.decodeIfPresent(Int.self, forKey: .channelId)
+        self.channelTitle = try values.decodeIfPresent(String.self, forKey: .channelTitle)
+        self.channelStbNumber = try values.decodeIfPresent(Int.self, forKey: .channelStbNumber)
     }
 }

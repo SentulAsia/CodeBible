@@ -45,6 +45,14 @@ struct UserResponse: Codable {
             self.user = nil
         }
     }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.result = try values.decodeIfPresent(String.self, forKey: .result)
+        self.message = try values.decodeIfPresent(String.self, forKey: .message)
+        self.code = try values.decodeIfPresent(String.self, forKey: .code)
+        self.user = try values.decodeIfPresent(User.self, forKey: .user)
+    }
 }
 
 struct User: Codable {
@@ -79,5 +87,17 @@ struct User: Codable {
         self.apiKey = dictionary[keys.apiKey.rawValue] as? String
         self.apiToken = dictionary[keys.apiToken.rawValue] as? String
         self.publicKey = dictionary[keys.publicKey.rawValue] as? String
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.email = try values.decodeIfPresent(String.self, forKey: .email)
+        self.uuid = try values.decodeIfPresent(String.self, forKey: .uuid)
+        self.data = try values.decodeIfPresent(String.self, forKey: .data)
+        self.tnc = try values.decodeIfPresent(Bool.self, forKey: .tnc)
+        self.accountNumber = try values.decodeIfPresent(String.self, forKey: .accountNumber)
+        self.apiKey = try values.decodeIfPresent(String.self, forKey: .apiKey)
+        self.apiToken = try values.decodeIfPresent(String.self, forKey: .apiToken)
+        self.publicKey = try values.decodeIfPresent(String.self, forKey: .publicKey)
     }
 }

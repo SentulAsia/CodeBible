@@ -45,13 +45,21 @@ struct SpotPriceResponse: Codable {
             self.spotPrice = nil
         }
     }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.result = try values.decodeIfPresent(String.self, forKey: .result)
+        self.message = try values.decodeIfPresent(String.self, forKey: .message)
+        self.code = try values.decodeIfPresent(String.self, forKey: .code)
+        self.spotPrice = try values.decodeIfPresent(SpotPrice.self, forKey: .spotPrice)
+    }
 }
 
 struct SpotPrice: Codable {
 
-    let buy: Double?
-    let sell: Double?
-    let spotPrice: Double?
+    let buy: Decimal?
+    let sell: Decimal?
+    let spotPrice: Decimal?
     let timestamp: Date?
 
     enum CodingKeys: String, CodingKey {
@@ -63,9 +71,17 @@ struct SpotPrice: Codable {
     
     init(from dictionary: [String: Any]) {
         let keys = CodingKeys.self
-        self.buy = dictionary[keys.buy.rawValue] as? Double
-        self.sell = dictionary[keys.sell.rawValue] as? Double
-        self.spotPrice = dictionary[keys.spotPrice.rawValue] as? Double
+        self.buy = (dictionary[keys.buy.rawValue] as? NSNumber)?.decimalValue
+        self.sell = (dictionary[keys.sell.rawValue] as? NSNumber)?.decimalValue
+        self.spotPrice = (dictionary[keys.spotPrice.rawValue] as? NSNumber)?.decimalValue
         self.timestamp = (dictionary[keys.timestamp.rawValue] as? String)?.iso8601
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.buy = try values.decodeIfPresent(Decimal.self, forKey: .buy)
+        self.sell = try values.decodeIfPresent(Decimal.self, forKey: .sell)
+        self.spotPrice = try values.decodeIfPresent(Decimal.self, forKey: .spotPrice)
+        self.timestamp = try values.decodeIfPresent(Date.self, forKey: .timestamp)
     }
 }
