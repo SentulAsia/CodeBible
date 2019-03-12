@@ -53,9 +53,7 @@ extension FileManagerHelper {
         case is Data:
             rawData = value as? Data
         default:
-            #if DEVELOPMENT
-            print("FileManagerHelper: invalid data type")
-            #endif
+            Log("FileManagerHelper: invalid data type")
             return false
         }
         if let r = rawData {

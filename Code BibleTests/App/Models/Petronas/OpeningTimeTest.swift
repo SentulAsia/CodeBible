@@ -21,8 +21,8 @@
 import XCTest
 @testable import Code_Bible
 
-class RegularExpressionSpec: XCTestCase {
-
+class OpeningTimeTest: XCTestCase {
+    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         super.setUp()
@@ -33,25 +33,16 @@ class RegularExpressionSpec: XCTestCase {
         super.tearDown()
     }
 
-    func testValidateValidEmail() {
-        // given
-        let validEmail = "test@example.com", expectedResult = true
-        
-        // when
-        let actualResult = RegularExpression.validateEmail(forString: validEmail)
-        
-        // then
-        XCTAssertEqual(actualResult, expectedResult, "validateEmail(forString:) should accept valid email")
+    func testExample() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
-    
-    func testValidateInvalidEmail() {
-        // given
-        let invalidEmail = "test", expectedResult = false
-        
-        // when
-        let actualResult = RegularExpression.validateEmail(forString: invalidEmail)
-        
-        // then
-        XCTAssertEqual(actualResult, expectedResult, "validateEmail(forString:) should reject invalid email")
+
+    func testPerformanceExample() {
+        // This is an example of a performance test case.
+        self.measure {
+            // Put the code you want to measure the time of here.
+        }
     }
+
 }

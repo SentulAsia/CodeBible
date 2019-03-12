@@ -32,3 +32,14 @@ enum Environment {
     static let value: ProjectTarget = .production
     #endif
 }
+
+struct Log {
+    @discardableResult
+    init(_ items: Any...) {
+        #if DEVELOPMENT
+        print(items)
+        #else
+        // TODO: Log to crashlytics
+        #endif
+    }
+}
