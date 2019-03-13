@@ -18,13 +18,13 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
+import UIKit
 
 struct ArabicNumber {
     let value: String
 
     init(englishNumber: Int) {
-        let someNumber = NSDecimalNumber(string: "\(englishNumber)")
+        let someNumber = NSDecimalNumber(string: englishNumber.description)
         let formatter = NumberFormatter()
         formatter.locale = Locale(identifier: "AR")
         self.value = formatter.string(from: someNumber) ?? "0"
@@ -32,20 +32,32 @@ struct ArabicNumber {
 }
 
 extension Float {
-    func rounded(digits: Int) -> Float {
+    func rounded(toPlaces digits: Int) -> Float {
         let behavior = NSDecimalNumberHandler(roundingMode: .bankers, scale: Int16(digits), raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: true)
         return NSDecimalNumber(value: self).rounding(accordingToBehavior: behavior).floatValue
-    }
-
-    func rounded(toPlaces places: Int) -> Float {
-        let divisor = pow(10.0, Float(places))
-        return (self * divisor).rounded() / divisor
     }
 }
 
 extension Double {
-    func rounded(digits: Int) -> Double {
+    var cgFloatValue: CGFloat {
+        return CGFloat(self)
+    }
+    
+    func rounded(toPlaces digits: Int) -> Double {
         let behavior = NSDecimalNumberHandler(roundingMode: .bankers, scale: Int16(digits), raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: true)
         return NSDecimalNumber(value: self).rounding(accordingToBehavior: behavior).doubleValue
+    }
+}
+
+extension Decimal {
+    func rounded(toPlaces digits: Int) -> Decimal {
+        let behavior = NSDecimalNumberHandler(roundingMode: .bankers, scale: Int16(digits), raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: true)
+        return (self as NSDecimalNumber).rounding(accordingToBehavior: behavior) as Decimal
+    }
+}
+
+extension CGFloat {
+    var doubleValue: Double {
+        return Double(self)
     }
 }

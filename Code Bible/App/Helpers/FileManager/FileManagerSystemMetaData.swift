@@ -30,14 +30,14 @@ extension FileManagerSystemMetaData {
         let listing = try! FileManager.default.contentsOfDirectory(atPath: at.path)
         
         if listing.count > 0 {
-            print("\n----------------------------")
-            print("LISTING: \(at.path)")
-            print("")
+            Log("\n----------------------------")
+            Log("LISTING: \(at.path)")
+            Log("")
             for file in listing {
-                print("File: \(file.debugDescription)")
+                Log("File: \(file.debugDescription)")
             }
-            print("")
-            print("----------------------------\n")
+            Log("")
+            Log("----------------------------\n")
             
             return listing
         } else {

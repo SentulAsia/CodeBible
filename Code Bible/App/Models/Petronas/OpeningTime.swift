@@ -30,8 +30,15 @@ struct OpeningTime {
         self.time = time
         self.string = self.day.rawValue + " " + self.time
     }
+    
+    var description: String {
+        return "\(self.day.rawValue) \(self.time)"
+    }
 
-    // Get array of opening time from a string
+    /// Get array of opening time from a string
+    ///
+    /// - Parameter content: a row of input file
+    /// - Returns: array of opening time
     static func list(content: String) -> [OpeningTime] {
         func obtainDayStartedWithComma(string: String) -> (day: Day, unprocessedString: String) {
             let startDayString = String(string.prefix(3))
@@ -61,7 +68,10 @@ struct OpeningTime {
             return (Day(rawValue: dayString)!, unprocessedString)
         }
 
-        // Parse string to get day index and opening time
+        /// Parse string to get day index and opening time
+        ///
+        /// - Parameter string: a row of input file
+        /// - Returns: tuple of array of days and opening of all these days
         func parse(string: String) -> (days: [Day], openingTime: String) {
             var processedString = string // everytime day is extracted from string, that string will be dropped and balance string is stored here
             var characters = Array(processedString)

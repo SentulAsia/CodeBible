@@ -24,12 +24,11 @@ fileprivate extension Constants {
     static let sample = "Profile.png"
 }
 
-protocol FileManagerDataStore: FileManagerHelper, FileManagerSystemMetaData {
-    var profileImage: UIImage? { get set }
-    func deleteAll()
-}
-
-extension FileManagerDataStore {
+struct FileManagerDataStore: FileManagerHelper, FileManagerSystemMetaData {
+    static var shared = FileManagerDataStore()
+    
+    private init() {}
+    
     var profileImage: UIImage? {
         get {
             return readFile(at: .Documents, withName: Constants.sample) as? UIImage
@@ -43,8 +42,8 @@ extension FileManagerDataStore {
         }
     }
     
-    func deleteAll() {
-        if let files = list(directory: getURL(for: .Documents)) {
+    func deleteAll(forDirectory directory: FileManagerDirectories) {
+        if let files = list(directory: getURL(for: directory)) {
             for file in files {
                 deleteFile(at: .Documents, withName: file)
             }

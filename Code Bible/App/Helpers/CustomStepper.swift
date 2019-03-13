@@ -300,14 +300,14 @@ class CustomStepper: UIControl, ViewControllerHelper {
     }
 
     func increaseValue() {
-        let roundedValue = value.rounded(digits: self.numberFormatter.maximumFractionDigits)
+        let roundedValue = value.rounded(toPlaces: self.numberFormatter.maximumFractionDigits)
         if roundedValue + self.step <= self.maximum && roundedValue + self.step >= self.minimum {
             self.value = roundedValue + self.step
         }
     }
 
     func decreaseValue() {
-        let roundedValue = self.value.rounded(digits: self.numberFormatter.maximumFractionDigits)
+        let roundedValue = self.value.rounded(toPlaces: self.numberFormatter.maximumFractionDigits)
         if roundedValue - self.step <= self.maximum && roundedValue - self.step >= self.minimum {
             self.value = roundedValue - self.step
         }

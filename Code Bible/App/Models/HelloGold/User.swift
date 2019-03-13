@@ -20,15 +20,47 @@
 
 import Foundation
 
+struct UserResponse: Codable {
+    
+    let result: String?
+    let message: String?
+    let code: String?
+    let user: User?
+    
+    enum CodingKeys: String, CodingKey {
+        case result
+        case message
+        case code
+        case user = "data"
+    }
+    
+    init(from dictionary: [String: Any]) {
+        let keys = CodingKeys.self
+        self.result = dictionary[keys.result.rawValue] as? String
+        self.message = dictionary[keys.message.rawValue] as? String
+        self.code = dictionary[keys.code.rawValue] as? String
+        if let user = dictionary[keys.user.rawValue] as? [String: Any] {
+            self.user = User(from: user)
+        } else {
+            self.user = nil
+        }
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.result = try values.decodeIfPresent(String.self, forKey: .result)
+        self.message = try values.decodeIfPresent(String.self, forKey: .message)
+        self.code = try values.decodeIfPresent(String.self, forKey: .code)
+        self.user = try values.decodeIfPresent(User.self, forKey: .user)
+    }
+}
+
 struct User: Codable {
 
     let email: String?
     let uuid: String?
     var data: String?
     let tnc: Bool?
-    let result: String?
-    let message: String?
-    let code: String?
     let accountNumber: String?
     let apiKey: String?
     let apiToken: String?
@@ -39,80 +71,33 @@ struct User: Codable {
         case uuid = "uuid"
         case data = "data"
         case tnc = "tnc"
-        case result = "result"
-        case message = "message"
-        case code = "code"
         case accountNumber = "account_number"
         case apiKey = "api_key"
         case apiToken = "api_token"
         case publicKey = "public_key"
     }
-
-    init(email: String = "", uuid: String = "", data: String = "", tnc: Bool = false) {
-        self.email = email
-        self.uuid = uuid
-        self.data = data
-        self.tnc = tnc
-        self.result = ""
-        self.message = ""
-        self.code = ""
-        self.accountNumber = ""
-        self.apiKey = ""
-        self.apiToken = ""
-        self.publicKey = ""
-    }
-
-    init(fromDictionary dictionary: [String: Any]) {
+    
+    init(from dictionary: [String: Any]) {
         let keys = CodingKeys.self
-        self.email = ""
-        self.uuid = ""
-        self.tnc = false
-        self.result = dictionary[keys.result.rawValue] as? String
-        self.message = dictionary[keys.message.rawValue] as? String
-        self.code = dictionary[keys.code.rawValue] as? String
-        if let data = dictionary[keys.data.rawValue] as? [String: Any] {
-            self.accountNumber = data[keys.accountNumber.rawValue] as? String
-            self.apiKey = data[keys.apiKey.rawValue] as? String
-            self.apiToken = data[keys.apiToken.rawValue] as? String
-            self.publicKey = data[keys.publicKey.rawValue] as? String
-        } else {
-            self.accountNumber = ""
-            self.apiKey = ""
-            self.apiToken = ""
-            self.publicKey = ""
-        }
+        self.email = dictionary[keys.email.rawValue] as? String
+        self.uuid = dictionary[keys.uuid.rawValue] as? String
+        self.data = dictionary[keys.data.rawValue] as? String
+        self.tnc = dictionary[keys.tnc.rawValue] as? Bool
+        self.accountNumber = dictionary[keys.accountNumber.rawValue] as? String
+        self.apiKey = dictionary[keys.apiKey.rawValue] as? String
+        self.apiToken = dictionary[keys.apiToken.rawValue] as? String
+        self.publicKey = dictionary[keys.publicKey.rawValue] as? String
     }
-
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.email = try values.decodeIfPresent(String.self, forKey: .email)
         self.uuid = try values.decodeIfPresent(String.self, forKey: .uuid)
+        self.data = try values.decodeIfPresent(String.self, forKey: .data)
         self.tnc = try values.decodeIfPresent(Bool.self, forKey: .tnc)
-        self.result = try values.decodeIfPresent(String.self, forKey: .result)
-        self.message = try values.decodeIfPresent(String.self, forKey: .message)
-        self.code = try values.decodeIfPresent(String.self, forKey: .code)
-        let resultData = try values.nestedContainer(keyedBy: CodingKeys.self, forKey: .data)
-        self.accountNumber = try resultData.decodeIfPresent(String.self, forKey: .accountNumber)
-        self.apiKey = try resultData.decodeIfPresent(String.self, forKey: .apiKey)
-        self.apiToken = try resultData.decodeIfPresent(String.self, forKey: .apiToken)
-        self.publicKey = try resultData.decodeIfPresent(String.self, forKey: .publicKey)
-    }
-
-    func encode(to encoder: Encoder) throws {
-        var values = encoder.container(keyedBy: CodingKeys.self)
-        try values.encodeIfPresent(self.email, forKey: .email)
-        try values.encodeIfPresent(self.uuid, forKey: .uuid)
-        try values.encodeIfPresent(self.data, forKey: .data)
-        try values.encodeIfPresent(self.tnc, forKey: .tnc)
-    }
-
-    func toDictionary() -> [String: Any] {
-        let keys = CodingKeys.self
-        var dictionary = [String: Any]()
-        dictionary[keys.email.rawValue] = self.email ?? ""
-        dictionary[keys.uuid.rawValue] = uuid ?? ""
-        dictionary[keys.data.rawValue] = data ?? ""
-        dictionary[keys.tnc.rawValue] = tnc ?? false
-        return dictionary
+        self.accountNumber = try values.decodeIfPresent(String.self, forKey: .accountNumber)
+        self.apiKey = try values.decodeIfPresent(String.self, forKey: .apiKey)
+        self.apiToken = try values.decodeIfPresent(String.self, forKey: .apiToken)
+        self.publicKey = try values.decodeIfPresent(String.self, forKey: .publicKey)
     }
 }

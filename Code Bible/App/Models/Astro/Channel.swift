@@ -20,67 +20,59 @@
 
 import Foundation
 
-struct Channel {
-    var isSuccess: Bool
-    var message: String
-    var code: String
-    var channelId: Int
-    var channelTitle: String
-    var channelStbNumber: Int
-
-    init(channelId: Int = 0, channelTitle: String = "", channelStbNumber: Int = 0) {
-        self.isSuccess = false
-        self.message = ""
-        self.code = ""
-        self.channelId = channelId
-        self.channelTitle = channelTitle
-        self.channelStbNumber = channelStbNumber
+struct ChannelResponse: Codable {
+    var message: String?
+    var code: String?
+    var channels: [Channel]?
+    
+    private enum CodingKeys: String, CodingKey {
+        case message = "responseMessage"
+        case code = "responseCode"
+        case channels = "channels"
     }
-
-    // Parse dictionary to get channel properties
-    mutating func parseChannel(dictionary: [String: Any]) {
-        if let channelId = dictionary["channelId"] as? Int {
-            self.channelId = channelId
-        }
-        if let channelTitle = dictionary["channelTitle"] as? String {
-            self.channelTitle = channelTitle
-        }
-        if let channelStbNumber = dictionary["channelStbNumber"] as? Int {
-            self.channelStbNumber = channelStbNumber
+    
+    init(from dictionary: [String: Any]) {
+        let keys = CodingKeys.self
+        self.message = dictionary[keys.message.rawValue] as? String
+        self.code = dictionary[keys.code.rawValue] as? String
+        if let channels = dictionary[keys.channels.rawValue] as? [[String: Any]] {
+            self.channels = []
+            for channel in channels {
+                self.channels?.append(Channel(from: channel))
+            }
         }
     }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.message = try values.decodeIfPresent(String.self, forKey: .message)
+        self.code = try values.decodeIfPresent(String.self, forKey: .code)
+        self.channels = try values.decodeIfPresent([Channel].self, forKey: .channels)
+    }
+}
 
-    // Parse dictionary to get channel array
-    mutating func parseGetChannelList(dictionary: [String: Any]) -> [Channel] {
-        var channelModelObj = Channel()
-        var channelModelArrayObj: [Channel] = []
-
-        if let message = dictionary["responseMessage"] as? String, message == "Success" {
-            self.isSuccess = true
-            self.message = message
-
-            if let code = dictionary["responseCode"] as? String {
-                self.code = code
-            }
-
-            if let list = dictionary["channels"] as? [Any] {
-                if list.count > 0 {
-                    for index in 0..<list.count {
-                        if let dictionary = list[index] as? [String: Any] {
-                            channelModelObj.parseChannel(dictionary: dictionary)
-                            channelModelArrayObj.append(channelModelObj)
-                        }
-                    }
-                }
-            }
-        } else {
-            self.isSuccess = false
-            if let message = dictionary["responseMessage"] as? String {
-                self.message = message
-            } else {
-                self.message = Constants.Message.failureDefault
-            }
-        }
-        return channelModelArrayObj
+struct Channel: Codable {
+    var channelId: Int?
+    var channelTitle: String?
+    var channelStbNumber: Int?
+    
+    private enum CodingKeys: String, CodingKey {
+        case channelId = "channelId"
+        case channelTitle = "channelTitle"
+        case channelStbNumber = "channelStbNumber"
+    }
+    
+    init(from dictionary: [String: Any]) {
+        let keys = CodingKeys.self
+        self.channelId = dictionary[keys.channelId.rawValue] as? Int
+        self.channelTitle = dictionary[keys.channelTitle.rawValue] as? String
+        self.channelStbNumber = dictionary[keys.channelStbNumber.rawValue] as? Int
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.channelId = try values.decodeIfPresent(Int.self, forKey: .channelId)
+        self.channelTitle = try values.decodeIfPresent(String.self, forKey: .channelTitle)
+        self.channelStbNumber = try values.decodeIfPresent(Int.self, forKey: .channelStbNumber)
     }
 }

@@ -55,9 +55,8 @@ class RootViewController: UIViewController, AlertHelper, PickerHelper, DatePicke
 
         self.navigationButton.badge = 13
         self.anotherNavigationItem.badge = 8
-        if let i = profileImage {
+        if let i = FileManagerDataStore.shared.profileImage {
             self.imageButton.setBackgroundImage(i, for: .normal)
-            profileImage = i
         }
     }
 
@@ -78,8 +77,7 @@ class RootViewController: UIViewController, AlertHelper, PickerHelper, DatePicke
         presentDatePicker(self, pickerDate: self.selectedDate) { (isPicked: Bool, pickerDate: Date?) in
             if isPicked {
                 self.selectedDate = pickerDate
-                print(self.selectedDate?.formattedISO8601 ?? "")
-                // TODO: Handle selected date
+                // TODO: Handle self.selectedDate?.formattedISO8601
             }
         }
     }
@@ -118,7 +116,7 @@ class RootViewController: UIViewController, AlertHelper, PickerHelper, DatePicke
     }
 
     @IBAction func imageButtonTapped(_ sender: Any) {
-        ImagePicker.presentMenu(sender as! UIButton, delegate: self)
+        ImagePickerController.presentMenu(sender as! UIButton, delegate: self)
     }
 
     @IBAction func showToastButtonTapped(_ sender: Any) {
@@ -131,14 +129,12 @@ class RootViewController: UIViewController, AlertHelper, PickerHelper, DatePicke
             textfield.isSecureTextEntry = true
             textfield.keyboardType = .numberPad
         }) { (newValue: String?) in
-            print(newValue ?? "")
+            // TODO: handle newValue
         }
     }
 
     @IBAction func showAnotherAlert(_ sender: Any) {
-        presentSingleActionAlert(self, withMessage: "Do you want to logout?") { (action: UIAlertAction) in
-            print("Go to logout")
-        }
+        presentSingleActionAlert(self, withMessage: "Do you want to logout?", withAction: nil)
     }
 }
 
@@ -152,24 +148,17 @@ extension RootViewController: KPPaymentDelegate {
     }
 }
 
-extension RootViewController: ImagePickerDelegate, FileManagerDataStore {
+extension RootViewController: ImagePickerDelegate {
     func imagePickerFinishCapture(successfully flag: Bool, withImage image: UIImage?) {
         if let i = image {
             self.imageButton.setBackgroundImage(i, for: .normal)
-            profileImage = i
+            FileManagerDataStore.shared.profileImage = i
         }
     }
 }
 
 extension RootViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        print(#function)
-        print(string)
-        let regex = try? NSRegularExpression.init(pattern: "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~@\\-]+", options: NSRegularExpression.Options.useUnixLineSeparators)
-        let range = NSRange.init(location: 0, length: string.count)
-        let matches = regex?.matches(in: string, options: .withoutAnchoringBounds, range: range)
-        guard let matchingString = matches, matchingString.count > 0 else { return false }
-        
-        return true
+        return RegularExpression.validateTwoDecimalAmount(forString: string, andRange: range)
     }
 }

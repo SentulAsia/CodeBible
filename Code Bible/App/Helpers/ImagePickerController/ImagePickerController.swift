@@ -24,8 +24,8 @@ protocol ImagePickerDelegate: class {
     func imagePickerFinishCapture(successfully flag: Bool, withImage image: UIImage?)
 }
 
-class ImagePicker: NSObject {
-    static let shared = ImagePicker()
+class ImagePickerController: NSObject {
+    static let shared = ImagePickerController()
 
     // MARK: Delegate
     weak var delegate: ImagePickerDelegate?
@@ -41,7 +41,7 @@ class ImagePicker: NSObject {
     static func presentMenu(_ sender: UIView, delegate: ImagePickerDelegate) {
         let menu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let action1 = UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
-            let camera = ImagePicker.shared
+            let camera = ImagePickerController.shared
             camera.delegate = delegate
             camera.imageWidth = 200
             camera.takePicture()
@@ -51,7 +51,7 @@ class ImagePicker: NSObject {
 //        action1.setValue(0, forKey: "titleTextAlignment")
         menu.addAction(action1)
         let action2 = UIAlertAction(title: "Photo Library", style: .default, handler: { (action: UIAlertAction) in
-            let photoLibrary = ImagePicker.shared
+            let photoLibrary = ImagePickerController.shared
             photoLibrary.delegate = delegate
             photoLibrary.imageWidth = 200
             photoLibrary.selectPicture()
@@ -115,7 +115,7 @@ class ImagePicker: NSObject {
     }
 }
 
-extension ImagePicker: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+extension ImagePickerController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.imagePicker.dismiss(animated: true, completion: nil)
         self.imagePicker = nil
@@ -152,8 +152,7 @@ extension ImagePicker: UINavigationControllerDelegate, UIImagePickerControllerDe
             }
         }
 
-        // do something interesting here!
-        print("image size before: \(newImage.size)")
+        Log("image size before: \(newImage.size)")
 
         if let newWidth = self.imageWidth {
 
@@ -165,7 +164,7 @@ extension ImagePicker: UINavigationControllerDelegate, UIImagePickerControllerDe
             newImage.draw(in: CGRect(x: 0, y: 0,width: newWidth, height: newHeight))
             newImage = UIGraphicsGetImageFromCurrentImageContext()!
             UIGraphicsEndImageContext()
-            print("image size after: \(newImage.size)")
+            Log("image size after: \(newImage.size)")
         }
 
         setImage(newImage)

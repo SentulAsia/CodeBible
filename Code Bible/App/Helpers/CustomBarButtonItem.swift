@@ -66,7 +66,7 @@ class CustomBarButtonItem: UIBarButtonItem {
 
         // Initialiaze Badge's label
         let label = CATextLayer()
-        label.string = "\(number)"
+        label.string = number.description
         label.alignmentMode = CATextLayerAlignmentMode.center
         label.fontSize = 11
         label.frame = CGRect(origin: CGPoint(x: location.x - 4, y: offset.y), size: CGSize(width: 8, height: 16))
@@ -81,7 +81,7 @@ class CustomBarButtonItem: UIBarButtonItem {
 
     private func updateBadge(number: Int) {
         if let text = self.badgeLayer?.sublayers?.filter({ $0 is CATextLayer }).first as? CATextLayer {
-            text.string = "\(number)"
+            text.string = number.description
         } else {
             addBadge(number: number)
         }

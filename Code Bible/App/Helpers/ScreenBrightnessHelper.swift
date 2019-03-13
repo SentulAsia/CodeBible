@@ -20,19 +20,19 @@
 
 import UIKit
 
-protocol ScreenBrightnessHelper: UserDefaultsDataStore {
+protocol ScreenBrightnessHelper {
     func setBrightness(value: CGFloat)
     func resetBrightness()
 }
 
 extension ScreenBrightnessHelper {
     func setBrightness(value: CGFloat) {
-        brightness = UIScreen.main.brightness
+        UserDefaultsDataStore.shared.brightness = UIScreen.main.brightness
         UIScreen.main.brightness = value
     }
 
     func resetBrightness() {
-        if let b = brightness {
+        if let b = UserDefaultsDataStore.shared.brightness {
             UIScreen.main.brightness = b
         }
     }

@@ -47,7 +47,7 @@ class ChannelListViewController: UIViewController, ToastHelper {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        Spinner.shared.stopLoadingIndicatior()
+        SpinnerController.shared.stopLoadingIndicatior()
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,17 +58,16 @@ class ChannelListViewController: UIViewController, ToastHelper {
 
 extension ChannelListViewController {
     func getChannelListAPI() {
-        let channelObj = Channel()
-        Spinner.shared.startLoadingIndicator(self)
-        APIManager.getChannelList(channelObj: channelObj, success: { (channelModelArrayObj) in
+        SpinnerController.shared.startLoadingIndicator(self)
+        APIManager.getChannelList(success: { (channels) in
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // change 2 to desired number of seconds
-                Spinner.shared.stopLoadingIndicatior()
-                self.channels = channelModelArrayObj
+                SpinnerController.shared.stopLoadingIndicatior()
+                self.channels = channels
                 self.tableView.isHidden = false
                 self.tableView.reloadData()
             }
         }) { (error) in
-            Spinner.shared.stopLoadingIndicatior()
+            SpinnerController.shared.stopLoadingIndicatior()
             self.presentToast(self, withMessage: error)
         }
     }
@@ -91,7 +90,7 @@ extension ChannelListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: ChannelTableViewCell.Constants.identifier, for: indexPath) as! ChannelTableViewCell
 
         cell.textLabel?.text = self.channels[indexPath.row].channelTitle
-        cell.detailTextLabel?.text = String(self.channels[indexPath.row].channelStbNumber)
+        cell.detailTextLabel?.text = self.channels[indexPath.row].channelStbNumber?.description
 
         return cell
     }

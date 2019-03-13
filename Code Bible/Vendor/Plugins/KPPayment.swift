@@ -45,20 +45,17 @@ public class KPPayment: NSObject {
         NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
     }
 
-    public func makePayment(referenceId: String, amount: Float) {
-        print(#function)
+    public func makePayment(referenceId: String, amount: Decimal) {
         self.referenceId = referenceId
         let param1 = self.secret
-        let param2 = String(self.merchantId)
-        let param3 = String(storeId)
-        let param4 = String(format: "%.2f", amount.rounded(toPlaces: 2))
+        let param2 = self.merchantId.description
+        let param3 = storeId.description
+        let param4 = amount.rounded(toPlaces: 2).description
         let param5 = referenceId
         let checkSum = (param1 + param2 + param3 + param4 + param5).sha1()
         let deeplink = Deeplink(merchantId: self.merchantId, storeId: self.storeId, amount: amount, referenceId: referenceId, checkSum: checkSum)
         APIManager.postGenerateDeeplink(deeplinkObj: deeplink, success: { (deeplinkModelObj: Deeplink) in
-            print(deeplinkModelObj)
             if let appURLString = deeplinkModelObj.deeplinkURL, let appURL = URL(string: appURLString) {
-                print(appURL)
                 UIApplication.shared.open(appURL) { success in
                     if !success {
                         self.delegate?.paymentDidFinish(successfully: false, withMessage: "Unable to redirect to kiplePay")
@@ -68,7 +65,6 @@ public class KPPayment: NSObject {
                 self.delegate?.paymentDidFinish(successfully: false, withMessage: "Unable to redirect to kiplePay")
             }
         }) { (error) in
-            print(error)
             self.delegate?.paymentDidFinish(successfully: false, withMessage: error)
         }
     }

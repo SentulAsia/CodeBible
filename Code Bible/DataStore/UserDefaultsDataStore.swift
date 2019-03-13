@@ -21,66 +21,94 @@
 import UIKit
 
 fileprivate extension Constants {
-    static let currentVersion = "AppDelegate.CurrentVersion"
+    static let currentVersion = "SettingsBundle.AppVersion"
+    static let clearData = "SettingsBundle.ClearData"
+    static let clearCache = "SettingsBundle.ClearCache"
     static let ipAddress = "IPAddress.value"
     static let brightness = "ScreenBrightnessHelper.brightness"
+    static let userEmail = "HelloGold.userEmail"
 }
 
-protocol UserDefaultsDataStore: class {
-    var currentVersion: String? { get set }
-    var ipAddress: String? { get set }
-    var brightness: CGFloat? { get set }
-    func deleteAll()
-}
-
-extension UserDefaultsDataStore {
+struct UserDefaultsDataStore {
+    static var shared = UserDefaultsDataStore()
+    
+    private init() {}
+    
     var currentVersion: String? {
         get {
-            UserDefaults.standard.synchronize()
-            return UserDefaults.standard.string(forKey: Constants.currentVersion)
+            return getObject(forKey: Constants.currentVersion) as? String
         }
         set {
-            if let value = newValue {
-                UserDefaults.standard.set(value, forKey: Constants.currentVersion)
-            } else {
-                UserDefaults.standard.removeObject(forKey: Constants.currentVersion)
-            }
-            UserDefaults.standard.synchronize()
+            setObject(newValue, forKey: Constants.currentVersion)
+        }
+    }
+    
+    var clearData: Bool? {
+        get {
+            return getObject(forKey: Constants.clearData) as? Bool
+        }
+        set {
+            setObject(newValue, forKey: Constants.clearData)
+        }
+    }
+    
+    var clearCache: Bool? {
+        get {
+            return getObject(forKey: Constants.clearCache) as? Bool
+        }
+        set {
+            setObject(newValue, forKey: Constants.clearCache)
         }
     }
     
     var ipAddress: String? {
         get {
-            UserDefaults.standard.synchronize()
-            return UserDefaults.standard.string(forKey: Constants.ipAddress)
+            return getObject(forKey: Constants.ipAddress) as? String
         }
         set {
-            if let value = newValue {
-                UserDefaults.standard.set(value, forKey: Constants.ipAddress)
-            } else {
-                UserDefaults.standard.removeObject(forKey: Constants.ipAddress)
-            }
-            UserDefaults.standard.synchronize()
+            setObject(newValue, forKey: Constants.ipAddress)
         }
     }
     
     var brightness: CGFloat? {
         get {
-            UserDefaults.standard.synchronize()
-            return CGFloat(UserDefaults.standard.float(forKey: Constants.brightness))
+            return (getObject(forKey: Constants.brightness) as? Double)?.cgFloatValue
         }
         set {
-            if let value = newValue {
-                UserDefaults.standard.set(Float(value), forKey: Constants.brightness)
-            } else {
-                UserDefaults.standard.removeObject(forKey: Constants.brightness)
-            }
-            UserDefaults.standard.synchronize()
+            setObject(newValue?.doubleValue, forKey: Constants.brightness)
+        }
+    }
+    
+    var userEmail: String? {
+        get {
+            return getObject(forKey: Constants.userEmail) as? String
+        }
+        set {
+            setObject(newValue, forKey: Constants.userEmail)
         }
     }
     
     func deleteAll() {
         UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        UserDefaults.standard.synchronize()
+    }
+}
+
+private extension UserDefaultsDataStore {
+    func getObject(forKey key: String) -> Any? {
+        UserDefaults.standard.synchronize()
+        if let object = UserDefaults.standard.object(forKey: key) {
+            return object
+        }
+        return nil
+    }
+    
+    func setObject(_ object: Any?, forKey key: String) {
+        if let o = object {
+            UserDefaults.standard.set(o, forKey: key)
+        } else {
+            UserDefaults.standard.removeObject(forKey: key)
+        }
         UserDefaults.standard.synchronize()
     }
 }

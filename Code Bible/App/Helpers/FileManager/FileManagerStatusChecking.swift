@@ -29,20 +29,20 @@ protocol FileManagerStatusChecking {
 extension FileManagerStatusChecking {
     func isWritable(file at: URL) -> Bool {
         if FileManager.default.isWritableFile(atPath: at.path) {
-            print(at.path)
+            Log(at.path)
             return true
         } else {
-            print(at.path)
+            Log(at.path)
             return false
         }
     }
     
     func isReadable(file at: URL) -> Bool {
         if FileManager.default.isReadableFile(atPath: at.path) {
-            print(at.path)
+            Log(at.path)
             return true
         } else {
-            print(at.path)
+            Log(at.path)
             return false
         }
     }
