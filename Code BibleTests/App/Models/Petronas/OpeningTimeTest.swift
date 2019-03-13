@@ -33,16 +33,29 @@ class OpeningTimeTest: XCTestCase {
         super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testOpeningTimeList() {
+        // given
+        let validString = "Mon-Sun 11:30 am - 9:00 pm"
+        let expectedResult = [
+            OpeningTime(day: .mon, time: "11:30 am - 9:00 pm"),
+            OpeningTime(day: .tue, time: "11:30 am - 9:00 pm"),
+            OpeningTime(day: .wed, time: "11:30 am - 9:00 pm"),
+            OpeningTime(day: .thu, time: "11:30 am - 9:00 pm"),
+            OpeningTime(day: .fri, time: "11:30 am - 9:00 pm"),
+            OpeningTime(day: .sat, time: "11:30 am - 9:00 pm"),
+            OpeningTime(day: .sun, time: "11:30 am - 9:00 pm")
+        ]
+        
+        // when
+        let actualResult = OpeningTime.list(content: validString)
+        
+        //then
+        XCTAssertEqual(actualResult.first.debugDescription, expectedResult.first.debugDescription, "validateEmail(forString:) should reject invalid email")
+        XCTAssertEqual(actualResult[1].description, expectedResult[1].description, "validateEmail(forString:) should reject invalid email")
+        XCTAssertEqual(actualResult[2].description, expectedResult[2].description, "validateEmail(forString:) should reject invalid email")
+        XCTAssertEqual(actualResult[3].description, expectedResult[3].description, "validateEmail(forString:) should reject invalid email")
+        XCTAssertEqual(actualResult[4].description, expectedResult[4].description, "validateEmail(forString:) should reject invalid email")
+        XCTAssertEqual(actualResult[5].description, expectedResult[5].description, "validateEmail(forString:) should reject invalid email")
+        XCTAssertEqual(actualResult.last.debugDescription, expectedResult.last.debugDescription, "validateEmail(forString:) should reject invalid email")
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

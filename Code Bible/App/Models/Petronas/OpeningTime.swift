@@ -30,6 +30,10 @@ struct OpeningTime {
         self.time = time
         self.string = self.day.rawValue + " " + self.time
     }
+    
+    var description: String {
+        return "\(self.day.rawValue) \(self.time)"
+    }
 
     /// Get array of opening time from a string
     ///
