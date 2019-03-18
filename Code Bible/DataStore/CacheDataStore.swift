@@ -38,7 +38,7 @@ private extension CacheDataStore {
         
         private lazy var totalCostLimit: Int = {
             let physicalMemory = ProcessInfo.processInfo.physicalMemory
-            let ratio = physicalMemory <= (1024 * 1024 * 512) ? 0.1 : 0.2
+            let ratio = physicalMemory <= (1024 * 1024 * 512) ? 0.01 : 0.02
             let limit = physicalMemory / UInt64(1 / ratio)
             return limit > UInt64(Int.max) ? Int.max : Int(limit)
         }()
@@ -58,7 +58,7 @@ private extension CacheDataStore {
         
         @discardableResult
         func createCache(containing value: AnyObject, withKey key: String) -> Bool {
-            let cost = MemoryLayout.size(ofValue: value)
+            let cost = calculateCost(forValue: value)
             cache.setObject(value as AnyObject, forKey: NSString(string: key), cost: cost)
             return true
         }
@@ -78,6 +78,16 @@ private extension CacheDataStore {
         func deleteAll() -> Bool {
             cache.removeAllObjects()
             return true
+        }
+        
+        private func calculateCost(forValue value: AnyObject) -> Int {
+            var cost = MemoryLayout.size(ofValue: value)
+            if let imageData = (value as? UIImage)?.pngData() {
+                cost = imageData.count
+            } else if let data = value as? Data {
+                cost = data.count
+            }
+            return cost
         }
     }
 }
