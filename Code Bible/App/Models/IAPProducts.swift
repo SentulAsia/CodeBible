@@ -20,46 +20,30 @@
 
 import UIKit
 
-fileprivate extension Constants {
-    static let sample = "Profile.png"
-}
-
-struct FileManagerDataStore: FileManagerHelper, FileManagerSystemMetaData {
-    static var shared = FileManagerDataStore()
+enum IAPProducts: String, CaseIterable {
+    case storeItem1 = "com.example.iap.storeItem1"
+    case storeItem2 = "com.example.iap.storeItem2"
+    case storeItem3 = "com.example.iap.storeItem3"
     
-    private init() {}
-    
-    var profileImage: UIImage? {
-        get {
-            return getObject(withName: Constants.sample) as? UIImage
-        }
-        set {
-            setObject(newValue, withName: Constants.sample)
+    func name() -> String {
+        switch self {
+        case .storeItem1:
+            return "Store Item Number 1"
+        case .storeItem2:
+            return "Store Item Number 2"
+        case .storeItem3:
+            return "Store Item Number 3"
         }
     }
     
-    func deleteAll(forDirectory directory: FileManagerDirectories) {
-        if let files = list(directory: getURL(for: directory)) {
-            for file in files {
-                deleteFile(at: .Documents, withName: file)
-            }
-        }
-    }
-}
-
-private extension FileManagerDataStore {
-    func getObject(withName name: String) -> Any? {
-        if let object = readFile(at: .Documents, withName: name) {
-            return object
-        }
-        return nil
-    }
-    
-    func setObject(_ object: Any?, withName name: String) {
-        if let o = object {
-            createFile(containing: o, to: .Documents, withName: name)
-        } else {
-            deleteFile(at: .Documents, withName: name)
+    func image() -> UIImage {
+        switch self {
+        case .storeItem1:
+            return #imageLiteral(resourceName: "icons8-picture")
+        case .storeItem2:
+            return #imageLiteral(resourceName: "icons8-camera")
+        case .storeItem3:
+            return #imageLiteral(resourceName: "icons8-name-filled")
         }
     }
 }
