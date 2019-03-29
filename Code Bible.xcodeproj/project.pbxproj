@@ -918,14 +918,14 @@
 				TargetAttributes = {
 					2EAA790A21156AE800600D46 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 					};
 					2EC9959B2133AF6100259CDE = {
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 					};
 					B8F9C8C122283F42008A8717 = {
 						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						TestTargetID = 2EAA790A21156AE800600D46;
 					};
 				};
@@ -1463,7 +1463,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Code Bible/Supporting Files/Code Bible-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1484,7 +1484,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sentulasia.CodeBible;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Code Bible/Supporting Files/Code Bible-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1507,7 +1507,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Code Bible/Supporting Files/Code Bible Dev-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1529,7 +1529,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sentulasia.CodeBible-Dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Code Bible/Supporting Files/Code Bible Dev-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1555,7 +1555,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Code BibleTests/Supporting Files/Code BibleTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Code Bible.app/Code Bible";
 			};
@@ -1580,7 +1580,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sentulasia.Code-BibleTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Code BibleTests/Supporting Files/Code BibleTests-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Code Bible.app/Code Bible";
 			};

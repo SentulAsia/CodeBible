@@ -36,7 +36,7 @@ enum Day: String, CaseIterable {
         let startIndex = Day(rawValue: startDay)
         let endIndex = Day(rawValue: endDay)
 
-        if let s = startIndex, var i: Int = Day.allCases.index(of: s) {
+        if let s = startIndex, var i: Int = Day.allCases.firstIndex(of: s) {
             while Day.allCases[i] != endIndex {
                 list.append(Day.allCases[i])
                 i += 1
