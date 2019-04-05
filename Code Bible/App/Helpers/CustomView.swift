@@ -37,6 +37,42 @@ class CustomView: UIView {
 }
 
 extension UIView {
+    
+    // Top Anchor
+    var safeAreaTopAnchor: NSLayoutYAxisAnchor {
+        if #available(iOS 11.0, *) {
+            return self.safeAreaLayoutGuide.topAnchor
+        } else {
+            return self.topAnchor
+        }
+    }
+    
+    // Bottom Anchor
+    var safeAreaBottomAnchor: NSLayoutYAxisAnchor {
+        if #available(iOS 11.0, *) {
+            return self.safeAreaLayoutGuide.bottomAnchor
+        } else {
+            return self.bottomAnchor
+        }
+    }
+    
+    // Left Anchor
+    var safeAreaLeftAnchor: NSLayoutXAxisAnchor {
+        if #available(iOS 11.0, *) {
+            return self.safeAreaLayoutGuide.leftAnchor
+        } else {
+            return self.leftAnchor
+        }
+    }
+    
+    // Right Anchor
+    var safeAreaRightAnchor: NSLayoutXAxisAnchor {
+        if #available(iOS 11.0, *) {
+            return self.safeAreaLayoutGuide.rightAnchor
+        } else {
+            return self.rightAnchor
+        }
+    }
 
     /// Adds constraints to this `UIView` instances `superview` object to make sure this always has the same size as the superview.
     /// Please note that this has no effect if its `superview` is `nil` – add this `UIView` instance as a subview before calling this.
