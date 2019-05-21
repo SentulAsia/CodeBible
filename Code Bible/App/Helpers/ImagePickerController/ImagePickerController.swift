@@ -34,7 +34,7 @@ class ImagePickerController: NSObject {
     private var imagePicker: UIImagePickerController!
 
     // MARK: Inherited
-    override init() {
+    private override init() {
         super.init()
     }
 

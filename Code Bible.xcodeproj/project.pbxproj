@@ -128,6 +128,8 @@
 		B86D413721D737D700214666 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E84360A216EF04C006A4791 /* Deeplink.swift */; };
 		B86D413821D737E600214666 /* IPAddressHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CDADE2164948000FA7307 /* IPAddressHelper.swift */; };
 		B86D413921D737F500214666 /* ScreenBrightnessHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CDADC21647AB600FA7307 /* ScreenBrightnessHelper.swift */; };
+		B8823DE42261961E00A85371 /* CollectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8823DE32261961E00A85371 /* CollectionHelper.swift */; };
+		B8823DE52261961E00A85371 /* CollectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8823DE32261961E00A85371 /* CollectionHelper.swift */; };
 		B884ADB1222E0C2100588E1A /* me_quran2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADB0222E0C2100588E1A /* me_quran2.ttf */; };
 		B884ADB2222E0C2100588E1A /* me_quran2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADB0222E0C2100588E1A /* me_quran2.ttf */; };
 		B884ADC6222E0C5300588E1A /* heartbeat.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B884ADB4222E0C5200588E1A /* heartbeat.m4a */; };
@@ -190,6 +192,8 @@
 		B8F8FC80223744FE00B01303 /* IAPWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8FC7F223744FE00B01303 /* IAPWorker.swift */; };
 		B8F8FC81223744FE00B01303 /* IAPWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8FC7F223744FE00B01303 /* IAPWorker.swift */; };
 		B8F9C8CE22284007008A8717 /* RegularExpressionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F9C8CD22284007008A8717 /* RegularExpressionTest.swift */; };
+		B8FE639A2293A1B20040418C /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE63992293A1B20040418C /* LocationController.swift */; };
+		B8FE639B2293A1B20040418C /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE63992293A1B20040418C /* LocationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -280,6 +284,7 @@
 		B85540CF22276DFB009F318C /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		B85540D22227720E009F318C /* CacheDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheDataStore.swift; sourceTree = "<group>"; };
 		B86D413321D7301100214666 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
+		B8823DE32261961E00A85371 /* CollectionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHelper.swift; sourceTree = "<group>"; };
 		B884ADB0222E0C2100588E1A /* me_quran2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = me_quran2.ttf; sourceTree = "<group>"; };
 		B884ADB4222E0C5200588E1A /* heartbeat.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = heartbeat.m4a; sourceTree = "<group>"; };
 		B884ADB5222E0C5200588E1A /* challengerFound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = challengerFound.m4a; sourceTree = "<group>"; };
@@ -319,6 +324,7 @@
 		B8F9C8D12228412E008A8717 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B8F9C8D222284165008A8717 /* Code Bible-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Code Bible-Bridging-Header.h"; sourceTree = "<group>"; };
 		B8F9C8D322284165008A8717 /* Code Bible Dev-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Code Bible Dev-Bridging-Header.h"; sourceTree = "<group>"; };
+		B8FE63992293A1B20040418C /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		C5422D5410E66630871228C5 /* Pods-Code Bible Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible Dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev.release.xcconfig"; sourceTree = "<group>"; };
 		ED4952F340F2336B5CA2200B /* Pods-Code Bible.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible/Pods-Code Bible.release.xcconfig"; sourceTree = "<group>"; };
 		F2B5C5352A36F3D2B4AF9E3A /* Pods-Code BibleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code BibleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code BibleTests/Pods-Code BibleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -440,6 +446,7 @@
 				2EAA79802115753600600D46 /* Toast */,
 				2EAA79852115763500600D46 /* Keyboard */,
 				2E399CA5211BDFF5009F6B6E /* ScrollingNavigationController */,
+				B8FE63992293A1B20040418C /* LocationController.swift */,
 				2EAA794621156B5F00600D46 /* StringHelper.swift */,
 				2EAA79932116029000600D46 /* NumberHelper.swift */,
 				B86D413321D7301100214666 /* ColorHelper.swift */,
@@ -447,6 +454,7 @@
 				2EBDB3E9211C276D0028337F /* DateHelper.swift */,
 				2EAA798F2115C09F00600D46 /* ViewControllerHelper.swift */,
 				2EDAB4F42116A10200F4B3F5 /* AlertHelper.swift */,
+				B8823DE32261961E00A85371 /* CollectionHelper.swift */,
 				B85540CF22276DFB009F318C /* SettingsBundleHelper.swift */,
 				2E3CDADC21647AB600FA7307 /* ScreenBrightnessHelper.swift */,
 				2E3CDADE2164948000FA7307 /* IPAddressHelper.swift */,
@@ -1171,6 +1179,7 @@
 				2EAA796921156D6F00600D46 /* RootViewController.swift in Sources */,
 				2EAA7987211579C400600D46 /* DatePickerViewController.swift in Sources */,
 				B85540D32227720E009F318C /* CacheDataStore.swift in Sources */,
+				B8FE639A2293A1B20040418C /* LocationController.swift in Sources */,
 				2EAA794B21156B5F00600D46 /* CustomTextField.swift in Sources */,
 				2E3CDADD21647AB600FA7307 /* ScreenBrightnessHelper.swift in Sources */,
 				2EAA798E2115B58500600D46 /* CustomBarButtonItem.swift in Sources */,
@@ -1183,6 +1192,7 @@
 				2E792EA621354BB50047502B /* KPPayment.swift in Sources */,
 				2EAA795521156B6A00600D46 /* Constants.swift in Sources */,
 				2EAA794F21156B5F00600D46 /* KeyboardHelper.swift in Sources */,
+				B8823DE42261961E00A85371 /* CollectionHelper.swift in Sources */,
 				2EAA792921156B3800600D46 /* Channel.swift in Sources */,
 				2EAA792C21156B3800600D46 /* Restaurant.swift in Sources */,
 				2EAA796D21156D6F00600D46 /* PickerViewController.swift in Sources */,
@@ -1240,6 +1250,7 @@
 				2EC995B42133AF6100259CDE /* RootViewController.swift in Sources */,
 				2EC995B52133AF6100259CDE /* DatePickerViewController.swift in Sources */,
 				B85540D42227720E009F318C /* CacheDataStore.swift in Sources */,
+				B8FE639B2293A1B20040418C /* LocationController.swift in Sources */,
 				2EC995B62133AF6100259CDE /* CustomTextField.swift in Sources */,
 				2EC995B72133AF6100259CDE /* CustomBarButtonItem.swift in Sources */,
 				2EC995B82133AF6100259CDE /* ViewControllerHelper.swift in Sources */,
@@ -1252,6 +1263,7 @@
 				2EC995BB2133AF6100259CDE /* Constants.swift in Sources */,
 				2EC995BC2133AF6100259CDE /* KeyboardHelper.swift in Sources */,
 				2EC995BD2133AF6100259CDE /* Channel.swift in Sources */,
+				B8823DE52261961E00A85371 /* CollectionHelper.swift in Sources */,
 				2EC995BE2133AF6100259CDE /* Restaurant.swift in Sources */,
 				2EC995BF2133AF6100259CDE /* PickerViewController.swift in Sources */,
 				2EC995C02133AF6100259CDE /* AppDelegate.swift in Sources */,
