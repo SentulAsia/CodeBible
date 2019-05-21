@@ -52,7 +52,6 @@ class RootViewController: UIViewController, AlertHelper, PickerHelper, DatePicke
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         self.navigationButton.badge = 13
         self.anotherNavigationItem.badge = 8
         if let i = FileManagerDataStore.shared.profileImage {

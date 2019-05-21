@@ -194,6 +194,8 @@
 		B8F9C8CE22284007008A8717 /* RegularExpressionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F9C8CD22284007008A8717 /* RegularExpressionTest.swift */; };
 		B8FE639A2293A1B20040418C /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE63992293A1B20040418C /* LocationController.swift */; };
 		B8FE639B2293A1B20040418C /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE63992293A1B20040418C /* LocationController.swift */; };
+		B8FE639D2293C5FA0040418C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE639C2293C5FA0040418C /* DetailViewController.swift */; };
+		B8FE639E2293C5FA0040418C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE639C2293C5FA0040418C /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -325,6 +327,7 @@
 		B8F9C8D222284165008A8717 /* Code Bible-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Code Bible-Bridging-Header.h"; sourceTree = "<group>"; };
 		B8F9C8D322284165008A8717 /* Code Bible Dev-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Code Bible Dev-Bridging-Header.h"; sourceTree = "<group>"; };
 		B8FE63992293A1B20040418C /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
+		B8FE639C2293C5FA0040418C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C5422D5410E66630871228C5 /* Pods-Code Bible Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible Dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev.release.xcconfig"; sourceTree = "<group>"; };
 		ED4952F340F2336B5CA2200B /* Pods-Code Bible.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible/Pods-Code Bible.release.xcconfig"; sourceTree = "<group>"; };
 		F2B5C5352A36F3D2B4AF9E3A /* Pods-Code BibleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code BibleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code BibleTests/Pods-Code BibleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -517,6 +520,7 @@
 				2EAA797D2115748400600D46 /* Astro */,
 				2EAA797E2115748A00600D46 /* Petronas */,
 				2EAA796121156D6F00600D46 /* RootViewController.swift */,
+				B8FE639C2293C5FA0040418C /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1195,6 +1199,7 @@
 				B8823DE42261961E00A85371 /* CollectionHelper.swift in Sources */,
 				2EAA792921156B3800600D46 /* Channel.swift in Sources */,
 				2EAA792C21156B3800600D46 /* Restaurant.swift in Sources */,
+				B8FE639D2293C5FA0040418C /* DetailViewController.swift in Sources */,
 				2EAA796D21156D6F00600D46 /* PickerViewController.swift in Sources */,
 				2EAA790F21156AE800600D46 /* AppDelegate.swift in Sources */,
 				B8D37BAF22214AEB00300AA4 /* FileManagerDirectoryNames.swift in Sources */,
@@ -1266,6 +1271,7 @@
 				B8823DE52261961E00A85371 /* CollectionHelper.swift in Sources */,
 				2EC995BE2133AF6100259CDE /* Restaurant.swift in Sources */,
 				2EC995BF2133AF6100259CDE /* PickerViewController.swift in Sources */,
+				B8FE639E2293C5FA0040418C /* DetailViewController.swift in Sources */,
 				2EC995C02133AF6100259CDE /* AppDelegate.swift in Sources */,
 				2EC995C12133AF6100259CDE /* DateHelper.swift in Sources */,
 				B8D37BB022214AEB00300AA4 /* FileManagerDirectoryNames.swift in Sources */,
