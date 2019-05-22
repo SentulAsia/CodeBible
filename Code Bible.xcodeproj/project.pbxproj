@@ -128,6 +128,8 @@
 		B86D413721D737D700214666 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E84360A216EF04C006A4791 /* Deeplink.swift */; };
 		B86D413821D737E600214666 /* IPAddressHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CDADE2164948000FA7307 /* IPAddressHelper.swift */; };
 		B86D413921D737F500214666 /* ScreenBrightnessHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CDADC21647AB600FA7307 /* ScreenBrightnessHelper.swift */; };
+		B8823DE42261961E00A85371 /* CollectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8823DE32261961E00A85371 /* CollectionHelper.swift */; };
+		B8823DE52261961E00A85371 /* CollectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8823DE32261961E00A85371 /* CollectionHelper.swift */; };
 		B884ADB1222E0C2100588E1A /* me_quran2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADB0222E0C2100588E1A /* me_quran2.ttf */; };
 		B884ADB2222E0C2100588E1A /* me_quran2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B884ADB0222E0C2100588E1A /* me_quran2.ttf */; };
 		B884ADC6222E0C5300588E1A /* heartbeat.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B884ADB4222E0C5200588E1A /* heartbeat.m4a */; };
@@ -190,6 +192,10 @@
 		B8F8FC80223744FE00B01303 /* IAPWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8FC7F223744FE00B01303 /* IAPWorker.swift */; };
 		B8F8FC81223744FE00B01303 /* IAPWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8FC7F223744FE00B01303 /* IAPWorker.swift */; };
 		B8F9C8CE22284007008A8717 /* RegularExpressionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F9C8CD22284007008A8717 /* RegularExpressionTest.swift */; };
+		B8FE639A2293A1B20040418C /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE63992293A1B20040418C /* LocationController.swift */; };
+		B8FE639B2293A1B20040418C /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE63992293A1B20040418C /* LocationController.swift */; };
+		B8FE639D2293C5FA0040418C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE639C2293C5FA0040418C /* DetailViewController.swift */; };
+		B8FE639E2293C5FA0040418C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE639C2293C5FA0040418C /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -277,9 +283,12 @@
 		7246B384203AEB291246016E /* Pods_Code_Bible.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Code_Bible.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B81820022221DF24008D071A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Locales.plist; sourceTree = "<group>"; };
 		B81820042221DF40008D071A /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ar; path = ar.lproj/Locales.plist; sourceTree = "<group>"; };
+		B821F5BB22952A6600A5E1D1 /* Code Bible.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Code Bible.entitlements"; sourceTree = "<group>"; };
+		B821F5BC22952ABA00A5E1D1 /* Code Bible-Dev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Code Bible-Dev.entitlements"; sourceTree = "<group>"; };
 		B85540CF22276DFB009F318C /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		B85540D22227720E009F318C /* CacheDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheDataStore.swift; sourceTree = "<group>"; };
 		B86D413321D7301100214666 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
+		B8823DE32261961E00A85371 /* CollectionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHelper.swift; sourceTree = "<group>"; };
 		B884ADB0222E0C2100588E1A /* me_quran2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = me_quran2.ttf; sourceTree = "<group>"; };
 		B884ADB4222E0C5200588E1A /* heartbeat.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = heartbeat.m4a; sourceTree = "<group>"; };
 		B884ADB5222E0C5200588E1A /* challengerFound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = challengerFound.m4a; sourceTree = "<group>"; };
@@ -318,7 +327,8 @@
 		B8F9C8D0222840C2008A8717 /* MyViewController.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyViewController.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B8F9C8D12228412E008A8717 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B8F9C8D222284165008A8717 /* Code Bible-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Code Bible-Bridging-Header.h"; sourceTree = "<group>"; };
-		B8F9C8D322284165008A8717 /* Code Bible Dev-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Code Bible Dev-Bridging-Header.h"; sourceTree = "<group>"; };
+		B8FE63992293A1B20040418C /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
+		B8FE639C2293C5FA0040418C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C5422D5410E66630871228C5 /* Pods-Code Bible Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible Dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev.release.xcconfig"; sourceTree = "<group>"; };
 		ED4952F340F2336B5CA2200B /* Pods-Code Bible.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible/Pods-Code Bible.release.xcconfig"; sourceTree = "<group>"; };
 		F2B5C5352A36F3D2B4AF9E3A /* Pods-Code BibleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code BibleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code BibleTests/Pods-Code BibleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -440,6 +450,7 @@
 				2EAA79802115753600600D46 /* Toast */,
 				2EAA79852115763500600D46 /* Keyboard */,
 				2E399CA5211BDFF5009F6B6E /* ScrollingNavigationController */,
+				B8FE63992293A1B20040418C /* LocationController.swift */,
 				2EAA794621156B5F00600D46 /* StringHelper.swift */,
 				2EAA79932116029000600D46 /* NumberHelper.swift */,
 				B86D413321D7301100214666 /* ColorHelper.swift */,
@@ -447,6 +458,7 @@
 				2EBDB3E9211C276D0028337F /* DateHelper.swift */,
 				2EAA798F2115C09F00600D46 /* ViewControllerHelper.swift */,
 				2EDAB4F42116A10200F4B3F5 /* AlertHelper.swift */,
+				B8823DE32261961E00A85371 /* CollectionHelper.swift */,
 				B85540CF22276DFB009F318C /* SettingsBundleHelper.swift */,
 				2E3CDADC21647AB600FA7307 /* ScreenBrightnessHelper.swift */,
 				2E3CDADE2164948000FA7307 /* IPAddressHelper.swift */,
@@ -477,8 +489,9 @@
 			children = (
 				2EAA791C21156AE900600D46 /* Info.plist */,
 				2EC995D52133CED700259CDE /* Info-Dev.plist */,
+				B821F5BB22952A6600A5E1D1 /* Code Bible.entitlements */,
+				B821F5BC22952ABA00A5E1D1 /* Code Bible-Dev.entitlements */,
 				B8F9C8D222284165008A8717 /* Code Bible-Bridging-Header.h */,
-				B8F9C8D322284165008A8717 /* Code Bible Dev-Bridging-Header.h */,
 				2EAA795821156BAE00600D46 /* Settings.bundle */,
 			);
 			path = "Supporting Files";
@@ -509,6 +522,7 @@
 				2EAA797D2115748400600D46 /* Astro */,
 				2EAA797E2115748A00600D46 /* Petronas */,
 				2EAA796121156D6F00600D46 /* RootViewController.swift */,
+				B8FE639C2293C5FA0040418C /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -894,6 +908,7 @@
 				B8F9C8BE22283F42008A8717 /* Sources */,
 				B8F9C8BF22283F42008A8717 /* Frameworks */,
 				B8F9C8C022283F42008A8717 /* Resources */,
+				57E0524DA12FDFA081257E69 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -918,14 +933,24 @@
 				TargetAttributes = {
 					2EAA790A21156AE800600D46 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					2EC9959B2133AF6100259CDE = {
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					B8F9C8C122283F42008A8717 = {
 						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						TestTargetID = 2EAA790A21156AE800600D46;
 					};
 				};
@@ -1036,7 +1061,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
@@ -1047,7 +1072,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		24CDBF7C97BD5B6010503A96 /* [CP] Check Pods Manifest.lock */ = {
@@ -1108,13 +1133,41 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		57E0524DA12FDFA081257E69 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Code BibleTests/Pods-Code BibleTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Mockingjay/Mockingjay.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/URITemplate/URITemplate.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mockingjay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URITemplate.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Code BibleTests/Pods-Code BibleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9B6EB3FD49822B17222F46F8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Code Bible/Pods-Code Bible-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Code Bible/Pods-Code Bible-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
@@ -1125,7 +1178,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Code Bible/Pods-Code Bible-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Code Bible/Pods-Code Bible-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1171,6 +1224,7 @@
 				2EAA796921156D6F00600D46 /* RootViewController.swift in Sources */,
 				2EAA7987211579C400600D46 /* DatePickerViewController.swift in Sources */,
 				B85540D32227720E009F318C /* CacheDataStore.swift in Sources */,
+				B8FE639A2293A1B20040418C /* LocationController.swift in Sources */,
 				2EAA794B21156B5F00600D46 /* CustomTextField.swift in Sources */,
 				2E3CDADD21647AB600FA7307 /* ScreenBrightnessHelper.swift in Sources */,
 				2EAA798E2115B58500600D46 /* CustomBarButtonItem.swift in Sources */,
@@ -1183,8 +1237,10 @@
 				2E792EA621354BB50047502B /* KPPayment.swift in Sources */,
 				2EAA795521156B6A00600D46 /* Constants.swift in Sources */,
 				2EAA794F21156B5F00600D46 /* KeyboardHelper.swift in Sources */,
+				B8823DE42261961E00A85371 /* CollectionHelper.swift in Sources */,
 				2EAA792921156B3800600D46 /* Channel.swift in Sources */,
 				2EAA792C21156B3800600D46 /* Restaurant.swift in Sources */,
+				B8FE639D2293C5FA0040418C /* DetailViewController.swift in Sources */,
 				2EAA796D21156D6F00600D46 /* PickerViewController.swift in Sources */,
 				2EAA790F21156AE800600D46 /* AppDelegate.swift in Sources */,
 				B8D37BAF22214AEB00300AA4 /* FileManagerDirectoryNames.swift in Sources */,
@@ -1240,6 +1296,7 @@
 				2EC995B42133AF6100259CDE /* RootViewController.swift in Sources */,
 				2EC995B52133AF6100259CDE /* DatePickerViewController.swift in Sources */,
 				B85540D42227720E009F318C /* CacheDataStore.swift in Sources */,
+				B8FE639B2293A1B20040418C /* LocationController.swift in Sources */,
 				2EC995B62133AF6100259CDE /* CustomTextField.swift in Sources */,
 				2EC995B72133AF6100259CDE /* CustomBarButtonItem.swift in Sources */,
 				2EC995B82133AF6100259CDE /* ViewControllerHelper.swift in Sources */,
@@ -1252,8 +1309,10 @@
 				2EC995BB2133AF6100259CDE /* Constants.swift in Sources */,
 				2EC995BC2133AF6100259CDE /* KeyboardHelper.swift in Sources */,
 				2EC995BD2133AF6100259CDE /* Channel.swift in Sources */,
+				B8823DE52261961E00A85371 /* CollectionHelper.swift in Sources */,
 				2EC995BE2133AF6100259CDE /* Restaurant.swift in Sources */,
 				2EC995BF2133AF6100259CDE /* PickerViewController.swift in Sources */,
+				B8FE639E2293C5FA0040418C /* DetailViewController.swift in Sources */,
 				2EC995C02133AF6100259CDE /* AppDelegate.swift in Sources */,
 				2EC995C12133AF6100259CDE /* DateHelper.swift in Sources */,
 				B8D37BB022214AEB00300AA4 /* FileManagerDirectoryNames.swift in Sources */,
@@ -1388,6 +1447,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1442,6 +1502,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1452,6 +1513,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Code Bible/Supporting Files/Code Bible.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C8C5YY57VR;
 				INFOPLIST_FILE = "Code Bible/Supporting Files/Info.plist";
@@ -1474,6 +1536,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Code Bible/Supporting Files/Code Bible.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C8C5YY57VR;
 				INFOPLIST_FILE = "Code Bible/Supporting Files/Info.plist";
@@ -1495,6 +1558,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Code Bible/Supporting Files/Code Bible-Dev.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C8C5YY57VR;
 				INFOPLIST_FILE = "Code Bible/Supporting Files/Info-Dev.plist";
@@ -1505,7 +1569,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEVELOPMENT";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sentulasia.CodeBible-Dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Code Bible/Supporting Files/Code Bible Dev-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Code Bible/Supporting Files/Code Bible-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1518,6 +1582,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Code Bible/Supporting Files/Code Bible-Dev.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C8C5YY57VR;
 				INFOPLIST_FILE = "Code Bible/Supporting Files/Info-Dev.plist";
@@ -1528,7 +1593,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEVELOPMENT";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sentulasia.CodeBible-Dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Code Bible/Supporting Files/Code Bible Dev-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Code Bible/Supporting Files/Code Bible-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

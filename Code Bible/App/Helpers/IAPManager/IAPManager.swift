@@ -55,6 +55,7 @@ class IAPManager {
     }
     
     // MARK: - Notification Handler
+    
     @objc func purchaseMade(notification: NSNotification) {
         delegate?.didMakePurchase()
     }

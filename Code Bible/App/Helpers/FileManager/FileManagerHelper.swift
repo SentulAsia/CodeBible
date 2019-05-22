@@ -155,27 +155,37 @@ fileprivate protocol DataConvertible {
     var data: Data { get }
 }
 
-fileprivate extension DataConvertible {
-    init?(data: Data) {
-        guard data.count == MemoryLayout<Self>.size else { return nil }
-        self = data.withUnsafeBytes { $0.pointee }
-    }
-    
+extension DataConvertible {
     var data: Data {
         return withUnsafeBytes(of: self) { Data($0) }
     }
 }
 
-extension Bool: DataConvertible {}
+fileprivate extension DataConvertible where Self: ExpressibleByIntegerLiteral {
+    init?(data: Data) {
+        var value: Self = 0
+        guard data.count == MemoryLayout.size(ofValue: value) else { return nil }
+        _ = withUnsafeMutableBytes(of: &value, { data.copyBytes(to: $0)} )
+        self = value
+    }
+}
+
 extension Int: DataConvertible {}
 extension Float: DataConvertible {}
 extension Double: DataConvertible {}
 extension Decimal: DataConvertible {}
 
+extension Bool: DataConvertible {
+    init?(data: Data) {
+        guard data.count == MemoryLayout<Bool>.size else { return nil }
+        self = data.withUnsafeBytes { $0.load(as: Bool.self) }
+    }
+}
+
 extension UInt16: DataConvertible {
     init?(data: Data) {
         guard data.count == MemoryLayout<UInt16>.size else { return nil }
-        self = data.withUnsafeBytes { $0.pointee }
+        self = data.withUnsafeBytes { $0.load(as: UInt16.self) }
     }
     
     var data: Data {

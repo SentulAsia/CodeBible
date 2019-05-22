@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -218,7 +218,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="IhF-gQ-YRf">
                         <rightBarButtonItems>
-                            <barButtonItem image="second" id="vfn-QT-SLv" customClass="CustomBarButtonItem" customModule="Code_Bible" customModuleProvider="target"/>
+                            <barButtonItem image="second" id="vfn-QT-SLv" customClass="CustomBarButtonItem" customModule="Code_Bible" customModuleProvider="target">
+                                <connections>
+                                    <segue destination="Wb3-eX-zUQ" kind="show" id="cie-N8-qJv"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="first" id="O4D-W9-hKw" customClass="CustomBarButtonItem" customModule="Code_Bible" customModuleProvider="target"/>
                         </rightBarButtonItems>
                     </navigationItem>
@@ -240,6 +244,21 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1701.5999999999999" y="-322.48875562218893"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="7F2-u2-3KO">
+            <objects>
+                <viewController id="Wb3-eX-zUQ" customClass="DetailViewController" customModule="Code_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Nb-w9-u9l">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="AZ5-Pd-hbP"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uJU-tT-QA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2647" y="-322"/>
         </scene>
         <!--Channel List View Controller-->
         <scene sceneID="lOn-yP-Gz1">
@@ -395,7 +414,7 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
-        <image name="icons8-name-filled" width="75" height="75"/>
+        <image name="icons8-name-filled" width="50" height="50"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>
