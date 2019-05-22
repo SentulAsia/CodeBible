@@ -50,12 +50,12 @@ class OpeningTimeTest: XCTestCase {
         let actualResult = OpeningTime.list(content: validString)
         
         //then
-        XCTAssertEqual(actualResult.first.debugDescription, expectedResult.first.debugDescription, "validateEmail(forString:) should reject invalid email")
-        XCTAssertEqual(actualResult[1].description, expectedResult[1].description, "validateEmail(forString:) should reject invalid email")
-        XCTAssertEqual(actualResult[2].description, expectedResult[2].description, "validateEmail(forString:) should reject invalid email")
-        XCTAssertEqual(actualResult[3].description, expectedResult[3].description, "validateEmail(forString:) should reject invalid email")
-        XCTAssertEqual(actualResult[4].description, expectedResult[4].description, "validateEmail(forString:) should reject invalid email")
-        XCTAssertEqual(actualResult[5].description, expectedResult[5].description, "validateEmail(forString:) should reject invalid email")
-        XCTAssertEqual(actualResult.last.debugDescription, expectedResult.last.debugDescription, "validateEmail(forString:) should reject invalid email")
+        XCTAssertEqual(actualResult.first.debugDescription, expectedResult.first.debugDescription, "list(content:) should generate correct string")
+        XCTAssertEqual(actualResult[1].description, expectedResult[1].description, "list(content:) should generate correct string")
+        XCTAssertEqual(actualResult[2].description, expectedResult[2].description, "list(content:) should generate correct string")
+        XCTAssertEqual(actualResult[3].description, expectedResult[3].description, "list(content:) should generate correct string")
+        XCTAssertEqual(actualResult[4].description, expectedResult[4].description, "list(content:) should generate correct string")
+        XCTAssertEqual(actualResult[5].description, expectedResult[5].description, "list(content:) should generate correct string")
+        XCTAssertEqual(actualResult.last.debugDescription, expectedResult.last.debugDescription, "list(content:) should generate correct string")
     }
 }
