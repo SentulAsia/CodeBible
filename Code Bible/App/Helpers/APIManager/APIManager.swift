@@ -140,7 +140,7 @@ struct APIManager {
                     return
                 }
                 
-                guard let value = response.result.value as? Data, let responseDictionary = try? JSONSerialization.jsonObject(with: value, options: []) as? [String: Any] else {
+                guard let value = response.result.value as? Data, let dictionary = try? JSONSerialization.jsonObject(with: value, options: []) as? [String: Any], let responseDictionary = dictionary else {
                     failure(Constants.Message.failureDefault)
                     return
                 }

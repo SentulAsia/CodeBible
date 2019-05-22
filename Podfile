@@ -9,7 +9,9 @@ def install_pods
 end
 
 def install_test_pods
-    # Pods for Code BibleTests
+  pod 'Quick'
+  pod 'Nimble'
+  pod 'Mockingjay'
 end
 
 target 'Code Bible' do
