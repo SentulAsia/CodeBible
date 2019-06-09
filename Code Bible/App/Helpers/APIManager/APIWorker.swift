@@ -101,12 +101,12 @@ struct APIWorker {
                     request.httpBody = data
                 }
             } catch {
-                Log("\n----------------------------")
-                Log("API url: ", url.description)
+                Log("----------------------------")
+                Log("url: ", url.description)
                 Log("params: ", parameters ?? "")
-                Log("\n\(url.description) Failed")
+                Log("\(url.description) failed")
                 Log("response: nil")
-                Log("----------------------------\n")
+                Log("----------------------------")
                 let result = APIResult.failure(error)
                 let r = APIResponse(request: request, data: nil, response: nil, result: result)
                 completionHandler(r)
@@ -123,11 +123,21 @@ struct APIWorker {
 
         let dataTask = sessionManager.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             if let e = error {
-                Log("\n----------------------------")
-                Log("API url:", url.description)
+                Log("----------------------------")
+                Log("url:", url.description)
                 Log("params:", parameters ?? "")
-                Log("\n\(url.description) Failed")
-                Log("----------------------------\n")
+                Log("\(url.description) failed")
+                if let httpResponse = response as? HTTPURLResponse {
+                    if Environment.isDevelopment {
+                        if let d = data, let result = String(data: d, encoding: String.Encoding.utf8) {
+                            Log("result:", result)
+                        } else {
+                            Log("result:", httpResponse.allHeaderFields as? [String: Any] ?? httpResponse)
+                        }
+                    }
+                    Log("status code:", httpResponse.statusCode)
+                }
+                Log("----------------------------")
                 let result = APIResult.failure(e)
                 let r = APIResponse(request: request, data: data, response: response, result: result)
                 DispatchQueue.main.async {
@@ -136,15 +146,21 @@ struct APIWorker {
                 }
             } else {
                 if let d = data {
-                    Log("\n----------------------------")
-                    Log("API url:", url.description)
+                    Log("----------------------------")
+                    Log("url:", url.description)
                     Log("params:", parameters ?? "")
-                    Log("\n\(url.description) Success")
+                    Log("\(url.description) success")
                     if let httpResponse = response as? HTTPURLResponse {
-                        Log("Result:", httpResponse.allHeaderFields as? [String: Any] ?? httpResponse)
-                        Log("Status Code:", httpResponse.statusCode)
+                        if Environment.isDevelopment {
+                            if let result = String(data: d, encoding: String.Encoding.utf8) {
+                                Log("result:", result)
+                            } else {
+                                Log("result:", httpResponse.allHeaderFields as? [String: Any] ?? httpResponse)
+                            }
+                        }
+                        Log("status code:", httpResponse.statusCode)
                     }
-                    Log("----------------------------\n")
+                    Log("----------------------------")
                     let result = APIResult.success(d)
                     let r = APIResponse(request: request, data: data, response: response, result: result)
                     DispatchQueue.main.async {
@@ -156,11 +172,15 @@ struct APIWorker {
                         NSLocalizedDescriptionKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: "") ,
                         NSLocalizedFailureReasonErrorKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: "")
                         ])
-                    Log("\n----------------------------")
-                    Log("API url:", url.description)
+                    Log("----------------------------")
+                    Log("url:", url.description)
                     Log("params:", parameters ?? "")
-                    Log("\n\(url.description) Failed")
-                    Log("----------------------------\n")
+                    Log("\(url.description) failed")
+                    if let httpResponse = response as? HTTPURLResponse {
+                        Log("result:", httpResponse.allHeaderFields as? [String: Any] ?? httpResponse)
+                        Log("status code:", httpResponse.statusCode)
+                    }
+                    Log("----------------------------")
                     let result = APIResult.failure(e)
                     let r = APIResponse(request: request, data: data, response: response, result: result)
                     DispatchQueue.main.async {

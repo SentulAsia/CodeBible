@@ -31,6 +31,14 @@ enum Environment {
     #else
     static let value: ProjectTarget = .production
     #endif
+
+    static var isProduction: Bool {
+        return value == .production
+    }
+
+    static var isDevelopment: Bool {
+        return !isProduction
+    }
 }
 
 struct Log {

@@ -22,9 +22,9 @@ import UIKit
 
 struct CacheDataStore {
     static var shared = CacheDataStore()
-    
+
     private init() {}
-    
+
     func deleteAll() {
         CacheController.shared.deleteAll()
     }
@@ -33,53 +33,53 @@ struct CacheDataStore {
 private extension CacheDataStore {
     class CacheController {
         static let shared = CacheController()
-        
+
         private var cache = NSCache<NSString, AnyObject>()
-        
+
         private lazy var totalCostLimit: Int = {
             let physicalMemory = ProcessInfo.processInfo.physicalMemory
             let ratio = physicalMemory <= (1024 * 1024 * 512) ? 0.01 : 0.02
             let limit = physicalMemory / UInt64(1 / ratio)
             return limit > UInt64(Int.max) ? Int.max : Int(limit)
         }()
-        
+
         private init() {
             cache.totalCostLimit = totalCostLimit
             NotificationCenter.default.addObserver(self, selector: #selector(didReceiveMemoryWarning), name: UIApplication.didReceiveMemoryWarningNotification, object: nil)
         }
-        
+
         deinit {
             NotificationCenter.default.removeObserver(self)
         }
-        
+
         @objc private func didReceiveMemoryWarning() {
             deleteAll()
         }
-        
+
         @discardableResult
         func createCache(containing value: AnyObject, withKey key: String) -> Bool {
             let cost = calculateCost(forValue: value)
             cache.setObject(value as AnyObject, forKey: NSString(string: key), cost: cost)
             return true
         }
-        
+
         @discardableResult
         func readCache(forKey key: String) -> AnyObject? {
             return cache.object(forKey: NSString(string: key))
         }
-        
+
         @discardableResult
         func deleteCache(forKey key: String) -> Bool {
             cache.removeObject(forKey: NSString(string: key))
             return true
         }
-        
+
         @discardableResult
         func deleteAll() -> Bool {
             cache.removeAllObjects()
             return true
         }
-        
+
         private func calculateCost(forValue value: AnyObject) -> Int {
             var cost = MemoryLayout.size(ofValue: value)
             if let imageData = (value as? UIImage)?.pngData() {

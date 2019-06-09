@@ -20,7 +20,7 @@
 
 import Foundation
 
-struct Deeplink : Codable {
+struct Deeplink: Codable {
     let merchantId: Int?
     let storeId: Int?
     let amount: Decimal?

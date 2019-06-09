@@ -23,14 +23,18 @@ import XCTest
 
 class OpeningTimeTest: XCTestCase {
     
+    var sut: OpeningTime.Type!
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
         super.setUp()
+        
+        self.sut = OpeningTime.self
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        
+        self.sut = nil
     }
 
     func testOpeningTimeList() {
@@ -47,7 +51,7 @@ class OpeningTimeTest: XCTestCase {
         ]
         
         // when
-        let actualResult = OpeningTime.list(content: validString)
+        let actualResult = sut.list(content: validString)
         
         //then
         XCTAssertEqual(actualResult.first.debugDescription, expectedResult.first.debugDescription, "list(content:) should generate correct string")

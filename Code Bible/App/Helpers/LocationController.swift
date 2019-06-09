@@ -46,9 +46,9 @@ class LocationController: NSObject {
         }
     }
     
-    func startTracking(forTimeInterval interval: TimeInterval?) {
+    func startTracking(for interval: TimeInterval?) {
         locationManager.startUpdatingLocation()
-        if let timeInterval = interval { scheduleStopTracking(withTimeInterval: timeInterval) }
+        if let timeInterval = interval { scheduleStopTracking(with: timeInterval) }
     }
     
     @objc public func stopTracking() {
@@ -68,7 +68,7 @@ extension LocationController: CLLocationManagerDelegate {
 }
 
 private extension LocationController {
-    func scheduleStopTracking(withTimeInterval interval: TimeInterval) {
+    func scheduleStopTracking(with interval: TimeInterval) {
         timer = Timer.scheduledTimer(timeInterval: interval, target: self, selector: #selector(stopTracking), userInfo: nil, repeats: false)
     }
 }

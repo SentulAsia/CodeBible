@@ -18,40 +18,32 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import XCTest
-@testable import Code_Bible
+import UIKit
 
-class RegularExpressionTest: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        super.setUp()
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-
-    func testValidateValidEmail() {
-        // given
-        let validEmail = "test@example.com", expectedResult = true
-        
-        // when
-        let actualResult = RegularExpression.validateEmail(forString: validEmail)
-        
-        // then
-        XCTAssertEqual(actualResult, expectedResult, "validateEmail(forString:) should accept valid email")
+enum IAPProducts: String, CaseIterable {
+    case storeItem1 = "com.example.iap.storeItem1"
+    case storeItem2 = "com.example.iap.storeItem2"
+    case storeItem3 = "com.example.iap.storeItem3"
+    
+    func name() -> String {
+        switch self {
+        case .storeItem1:
+            return "Store Item Number 1"
+        case .storeItem2:
+            return "Store Item Number 2"
+        case .storeItem3:
+            return "Store Item Number 3"
+        }
     }
     
-    func testValidateInvalidEmail() {
-        // given
-        let invalidEmail = "test", expectedResult = false
-        
-        // when
-        let actualResult = RegularExpression.validateEmail(forString: invalidEmail)
-        
-        // then
-        XCTAssertEqual(actualResult, expectedResult, "validateEmail(forString:) should reject invalid email")
+    func image() -> UIImage {
+        switch self {
+        case .storeItem1:
+            return #imageLiteral(resourceName: "icons8-picture")
+        case .storeItem2:
+            return #imageLiteral(resourceName: "icons8-camera")
+        case .storeItem3:
+            return #imageLiteral(resourceName: "icons8-name-filled")
+        }
     }
 }

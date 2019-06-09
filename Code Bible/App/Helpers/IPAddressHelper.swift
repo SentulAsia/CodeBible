@@ -35,7 +35,7 @@ extension IPAddressHelper {
         if let publicURL = URL(string: publicURLString) {
             APIWorker.request(url: publicURL, method: .get, parameters: nil, headers: nil) { (response) in
                 guard response.result.isSuccess, let value = response.result.value as? Data, let responseDictionary = try? JSONSerialization.jsonObject(with: value, options: []) as? [String: Any] else { return }
-                if let ip = responseDictionary?["ip"] as? String {
+                if let ip = responseDictionary["ip"] as? String {
                     UserDefaultsDataStore.shared.ipAddress = ip
                 }
             }

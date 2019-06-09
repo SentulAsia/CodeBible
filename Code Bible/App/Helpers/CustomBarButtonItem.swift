@@ -21,7 +21,7 @@
 import UIKit
 
 fileprivate extension CAShapeLayer {
-    func drawCircleAtLocation(location: CGPoint, withRadius radius: CGFloat, andColor color: UIColor, filled: Bool) {
+    func drawCircleAtLocation(location: CGPoint, radius: CGFloat, color: UIColor, filled: Bool) {
         fillColor = filled ? color.cgColor : UIColor.white.cgColor
         strokeColor = color.cgColor
         let origin = CGPoint(x: location.x - radius, y: location.y - radius)
@@ -52,7 +52,7 @@ class CustomBarButtonItem: UIBarButtonItem {
         }
     }
 
-    private func addBadge(number: Int, withOffset offset: CGPoint = CGPoint.zero, andColor color: UIColor = UIColor.red, andFilled filled: Bool = true) {
+    private func addBadge(number: Int, offset: CGPoint = CGPoint.zero, color: UIColor = UIColor.red, filled: Bool = true) {
         guard let view = self.value(forKey: "view") as? UIView else { return }
 
         self.badgeLayer?.removeFromSuperlayer()
@@ -61,7 +61,7 @@ class CustomBarButtonItem: UIBarButtonItem {
         let badge = CAShapeLayer()
         let radius = CGFloat(7)
         let location = CGPoint(x: view.frame.width - (radius + offset.x), y: (radius + offset.y))
-        badge.drawCircleAtLocation(location: location, withRadius: radius, andColor: color, filled: filled)
+        badge.drawCircleAtLocation(location: location, radius: radius, color: color, filled: filled)
         view.layer.addSublayer(badge)
 
         // Initialiaze Badge's label

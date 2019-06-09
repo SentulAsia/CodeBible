@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '10.0'
+platform :ios, '13.0'
 
 inhibit_all_warnings!
 
@@ -16,6 +16,7 @@ def install_pods
     
     pod 'lottie-ios'
     pod 'CryptoSwift'
+    pod 'ColiseuPlayer', :git => 'https://github.com/ricardopereira/ColiseuPlayer'
 end
 
 def install_test_pods
@@ -39,4 +40,10 @@ target 'Code BibleTests' do
     
     # Pods for Code BibleTests
     install_test_pods
+end
+
+target 'Code BibleUITests' do
+    inherit! :search_paths
+
+    # Pods for Code BibleTests
 end
