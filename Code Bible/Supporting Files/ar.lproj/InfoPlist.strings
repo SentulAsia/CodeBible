@@ -18,6 +18,6 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-NSHumanReadableCopyright = "جميع الحقوق محفوظة © 2019 محمد زيد بن سعيد"
+NSHumanReadableCopyright = "جميع الحقوق محفوظة © 2019 محمد زيد بن سعيد";
 NSCameraUsageDescription = "يتطلب هذا التطبيق الوصول إلى الكاميرا.";
 NSPhotoLibraryAddUsageDescription = "يتطلب هذا التطبيق الوصول إلى مكتبة الصور.";

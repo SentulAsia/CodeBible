@@ -20,19 +20,19 @@
 
 import UIKit
 
-struct CacheDataStore {
-    static var shared = CacheDataStore()
+struct CacheDataSource {
+    static var shared = CacheDataSource()
 
     private init() {}
 
     func deleteAll() {
-        CacheController.shared.deleteAll()
+        CacheWorker.shared.deleteAll()
     }
 }
 
-private extension CacheDataStore {
-    class CacheController {
-        static let shared = CacheController()
+private extension CacheDataSource {
+    class CacheWorker {
+        static let shared = CacheWorker()
 
         private var cache = NSCache<NSString, AnyObject>()
 

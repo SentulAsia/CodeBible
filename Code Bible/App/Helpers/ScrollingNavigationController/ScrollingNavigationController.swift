@@ -439,7 +439,7 @@ import UIKit
 
     /// Adjust the top inset (useful when a table view has floating headers, see issue #219
     private func updateContentInset(_ delta: CGFloat) {
-        if let contentInset = scrollView()?.contentInset, let scrollInset = scrollView()?.scrollIndicatorInsets {
+        if let contentInset = scrollView()?.contentInset, let scrollInset = scrollView()?.verticalScrollIndicatorInsets {
             scrollView()?.contentInset = UIEdgeInsets(top: contentInset.top - delta, left: contentInset.left, bottom: contentInset.bottom, right: contentInset.right)
             scrollView()?.scrollIndicatorInsets = UIEdgeInsets(top: scrollInset.top - delta, left: scrollInset.left, bottom: scrollInset.bottom, right: scrollInset.right)
         }

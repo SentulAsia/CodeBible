@@ -27,21 +27,21 @@ protocol SettingsBundleHelper {
 
 extension SettingsBundleHelper {
     func setVersionAndBuildNumber() {
-        UserDefaultsDataStore.shared.currentVersion = Constants.appVersion
+        UserDefaultsDataSource.shared.currentVersion = Constants.appVersion
     }
     
     func checkAndExecuteSettings(completionHandler: (() -> Void)?) {
-        if UserDefaultsDataStore.shared.clearCache == true {
-            CacheDataStore.shared.deleteAll()
-            FileManagerDataStore.shared.deleteAll(forDirectory: .Temp)
-            UserDefaultsDataStore.shared.clearCache = false
+        if UserDefaultsDataSource.shared.clearCache == true {
+            CacheDataSource.shared.deleteAll()
+            FileManagerDataSource.shared.deleteAll(forDirectory: .Temp)
+            UserDefaultsDataSource.shared.clearCache = false
         }
-        if UserDefaultsDataStore.shared.clearData  == true {
-            FileManagerDataStore.shared.deleteAll(forDirectory: .Documents)
-            FileManagerDataStore.shared.deleteAll(forDirectory: .Inbox)
-            FileManagerDataStore.shared.deleteAll(forDirectory: .Library)
-            FileManagerDataStore.shared.deleteAll(forDirectory: .Temp)
-            UserDefaultsDataStore.shared.deleteAll()
+        if UserDefaultsDataSource.shared.clearData  == true {
+            FileManagerDataSource.shared.deleteAll(forDirectory: .Documents)
+            FileManagerDataSource.shared.deleteAll(forDirectory: .Inbox)
+            FileManagerDataSource.shared.deleteAll(forDirectory: .Library)
+            FileManagerDataSource.shared.deleteAll(forDirectory: .Temp)
+            UserDefaultsDataSource.shared.deleteAll()
         }
         if let c = completionHandler {
             c()

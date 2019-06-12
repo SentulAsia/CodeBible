@@ -132,7 +132,7 @@ extension ImagePickerController: UINavigationControllerDelegate, UIImagePickerCo
             }
         }
 
-        if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad && picker.sourceType == .photoLibrary {
+        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad && picker.sourceType == .photoLibrary {
             if let possibleImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
                 newImage = possibleImage
             } else {

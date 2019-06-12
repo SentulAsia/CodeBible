@@ -27,7 +27,7 @@ protocol IPAddressHelper {
 
 extension IPAddressHelper {
     var ipAddressValue: String? {
-        return UserDefaultsDataStore.shared.ipAddress
+        return UserDefaultsDataSource.shared.ipAddress
     }
 
     func getPublicIPAddress() {
@@ -36,7 +36,7 @@ extension IPAddressHelper {
             APIWorker.request(url: publicURL, method: .get, parameters: nil, headers: nil) { (response) in
                 guard response.result.isSuccess, let value = response.result.value as? Data, let responseDictionary = try? JSONSerialization.jsonObject(with: value, options: []) as? [String: Any] else { return }
                 if let ip = responseDictionary["ip"] as? String {
-                    UserDefaultsDataStore.shared.ipAddress = ip
+                    UserDefaultsDataSource.shared.ipAddress = ip
                 }
             }
         }

@@ -29,8 +29,8 @@ fileprivate extension Constants {
     static let userEmail = "HelloGold.userEmail"
 }
 
-struct UserDefaultsDataStore {
-    static var shared = UserDefaultsDataStore()
+struct UserDefaultsDataSource {
+    static var shared = UserDefaultsDataSource()
     
     private init() {}
     
@@ -94,7 +94,7 @@ struct UserDefaultsDataStore {
     }
 }
 
-private extension UserDefaultsDataStore {
+private extension UserDefaultsDataSource {
     func getObject(forKey key: String) -> Any? {
         UserDefaults.standard.synchronize()
         if let object = UserDefaults.standard.object(forKey: key) {

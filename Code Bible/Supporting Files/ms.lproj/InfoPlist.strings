@@ -18,6 +18,6 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-NSHumanReadableCopyright = "© 2019 Zaid M. Said. Hak cipta terpelihara."
+NSHumanReadableCopyright = "© 2019 Zaid M. Said. Hak cipta terpelihara.";
 NSCameraUsageDescription = "Aplikasi ini memerlukan akses kepada kamera.";
 NSPhotoLibraryAddUsageDescription = "Aplikasi ini memerlukan akses ke pustaka foto.";

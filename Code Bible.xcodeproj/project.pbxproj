@@ -37,12 +37,12 @@
 		B8956B1422ACD2D9002AD552 /* beaming.json in Resources */ = {isa = PBXBuildFile; fileRef = B8956B1122ACD2D9002AD552 /* beaming.json */; };
 		B8956B1522ACD2D9002AD552 /* iOS_TakeHomeTest2.csv in Resources */ = {isa = PBXBuildFile; fileRef = B8956B1222ACD2D9002AD552 /* iOS_TakeHomeTest2.csv */; };
 		B8956B1622ACD2D9002AD552 /* iOS_TakeHomeTest2.csv in Resources */ = {isa = PBXBuildFile; fileRef = B8956B1222ACD2D9002AD552 /* iOS_TakeHomeTest2.csv */; };
-		B8956B1A22ACD67A002AD552 /* CacheDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8956B1922ACD67A002AD552 /* CacheDataStore.swift */; };
-		B8956B1B22ACD67A002AD552 /* CacheDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8956B1922ACD67A002AD552 /* CacheDataStore.swift */; };
-		B8956B1F22ACD6CF002AD552 /* UserDefaultsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8956B1D22ACD6CF002AD552 /* UserDefaultsDataStore.swift */; };
-		B8956B2022ACD6CF002AD552 /* UserDefaultsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8956B1D22ACD6CF002AD552 /* UserDefaultsDataStore.swift */; };
-		B8956B2122ACD6CF002AD552 /* FileManagerDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8956B1E22ACD6CF002AD552 /* FileManagerDataStore.swift */; };
-		B8956B2222ACD6CF002AD552 /* FileManagerDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8956B1E22ACD6CF002AD552 /* FileManagerDataStore.swift */; };
+		B8956B1A22ACD67A002AD552 /* CacheDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8956B1922ACD67A002AD552 /* CacheDataSource.swift */; };
+		B8956B1B22ACD67A002AD552 /* CacheDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8956B1922ACD67A002AD552 /* CacheDataSource.swift */; };
+		B8956B1F22ACD6CF002AD552 /* UserDefaultsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8956B1D22ACD6CF002AD552 /* UserDefaultsDataSource.swift */; };
+		B8956B2022ACD6CF002AD552 /* UserDefaultsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8956B1D22ACD6CF002AD552 /* UserDefaultsDataSource.swift */; };
+		B8956B2122ACD6CF002AD552 /* FileManagerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8956B1E22ACD6CF002AD552 /* FileManagerDataSource.swift */; };
+		B8956B2222ACD6CF002AD552 /* FileManagerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8956B1E22ACD6CF002AD552 /* FileManagerDataSource.swift */; };
 		B8956B2822ACD73D002AD552 /* FileManagerStatusChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8956B2322ACD73D002AD552 /* FileManagerStatusChecking.swift */; };
 		B8956B2922ACD73D002AD552 /* FileManagerStatusChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8956B2322ACD73D002AD552 /* FileManagerStatusChecking.swift */; };
 		B8956B2A22ACD73D002AD552 /* FileManagerDirectories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8956B2422ACD73D002AD552 /* FileManagerDirectories.swift */; };
@@ -233,9 +233,9 @@
 		B8956B0C22ACD1C3002AD552 /* KPPayment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPPayment.swift; sourceTree = "<group>"; };
 		B8956B1122ACD2D9002AD552 /* beaming.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = beaming.json; sourceTree = "<group>"; };
 		B8956B1222ACD2D9002AD552 /* iOS_TakeHomeTest2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iOS_TakeHomeTest2.csv; sourceTree = "<group>"; };
-		B8956B1922ACD67A002AD552 /* CacheDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheDataStore.swift; sourceTree = "<group>"; };
-		B8956B1D22ACD6CF002AD552 /* UserDefaultsDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsDataStore.swift; sourceTree = "<group>"; };
-		B8956B1E22ACD6CF002AD552 /* FileManagerDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerDataStore.swift; sourceTree = "<group>"; };
+		B8956B1922ACD67A002AD552 /* CacheDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheDataSource.swift; sourceTree = "<group>"; };
+		B8956B1D22ACD6CF002AD552 /* UserDefaultsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsDataSource.swift; sourceTree = "<group>"; };
+		B8956B1E22ACD6CF002AD552 /* FileManagerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerDataSource.swift; sourceTree = "<group>"; };
 		B8956B2322ACD73D002AD552 /* FileManagerStatusChecking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerStatusChecking.swift; sourceTree = "<group>"; };
 		B8956B2422ACD73D002AD552 /* FileManagerDirectories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerDirectories.swift; sourceTree = "<group>"; };
 		B8956B2522ACD73D002AD552 /* FileManagerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerHelper.swift; sourceTree = "<group>"; };
@@ -382,7 +382,7 @@
 			children = (
 				B8956AD022ACC725002AD552 /* App */,
 				B8956ACF22ACC711002AD552 /* Config */,
-				B8956B1C22ACD682002AD552 /* DataStore */,
+				B8956B1C22ACD682002AD552 /* DataSource */,
 				B8956B1722ACD2E6002AD552 /* Lib */,
 				B8956B0F22ACD1CC002AD552 /* Vendor */,
 				B8956AB522ACBDBA002AD552 /* Supporting Files */,
@@ -604,14 +604,14 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		B8956B1C22ACD682002AD552 /* DataStore */ = {
+		B8956B1C22ACD682002AD552 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				B8956B1922ACD67A002AD552 /* CacheDataStore.swift */,
-				B8956B1E22ACD6CF002AD552 /* FileManagerDataStore.swift */,
-				B8956B1D22ACD6CF002AD552 /* UserDefaultsDataStore.swift */,
+				B8956B1922ACD67A002AD552 /* CacheDataSource.swift */,
+				B8956B1E22ACD6CF002AD552 /* FileManagerDataSource.swift */,
+				B8956B1D22ACD6CF002AD552 /* UserDefaultsDataSource.swift */,
 			);
-			path = DataStore;
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 		B8956B3222ACD746002AD552 /* Helpers */ = {
@@ -1105,7 +1105,7 @@
 				B8956B5622ACDBD0002AD552 /* SpotPrice.swift in Sources */,
 				B8956B9222AD29AA002AD552 /* CustomStepper.swift in Sources */,
 				B8956B0D22ACD1C3002AD552 /* KPPayment.swift in Sources */,
-				B8956B1A22ACD67A002AD552 /* CacheDataStore.swift in Sources */,
+				B8956B1A22ACD67A002AD552 /* CacheDataSource.swift in Sources */,
 				B8956BBE22AD4BBB002AD552 /* ScrollingNavbar+Sizes.swift in Sources */,
 				B8956BC222AD4C34002AD552 /* SpinnerController.swift in Sources */,
 				B8956B8622AD2829002AD552 /* ColorHelper.swift in Sources */,
@@ -1115,7 +1115,7 @@
 				B8956B2E22ACD73D002AD552 /* FileManagerDirectoryNames.swift in Sources */,
 				B8956B8922AD290E002AD552 /* CustomBarButtonItem.swift in Sources */,
 				B8956A4422ACB912002AD552 /* AppDelegate.swift in Sources */,
-				B8956B1F22ACD6CF002AD552 /* UserDefaultsDataStore.swift in Sources */,
+				B8956B1F22ACD6CF002AD552 /* UserDefaultsDataSource.swift in Sources */,
 				B8956BA122AD2A1E002AD552 /* IAPWorker.swift in Sources */,
 				B8956B2C22ACD73D002AD552 /* FileManagerHelper.swift in Sources */,
 				B8956B6722ACDE0C002AD552 /* IPAddressHelper.swift in Sources */,
@@ -1126,7 +1126,7 @@
 				B8956B8322AD2819002AD552 /* CollectionHelper.swift in Sources */,
 				B8956A4922ACB912002AD552 /* Code_Bible.xcdatamodeld in Sources */,
 				B8956B3922ACD7F5002AD552 /* Routes.swift in Sources */,
-				B8956B2122ACD6CF002AD552 /* FileManagerDataStore.swift in Sources */,
+				B8956B2122ACD6CF002AD552 /* FileManagerDataSource.swift in Sources */,
 				B8956B3022ACD73D002AD552 /* FileManagerSystemMetaData.swift in Sources */,
 				B8956A4B22ACB912002AD552 /* ContentView.swift in Sources */,
 				B8956B2A22ACD73D002AD552 /* FileManagerDirectories.swift in Sources */,
@@ -1182,7 +1182,7 @@
 				B8956B5722ACDBD0002AD552 /* SpotPrice.swift in Sources */,
 				B8956B9322AD29AA002AD552 /* CustomStepper.swift in Sources */,
 				B8956B0E22ACD1C3002AD552 /* KPPayment.swift in Sources */,
-				B8956B1B22ACD67A002AD552 /* CacheDataStore.swift in Sources */,
+				B8956B1B22ACD67A002AD552 /* CacheDataSource.swift in Sources */,
 				B8956BBF22AD4BBB002AD552 /* ScrollingNavbar+Sizes.swift in Sources */,
 				B8956BC322AD4C34002AD552 /* SpinnerController.swift in Sources */,
 				B8956B8722AD2829002AD552 /* ColorHelper.swift in Sources */,
@@ -1192,7 +1192,7 @@
 				B8956B2F22ACD73D002AD552 /* FileManagerDirectoryNames.swift in Sources */,
 				B8956B8A22AD290E002AD552 /* CustomBarButtonItem.swift in Sources */,
 				B8956ABF22ACC386002AD552 /* AppDelegate.swift in Sources */,
-				B8956B2022ACD6CF002AD552 /* UserDefaultsDataStore.swift in Sources */,
+				B8956B2022ACD6CF002AD552 /* UserDefaultsDataSource.swift in Sources */,
 				B8956BA222AD2A1E002AD552 /* IAPWorker.swift in Sources */,
 				B8956B2D22ACD73D002AD552 /* FileManagerHelper.swift in Sources */,
 				B8956B6822ACDE0C002AD552 /* IPAddressHelper.swift in Sources */,
@@ -1203,7 +1203,7 @@
 				B8956B8422AD2819002AD552 /* CollectionHelper.swift in Sources */,
 				B8956AC022ACC386002AD552 /* Code_Bible.xcdatamodeld in Sources */,
 				B8956B3A22ACD7F5002AD552 /* Routes.swift in Sources */,
-				B8956B2222ACD6CF002AD552 /* FileManagerDataStore.swift in Sources */,
+				B8956B2222ACD6CF002AD552 /* FileManagerDataSource.swift in Sources */,
 				B8956B3122ACD73D002AD552 /* FileManagerSystemMetaData.swift in Sources */,
 				B8956AC122ACC386002AD552 /* ContentView.swift in Sources */,
 				B8956B2B22ACD73D002AD552 /* FileManagerDirectories.swift in Sources */,
