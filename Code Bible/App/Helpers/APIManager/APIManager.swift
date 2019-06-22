@@ -18,144 +18,178 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
+import UIKit
 
 struct APIManager {
-    static let shared = APIManager()
-
     private init() {}
+
+    static func getImage(urlString: String,
+                         success: @escaping (_ image: UIImage) -> Void,
+                         failure: @escaping (_ serverError: String) -> Void) {
+        let defaultError = Constants.Message.failureDefault
+        guard let imageURL = URL(string: urlString) else {
+            failure(defaultError)
+            return
+        }
+        do {
+            let response = try APIWorker.request(url: imageURL, method: .get, parameters: nil, headers: nil)
+            guard response.result.isSuccess else {
+                failure(response.result.error?.localizedDescription ?? defaultError)
+                return
+            }
+
+            var imageResponse: UIImage?
+
+            if let rawData = response.data, let decodedData = UIImage(data: rawData) {
+                imageResponse = decodedData
+            }
+
+            if let image = imageResponse {
+                success(image)
+            }
+        } catch {
+            failure(error.localizedDescription)
+        }
+    }
 
     static func getChannelList(success: @escaping (_ channels: [Channel]) -> Void,
                                failure: @escaping (_ serverError: String) -> Void) {
         let channelListURLString = Constants.AstroAPI.baseURL + Constants.AstroAPI.channelList
-        if let channelListURL = URL(string: channelListURLString) {
-            APIWorker.request(url: channelListURL, method: .get, parameters: nil, headers: nil) { (response) in
-                let defaultError = response.result.error?.localizedDescription ?? Constants.Message.failureDefault
-                guard response.result.isSuccess else {
-                    failure(defaultError)
-                    return
-                }
-                
-                var channelResponse: ChannelResponse?
-                let decoder = JSONDecoder()
-                
-                if let rawData = response.data, let decodedData = try? decoder.decode(ChannelResponse.self, from: rawData) {
-                    channelResponse = decodedData
-                }
-                
-                if let channels = channelResponse?.channels {
-                    success(channels)
-                    return
-                }
-                failure(defaultError)
+        let defaultError = Constants.Message.failureDefault
+        guard let channelListURL = URL(string: channelListURLString) else {
+            failure(defaultError)
+            return
+        }
+        do {
+            let response = try APIWorker.request(url: channelListURL, method: .get, parameters: nil, headers: nil)
+            guard response.result.isSuccess else {
+                failure(response.result.error?.localizedDescription ?? defaultError)
                 return
             }
+
+            var channelResponse: ChannelResponse?
+            let decoder = JSONDecoder()
+
+            if let rawData = response.data, let decodedData = try? decoder.decode(ChannelResponse.self, from: rawData) {
+                channelResponse = decodedData
+            }
+
+            if let channels = channelResponse?.channels {
+                success(channels)
+            }
+        } catch {
+            failure(error.localizedDescription)
         }
     }
     
-    static func postUser(userObj: User,
+    static func postUser(userRequest: User,
                          success: @escaping (_ user: User) -> Void,
                          failure: @escaping (_ serverError: String) -> Void) {
         let registerUserURLString = Constants.HelloGoldAPI.baseURL + Constants.HelloGoldAPI.registerUser
         let encoder = JSONEncoder()
-        let userData = try? encoder.encode(userObj)
+        let userData = try? encoder.encode(userRequest)
         let registerUserHeaders = ["Content-Type": "application/json"]
-        if let registerUserURL = URL(string: registerUserURLString) {
-            APIWorker.request(url: registerUserURL, method: .post, parameters: nil, headers: registerUserHeaders, body: userData) { (response) in
-                let defaultError = response.result.error?.localizedDescription ?? Constants.Message.failureDefault
-                guard response.result.isSuccess else {
-                    failure(defaultError)
-                    return
-                }
-                
-                var userResponse: UserResponse?
-                let decoder = JSONDecoder()
-                
-                if let rawData = response.data, let decodedData = try? decoder.decode(UserResponse.self, from: rawData) {
-                    userResponse = decodedData
-                }
-                
-                if let r = userResponse, let user = r.user {
-                    if r.result == "ok" {
-                        success(user)
-                        return
-                    } else if r.result == "error" {
-                        let message = r.message ?? defaultError
-                        failure(message)
-                        return
-                    }
-                }
-                failure(defaultError)
+        let defaultError = Constants.Message.failureDefault
+        guard let registerUserURL = URL(string: registerUserURLString) else {
+            failure(defaultError)
+            return
+        }
+        do {
+            let response = try APIWorker.request(url: registerUserURL, method: .post, parameters: nil, headers: registerUserHeaders, body: userData)
+            guard response.result.isSuccess else {
+                failure(response.result.error?.localizedDescription ?? defaultError)
                 return
             }
+
+            var userResponse: UserResponse?
+            let decoder = JSONDecoder()
+
+            if let rawData = response.data, let decodedData = try? decoder.decode(UserResponse.self, from: rawData) {
+                userResponse = decodedData
+            }
+
+            if let r = userResponse, let user = r.user {
+                if r.result == "ok" {
+                    success(user)
+                } else if r.result == "error" {
+                    let message = r.message ?? defaultError
+                    failure(message)
+                }
+            }
+        } catch {
+            failure(error.localizedDescription)
         }
     }
     
-    static func getSpotPrice(spotPriceObj: SpotPrice,
-                             success: @escaping (_ spotPriceModelObj: SpotPrice) -> Void,
+    static func getSpotPrice(success: @escaping (_ spotPriceModelObj: SpotPrice) -> Void,
                              failure: @escaping (_ serverError: String) -> Void) {
         let getSpotPriceURLString = Constants.HelloGoldAPI.baseURL + Constants.HelloGoldAPI.getSpotPrice
         let getSpotPriceHeaders = ["Content-Type": "application/json"]
-        if let getSpotPriceURL = URL(string: getSpotPriceURLString) {
-            APIWorker.request(url: getSpotPriceURL, method: .get, parameters: nil, headers: getSpotPriceHeaders) { (response) in
-                let defaultError = response.result.error?.localizedDescription ?? Constants.Message.failureDefault
-                guard response.result.isSuccess else {
-                    failure((response.result.error?.localizedDescription)!)
-                    return
-                }
-                
-                var spotPriceResponse: SpotPriceResponse?
-                let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .iso8601
-                
-                if let rawData = response.data, let decodedData = try? decoder.decode(SpotPriceResponse.self, from: rawData) {
-                    spotPriceResponse = decodedData
-                }
-                
-                if let r = spotPriceResponse, let user = r.spotPrice {
-                    if r.result == "ok" {
-                        success(user)
-                        return
-                    } else if r.result == "error" {
-                        let message = r.message ?? defaultError
-                        failure(message)
-                        return
-                    }
-                }
-                failure(defaultError)
+        let defaultError = Constants.Message.failureDefault
+        guard let getSpotPriceURL = URL(string: getSpotPriceURLString) else {
+            failure(defaultError)
+            return
+        }
+        do {
+            let response = try APIWorker.request(url: getSpotPriceURL, method: .get, parameters: nil, headers: getSpotPriceHeaders)
+            guard response.result.isSuccess else {
+                failure(response.result.error?.localizedDescription ?? defaultError)
                 return
             }
+
+            var spotPriceResponse: SpotPriceResponse?
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+
+            if let rawData = response.data, let decodedData = try? decoder.decode(SpotPriceResponse.self, from: rawData) {
+                spotPriceResponse = decodedData
+            }
+
+            if let r = spotPriceResponse, let user = r.spotPrice {
+                if r.result == "ok" {
+                    success(user)
+                } else if r.result == "error" {
+                    let message = r.message ?? defaultError
+                    failure(message)
+                }
+            }
+        } catch {
+            failure(error.localizedDescription)
         }
     }
     
-    static func postGenerateDeeplink(deeplinkObj: Deeplink,
-                                     success: @escaping (_ deeplinkModelObj: Deeplink) -> Void,
+    static func postGenerateDeeplink(deeplinkRequest: Deeplink,
+                                     success: @escaping (_ deeplinkResponse: Deeplink) -> Void,
                                      failure: @escaping (_ serverError: String) -> Void) {
         let generateDeeplinkURLString = Constants.KipleAPI.generateDeeplinkURL
         let headers = ["Content-Type": "application/json"]
-        if let generateDeeplinkURL = URL(string: generateDeeplinkURLString) {
-            APIWorker.request(url: generateDeeplinkURL, method: .post, parameters: deeplinkObj.toDictionary(), headers: headers) { (response) in
-                guard response.result.isSuccess else {
-                    failure((response.result.error?.localizedDescription)!)
-                    return
-                }
-                
-                guard let value = response.result.value as? Data, let responseDictionary = try? JSONSerialization.jsonObject(with: value, options: []) as? [String: Any] else {
-                    failure(Constants.Message.failureDefault)
-                    return
-                }
-                
-                let deeplinkModelObj = Deeplink(from: responseDictionary)
-                
-                if deeplinkModelObj.deeplinkURL == nil {
-                    let message = deeplinkModelObj.message ?? Constants.Message.failureDefault
-                    failure(message)
-                    return
-                } else {
-                    success(deeplinkModelObj)
-                    return
-                }
+        let defaultError = Constants.Message.failureDefault
+        guard let generateDeeplinkURL = URL(string: generateDeeplinkURLString) else {
+            failure(defaultError)
+            return
+        }
+        do {
+            let response = try APIWorker.request(url: generateDeeplinkURL, method: .post, parameters: deeplinkRequest.toDictionary(), headers: headers)
+            guard response.result.isSuccess else {
+                failure(response.result.error?.localizedDescription ?? defaultError)
+                return
             }
+
+            guard let value = response.result.value as? Data, let responseDictionary = try? JSONSerialization.jsonObject(with: value, options: []) as? [String: Any] else {
+                failure(Constants.Message.failureDefault)
+                return
+            }
+
+            let deeplinkResponse = Deeplink(from: responseDictionary)
+
+            if deeplinkResponse.deeplinkURL == nil {
+                let message = deeplinkResponse.message ?? Constants.Message.failureDefault
+                failure(message)
+            } else {
+                success(deeplinkResponse)
+            }
+        } catch {
+            failure(error.localizedDescription)
         }
     }
 }

@@ -24,8 +24,8 @@ fileprivate extension Constants {
     static let sample = "Profile.png"
 }
 
-struct FileManagerDataSource: FileManagerHelper, FileManagerSystemMetaData {
-    static var shared = FileManagerDataSource()
+struct FileManagerDataStore: FileManagerHelper, FileManagerSystemMetaData {
+    static var shared = FileManagerDataStore()
     
     private init() {}
     
@@ -47,7 +47,7 @@ struct FileManagerDataSource: FileManagerHelper, FileManagerSystemMetaData {
     }
 }
 
-private extension FileManagerDataSource {
+private extension FileManagerDataStore {
     func getObject(withName name: String) -> Any? {
         if let object = readFile(at: .Documents, withName: name) {
             return object

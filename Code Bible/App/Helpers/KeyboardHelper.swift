@@ -21,7 +21,7 @@
 import UIKit
 
 class KeyboardHelper: NSObject {
-    weak var controller: UIViewController?
+    weak var sender: UIView?
     weak var keyboardHeightLayoutConstraint: NSLayoutConstraint?
 
     override init() {
@@ -46,9 +46,9 @@ class KeyboardHelper: NSObject {
             } else {
                 self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
             }
-            if let d = self.controller {
+            if let s = self.sender {
                 UIView.animate(withDuration: duration, delay: 0, options: animationCurve, animations: {
-                    d.view.layoutIfNeeded()
+                    s.layoutIfNeeded()
                 }, completion: nil)
             }
         }

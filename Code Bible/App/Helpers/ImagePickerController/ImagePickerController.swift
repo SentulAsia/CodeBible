@@ -140,16 +140,14 @@ extension ImagePickerController: UINavigationControllerDelegate, UIImagePickerCo
                 self.imagePicker = nil
                 return
             }
+        } else if let possibleImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+                newImage = possibleImage
+        } else if let possibleImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            newImage = possibleImage
         } else {
-            if let possibleImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
-                newImage = possibleImage
-            } else if let possibleImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
-                newImage = possibleImage
-            } else {
-                self.imagePicker.dismiss(animated: true, completion: nil)
-                self.imagePicker = nil
-                return
-            }
+            self.imagePicker.dismiss(animated: true, completion: nil)
+            self.imagePicker = nil
+            return
         }
 
         Log("image size before: \(newImage.size)")

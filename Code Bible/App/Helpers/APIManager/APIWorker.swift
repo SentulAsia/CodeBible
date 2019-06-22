@@ -18,7 +18,7 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
+import UIKit
 
 enum APIMethod: String {
     case get     = "GET"
@@ -29,7 +29,7 @@ enum APIMethod: String {
 
 enum APIResult {
     case success(Any)
-    case failure(Error)
+    case failure(APIError)
 
     var isSuccess: Bool {
         switch self {
@@ -53,13 +53,35 @@ enum APIResult {
         }
     }
 
-    var error: Error? {
+    var error: APIError? {
         switch self {
         case .success:
             return nil
         case .failure(let error):
             return error
         }
+    }
+}
+
+struct APIError: Error {
+    let message: String
+
+    init(_ message: String) {
+        self.message = message
+    }
+
+    public var localizedDescription: String {
+        return self.message
+    }
+}
+
+extension APIError: LocalizedError {
+    public var errorDescription: String? {
+        return self.message
+    }
+
+    public var failureReason: String? {
+        return self.message
     }
 }
 
@@ -81,19 +103,12 @@ struct APIResponse {
 }
 
 struct APIWorker {
-    static let shared = APIWorker()
-
     private init() {}
 
-    static func request(url: URL, method: APIMethod, parameters: [String: Any]?, headers: [String: String]? = nil, body: Data? = nil,
-                        completionHandler: @escaping (_ response: APIResponse) -> Void) {
+    static func request(url: URL, method: APIMethod, parameters: [String: Any]?, headers: [String: String]? = nil, body: Data? = nil) throws -> APIResponse {
         var request = URLRequest(url: url)
-        if let h = headers {
-            for header in h {
-                request.addValue(header.value, forHTTPHeaderField: header.key)
-            }
-        }
-        request.httpMethod = method.rawValue
+        var apiResponse: APIResponse?
+        var apiError: Error?
 
         if let p = parameters {
             do {
@@ -107,52 +122,56 @@ struct APIWorker {
                 Log("\(url.description) failed")
                 Log("response: nil")
                 Log("----------------------------")
-                let result = APIResult.failure(error)
-                let r = APIResponse(request: request, data: nil, response: nil, result: result)
-                completionHandler(r)
-                return
+                throw error
             }
         } else if let data = body {
             request.httpBody = data
         }
-        
-        let sessionConfig = URLSessionConfiguration.default
-        sessionConfig.timeoutIntervalForRequest = 12.0
-        sessionConfig.timeoutIntervalForResource = 60.0
-        let sessionManager = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 
-        let dataTask = sessionManager.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-            if let e = error {
-                Log("----------------------------")
-                Log("url:", url.description)
-                Log("params:", parameters ?? "")
-                Log("\(url.description) failed")
-                if let httpResponse = response as? HTTPURLResponse {
-                    if Environment.isDevelopment {
-                        if let d = data, let result = String(data: d, encoding: String.Encoding.utf8) {
-                            Log("result:", result)
-                        } else {
-                            Log("result:", httpResponse.allHeaderFields as? [String: Any] ?? httpResponse)
+        let semaphore = DispatchSemaphore(value: 0)
+        let dispatchQueue = DispatchQueue.global(qos: .background)
+
+        dispatchQueue.async {
+            let sessionConfig = URLSessionConfiguration.default
+            sessionConfig.timeoutIntervalForRequest = 12.0
+            sessionConfig.timeoutIntervalForResource = 60.0
+            let sessionManager = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+
+            if let h = headers {
+                for header in h {
+                    request.addValue(header.value, forHTTPHeaderField: header.key)
+                }
+            }
+            request.httpMethod = method.rawValue
+
+            let dataTask = sessionManager.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                if let e = error {
+                    Log("----------------------------")
+                    Log("url:", url.description)
+                    Log("params:", parameters ?? "")
+                    Log("\(url.description) failed")
+                    if let httpResponse = response as? HTTPURLResponse {
+                        if Environment.isDevelopment {
+                            if let d = data, let result = String(data: d, encoding: String.Encoding.utf8) {
+                                Log("result:", result)
+                            } else {
+                                Log("result:", httpResponse.allHeaderFields as? [String: Any] ?? httpResponse)
+                            }
                         }
+                        Log("status code:", httpResponse.statusCode)
                     }
-                    Log("status code:", httpResponse.statusCode)
-                }
-                Log("----------------------------")
-                let result = APIResult.failure(e)
-                let r = APIResponse(request: request, data: data, response: response, result: result)
-                DispatchQueue.main.async {
-                    completionHandler(r)
-                    return
-                }
-            } else {
-                if let d = data {
+                    Log("----------------------------")
+                    apiError = e
+                } else if let d = data {
                     Log("----------------------------")
                     Log("url:", url.description)
                     Log("params:", parameters ?? "")
                     Log("\(url.description) success")
                     if let httpResponse = response as? HTTPURLResponse {
                         if Environment.isDevelopment {
-                            if let result = String(data: d, encoding: String.Encoding.utf8) {
+                            if let result = UIImage(data: d) {
+                                Log("result:", result.size)
+                            } else if let result = String(data: d, encoding: String.Encoding.utf8) {
                                 Log("result:", result)
                             } else {
                                 Log("result:", httpResponse.allHeaderFields as? [String: Any] ?? httpResponse)
@@ -162,16 +181,8 @@ struct APIWorker {
                     }
                     Log("----------------------------")
                     let result = APIResult.success(d)
-                    let r = APIResponse(request: request, data: data, response: response, result: result)
-                    DispatchQueue.main.async {
-                        completionHandler(r)
-                        return
-                    }
+                    apiResponse = APIResponse(request: request, data: data, response: response, result: result)
                 } else {
-                    let e = NSError(domain: "", code: 0, userInfo: [
-                        NSLocalizedDescriptionKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: "") ,
-                        NSLocalizedFailureReasonErrorKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: "")
-                        ])
                     Log("----------------------------")
                     Log("url:", url.description)
                     Log("params:", parameters ?? "")
@@ -181,15 +192,30 @@ struct APIWorker {
                         Log("status code:", httpResponse.statusCode)
                     }
                     Log("----------------------------")
-                    let result = APIResult.failure(e)
-                    let r = APIResponse(request: request, data: data, response: response, result: result)
-                    DispatchQueue.main.async {
-                        completionHandler(r)
-                        return
-                    }
+                    apiError = APIError(Constants.Message.failureDefault)
                 }
+                semaphore.signal()
             }
+            dataTask.resume()
+            semaphore.wait()
         }
-        dataTask.resume()
+
+        if let e = apiError {
+            throw e
+        } else if let r = apiResponse {
+            return r
+        }
+
+        throw APIError(Constants.Message.failureDefault)
     }
+}
+
+private extension NSError {
+    /// Default Error to be thrown (deprecated)
+    ///
+    /// - returns: default NSError object
+    static var `default` = NSError(domain: "", code: 0, userInfo: [
+        NSLocalizedDescriptionKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: ""),
+        NSLocalizedFailureReasonErrorKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: "")
+    ])
 }

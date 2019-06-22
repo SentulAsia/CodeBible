@@ -20,8 +20,8 @@
 
 import UIKit
 
-struct CacheDataSource {
-    static var shared = CacheDataSource()
+struct CacheDataStore {
+    static var shared = CacheDataStore()
 
     private init() {}
 
@@ -30,7 +30,7 @@ struct CacheDataSource {
     }
 }
 
-private extension CacheDataSource {
+private extension CacheDataStore {
     class CacheWorker {
         static let shared = CacheWorker()
 
@@ -84,7 +84,8 @@ private extension CacheDataSource {
             var cost = MemoryLayout.size(ofValue: value)
             if let imageData = (value as? UIImage)?.pngData() {
                 cost = imageData.count
-            } else if let data = value as? Data {
+            }
+            else if let data = value as? Data {
                 cost = data.count
             }
             return cost
