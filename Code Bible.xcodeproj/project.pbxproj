@@ -153,6 +153,8 @@
 		B8DD63C222BE550E0098768E /* FirstController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63C022BE550E0098768E /* FirstController.swift */; };
 		B8DD63C422BE5E930098768E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63C322BE5E930098768E /* DetailView.swift */; };
 		B8DD63C522BE5E930098768E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63C322BE5E930098768E /* DetailView.swift */; };
+		B8DD63CB22BE8EE60098768E /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63CA22BE8EE60098768E /* APIModel.swift */; };
+		B8DD63CC22BE8EE60098768E /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63CA22BE8EE60098768E /* APIModel.swift */; };
 		E10DFF85EC33CF31E64E74BF /* Pods_Code_BibleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639EDA84457A9D7060335E2D /* Pods_Code_BibleTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -308,6 +310,7 @@
 		B8DD63BD22BE52050098768E /* ThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdView.swift; sourceTree = "<group>"; };
 		B8DD63C022BE550E0098768E /* FirstController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstController.swift; sourceTree = "<group>"; };
 		B8DD63C322BE5E930098768E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		B8DD63CA22BE8EE60098768E /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
 		E65E7E8C2849C1221D1CFE6E /* Pods-Code BibleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code BibleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code BibleTests/Pods-Code BibleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FF51F48CBC69C5A9381C0488 /* Pods-Code Bible Dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible Dev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev.debug.xcconfig"; sourceTree = "<group>"; };
 		FFC0222638E115C9A84011F6 /* Pods-Code Bible Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible Dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev.release.xcconfig"; sourceTree = "<group>"; };
@@ -686,6 +689,7 @@
 		B8956B4322ACD996002AD552 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
+				B8DD63CA22BE8EE60098768E /* APIModel.swift */,
 				B8956B3E22ACD98E002AD552 /* APIManager.swift */,
 				B8956B3D22ACD98E002AD552 /* APIWorker.swift */,
 			);
@@ -1134,6 +1138,7 @@
 				B8B8046122B11BD800DA4C9E /* ToastHelper.swift in Sources */,
 				B8956B9F22AD2A1E002AD552 /* IAPManager.swift in Sources */,
 				B8956B5C22ACDBF5002AD552 /* Restaurant.swift in Sources */,
+				B8DD63CB22BE8EE60098768E /* APIModel.swift in Sources */,
 				B8956BAB22AD2A9E002AD552 /* ScreenBrightnessHelper.swift in Sources */,
 				B8956BAE22AD2ABC002AD552 /* StringHelper.swift in Sources */,
 				B8956B4122ACD98E002AD552 /* APIManager.swift in Sources */,
@@ -1217,6 +1222,7 @@
 				B8B8046222B11BD800DA4C9E /* ToastHelper.swift in Sources */,
 				B8956BA022AD2A1E002AD552 /* IAPManager.swift in Sources */,
 				B8956B5D22ACDBF5002AD552 /* Restaurant.swift in Sources */,
+				B8DD63CC22BE8EE60098768E /* APIModel.swift in Sources */,
 				B8956BAC22AD2A9E002AD552 /* ScreenBrightnessHelper.swift in Sources */,
 				B8956BAF22AD2ABC002AD552 /* StringHelper.swift in Sources */,
 				B8956B4222ACD98E002AD552 /* APIManager.swift in Sources */,

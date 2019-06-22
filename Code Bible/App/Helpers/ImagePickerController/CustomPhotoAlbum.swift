@@ -1,4 +1,4 @@
-/// Copyright © 2018 Zaid M. Said
+/// Copyright © 2019 Zaid M. Said
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal

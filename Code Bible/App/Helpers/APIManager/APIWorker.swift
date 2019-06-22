@@ -1,4 +1,4 @@
-/// Copyright © 2018 Zaid M. Said
+/// Copyright © 2019 Zaid M. Said
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -19,88 +19,6 @@
 /// THE SOFTWARE.
 
 import UIKit
-
-enum APIMethod: String {
-    case get     = "GET"
-    case post    = "POST"
-    case put     = "PUT"
-    case delete  = "DELETE"
-}
-
-enum APIResult {
-    case success(Any)
-    case failure(APIError)
-
-    var isSuccess: Bool {
-        switch self {
-        case .success:
-            return true
-        case .failure:
-            return false
-        }
-    }
-
-    var isFailure: Bool {
-        return !isSuccess
-    }
-
-    var value: Any? {
-        switch self {
-        case .success(let value):
-            return value
-        case .failure:
-            return nil
-        }
-    }
-
-    var error: APIError? {
-        switch self {
-        case .success:
-            return nil
-        case .failure(let error):
-            return error
-        }
-    }
-}
-
-struct APIError: Error {
-    let message: String
-
-    init(_ message: String) {
-        self.message = message
-    }
-
-    public var localizedDescription: String {
-        return self.message
-    }
-}
-
-extension APIError: LocalizedError {
-    public var errorDescription: String? {
-        return self.message
-    }
-
-    public var failureReason: String? {
-        return self.message
-    }
-}
-
-struct APIResponse {
-    let request: URLRequest?
-    let data: Data?
-    let response: URLResponse?
-    let result: APIResult
-
-    var value: Any? { return self.result.value }
-    var error: Error? { return self.result.error }
-
-    init(request: URLRequest?, data: Data?, response: URLResponse?, result: APIResult) {
-        self.request = request
-        self.response = response
-        self.data = data
-        self.result = result
-    }
-}
 
 struct APIWorker {
     private init() {}
