@@ -102,7 +102,7 @@ extension IAPWorker: SKProductsRequestDelegate {
     
     func request(_ request: SKRequest, didFailWithError error: Error) {
         Log("Failed to load list of products.")
-        Log("Error: \(error.localizedDescription)")
+        assertionFailure(error.localizedDescription)
         productsRequestCompletionHandler?(false, nil)
         clearRequestAndHandler()
     }
@@ -155,9 +155,9 @@ extension IAPWorker: SKPaymentTransactionObserver {
     private func fail(transaction: SKPaymentTransaction) {
         Log("fail...")
         if let transactionError = transaction.error as NSError?,
-            let localizedDescription = transaction.error?.localizedDescription,
+            let error = transaction.error,
             transactionError.code != SKError.paymentCancelled.rawValue {
-            Log("Transaction Error: \(localizedDescription)")
+            assertionFailure(error.localizedDescription)
         }
         
         SKPaymentQueue.default().finishTransaction(transaction)

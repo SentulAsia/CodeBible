@@ -105,7 +105,7 @@ struct APIResponse {
 struct APIWorker {
     private init() {}
 
-    static func request(url: URL, method: APIMethod, parameters: [String: Any]?, headers: [String: String]? = nil, body: Data? = nil) throws -> APIResponse {
+    static func request(url: URL, method: APIMethod, parameters: [String: Any]? = nil, headers: [String: String]? = nil, body: Data? = nil) throws -> APIResponse {
         var request = URLRequest(url: url)
         var apiResponse: APIResponse?
         var apiError: Error?
@@ -129,76 +129,73 @@ struct APIWorker {
         }
 
         let semaphore = DispatchSemaphore(value: 0)
-        let dispatchQueue = DispatchQueue.global(qos: .background)
 
-        dispatchQueue.async {
-            let sessionConfig = URLSessionConfiguration.default
-            sessionConfig.timeoutIntervalForRequest = 12.0
-            sessionConfig.timeoutIntervalForResource = 60.0
-            let sessionManager = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        let sessionConfig = URLSessionConfiguration.default
+        sessionConfig.timeoutIntervalForRequest = 12.0
+        sessionConfig.timeoutIntervalForResource = 60.0
+        let sessionManager = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 
-            if let h = headers {
-                for header in h {
-                    request.addValue(header.value, forHTTPHeaderField: header.key)
-                }
+        if let h = headers {
+            for header in h {
+                request.addValue(header.value, forHTTPHeaderField: header.key)
             }
-            request.httpMethod = method.rawValue
-
-            let dataTask = sessionManager.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-                if let e = error {
-                    Log("----------------------------")
-                    Log("url:", url.description)
-                    Log("params:", parameters ?? "")
-                    Log("\(url.description) failed")
-                    if let httpResponse = response as? HTTPURLResponse {
-                        if Environment.isDevelopment {
-                            if let d = data, let result = String(data: d, encoding: String.Encoding.utf8) {
-                                Log("result:", result)
-                            } else {
-                                Log("result:", httpResponse.allHeaderFields as? [String: Any] ?? httpResponse)
-                            }
-                        }
-                        Log("status code:", httpResponse.statusCode)
-                    }
-                    Log("----------------------------")
-                    apiError = e
-                } else if let d = data {
-                    Log("----------------------------")
-                    Log("url:", url.description)
-                    Log("params:", parameters ?? "")
-                    Log("\(url.description) success")
-                    if let httpResponse = response as? HTTPURLResponse {
-                        if Environment.isDevelopment {
-                            if let result = UIImage(data: d) {
-                                Log("result:", result.size)
-                            } else if let result = String(data: d, encoding: String.Encoding.utf8) {
-                                Log("result:", result)
-                            } else {
-                                Log("result:", httpResponse.allHeaderFields as? [String: Any] ?? httpResponse)
-                            }
-                        }
-                        Log("status code:", httpResponse.statusCode)
-                    }
-                    Log("----------------------------")
-                    let result = APIResult.success(d)
-                    apiResponse = APIResponse(request: request, data: data, response: response, result: result)
-                } else {
-                    Log("----------------------------")
-                    Log("url:", url.description)
-                    Log("params:", parameters ?? "")
-                    Log("\(url.description) failed")
-                    if let httpResponse = response as? HTTPURLResponse {
-                        Log("result:", httpResponse.allHeaderFields as? [String: Any] ?? httpResponse)
-                        Log("status code:", httpResponse.statusCode)
-                    }
-                    Log("----------------------------")
-                    apiError = APIError(Constants.Message.failureDefault)
-                }
-                semaphore.signal()
-            }
-            dataTask.resume()
-            semaphore.wait()
         }
+        request.httpMethod = method.rawValue
+
+        let dataTask = sessionManager.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            if let e = error {
+                Log("----------------------------")
+                Log("url:", url.description)
+                Log("params:", parameters ?? "")
+                Log("\(url.description) failed")
+                if let httpResponse = response as? HTTPURLResponse {
+                    if Environment.isDevelopment {
+                        if let d = data, let result = String(data: d, encoding: String.Encoding.utf8) {
+                            Log("result:", result)
+                        } else {
+                            Log("result:", httpResponse.allHeaderFields as? [String: Any] ?? httpResponse)
+                        }
+                    }
+                    Log("status code:", httpResponse.statusCode)
+                }
+                Log("----------------------------")
+                apiError = e
+            } else if let d = data {
+                Log("----------------------------")
+                Log("url:", url.description)
+                Log("params:", parameters ?? "")
+                Log("\(url.description) success")
+                if let httpResponse = response as? HTTPURLResponse {
+                    if Environment.isDevelopment {
+                        if let result = UIImage(data: d) {
+                            Log("result:", result.size)
+                        } else if let result = String(data: d, encoding: String.Encoding.utf8) {
+                            Log("result:", result)
+                        } else {
+                            Log("result:", httpResponse.allHeaderFields as? [String: Any] ?? httpResponse)
+                        }
+                    }
+                    Log("status code:", httpResponse.statusCode)
+                }
+                Log("----------------------------")
+                let result = APIResult.success(d)
+                apiResponse = APIResponse(request: request, data: data, response: response, result: result)
+            } else {
+                Log("----------------------------")
+                Log("url:", url.description)
+                Log("params:", parameters ?? "")
+                Log("\(url.description) failed")
+                if let httpResponse = response as? HTTPURLResponse {
+                    Log("result:", httpResponse.allHeaderFields as? [String: Any] ?? httpResponse)
+                    Log("status code:", httpResponse.statusCode)
+                }
+                Log("----------------------------")
+                apiError = APIError(Constants.Message.failureDefault)
+            }
+            semaphore.signal()
+        }
+        dataTask.resume()
+        semaphore.wait()
 
         if let e = apiError {
             throw e

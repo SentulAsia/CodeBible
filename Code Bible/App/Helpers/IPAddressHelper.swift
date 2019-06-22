@@ -33,14 +33,13 @@ extension IPAddressHelper {
     func getPublicIPAddress() {
         let publicURLString = "https://api.ipify.org?format=json"
         if let publicURL = URL(string: publicURLString) {
-            do {
-                let response = try APIWorker.request(url: publicURL, method: .get, parameters: nil, headers: nil)
+            APIManager.request(url: publicURL, method: .get, success: { (response) in
                 guard response.result.isSuccess, let value = response.result.value as? Data, let responseDictionary = try? JSONSerialization.jsonObject(with: value, options: []) as? [String: Any] else { return }
                 if let ip = responseDictionary["ip"] as? String {
                     UserDefaultsDataStore.shared.ipAddress = ip
                 }
-            } catch {
-                Log(error.localizedDescription)
+            }) { (serverError) in
+                assertionFailure(serverError)
             }
         }
     }

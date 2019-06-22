@@ -18,19 +18,48 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import UIKit
+import SwiftUI
 
-class Routes {
-    typealias DismissHandler = (() -> Void)?
-    private var sourceViewController: UIViewController?
-    private var destinationViewController: UIViewController?
-    private var willDismissHandler: DismissHandler?
-    private var didDismissHandler: DismissHandler?
-
-    init(to destination: UIViewController, from source: UIViewController, willDismissHandler: DismissHandler? = nil, didDismissHandler: DismissHandler? = nil) {
-        self.sourceViewController = source
-        self.destinationViewController = destination
-        self.willDismissHandler = willDismissHandler
-        self.didDismissHandler = didDismissHandler
+struct ContentView : View {
+    @State private var selection = 0
+ 
+    var body: some View {
+        TabbedView(selection: $selection) {
+            FirstView()
+                .font(.title)
+                .tabItemLabel(
+                    VStack {
+                        Image("first")
+                        Text("First")
+                    }
+                )
+                .tag(0)
+            SecondView()
+                .font(.title)
+                .tabItemLabel(
+                    VStack {
+                        Image("second")
+                        Text("Second")
+                    }
+                )
+                .tag(1)
+            ThirdView()
+                .font(.title)
+                .tabItemLabel(
+                    VStack {
+                        Image("second")
+                        Text("Third")
+                    }
+                )
+                .tag(2)
+        }
     }
 }
+
+#if DEBUG
+struct ContentView_Previews : PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+#endif

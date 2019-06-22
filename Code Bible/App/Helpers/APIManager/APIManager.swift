@@ -23,6 +23,34 @@ import UIKit
 struct APIManager {
     private init() {}
 
+    static func request(url: URL,
+                        method: APIMethod,
+                        parameters: [String: Any]? = nil,
+                        headers: [String: String]? = nil,
+                        body: Data? = nil,
+                        success: @escaping (_ response: APIResponse) -> (),
+                        failure: @escaping (_ serverError: String) -> Void) {
+        let dispatchQueue = DispatchQueue.global(qos: .background)
+        dispatchQueue.async {
+            do {
+                let response = try APIWorker.request(url: url, method: method, parameters: parameters, headers: headers, body: body)
+                guard response.result.isSuccess else {
+                    DispatchQueue.main.async {
+                        failure(response.result.error?.localizedDescription ?? Constants.Message.failureDefault)
+                    }
+                    return
+                }
+                DispatchQueue.main.async {
+                    success(response)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    failure(error.localizedDescription)
+                }
+            }
+        }
+    }
+
     static func getImage(urlString: String,
                          success: @escaping (_ image: UIImage) -> Void,
                          failure: @escaping (_ serverError: String) -> Void) {
@@ -31,13 +59,7 @@ struct APIManager {
             failure(defaultError)
             return
         }
-        do {
-            let response = try APIWorker.request(url: imageURL, method: .get, parameters: nil, headers: nil)
-            guard response.result.isSuccess else {
-                failure(response.result.error?.localizedDescription ?? defaultError)
-                return
-            }
-
+        request(url: imageURL, method: .get, success: { (response) in
             var imageResponse: UIImage?
 
             if let rawData = response.data, let decodedData = UIImage(data: rawData) {
@@ -45,11 +67,11 @@ struct APIManager {
             }
 
             if let image = imageResponse {
-                success(image)
+                DispatchQueue.main.async {
+                    success(image)
+                }
             }
-        } catch {
-            failure(error.localizedDescription)
-        }
+        }, failure: failure)
     }
 
     static func getChannelList(success: @escaping (_ channels: [Channel]) -> Void,
@@ -60,13 +82,7 @@ struct APIManager {
             failure(defaultError)
             return
         }
-        do {
-            let response = try APIWorker.request(url: channelListURL, method: .get, parameters: nil, headers: nil)
-            guard response.result.isSuccess else {
-                failure(response.result.error?.localizedDescription ?? defaultError)
-                return
-            }
-
+        request(url: channelListURL, method: .get, success: { (response) in
             var channelResponse: ChannelResponse?
             let decoder = JSONDecoder()
 
@@ -77,9 +93,7 @@ struct APIManager {
             if let channels = channelResponse?.channels {
                 success(channels)
             }
-        } catch {
-            failure(error.localizedDescription)
-        }
+        }, failure: failure)
     }
     
     static func postUser(userRequest: User,
@@ -94,13 +108,7 @@ struct APIManager {
             failure(defaultError)
             return
         }
-        do {
-            let response = try APIWorker.request(url: registerUserURL, method: .post, parameters: nil, headers: registerUserHeaders, body: userData)
-            guard response.result.isSuccess else {
-                failure(response.result.error?.localizedDescription ?? defaultError)
-                return
-            }
-
+        request(url: registerUserURL, method: .post, headers: registerUserHeaders, body: userData, success: { (response) in
             var userResponse: UserResponse?
             let decoder = JSONDecoder()
 
@@ -116,9 +124,7 @@ struct APIManager {
                     failure(message)
                 }
             }
-        } catch {
-            failure(error.localizedDescription)
-        }
+        }, failure: failure)
     }
     
     static func getSpotPrice(success: @escaping (_ spotPriceResponse: SpotPrice) -> Void,
@@ -130,13 +136,7 @@ struct APIManager {
             failure(defaultError)
             return
         }
-        do {
-            let response = try APIWorker.request(url: getSpotPriceURL, method: .get, parameters: nil, headers: getSpotPriceHeaders)
-            guard response.result.isSuccess else {
-                failure(response.result.error?.localizedDescription ?? defaultError)
-                return
-            }
-
+        request(url: getSpotPriceURL, method: .get, headers: getSpotPriceHeaders, success: { (response) in
             var spotPriceResponse: SpotPriceResponse?
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
@@ -153,9 +153,7 @@ struct APIManager {
                     failure(message)
                 }
             }
-        } catch {
-            failure(error.localizedDescription)
-        }
+        }, failure: failure)
     }
     
     static func postGenerateDeeplink(deeplinkRequest: Deeplink,
@@ -168,28 +166,20 @@ struct APIManager {
             failure(defaultError)
             return
         }
-        do {
-            let response = try APIWorker.request(url: generateDeeplinkURL, method: .post, parameters: deeplinkRequest.toDictionary(), headers: headers)
-            guard response.result.isSuccess else {
-                failure(response.result.error?.localizedDescription ?? defaultError)
-                return
-            }
-
+        request(url: generateDeeplinkURL, method: .post, parameters: deeplinkRequest.toDictionary(), headers: headers, success: { (response) in
             guard let value = response.result.value as? Data, let responseDictionary = try? JSONSerialization.jsonObject(with: value, options: []) as? [String: Any] else {
-                failure(Constants.Message.failureDefault)
+                failure(defaultError)
                 return
             }
 
             let deeplinkResponse = Deeplink(from: responseDictionary)
 
             if deeplinkResponse.deeplinkURL == nil {
-                let message = deeplinkResponse.message ?? Constants.Message.failureDefault
+                let message = deeplinkResponse.message ?? defaultError
                 failure(message)
             } else {
                 success(deeplinkResponse)
             }
-        } catch {
-            failure(error.localizedDescription)
-        }
+        }, failure: failure)
     }
 }

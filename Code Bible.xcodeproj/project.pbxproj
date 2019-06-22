@@ -143,6 +143,16 @@
 		B8B8046522B11BE100DA4C9E /* ToastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B8046322B11BE100DA4C9E /* ToastViewController.swift */; };
 		B8B8046722B11C3C00DA4C9E /* ToastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8B8046622B11C3C00DA4C9E /* ToastView.xib */; };
 		B8B8046822B11C3C00DA4C9E /* ToastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8B8046622B11C3C00DA4C9E /* ToastView.xib */; };
+		B8DD63B822BE50F60098768E /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63B722BE50F60098768E /* FirstView.swift */; };
+		B8DD63B922BE50F60098768E /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63B722BE50F60098768E /* FirstView.swift */; };
+		B8DD63BB22BE51AC0098768E /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63BA22BE51AB0098768E /* SecondView.swift */; };
+		B8DD63BC22BE51AC0098768E /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63BA22BE51AB0098768E /* SecondView.swift */; };
+		B8DD63BE22BE52050098768E /* ThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63BD22BE52050098768E /* ThirdView.swift */; };
+		B8DD63BF22BE52050098768E /* ThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63BD22BE52050098768E /* ThirdView.swift */; };
+		B8DD63C122BE550E0098768E /* FirstController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63C022BE550E0098768E /* FirstController.swift */; };
+		B8DD63C222BE550E0098768E /* FirstController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63C022BE550E0098768E /* FirstController.swift */; };
+		B8DD63C422BE5E930098768E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63C322BE5E930098768E /* DetailView.swift */; };
+		B8DD63C522BE5E930098768E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63C322BE5E930098768E /* DetailView.swift */; };
 		E10DFF85EC33CF31E64E74BF /* Pods_Code_BibleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639EDA84457A9D7060335E2D /* Pods_Code_BibleTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -293,6 +303,11 @@
 		B8B8046022B11BD800DA4C9E /* ToastHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastHelper.swift; sourceTree = "<group>"; };
 		B8B8046322B11BE100DA4C9E /* ToastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastViewController.swift; sourceTree = "<group>"; };
 		B8B8046622B11C3C00DA4C9E /* ToastView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToastView.xib; sourceTree = "<group>"; };
+		B8DD63B722BE50F60098768E /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		B8DD63BA22BE51AB0098768E /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
+		B8DD63BD22BE52050098768E /* ThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdView.swift; sourceTree = "<group>"; };
+		B8DD63C022BE550E0098768E /* FirstController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstController.swift; sourceTree = "<group>"; };
+		B8DD63C322BE5E930098768E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		E65E7E8C2849C1221D1CFE6E /* Pods-Code BibleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code BibleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code BibleTests/Pods-Code BibleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FF51F48CBC69C5A9381C0488 /* Pods-Code Bible Dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible Dev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev.debug.xcconfig"; sourceTree = "<group>"; };
 		FFC0222638E115C9A84011F6 /* Pods-Code Bible Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible Dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev.release.xcconfig"; sourceTree = "<group>"; };
@@ -469,6 +484,11 @@
 			isa = PBXGroup;
 			children = (
 				B8956B0922ACD0CC002AD552 /* LaunchScreen.storyboard */,
+				B8956A4A22ACB912002AD552 /* ContentView.swift */,
+				B8DD63B722BE50F60098768E /* FirstView.swift */,
+				B8DD63BA22BE51AB0098768E /* SecondView.swift */,
+				B8DD63BD22BE52050098768E /* ThirdView.swift */,
+				B8DD63C322BE5E930098768E /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -476,7 +496,7 @@
 		B8956AD222ACC747002AD552 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B8956A4A22ACB912002AD552 /* ContentView.swift */,
+				B8DD63C022BE550E0098768E /* FirstController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1120,6 +1140,7 @@
 				B8956B6422ACDCAE002AD552 /* DateHelper.swift in Sources */,
 				B8956BB722AD2CB7002AD552 /* ImagePickerController.swift in Sources */,
 				B8956B9B22AD29FB002AD552 /* CustomView.swift in Sources */,
+				B8DD63C122BE550E0098768E /* FirstController.swift in Sources */,
 				B8956B9822AD29DC002AD552 /* CustomTextField.swift in Sources */,
 				B8956B4922ACDAE1002AD552 /* Deeplink.swift in Sources */,
 				B8956B3B22ACD7F5002AD552 /* Constants.swift in Sources */,
@@ -1135,22 +1156,26 @@
 				B8956B3722ACD7F5002AD552 /* Environments.swift in Sources */,
 				B8956B6022ACDBF5002AD552 /* OpeningTime.swift in Sources */,
 				B8956B2E22ACD73D002AD552 /* FileManagerDirectoryNames.swift in Sources */,
+				B8DD63BE22BE52050098768E /* ThirdView.swift in Sources */,
 				B8956B8922AD290E002AD552 /* CustomBarButtonItem.swift in Sources */,
 				B8956A4422ACB912002AD552 /* AppDelegate.swift in Sources */,
 				B8956B1F22ACD6CF002AD552 /* UserDefaultsDataStore.swift in Sources */,
 				B8956BA122AD2A1E002AD552 /* IAPWorker.swift in Sources */,
 				B8956B2C22ACD73D002AD552 /* FileManagerHelper.swift in Sources */,
 				B8956B6722ACDE0C002AD552 /* IPAddressHelper.swift in Sources */,
+				B8DD63B822BE50F60098768E /* FirstView.swift in Sources */,
 				B8956B7022ACEA70002AD552 /* NumberValidator.swift in Sources */,
 				B8956B8C22AD2990002AD552 /* CustomButton.swift in Sources */,
 				B8956BBC22AD4BBB002AD552 /* ScrollingNavigationController.swift in Sources */,
 				B8956B9522AD29C4002AD552 /* ViewControllerHelper.swift in Sources */,
 				B8956B8322AD2819002AD552 /* CollectionHelper.swift in Sources */,
+				B8DD63C422BE5E930098768E /* DetailView.swift in Sources */,
 				B8956A4922ACB912002AD552 /* Code_Bible.xcdatamodeld in Sources */,
 				B8956B3922ACD7F5002AD552 /* Routes.swift in Sources */,
 				B8956B2122ACD6CF002AD552 /* FileManagerDataStore.swift in Sources */,
 				B8B8046422B11BE100DA4C9E /* ToastViewController.swift in Sources */,
 				B8956B3022ACD73D002AD552 /* FileManagerSystemMetaData.swift in Sources */,
+				B8DD63BB22BE51AC0098768E /* SecondView.swift in Sources */,
 				B8956A4B22ACB912002AD552 /* ContentView.swift in Sources */,
 				B8956B2A22ACD73D002AD552 /* FileManagerDirectories.swift in Sources */,
 				B8956A4622ACB912002AD552 /* SceneDelegate.swift in Sources */,
@@ -1198,6 +1223,7 @@
 				B8956B6522ACDCAE002AD552 /* DateHelper.swift in Sources */,
 				B8956BB822AD2CB7002AD552 /* ImagePickerController.swift in Sources */,
 				B8956B9C22AD29FB002AD552 /* CustomView.swift in Sources */,
+				B8DD63C222BE550E0098768E /* FirstController.swift in Sources */,
 				B8956B9922AD29DC002AD552 /* CustomTextField.swift in Sources */,
 				B8956B4A22ACDAE1002AD552 /* Deeplink.swift in Sources */,
 				B8956B3C22ACD7F5002AD552 /* Constants.swift in Sources */,
@@ -1213,22 +1239,26 @@
 				B8956B3822ACD7F5002AD552 /* Environments.swift in Sources */,
 				B8956B6122ACDBF5002AD552 /* OpeningTime.swift in Sources */,
 				B8956B2F22ACD73D002AD552 /* FileManagerDirectoryNames.swift in Sources */,
+				B8DD63BF22BE52050098768E /* ThirdView.swift in Sources */,
 				B8956B8A22AD290E002AD552 /* CustomBarButtonItem.swift in Sources */,
 				B8956ABF22ACC386002AD552 /* AppDelegate.swift in Sources */,
 				B8956B2022ACD6CF002AD552 /* UserDefaultsDataStore.swift in Sources */,
 				B8956BA222AD2A1E002AD552 /* IAPWorker.swift in Sources */,
 				B8956B2D22ACD73D002AD552 /* FileManagerHelper.swift in Sources */,
 				B8956B6822ACDE0C002AD552 /* IPAddressHelper.swift in Sources */,
+				B8DD63B922BE50F60098768E /* FirstView.swift in Sources */,
 				B8956B7122ACEA70002AD552 /* NumberValidator.swift in Sources */,
 				B8956B8D22AD2990002AD552 /* CustomButton.swift in Sources */,
 				B8956BBD22AD4BBB002AD552 /* ScrollingNavigationController.swift in Sources */,
 				B8956B9622AD29C4002AD552 /* ViewControllerHelper.swift in Sources */,
 				B8956B8422AD2819002AD552 /* CollectionHelper.swift in Sources */,
+				B8DD63C522BE5E930098768E /* DetailView.swift in Sources */,
 				B8956AC022ACC386002AD552 /* Code_Bible.xcdatamodeld in Sources */,
 				B8956B3A22ACD7F5002AD552 /* Routes.swift in Sources */,
 				B8956B2222ACD6CF002AD552 /* FileManagerDataStore.swift in Sources */,
 				B8B8046522B11BE100DA4C9E /* ToastViewController.swift in Sources */,
 				B8956B3122ACD73D002AD552 /* FileManagerSystemMetaData.swift in Sources */,
+				B8DD63BC22BE51AC0098768E /* SecondView.swift in Sources */,
 				B8956AC122ACC386002AD552 /* ContentView.swift in Sources */,
 				B8956B2B22ACD73D002AD552 /* FileManagerDirectories.swift in Sources */,
 				B8956AC222ACC386002AD552 /* SceneDelegate.swift in Sources */,
