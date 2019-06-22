@@ -27,17 +27,20 @@ protocol IPAddressHelper {
 
 extension IPAddressHelper {
     var ipAddressValue: String? {
-        return UserDefaultsDataSource.shared.ipAddress
+        return UserDefaultsDataStore.shared.ipAddress
     }
 
     func getPublicIPAddress() {
         let publicURLString = "https://api.ipify.org?format=json"
         if let publicURL = URL(string: publicURLString) {
-            APIWorker.request(url: publicURL, method: .get, parameters: nil, headers: nil) { (response) in
+            do {
+                let response = try APIWorker.request(url: publicURL, method: .get, parameters: nil, headers: nil)
                 guard response.result.isSuccess, let value = response.result.value as? Data, let responseDictionary = try? JSONSerialization.jsonObject(with: value, options: []) as? [String: Any] else { return }
                 if let ip = responseDictionary["ip"] as? String {
-                    UserDefaultsDataSource.shared.ipAddress = ip
+                    UserDefaultsDataStore.shared.ipAddress = ip
                 }
+            } catch {
+                Log(error.localizedDescription)
             }
         }
     }

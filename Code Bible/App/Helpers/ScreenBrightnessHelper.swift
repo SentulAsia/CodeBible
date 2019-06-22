@@ -27,12 +27,12 @@ protocol ScreenBrightnessHelper {
 
 extension ScreenBrightnessHelper {
     func setBrightness(value: CGFloat) {
-        UserDefaultsDataSource.shared.brightness = UIScreen.main.brightness
+        UserDefaultsDataStore.shared.brightness = UIScreen.main.brightness
         UIScreen.main.brightness = value
     }
 
     func resetBrightness() {
-        if let b = UserDefaultsDataSource.shared.brightness {
+        if let b = UserDefaultsDataStore.shared.brightness {
             UIScreen.main.brightness = b
         }
     }
