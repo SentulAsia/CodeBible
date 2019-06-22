@@ -67,10 +67,10 @@ struct APIManager {
             }
 
             if let image = imageResponse {
-                DispatchQueue.main.async {
-                    success(image)
-                }
+                success(image)
+                return
             }
+            failure(defaultError)
         }, failure: failure)
     }
 
@@ -92,7 +92,9 @@ struct APIManager {
 
             if let channels = channelResponse?.channels {
                 success(channels)
+                return
             }
+            failure(defaultError)
         }, failure: failure)
     }
     
@@ -119,11 +121,14 @@ struct APIManager {
             if let r = userResponse, let user = r.user {
                 if r.result == "ok" {
                     success(user)
+                    return
                 } else if r.result == "error" {
                     let message = r.message ?? defaultError
                     failure(message)
+                    return
                 }
             }
+            failure(defaultError)
         }, failure: failure)
     }
     
@@ -148,11 +153,14 @@ struct APIManager {
             if let r = spotPriceResponse, let user = r.spotPrice {
                 if r.result == "ok" {
                     success(user)
+                    return
                 } else if r.result == "error" {
                     let message = r.message ?? defaultError
                     failure(message)
+                    return
                 }
             }
+            failure(defaultError)
         }, failure: failure)
     }
     
@@ -177,9 +185,9 @@ struct APIManager {
             if deeplinkResponse.deeplinkURL == nil {
                 let message = deeplinkResponse.message ?? defaultError
                 failure(message)
-            } else {
-                success(deeplinkResponse)
+                return
             }
+            success(deeplinkResponse)
         }, failure: failure)
     }
 }
