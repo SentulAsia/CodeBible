@@ -17,6 +17,7 @@ def install_pods
     pod 'lottie-ios'
     pod 'CryptoSwift'
     pod 'ColiseuPlayer', :git => 'https://github.com/ricardopereira/ColiseuPlayer'
+    pod 'URITemplate', :git => 'https://github.com/SentulAsia/URITemplate.swift'
 end
 
 def install_test_pods
