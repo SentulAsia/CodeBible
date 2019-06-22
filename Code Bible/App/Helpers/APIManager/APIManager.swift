@@ -83,7 +83,7 @@ struct APIManager {
     }
     
     static func postUser(userRequest: User,
-                         success: @escaping (_ user: User) -> Void,
+                         success: @escaping (_ userResponse: User) -> Void,
                          failure: @escaping (_ serverError: String) -> Void) {
         let registerUserURLString = Constants.HelloGoldAPI.baseURL + Constants.HelloGoldAPI.registerUser
         let encoder = JSONEncoder()
@@ -121,7 +121,7 @@ struct APIManager {
         }
     }
     
-    static func getSpotPrice(success: @escaping (_ spotPriceModelObj: SpotPrice) -> Void,
+    static func getSpotPrice(success: @escaping (_ spotPriceResponse: SpotPrice) -> Void,
                              failure: @escaping (_ serverError: String) -> Void) {
         let getSpotPriceURLString = Constants.HelloGoldAPI.baseURL + Constants.HelloGoldAPI.getSpotPrice
         let getSpotPriceHeaders = ["Content-Type": "application/json"]
