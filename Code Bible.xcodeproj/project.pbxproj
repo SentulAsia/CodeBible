@@ -31,8 +31,8 @@
 		B8956B0222ACD01F002AD552 /* Locales.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8956B0422ACD01F002AD552 /* Locales.plist */; };
 		B8956B0A22ACD0CC002AD552 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8956B0922ACD0CC002AD552 /* LaunchScreen.storyboard */; };
 		B8956B0B22ACD0CC002AD552 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8956B0922ACD0CC002AD552 /* LaunchScreen.storyboard */; };
-		B8956B0D22ACD1C3002AD552 /* KPPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8956B0C22ACD1C3002AD552 /* KPPayment.swift */; };
-		B8956B0E22ACD1C3002AD552 /* KPPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8956B0C22ACD1C3002AD552 /* KPPayment.swift */; };
+		B8956B0D22ACD1C3002AD552 /* KPPaymentLegacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8956B0C22ACD1C3002AD552 /* KPPaymentLegacy.swift */; };
+		B8956B0E22ACD1C3002AD552 /* KPPaymentLegacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8956B0C22ACD1C3002AD552 /* KPPaymentLegacy.swift */; };
 		B8956B1322ACD2D9002AD552 /* beaming.json in Resources */ = {isa = PBXBuildFile; fileRef = B8956B1122ACD2D9002AD552 /* beaming.json */; };
 		B8956B1422ACD2D9002AD552 /* beaming.json in Resources */ = {isa = PBXBuildFile; fileRef = B8956B1122ACD2D9002AD552 /* beaming.json */; };
 		B8956B1522ACD2D9002AD552 /* iOS_TakeHomeTest2.csv in Resources */ = {isa = PBXBuildFile; fileRef = B8956B1222ACD2D9002AD552 /* iOS_TakeHomeTest2.csv */; };
@@ -155,6 +155,12 @@
 		B8DD63C522BE5E930098768E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63C322BE5E930098768E /* DetailView.swift */; };
 		B8DD63CB22BE8EE60098768E /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63CA22BE8EE60098768E /* APIModel.swift */; };
 		B8DD63CC22BE8EE60098768E /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63CA22BE8EE60098768E /* APIModel.swift */; };
+		B8DD63CE22BE98910098768E /* KPPaymentApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63CD22BE98910098768E /* KPPaymentApplicationDelegate.swift */; };
+		B8DD63CF22BE98910098768E /* KPPaymentApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63CD22BE98910098768E /* KPPaymentApplicationDelegate.swift */; };
+		B8DD63D122BE98CC0098768E /* KPPayment+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63D022BE98CC0098768E /* KPPayment+Extension.swift */; };
+		B8DD63D222BE98CC0098768E /* KPPayment+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63D022BE98CC0098768E /* KPPayment+Extension.swift */; };
+		B8DD63D422BE99950098768E /* KPPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63D322BE99950098768E /* KPPayment.swift */; };
+		B8DD63D522BE99950098768E /* KPPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD63D322BE99950098768E /* KPPayment.swift */; };
 		E10DFF85EC33CF31E64E74BF /* Pods_Code_BibleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639EDA84457A9D7060335E2D /* Pods_Code_BibleTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -246,7 +252,7 @@
 		B8956B0622ACD029002AD552 /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = zh; path = zh.lproj/Locales.plist; sourceTree = "<group>"; };
 		B8956B0722ACD02A002AD552 /* ms */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ms; path = ms.lproj/Locales.plist; sourceTree = "<group>"; };
 		B8956B0922ACD0CC002AD552 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B8956B0C22ACD1C3002AD552 /* KPPayment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPPayment.swift; sourceTree = "<group>"; };
+		B8956B0C22ACD1C3002AD552 /* KPPaymentLegacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPPaymentLegacy.swift; sourceTree = "<group>"; };
 		B8956B1122ACD2D9002AD552 /* beaming.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = beaming.json; sourceTree = "<group>"; };
 		B8956B1222ACD2D9002AD552 /* iOS_TakeHomeTest2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iOS_TakeHomeTest2.csv; sourceTree = "<group>"; };
 		B8956B1922ACD67A002AD552 /* CacheDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheDataStore.swift; sourceTree = "<group>"; };
@@ -311,6 +317,9 @@
 		B8DD63C022BE550E0098768E /* FirstController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstController.swift; sourceTree = "<group>"; };
 		B8DD63C322BE5E930098768E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		B8DD63CA22BE8EE60098768E /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
+		B8DD63CD22BE98910098768E /* KPPaymentApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPPaymentApplicationDelegate.swift; sourceTree = "<group>"; };
+		B8DD63D022BE98CC0098768E /* KPPayment+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KPPayment+Extension.swift"; sourceTree = "<group>"; };
+		B8DD63D322BE99950098768E /* KPPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPPayment.swift; sourceTree = "<group>"; };
 		E65E7E8C2849C1221D1CFE6E /* Pods-Code BibleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code BibleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code BibleTests/Pods-Code BibleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FF51F48CBC69C5A9381C0488 /* Pods-Code Bible Dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible Dev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev.debug.xcconfig"; sourceTree = "<group>"; };
 		FFC0222638E115C9A84011F6 /* Pods-Code Bible Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code Bible Dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code Bible Dev/Pods-Code Bible Dev.release.xcconfig"; sourceTree = "<group>"; };
@@ -609,7 +618,8 @@
 		B8956B1022ACD1D7002AD552 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				B8956B0C22ACD1C3002AD552 /* KPPayment.swift */,
+				B8DD63D622BE9E4A0098768E /* KPPaymentSDK */,
+				B8956B0C22ACD1C3002AD552 /* KPPaymentLegacy.swift */,
 			);
 			path = Plugins;
 			sourceTree = "<group>";
@@ -770,6 +780,16 @@
 				B8B8046622B11C3C00DA4C9E /* ToastView.xib */,
 			);
 			path = Toast;
+			sourceTree = "<group>";
+		};
+		B8DD63D622BE9E4A0098768E /* KPPaymentSDK */ = {
+			isa = PBXGroup;
+			children = (
+				B8DD63D022BE98CC0098768E /* KPPayment+Extension.swift */,
+				B8DD63CD22BE98910098768E /* KPPaymentApplicationDelegate.swift */,
+				B8DD63D322BE99950098768E /* KPPayment.swift */,
+			);
+			path = KPPaymentSDK;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1134,6 +1154,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8DD63D122BE98CC0098768E /* KPPayment+Extension.swift in Sources */,
+				B8DD63CE22BE98910098768E /* KPPaymentApplicationDelegate.swift in Sources */,
+				B8DD63D422BE99950098768E /* KPPayment.swift in Sources */,
+				B8956B0D22ACD1C3002AD552 /* KPPaymentLegacy.swift in Sources */,
 				B8956BB122AD2C3F002AD552 /* KeyboardHelper.swift in Sources */,
 				B8B8046122B11BD800DA4C9E /* ToastHelper.swift in Sources */,
 				B8956B9F22AD2A1E002AD552 /* IAPManager.swift in Sources */,
@@ -1152,7 +1176,6 @@
 				B8956B5E22ACDBF5002AD552 /* Day.swift in Sources */,
 				B8956B5622ACDBD0002AD552 /* SpotPrice.swift in Sources */,
 				B8956B9222AD29AA002AD552 /* CustomStepper.swift in Sources */,
-				B8956B0D22ACD1C3002AD552 /* KPPayment.swift in Sources */,
 				B8956B1A22ACD67A002AD552 /* CacheDataStore.swift in Sources */,
 				B8956BBE22AD4BBB002AD552 /* ScrollingNavbar+Sizes.swift in Sources */,
 				B8956BC222AD4C34002AD552 /* SpinnerController.swift in Sources */,
@@ -1218,6 +1241,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8DD63D222BE98CC0098768E /* KPPayment+Extension.swift in Sources */,
+				B8DD63CF22BE98910098768E /* KPPaymentApplicationDelegate.swift in Sources */,
+				B8DD63D522BE99950098768E /* KPPayment.swift in Sources */,
+				B8956B0E22ACD1C3002AD552 /* KPPaymentLegacy.swift in Sources */,
 				B8956BB222AD2C3F002AD552 /* KeyboardHelper.swift in Sources */,
 				B8B8046222B11BD800DA4C9E /* ToastHelper.swift in Sources */,
 				B8956BA022AD2A1E002AD552 /* IAPManager.swift in Sources */,
@@ -1236,7 +1263,6 @@
 				B8956B5F22ACDBF5002AD552 /* Day.swift in Sources */,
 				B8956B5722ACDBD0002AD552 /* SpotPrice.swift in Sources */,
 				B8956B9322AD29AA002AD552 /* CustomStepper.swift in Sources */,
-				B8956B0E22ACD1C3002AD552 /* KPPayment.swift in Sources */,
 				B8956B1B22ACD67A002AD552 /* CacheDataStore.swift in Sources */,
 				B8956BBF22AD4BBB002AD552 /* ScrollingNavbar+Sizes.swift in Sources */,
 				B8956BC322AD4C34002AD552 /* SpinnerController.swift in Sources */,

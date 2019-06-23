@@ -21,17 +21,17 @@
 import UIKit
 import CryptoSwift
 
-public protocol KPPaymentDelegate: class {
+public protocol KPPaymentLegacyDelegate: class {
     func paymentDidFinish(successfully flag: Bool, withMessage message: String)
 }
 
-public class KPPayment: NSObject {
+public class KPPaymentLegacy: NSObject {
     private let merchantId: Int
     private let storeId: Int
     private let secret: String
     private var referenceId: String?
 
-    public weak var delegate: KPPaymentDelegate?
+    public weak var delegate: KPPaymentLegacyDelegate?
 
     public init(merchantId: Int, storeId: Int, secret: String) {
         self.merchantId = merchantId
@@ -54,8 +54,8 @@ public class KPPayment: NSObject {
         let param5 = referenceId
         let checkSum = (param1 + param2 + param3 + param4 + param5).sha1()
         let deeplink = Deeplink(merchantId: self.merchantId, storeId: self.storeId, amount: amount, referenceId: referenceId, checkSum: checkSum)
-        APIManager.postGenerateDeeplink(deeplinkRequest: deeplink, success: { (deeplinkModelObj: Deeplink) in
-            if let appURLString = deeplinkModelObj.deeplinkURL, let appURL = URL(string: appURLString) {
+        APIManager.postGenerateDeeplink(deeplinkRequest: deeplink, success: { (deeplinkResponse: Deeplink) in
+            if let appURLString = deeplinkResponse.deeplinkURL, let appURL = URL(string: appURLString) {
                 UIApplication.shared.open(appURL) { success in
                     if !success {
                         self.delegate?.paymentDidFinish(successfully: false, withMessage: "Unable to redirect to kiplePay")
