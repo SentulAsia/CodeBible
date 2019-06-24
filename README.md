@@ -1,5 +1,10 @@
 # Code Bible
 
+[![Swift 5](https://img.shields.io/badge/Swift-5-orange.svg?style=flat)](https://developer.apple.com/swift/)
+[![Platforms iOS](https://img.shields.io/badge/Platforms-iOS-lightgray.svg?style=flat)](http://www.apple.com/ios/)
+[![License BSD](https://img.shields.io/badge/License-BSD-lightgrey.svg?style=flat)](https://opensource.org/licenses/BSD-3Clause)
+[![Twitter](https://img.shields.io/badge/twitter-@SentulAsia-blue.svg)](http://twitter.com/SentulAsia)
+
 My personal code to refer to for code standardization
 
 ## Getting Started
