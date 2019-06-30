@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2EAA790A21156AE800600D46"
+               BlueprintIdentifier = "B8956A3F22ACB912002AD552"
                BuildableName = "Code Bible.app"
                BlueprintName = "Code Bible"
                ReferencedContainer = "container:Code Bible.xcodeproj">
@@ -32,24 +32,23 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B8F9C8C122283F42008A8717"
+               BlueprintIdentifier = "B8956A5822ACB913002AD552"
                BuildableName = "Code BibleTests.xctest"
                BlueprintName = "Code BibleTests"
                ReferencedContainer = "container:Code Bible.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B8956A6322ACB913002AD552"
+               BuildableName = "Code BibleUITests.xctest"
+               BlueprintName = "Code BibleUITests"
+               ReferencedContainer = "container:Code Bible.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2EAA790A21156AE800600D46"
-            BuildableName = "Code Bible.app"
-            BlueprintName = "Code Bible"
-            ReferencedContainer = "container:Code Bible.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -65,14 +64,12 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2EAA790A21156AE800600D46"
+            BlueprintIdentifier = "B8956A3F22ACB912002AD552"
             BuildableName = "Code Bible.app"
             BlueprintName = "Code Bible"
             ReferencedContainer = "container:Code Bible.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -84,7 +81,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2EAA790A21156AE800600D46"
+            BlueprintIdentifier = "B8956A3F22ACB912002AD552"
             BuildableName = "Code Bible.app"
             BlueprintName = "Code Bible"
             ReferencedContainer = "container:Code Bible.xcodeproj">

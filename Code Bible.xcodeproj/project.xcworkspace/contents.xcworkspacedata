@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Code Bible.xcodeproj">
+      location = "self:/Users/zaid/Developer/CodeBible/Code Bible.xcodeproj">
    </FileRef>
 </Workspace>

@@ -1,99 +1,41 @@
-/// Copyright © 2018 Zaid M. Said
-///
-/// Permission is hereby granted, free of charge, to any person obtaining a copy
-/// of this software and associated documentation files (the "Software"), to deal
-/// in the Software without restriction, including without limitation the rights
-/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-/// copies of the Software, and to permit persons to whom the Software is
-/// furnished to do so, subject to the following conditions:
-///
-/// The above copyright notice and this permission notice shall be included in
-/// all copies or substantial portions of the Software.
-///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-/// THE SOFTWARE.
+//
+//  Copyright © 2019 Zaid M. Said. All rights reserved.
+//
+//  Redistribution and use in source and binary forms, with or without
+//  modification, are permitted provided that the following conditions are met:
+//
+//  1. Redistributions of source code must retain the above copyright notice, this
+//     list of conditions and the following disclaimer.
+//
+//  2. Redistributions in binary form must reproduce the above copyright notice,
+//     this list of conditions and the following disclaimer in the documentation
+//     and/or other materials provided with the distribution.
+//
+//  3. Neither the name of the copyright holder nor the names of its
+//     contributors may be used to endorse or promote products derived from
+//     this software without specific prior written permission.
+//
+//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+//  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+//  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+//  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+//  FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+//  DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+//  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+//  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+//  OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+//  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
 
-import Foundation
-
-enum APIMethod: String {
-    case get     = "GET"
-    case post    = "POST"
-    case put     = "PUT"
-    case delete  = "DELETE"
-}
-
-enum APIResult {
-    case success(Any)
-    case failure(Error)
-
-    var isSuccess: Bool {
-        switch self {
-        case .success:
-            return true
-        case .failure:
-            return false
-        }
-    }
-
-    var isFailure: Bool {
-        return !isSuccess
-    }
-
-    var value: Any? {
-        switch self {
-        case .success(let value):
-            return value
-        case .failure:
-            return nil
-        }
-    }
-
-    var error: Error? {
-        switch self {
-        case .success:
-            return nil
-        case .failure(let error):
-            return error
-        }
-    }
-}
-
-struct APIResponse {
-    let request: URLRequest?
-    let data: Data?
-    let response: URLResponse?
-    let result: APIResult
-
-    var value: Any? { return self.result.value }
-    var error: Error? { return self.result.error }
-
-    init(request: URLRequest?, data: Data?, response: URLResponse?, result: APIResult) {
-        self.request = request
-        self.response = response
-        self.data = data
-        self.result = result
-    }
-}
+import UIKit
 
 struct APIWorker {
-    static let shared = APIWorker()
-
     private init() {}
 
-    static func request(url: URL, method: APIMethod, parameters: [String: Any]?, headers: [String: String]? = nil, body: Data? = nil,
-                        completionHandler: @escaping (_ response: APIResponse) -> Void) {
+    static func request(url: URL, method: APIMethod, parameters: [String: Any]? = nil, headers: [String: String]? = nil, body: Data? = nil) throws -> APIResponse {
         var request = URLRequest(url: url)
-        if let h = headers {
-            for header in h {
-                request.addValue(header.value, forHTTPHeaderField: header.key)
-            }
-        }
-        request.httpMethod = method.rawValue
+        var apiResponse: APIResponse?
+        var apiError: Error?
 
         if let p = parameters {
             do {
@@ -101,75 +43,103 @@ struct APIWorker {
                     request.httpBody = data
                 }
             } catch {
-                Log("\n----------------------------")
-                Log("API url: ", url.description)
+                Log("----------------------------")
+                Log("url: ", url.description)
                 Log("params: ", parameters ?? "")
-                Log("\n\(url.description) Failed")
+                Log("\(url.description) failed")
                 Log("response: nil")
-                Log("----------------------------\n")
-                let result = APIResult.failure(error)
-                let r = APIResponse(request: request, data: nil, response: nil, result: result)
-                completionHandler(r)
-                return
+                Log("----------------------------")
+                throw error
             }
         } else if let data = body {
             request.httpBody = data
         }
-        
+
+        let semaphore = DispatchSemaphore(value: 0)
+
         let sessionConfig = URLSessionConfiguration.default
         sessionConfig.timeoutIntervalForRequest = 12.0
         sessionConfig.timeoutIntervalForResource = 60.0
         let sessionManager = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 
-        let dataTask = sessionManager.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-            if let e = error {
-                Log("\n----------------------------")
-                Log("API url:", url.description)
-                Log("params:", parameters ?? "")
-                Log("\n\(url.description) Failed")
-                Log("----------------------------\n")
-                let result = APIResult.failure(e)
-                let r = APIResponse(request: request, data: data, response: response, result: result)
-                DispatchQueue.main.async {
-                    completionHandler(r)
-                    return
-                }
-            } else {
-                if let d = data {
-                    Log("\n----------------------------")
-                    Log("API url:", url.description)
-                    Log("params:", parameters ?? "")
-                    Log("\n\(url.description) Success")
-                    if let httpResponse = response as? HTTPURLResponse {
-                        Log("Result:", httpResponse.allHeaderFields as? [String: Any] ?? httpResponse)
-                        Log("Status Code:", httpResponse.statusCode)
-                    }
-                    Log("----------------------------\n")
-                    let result = APIResult.success(d)
-                    let r = APIResponse(request: request, data: data, response: response, result: result)
-                    DispatchQueue.main.async {
-                        completionHandler(r)
-                        return
-                    }
-                } else {
-                    let e = NSError(domain: "", code: 0, userInfo: [
-                        NSLocalizedDescriptionKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: "") ,
-                        NSLocalizedFailureReasonErrorKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: "")
-                        ])
-                    Log("\n----------------------------")
-                    Log("API url:", url.description)
-                    Log("params:", parameters ?? "")
-                    Log("\n\(url.description) Failed")
-                    Log("----------------------------\n")
-                    let result = APIResult.failure(e)
-                    let r = APIResponse(request: request, data: data, response: response, result: result)
-                    DispatchQueue.main.async {
-                        completionHandler(r)
-                        return
-                    }
-                }
+        if let h = headers {
+            for header in h {
+                request.addValue(header.value, forHTTPHeaderField: header.key)
             }
         }
+        request.httpMethod = method.rawValue
+
+        let dataTask = sessionManager.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            if let e = error {
+                Log("----------------------------")
+                Log("url:", url.description)
+                Log("params:", parameters ?? "")
+                Log("\(url.description) failed")
+                if let httpResponse = response as? HTTPURLResponse {
+                    if Environment.isDevelopment {
+                        if let d = data, let result = String(data: d, encoding: String.Encoding.utf8) {
+                            Log("result:", result)
+                        } else {
+                            Log("result:", httpResponse.allHeaderFields as? [String: Any] ?? httpResponse)
+                        }
+                    }
+                    Log("status code:", httpResponse.statusCode)
+                }
+                Log("----------------------------")
+                apiError = e
+            } else if let d = data {
+                Log("----------------------------")
+                Log("url:", url.description)
+                Log("params:", parameters ?? "")
+                Log("\(url.description) success")
+                if let httpResponse = response as? HTTPURLResponse {
+                    if Environment.isDevelopment {
+                        if let result = UIImage(data: d) {
+                            Log("result:", result.size)
+                        } else if let result = String(data: d, encoding: String.Encoding.utf8) {
+                            Log("result:", result)
+                        } else {
+                            Log("result:", httpResponse.allHeaderFields as? [String: Any] ?? httpResponse)
+                        }
+                    }
+                    Log("status code:", httpResponse.statusCode)
+                }
+                Log("----------------------------")
+                let result = APIResult.success(d)
+                apiResponse = APIResponse(request: request, data: data, response: response, result: result)
+            } else {
+                Log("----------------------------")
+                Log("url:", url.description)
+                Log("params:", parameters ?? "")
+                Log("\(url.description) failed")
+                if let httpResponse = response as? HTTPURLResponse {
+                    Log("result:", httpResponse.allHeaderFields as? [String: Any] ?? httpResponse)
+                    Log("status code:", httpResponse.statusCode)
+                }
+                Log("----------------------------")
+                apiError = APIError(Constants.Message.failureDefault)
+            }
+            semaphore.signal()
+        }
         dataTask.resume()
+        semaphore.wait()
+
+        if let e = apiError {
+            throw e
+        } else if let r = apiResponse {
+            return r
+        }
+
+        throw APIError(Constants.Message.failureDefault)
     }
+}
+
+private extension NSError {
+    /// Default Error to be thrown (deprecated)
+    ///
+    /// - returns: default NSError object
+    static var `default` = NSError(domain: "", code: 0, userInfo: [
+        NSLocalizedDescriptionKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: ""),
+        NSLocalizedFailureReasonErrorKey: NSLocalizedString("Error", value: Constants.Message.failureDefault, comment: "")
+    ])
 }

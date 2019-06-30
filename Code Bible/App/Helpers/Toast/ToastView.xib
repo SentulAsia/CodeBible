@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CVk-gE-Er3">
+                    <rect key="frame" x="87" y="384" width="240" height="128"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.64811643835616439" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqZ-n2-pGf">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="ELc-mY-jZu" appends="YES" id="LSR-3h-LMt"/>
+                    </connections>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="kqZ-n2-pGf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3F1-us-XP6"/>
+                <constraint firstItem="kqZ-n2-pGf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="N7w-bG-xlj"/>
+                <constraint firstAttribute="trailing" secondItem="kqZ-n2-pGf" secondAttribute="trailing" id="Scy-dH-uUq"/>
+                <constraint firstItem="CVk-gE-Er3" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.8" id="Tfz-dM-caG"/>
+                <constraint firstAttribute="bottom" secondItem="kqZ-n2-pGf" secondAttribute="bottom" id="lKP-5C-YM0"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="137.68115942028987" y="136.60714285714286"/>
+        </view>
+        <tapGestureRecognizer id="ELc-mY-jZu"/>
+    </objects>
+</document>
